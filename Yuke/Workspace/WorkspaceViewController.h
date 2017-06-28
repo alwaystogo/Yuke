@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  WorkspaceViewController.h
 //  Yuke
 //
 //  Created by yangyunfei on 2017/6/27.
 //  Copyright © 2017年 yang. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface ViewController : UIViewController
-
+@interface WorkspaceViewController : BaseViewController
 
 @end
-
