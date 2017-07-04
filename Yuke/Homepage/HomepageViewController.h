@@ -7,7 +7,10 @@
 //
 
 #import "BaseViewController.h"
+#import "CarouselScrollView.h"
 
 @interface HomepageViewController : BaseViewController
 
+@property(nonatomic,strong)UIScrollView *bkScrollView;
+@property(nonatomic,strong)CarouselScrollView *carouselSV;
 @end
