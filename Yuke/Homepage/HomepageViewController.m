@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSLog(@"Mac修改");
+    NSLog(@"SVN修改");
 }
 
 - (void)didReceiveMemoryWarning {
