@@ -72,6 +72,7 @@
 		AE61B6F81F025F9800C1F930 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE61B6F71F025F9800C1F930 /* MineViewController.m */; };
 		AE61B6FE1F02659900C1F930 /* PXAlertView+Customization.m in Sources */ = {isa = PBXBuildFile; fileRef = AE61B6FB1F02659900C1F930 /* PXAlertView+Customization.m */; };
 		AE61B6FF1F02659900C1F930 /* PXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE61B6FD1F02659900C1F930 /* PXAlertView.m */; };
+		AE7FA0931F0BA47C009A8F12 /* CarouselScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7FA0921F0BA47C009A8F12 /* CarouselScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -204,6 +205,8 @@
 		AE61B6FB1F02659900C1F930 /* PXAlertView+Customization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PXAlertView+Customization.m"; sourceTree = "<group>"; };
 		AE61B6FC1F02659900C1F930 /* PXAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXAlertView.h; sourceTree = "<group>"; };
 		AE61B6FD1F02659900C1F930 /* PXAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXAlertView.m; sourceTree = "<group>"; };
+		AE7FA0911F0BA47C009A8F12 /* CarouselScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselScrollView.h; sourceTree = "<group>"; };
+		AE7FA0921F0BA47C009A8F12 /* CarouselScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselScrollView.m; sourceTree = "<group>"; };
 		FE4BF8FEA962BF522F157E8F /* libPods-Yuke.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yuke.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -478,6 +481,8 @@
 			children = (
 				AE61B6EA1F025F5200C1F930 /* HomepageViewController.h */,
 				AE61B6EB1F025F5200C1F930 /* HomepageViewController.m */,
+				AE7FA0911F0BA47C009A8F12 /* CarouselScrollView.h */,
+				AE7FA0921F0BA47C009A8F12 /* CarouselScrollView.m */,
 			);
 			path = Homepage;
 			sourceTree = "<group>";
@@ -622,7 +627,7 @@
 				TargetAttributes = {
 					AE61B5EF1F02065400C1F930 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = FNBFXR72C9;
+						DevelopmentTeam = 9SAQA8L42D;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -752,6 +757,7 @@
 				AE61B6EF1F025F6D00C1F930 /* YuePhotoViewController.m in Sources */,
 				AE61B6A01F0249A300C1F930 /* NSBundle+TZImagePicker.m in Sources */,
 				AE61B6641F0248CF00C1F930 /* NSNumber+FormatExtension.m in Sources */,
+				AE7FA0931F0BA47C009A8F12 /* CarouselScrollView.m in Sources */,
 				AE61B6A61F0249A300C1F930 /* TZPhotoPickerController.m in Sources */,
 				AE61B66D1F0248CF00C1F930 /* UIViewController+Help.m in Sources */,
 				AE61B6651F0248CF00C1F930 /* NSObject+ModelExtension.m in Sources */,
@@ -892,7 +898,7 @@
 			baseConfigurationReference = 0E1014C73570FA9F07201DC1 /* Pods-Yuke.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FNBFXR72C9;
+				DEVELOPMENT_TEAM = 9SAQA8L42D;
 				GCC_PREFIX_HEADER = Yuke/OnlineFinancialerPrefix.pch;
 				INFOPLIST_FILE = Yuke/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -906,7 +912,7 @@
 			baseConfigurationReference = 6CA77A58C61E3C3AD705F958 /* Pods-Yuke.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FNBFXR72C9;
+				DEVELOPMENT_TEAM = 9SAQA8L42D;
 				GCC_PREFIX_HEADER = Yuke/OnlineFinancialerPrefix.pch;
 				INFOPLIST_FILE = Yuke/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
