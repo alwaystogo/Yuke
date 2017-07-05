@@ -9,8 +9,10 @@
 #import "BaseViewController.h"
 #import "CarouselScrollView.h"
 
-@interface HomepageViewController : BaseViewController
+@interface HomepageViewController : BaseViewController<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property(nonatomic,strong)UIScrollView *bkScrollView;
 @property(nonatomic,strong)CarouselScrollView *carouselSV;
+@property(nonatomic,strong)UICollectionView *collectionView;
+
 @end

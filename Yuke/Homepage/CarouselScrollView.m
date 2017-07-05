@@ -151,7 +151,7 @@
     
     [self.pageControl setCurrentPage:_currentPage];
     
-    NSLog(@"%ld", _currentPage);
+    //NSLog(@"%ld", _currentPage);
     
 }
 

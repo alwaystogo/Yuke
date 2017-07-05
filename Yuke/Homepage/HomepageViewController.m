@@ -7,8 +7,12 @@
 //
 
 #import "HomepageViewController.h"
+#import "HotCollectionViewCell.h"
 
 #define fourWidth 27
+#define hotPicWidth 181
+#define hotPicHeight 220
+
 @interface HomepageViewController ()
 
 @property(nonatomic,assign)CGFloat label1MaxY;
@@ -25,22 +29,59 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self createUI];
 
+    [self requestBanner];
+    [self requestHot];
 }
 
 - (void)createUI{
     
     self.bkScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, SCREEN_HEIGHT - TABBAR_HEIGHT - 20)];
-    self.bkScrollView.backgroundColor = [UIColor redColor];
+    self.bkScrollView.backgroundColor = [UIColor whiteColor];
     self.bkScrollView.contentSize =CGSizeMake(SCREEN_WIDTH, 1000);
-    //self.bkScrollView.showsVerticalScrollIndicator = NO;
-    //self.bkScrollView.showsHorizontalScrollIndicator = NO;
+    self.bkScrollView.showsVerticalScrollIndicator = NO;
+    self.bkScrollView.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:self.bkScrollView];
     
     [self createLunBo];
     [self createFour];
     [self createInfoShow];
     [self createHot];
+    
+   
 }
+- (void)createLunBo{
+    
+    //轮播控件
+    _carouselSV = [[CarouselScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetWidth([UIScreen mainScreen].bounds) / 320 * 160)];
+    _carouselSV.backgroundColor = [UIColor grayColor];
+    [self.bkScrollView addSubview:_carouselSV];
+    
+    
+    NSArray *dicArray = @[
+                          @{
+                              @"carouseUrl" : @"http://pic.58pic.com/58pic/17/27/03/07B58PIC3zg_1024.jpg"
+                              },
+                          @{
+                              @"carouseUrl" : @"http://pic.58pic.com/58pic/13/56/99/88f58PICuBh_1024.jpg"
+                              },
+                          @{
+                              @"carouseUrl" : @"http://pic.58pic.com/58pic/17/77/53/558d11422a923_1024.png"
+                              },
+                          @{
+                              @"carouseUrl" : @"http://pic.58pic.com/58pic/13/18/14/87m58PICVvM_1024.jpg"
+                              },
+                          @{
+                              @"carouseUrl" : @"http://pic.qiantucdn.com/58pic/17/79/77/41N58PICaMu_1024.jpg"
+                              }
+                          ];
+    
+    _carouselSV.click = ^(NSInteger index) {
+        
+        NSLog(@"点击了第%ld",index);
+    };
+    [_carouselSV setCarouseWithArray:dicArray];
+}
+
 -(void)createFour{
     
     CGFloat jianju = (SCREEN_WIDTH - 66 - fourWidth * 4) / 3;
@@ -102,13 +143,13 @@
     imageView1.image = [UIImage imageWithColor:[UIColor grayColor]];
     [self.bkScrollView addSubview:imageView1];
     
-    UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView1.frame)+10, CGRectGetMaxY(imageView1.frame)- 10, 50,14)];
+    UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView1.frame)+10, CGRectGetMaxY(imageView1.frame)- 10, 60,14)];
     //label1.backgroundColor = [UIColor greenColor];
     label1.bottom = imageView1.bottom;
     label1.text = @"资料预览";
     label1.font = FONT_REGULAR(13);
     label1.textColor = COLOR_HEX(0x333333, 1);
-    label1.textAlignment = NSTextAlignmentCenter;
+    //label1.textAlignment = NSTextAlignmentCenter;
     [self.bkScrollView addSubview:label1];
     
     CGFloat imageWidth = (SCREEN_WIDTH - 30)/2;
@@ -129,49 +170,63 @@
     imageView1.image = [UIImage imageWithColor:[UIColor grayColor]];
     [self.bkScrollView addSubview:imageView1];
     
-    UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView1.frame)+10, CGRectGetMaxY(imageView1.frame)- 10, 50,14)];
+    UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView1.frame)+10, CGRectGetMaxY(imageView1.frame)- 10, 60,14)];
     //label1.backgroundColor = [UIColor greenColor];
     label1.bottom = imageView1.bottom;
     label1.text = @"热门专访";
     label1.font = FONT_REGULAR(13);
     label1.textColor = COLOR_HEX(0x333333, 1);
-    label1.textAlignment = NSTextAlignmentCenter;
+    //label1.textAlignment = NSTextAlignmentCenter;
     [self.bkScrollView addSubview:label1];
 
-}
-- (void)createLunBo{
+    //创建collectionView 362
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.minimumLineSpacing = 10;
+    layout.minimumInteritemSpacing = 0;
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    layout.itemSize = CGSizeMake(hotPicWidth, hotPicHeight);
     
-    //轮播控件
-    _carouselSV = [[CarouselScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetWidth([UIScreen mainScreen].bounds) / 320 * 160)];
-    _carouselSV.backgroundColor = [UIColor grayColor];
-    [self.bkScrollView addSubview:_carouselSV];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(imageView1.frame)+3, SCREEN_WIDTH - 20, hotPicHeight) collectionViewLayout:layout];
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.showsVerticalScrollIndicator = NO;
+    self.collectionView.showsHorizontalScrollIndicator = NO;
+    [self.bkScrollView addSubview:self.collectionView];
     
+    [self.collectionView registerClass:[HotCollectionViewCell class] forCellWithReuseIdentifier:@"hotCell"];
     
-    NSArray *dicArray = @[
-                          @{
-                              @"carouseUrl" : @"http://pic.58pic.com/58pic/17/27/03/07B58PIC3zg_1024.jpg"
-                              },
-                          @{
-                              @"carouseUrl" : @"http://pic.58pic.com/58pic/13/56/99/88f58PICuBh_1024.jpg"
-                              },
-                          @{
-                              @"carouseUrl" : @"http://pic.58pic.com/58pic/17/77/53/558d11422a923_1024.png"
-                              },
-                          @{
-                              @"carouseUrl" : @"http://pic.58pic.com/58pic/13/18/14/87m58PICVvM_1024.jpg"
-                              },
-                          @{
-                              @"carouseUrl" : @"http://pic.qiantucdn.com/58pic/17/79/77/41N58PICaMu_1024.jpg"
-                              }
-                          ];
-    
-    _carouselSV.click = ^(NSInteger index) {
-        
-        NSLog(@"点击了第%ld",index);
-    };
-    [_carouselSV setCarouseWithArray:dicArray];
+    //重新设置
+    self.bkScrollView.contentSize = CGSizeMake(SCREEN_WIDTH, CGRectGetMaxY(self.collectionView.frame)+20);
 }
 
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    
+    return 1;
+}
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    
+    return 10;
+}
+/** cell的内容*/
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    HotCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"hotCell" forIndexPath:indexPath];
+    if (cell == nil) {
+        
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"HotCollectionViewCell" owner:self options:nil] lastObject];
+    }
+    cell.backgroundColor = [UIColor grayColor];
+    cell.layer.cornerRadius = 10;
+    cell.picImageView.layer.cornerRadius = 10;
+    cell.picImageView.image = [UIImage imageNamed:@"1"];
+    
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    //点击某列
+    
+}
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     
@@ -184,5 +239,28 @@
     self.navigationController.navigationBarHidden = YES;
 }
 
+- (void)requestBanner{
+    
+    [JFTools showLoadingHUD];
+    [kJFClient getHomePageBanner:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        [JFTools HUDHide];
+        NSLog(@"--- :%@",responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        [JFTools showTipOnHUD:error.localizedDescription];
+    }];
+}
+- (void)requestHot{
+    
+    [JFTools showLoadingHUD];
+    [kJFClient getHomePageHot:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        [JFTools HUDHide];
+        NSLog(@"--- :%@",responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        [JFTools showTipOnHUD:error.localizedDescription];
+    }];
+
+}
 
 @end

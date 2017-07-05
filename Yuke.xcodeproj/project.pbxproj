@@ -73,6 +73,8 @@
 		AE61B6FE1F02659900C1F930 /* PXAlertView+Customization.m in Sources */ = {isa = PBXBuildFile; fileRef = AE61B6FB1F02659900C1F930 /* PXAlertView+Customization.m */; };
 		AE61B6FF1F02659900C1F930 /* PXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE61B6FD1F02659900C1F930 /* PXAlertView.m */; };
 		AE7FA0931F0BA47C009A8F12 /* CarouselScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7FA0921F0BA47C009A8F12 /* CarouselScrollView.m */; };
+		AE7FA0971F0C967A009A8F12 /* HotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7FA0951F0C967A009A8F12 /* HotCollectionViewCell.m */; };
+		AE7FA0981F0C967A009A8F12 /* HotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0961F0C967A009A8F12 /* HotCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -207,6 +209,9 @@
 		AE61B6FD1F02659900C1F930 /* PXAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXAlertView.m; sourceTree = "<group>"; };
 		AE7FA0911F0BA47C009A8F12 /* CarouselScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselScrollView.h; sourceTree = "<group>"; };
 		AE7FA0921F0BA47C009A8F12 /* CarouselScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselScrollView.m; sourceTree = "<group>"; };
+		AE7FA0941F0C967A009A8F12 /* HotCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCollectionViewCell.h; sourceTree = "<group>"; };
+		AE7FA0951F0C967A009A8F12 /* HotCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCollectionViewCell.m; sourceTree = "<group>"; };
+		AE7FA0961F0C967A009A8F12 /* HotCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotCollectionViewCell.xib; sourceTree = "<group>"; };
 		FE4BF8FEA962BF522F157E8F /* libPods-Yuke.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yuke.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -483,6 +488,9 @@
 				AE61B6EB1F025F5200C1F930 /* HomepageViewController.m */,
 				AE7FA0911F0BA47C009A8F12 /* CarouselScrollView.h */,
 				AE7FA0921F0BA47C009A8F12 /* CarouselScrollView.m */,
+				AE7FA0941F0C967A009A8F12 /* HotCollectionViewCell.h */,
+				AE7FA0951F0C967A009A8F12 /* HotCollectionViewCell.m */,
+				AE7FA0961F0C967A009A8F12 /* HotCollectionViewCell.xib */,
 			);
 			path = Homepage;
 			sourceTree = "<group>";
@@ -659,6 +667,7 @@
 				AE61B6031F02065400C1F930 /* LaunchScreen.storyboard in Resources */,
 				AE61B6001F02065400C1F930 /* Assets.xcassets in Resources */,
 				AE61B6A41F0249A300C1F930 /* TZImagePickerController.bundle in Resources */,
+				AE7FA0981F0C967A009A8F12 /* HotCollectionViewCell.xib in Resources */,
 				AE61B5FE1F02065400C1F930 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -748,6 +757,7 @@
 				AE61B6F81F025F9800C1F930 /* MineViewController.m in Sources */,
 				AE61B6A31F0249A300C1F930 /* TZImageManager.m in Sources */,
 				AE61B6A91F0249A300C1F930 /* TZVideoPlayerController.m in Sources */,
+				AE7FA0971F0C967A009A8F12 /* HotCollectionViewCell.m in Sources */,
 				AE61B69F1F0249A300C1F930 /* MBProgressHUD.m in Sources */,
 				AE61B6A21F0249A300C1F930 /* TZAssetModel.m in Sources */,
 				AE61B63C1F02486B00C1F930 /* LimitTextView.m in Sources */,

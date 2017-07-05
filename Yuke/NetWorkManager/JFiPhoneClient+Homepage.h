@@ -10,4 +10,13 @@
 
 @interface JFiPhoneClient (Homepage)
 
+- (void)getHomePageBanner:(NSDictionary *)params
+                success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+                failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure;
+
+- (void)getHomePageHot:(NSDictionary *)params
+                  success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+                  failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure;
+
+
 @end

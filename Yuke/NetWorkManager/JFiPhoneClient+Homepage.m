@@ -10,4 +10,16 @@
 
 @implementation JFiPhoneClient (Homepage)
 
+- (void)getHomePageBanner:(NSDictionary *)params
+                  success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+                  failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{
+    [self enqueueRequestWithMethod:@"index.php/Api/Index/get_banner" param:params success:success failure:failure];
+}
+
+- (void)getHomePageHot:(NSDictionary *)params
+               success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+               failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{
+    [self enqueueRequestWithMethod:@"index.php/Api/Index/get_interview" param:params success:success failure:failure];
+
+}
 @end

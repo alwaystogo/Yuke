@@ -11,15 +11,12 @@
 
 #define PARAM_SALT @"iamlink"
 
-//生产环境
-//NSString * const JFiPhoneClient_PrdBaseUrl   = @"http://123.57.83.232:8171/link-app-web";//IP地址的
-NSString * const JFiPhoneClient_PrdBaseUrl   = @"https://linkapp.9fbank.com/link-app-web";//域名的
-
 //测试环境
-NSString * const JFiPhoneClient_DebugBaseUrl   = @"http://111.200.52.176:8171/link-app-web";
-//NSString * const JFiPhoneClient_DebugBaseUrl = @"http://192.168.20.15:8171/link-app-web";  (作废)
+NSString * const JFiPhoneClient_DebugBaseUrl   = @"http://116.62.194.17/yuke";
+//生产环境
+NSString * const JFiPhoneClient_PrdBaseUrl   = @"https://linkapp.9fbank.com/link-app-web";
 
-static NSString *const JFErrorDomain = @"LinkFinance.9fbank.com";
+static NSString *const JFErrorDomain = @"Yuke.com";
 
 @interface JFiPhoneClient ()
 
@@ -48,7 +45,7 @@ static NSString *const JFErrorDomain = @"LinkFinance.9fbank.com";
 
 - (void)configClient{
 
-    self.devBaseUrl  = JFiPhoneClient_PrdBaseUrl; //JFiPhoneClient_DebugBaseUrl;
+    self.devBaseUrl  = JFiPhoneClient_DebugBaseUrl;
     self.prodBaseUrl = JFiPhoneClient_PrdBaseUrl;
     
     NSString * baseUrl;
@@ -111,49 +108,12 @@ static NSString *const JFErrorDomain = @"LinkFinance.9fbank.com";
 
 - (NSMutableDictionary *)configCommonParams:(NSDictionary *)param{
     
-    //AFNetworkReachabilityManager *reachabilityManager = self.manager.reachabilityManager;
-    
-    if ([param objectForKey:kCachePolicyKey]) {
-        
-        self.manager.session.configuration.requestCachePolicy = [[param objectForKey:kCachePolicyKey] integerValue];
-        
-    } else {
-        self.manager.session.configuration.requestCachePolicy = NSURLRequestUseProtocolCachePolicy;
-//        if (reachabilityManager.isReachable) {
-//            
-//            self.manager.session.configuration.requestCachePolicy = NSURLRequestReloadIgnoringCacheData;
-//            
-//        } else{
-//            
-//            self.manager.session.configuration.requestCachePolicy = NSURLRequestReturnCacheDataElseLoad;
-//        }
-    }
     NSMutableDictionary *temp;
     if (param) {
         temp = [NSMutableDictionary dictionaryWithDictionary:param];
     } else {
         temp = [NSMutableDictionary dictionary];
     }
-    
-    //kCachePolicyKey 不是要传给服务器的参数，它是用于在本地设置缓存策略用的
-    NSMutableArray *mKeyArray = [NSMutableArray arrayWithArray:[temp allKeys]];
-    if ([mKeyArray containsObject:kCachePolicyKey]) {
-        [mKeyArray removeObject:kCachePolicyKey];
-        [temp removeObjectForKey:kCachePolicyKey];
-    }
-    NSArray *tempArr = [NSArray arrayWithArray:mKeyArray];
-    NSArray *keyArray = [tempArr sortedArrayUsingSelector:@selector(compare:)];
-    
-    NSString *toMD5Str = @"";
-    for (NSString *key in keyArray) {
-        NSString *value = [temp objectForKey:key];
-        toMD5Str = [toMD5Str stringByAppendingString:[NSString stringWithFormat:@"%@=%@&", key,value]];
-    }
-    toMD5Str = [toMD5Str stringByAppendingString:PARAM_SALT];
-    NSString *md5Str = MD5String(toMD5Str);
-    
-    //将加密之后的字符串当做sign参数传给服务器
-    [temp setObject:md5Str forKey:@"sign"];
     
     return temp;
 }
@@ -162,14 +122,14 @@ static NSString *const JFErrorDomain = @"LinkFinance.9fbank.com";
     
     //response = [response safeAllEx];
     response = [NSDictionary changeType:response];
-    if ([response[@"error"] intValue] == 200) {
+    if ([response[@"status"] intValue] == 200) {
         if (response[@"data"]) {
             return response[@"data"];
         }
         return response;
     } else {
-        NSInteger errorCode = [response[@"error"] integerValue];
-        NSString *failureReason = response[@"errorMsg"];
+        NSInteger errorCode = [response[@"status"] integerValue];
+        NSString *failureReason = response[@"message"];
         NSError *error = [self paringErrorWithFailureReason:failureReason
                                                   errorCode:errorCode];
         return error;
