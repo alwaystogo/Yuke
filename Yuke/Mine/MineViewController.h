@@ -8,6 +8,9 @@
 
 #import "BaseViewController.h"
 
-@interface MineViewController : BaseViewController
-
+@interface MineViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
+@property(nonatomic,strong)UIScrollView *bkScrollView;
+@property(nonatomic,strong)UIImageView *photoImageView;
+@property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong)NSArray *dataArray;
 @end

@@ -134,7 +134,7 @@ isKindOfClass:[UINavigationController class]] \
 #define isiOS5 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 5.0 ? YES : NO)
 
 //导航栏左侧按钮图片
-#define kLeftNavImageName @"fanhui"
+#define kLeftNavImageName @"black_fanhui"
 
 #define kPickerViewHeight 250
 

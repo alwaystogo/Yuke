@@ -463,7 +463,8 @@ static const CGFloat AlertViewVerticalEdgeMinMargin = 25;
                         self.alertWindow = nil;
                     }
                     completion:^(BOOL finished) {
-                        [self.mainWindow makeKeyAndVisible];
+                        //注释掉了，修改by yang
+                        //[self.mainWindow makeKeyAndVisible];
                     }];
             }
 
