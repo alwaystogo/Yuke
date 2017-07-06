@@ -75,6 +75,22 @@
 		AE7FA0931F0BA47C009A8F12 /* CarouselScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7FA0921F0BA47C009A8F12 /* CarouselScrollView.m */; };
 		AE7FA0971F0C967A009A8F12 /* HotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7FA0951F0C967A009A8F12 /* HotCollectionViewCell.m */; };
 		AE7FA0981F0C967A009A8F12 /* HotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0961F0C967A009A8F12 /* HotCollectionViewCell.xib */; };
+		AE7FA0A81F0DE689009A8F12 /* ChoosePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7FA0A61F0DE689009A8F12 /* ChoosePhoto.m */; };
+		AE7FA0A91F0DE689009A8F12 /* ChoosePhoto.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0A71F0DE689009A8F12 /* ChoosePhoto.xib */; };
+		AE7FA0B61F0DE9FA009A8F12 /* unloginphoto@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0B41F0DE9FA009A8F12 /* unloginphoto@2x.png */; };
+		AE7FA0B71F0DE9FA009A8F12 /* unloginphoto@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0B51F0DE9FA009A8F12 /* unloginphoto@3x.png */; };
+		AE7FA0BC1F0DEA8B009A8F12 /* photopaishe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0B81F0DEA8B009A8F12 /* photopaishe@2x.png */; };
+		AE7FA0BD1F0DEA8B009A8F12 /* photopaishe@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0B91F0DEA8B009A8F12 /* photopaishe@3x.png */; };
+		AE7FA0BE1F0DEA8B009A8F12 /* xiangce@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0BA1F0DEA8B009A8F12 /* xiangce@2x.png */; };
+		AE7FA0BF1F0DEA8B009A8F12 /* xiangce@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0BB1F0DEA8B009A8F12 /* xiangce@3x.png */; };
+		AE7FA0C31F0E0D95009A8F12 /* MineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7FA0C11F0E0D95009A8F12 /* MineCell.m */; };
+		AE7FA0C41F0E0D95009A8F12 /* MineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0C21F0E0D95009A8F12 /* MineCell.xib */; };
+		AE7FA0C71F0E11A7009A8F12 /* youjiantou@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0C51F0E11A7009A8F12 /* youjiantou@2x.png */; };
+		AE7FA0C81F0E11A7009A8F12 /* youjiantou@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0C61F0E11A7009A8F12 /* youjiantou@3x.png */; };
+		AE7FA0CB1F0E1F31009A8F12 /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7FA0CA1F0E1F31009A8F12 /* FeedBackViewController.m */; };
+		AE7FA0CD1F0E207E009A8F12 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0CC1F0E207E009A8F12 /* Settings.storyboard */; };
+		AE7FA0D01F0E2567009A8F12 /* black_fanhui@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0CE1F0E2566009A8F12 /* black_fanhui@2x.png */; };
+		AE7FA0D11F0E2567009A8F12 /* black_fanhui@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0CF1F0E2566009A8F12 /* black_fanhui@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -212,6 +228,25 @@
 		AE7FA0941F0C967A009A8F12 /* HotCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCollectionViewCell.h; sourceTree = "<group>"; };
 		AE7FA0951F0C967A009A8F12 /* HotCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCollectionViewCell.m; sourceTree = "<group>"; };
 		AE7FA0961F0C967A009A8F12 /* HotCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotCollectionViewCell.xib; sourceTree = "<group>"; };
+		AE7FA0A51F0DE689009A8F12 /* ChoosePhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePhoto.h; sourceTree = "<group>"; };
+		AE7FA0A61F0DE689009A8F12 /* ChoosePhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoosePhoto.m; sourceTree = "<group>"; };
+		AE7FA0A71F0DE689009A8F12 /* ChoosePhoto.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChoosePhoto.xib; sourceTree = "<group>"; };
+		AE7FA0B41F0DE9FA009A8F12 /* unloginphoto@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unloginphoto@2x.png"; sourceTree = "<group>"; };
+		AE7FA0B51F0DE9FA009A8F12 /* unloginphoto@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unloginphoto@3x.png"; sourceTree = "<group>"; };
+		AE7FA0B81F0DEA8B009A8F12 /* photopaishe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photopaishe@2x.png"; sourceTree = "<group>"; };
+		AE7FA0B91F0DEA8B009A8F12 /* photopaishe@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photopaishe@3x.png"; sourceTree = "<group>"; };
+		AE7FA0BA1F0DEA8B009A8F12 /* xiangce@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiangce@2x.png"; sourceTree = "<group>"; };
+		AE7FA0BB1F0DEA8B009A8F12 /* xiangce@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiangce@3x.png"; sourceTree = "<group>"; };
+		AE7FA0C01F0E0D95009A8F12 /* MineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineCell.h; sourceTree = "<group>"; };
+		AE7FA0C11F0E0D95009A8F12 /* MineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineCell.m; sourceTree = "<group>"; };
+		AE7FA0C21F0E0D95009A8F12 /* MineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineCell.xib; sourceTree = "<group>"; };
+		AE7FA0C51F0E11A7009A8F12 /* youjiantou@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "youjiantou@2x.png"; sourceTree = "<group>"; };
+		AE7FA0C61F0E11A7009A8F12 /* youjiantou@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "youjiantou@3x.png"; sourceTree = "<group>"; };
+		AE7FA0C91F0E1F31009A8F12 /* FeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedBackViewController.h; sourceTree = "<group>"; };
+		AE7FA0CA1F0E1F31009A8F12 /* FeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackViewController.m; sourceTree = "<group>"; };
+		AE7FA0CC1F0E207E009A8F12 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		AE7FA0CE1F0E2566009A8F12 /* black_fanhui@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "black_fanhui@2x.png"; sourceTree = "<group>"; };
+		AE7FA0CF1F0E2566009A8F12 /* black_fanhui@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "black_fanhui@3x.png"; sourceTree = "<group>"; };
 		FE4BF8FEA962BF522F157E8F /* libPods-Yuke.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yuke.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -280,7 +315,7 @@
 				AE61B6AD1F024AEC00C1F930 /* YuePhoto */,
 				AE61B6AC1F024AEC00C1F930 /* Mine */,
 				AE61B67E1F0249A300C1F930 /* ThirdPart */,
-				AE61B6B11F024B2C00C1F930 /* Resource */,
+				AE7FA0AE1F0DE9DD009A8F12 /* Resource */,
 				AE61B5FC1F02065400C1F930 /* Main.storyboard */,
 				AE61B5FF1F02065400C1F930 /* Assets.xcassets */,
 				AE61B6011F02065400C1F930 /* LaunchScreen.storyboard */,
@@ -337,6 +372,9 @@
 				AE61B6311F02486B00C1F930 /* SuoFangImage.m */,
 				AE61B6351F02486B00C1F930 /* YYFImagePickerView.h */,
 				AE61B6361F02486B00C1F930 /* YYFImagePickerView.m */,
+				AE7FA0A51F0DE689009A8F12 /* ChoosePhoto.h */,
+				AE7FA0A61F0DE689009A8F12 /* ChoosePhoto.m */,
+				AE7FA0A71F0DE689009A8F12 /* ChoosePhoto.xib */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -468,6 +506,12 @@
 			children = (
 				AE61B6F61F025F9800C1F930 /* MineViewController.h */,
 				AE61B6F71F025F9800C1F930 /* MineViewController.m */,
+				AE7FA0C01F0E0D95009A8F12 /* MineCell.h */,
+				AE7FA0C11F0E0D95009A8F12 /* MineCell.m */,
+				AE7FA0C21F0E0D95009A8F12 /* MineCell.xib */,
+				AE7FA0C91F0E1F31009A8F12 /* FeedBackViewController.h */,
+				AE7FA0CA1F0E1F31009A8F12 /* FeedBackViewController.m */,
+				AE7FA0CC1F0E207E009A8F12 /* Settings.storyboard */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -513,53 +557,6 @@
 			path = Workspace;
 			sourceTree = "<group>";
 		};
-		AE61B6B11F024B2C00C1F930 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-				AE61B6B51F024B2C00C1F930 /* Workspace */,
-				AE61B6B21F024B2C00C1F930 /* Fontlibrary */,
-				AE61B6B31F024B2C00C1F930 /* Homepage */,
-				AE61B6B61F024B2C00C1F930 /* YuePhoto */,
-				AE61B6B41F024B2C00C1F930 /* Mine */,
-			);
-			path = Resource;
-			sourceTree = "<group>";
-		};
-		AE61B6B21F024B2C00C1F930 /* Fontlibrary */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Fontlibrary;
-			sourceTree = "<group>";
-		};
-		AE61B6B31F024B2C00C1F930 /* Homepage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Homepage;
-			sourceTree = "<group>";
-		};
-		AE61B6B41F024B2C00C1F930 /* Mine */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Mine;
-			sourceTree = "<group>";
-		};
-		AE61B6B51F024B2C00C1F930 /* Workspace */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Workspace;
-			sourceTree = "<group>";
-		};
-		AE61B6B61F024B2C00C1F930 /* YuePhoto */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = YuePhoto;
-			sourceTree = "<group>";
-		};
 		AE61B6B81F024C9900C1F930 /* NetWorkManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -599,6 +596,63 @@
 				AE61B6FD1F02659900C1F930 /* PXAlertView.m */,
 			);
 			path = PXAlertView;
+			sourceTree = "<group>";
+		};
+		AE7FA0AE1F0DE9DD009A8F12 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				AE7FA0AF1F0DE9DD009A8F12 /* Fontlibrary */,
+				AE7FA0B01F0DE9DD009A8F12 /* Homepage */,
+				AE7FA0B11F0DE9DD009A8F12 /* Mine */,
+				AE7FA0B21F0DE9DD009A8F12 /* Workspace */,
+				AE7FA0B31F0DE9DD009A8F12 /* YuePhoto */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		AE7FA0AF1F0DE9DD009A8F12 /* Fontlibrary */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fontlibrary;
+			sourceTree = "<group>";
+		};
+		AE7FA0B01F0DE9DD009A8F12 /* Homepage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Homepage;
+			sourceTree = "<group>";
+		};
+		AE7FA0B11F0DE9DD009A8F12 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				AE7FA0CE1F0E2566009A8F12 /* black_fanhui@2x.png */,
+				AE7FA0CF1F0E2566009A8F12 /* black_fanhui@3x.png */,
+				AE7FA0C51F0E11A7009A8F12 /* youjiantou@2x.png */,
+				AE7FA0C61F0E11A7009A8F12 /* youjiantou@3x.png */,
+				AE7FA0B81F0DEA8B009A8F12 /* photopaishe@2x.png */,
+				AE7FA0B91F0DEA8B009A8F12 /* photopaishe@3x.png */,
+				AE7FA0BA1F0DEA8B009A8F12 /* xiangce@2x.png */,
+				AE7FA0BB1F0DEA8B009A8F12 /* xiangce@3x.png */,
+				AE7FA0B41F0DE9FA009A8F12 /* unloginphoto@2x.png */,
+				AE7FA0B51F0DE9FA009A8F12 /* unloginphoto@3x.png */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		AE7FA0B21F0DE9DD009A8F12 /* Workspace */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Workspace;
+			sourceTree = "<group>";
+		};
+		AE7FA0B31F0DE9DD009A8F12 /* YuePhoto */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = YuePhoto;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -663,11 +717,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE7FA0C41F0E0D95009A8F12 /* MineCell.xib in Resources */,
+				AE7FA0CD1F0E207E009A8F12 /* Settings.storyboard in Resources */,
 				AE61B63F1F02486B00C1F930 /* ShareView.xib in Resources */,
 				AE61B6031F02065400C1F930 /* LaunchScreen.storyboard in Resources */,
 				AE61B6001F02065400C1F930 /* Assets.xcassets in Resources */,
+				AE7FA0BF1F0DEA8B009A8F12 /* xiangce@3x.png in Resources */,
 				AE61B6A41F0249A300C1F930 /* TZImagePickerController.bundle in Resources */,
+				AE7FA0C81F0E11A7009A8F12 /* youjiantou@3x.png in Resources */,
 				AE7FA0981F0C967A009A8F12 /* HotCollectionViewCell.xib in Resources */,
+				AE7FA0A91F0DE689009A8F12 /* ChoosePhoto.xib in Resources */,
+				AE7FA0B61F0DE9FA009A8F12 /* unloginphoto@2x.png in Resources */,
+				AE7FA0BD1F0DEA8B009A8F12 /* photopaishe@3x.png in Resources */,
+				AE7FA0C71F0E11A7009A8F12 /* youjiantou@2x.png in Resources */,
+				AE7FA0BC1F0DEA8B009A8F12 /* photopaishe@2x.png in Resources */,
+				AE7FA0D11F0E2567009A8F12 /* black_fanhui@3x.png in Resources */,
+				AE7FA0B71F0DE9FA009A8F12 /* unloginphoto@3x.png in Resources */,
+				AE7FA0D01F0E2567009A8F12 /* black_fanhui@2x.png in Resources */,
+				AE7FA0BE1F0DEA8B009A8F12 /* xiangce@2x.png in Resources */,
 				AE61B5FE1F02065400C1F930 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -729,6 +796,7 @@
 			files = (
 				AE61B66A1F0248CF00C1F930 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				AE61B6D61F024C9900C1F930 /* JFiPhoneClient.m in Sources */,
+				AE7FA0C31F0E0D95009A8F12 /* MineCell.m in Sources */,
 				AE61B6371F02486B00C1F930 /* JFAlertController.m in Sources */,
 				AE61B6631F0248CF00C1F930 /* NSMutableDictionary+Safe.m in Sources */,
 				AE61B6A11F0249A300C1F930 /* TZAssetCell.m in Sources */,
@@ -749,11 +817,13 @@
 				AE61B6171F02479F00C1F930 /* BaseAlertViewController.m in Sources */,
 				AE61B66C1F0248CF00C1F930 /* UIView+FrameAddition.m in Sources */,
 				AE61B6611F0248CF00C1F930 /* NSArray+LogHelper.m in Sources */,
+				AE7FA0CB1F0E1F31009A8F12 /* FeedBackViewController.m in Sources */,
 				AE61B5F51F02065400C1F930 /* main.m in Sources */,
 				AE61B6F51F025F9000C1F930 /* WorkspaceViewController.m in Sources */,
 				AE61B6431F02486B00C1F930 /* YYFImagePickerView.m in Sources */,
 				AE61B67D1F02495900C1F930 /* JFTools.m in Sources */,
 				AE61B6681F0248CF00C1F930 /* UIImage+Extension.m in Sources */,
+				AE7FA0A81F0DE689009A8F12 /* ChoosePhoto.m in Sources */,
 				AE61B6F81F025F9800C1F930 /* MineViewController.m in Sources */,
 				AE61B6A31F0249A300C1F930 /* TZImageManager.m in Sources */,
 				AE61B6A91F0249A300C1F930 /* TZVideoPlayerController.m in Sources */,
