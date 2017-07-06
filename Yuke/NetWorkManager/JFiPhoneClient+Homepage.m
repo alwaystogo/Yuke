@@ -10,6 +10,19 @@
 
 @implementation JFiPhoneClient (Homepage)
 
+- (void)login:(NSDictionary *)params
+      success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+      failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{
+    
+    [self enqueueRequestWithMethod:@"index.php/Api/User/login" param:params success:success failure:failure];
+}
+
+- (void)regist:(NSDictionary *)params
+       success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+       failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{
+    
+     [self enqueueRequestWithMethod:@"index.php/Api/User/register" param:params success:success failure:failure];
+}
 - (void)getHomePageBanner:(NSDictionary *)params
                   success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
                   failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{

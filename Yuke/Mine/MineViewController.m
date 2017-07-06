@@ -24,6 +24,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    //[self login];
+    [self regist];
      self.dataArray = @[@"分享娱客",@"联系电话",@"使用秘籍",@"意见反馈",@"清空缓存",@"退出登录"];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self createUI];
@@ -248,6 +250,29 @@
     [super viewWillAppear:animated];
     
     self.navigationController.navigationBarHidden = YES;
+}
+
+- (void)login{
+    
+    NSDictionary *dic = @{@"mobile":@"13701166693",@"account":@"123",@"password":@"123456"};
+    [kJFClient login:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSLog(@"login:%@",responseObject);
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        [JFTools showFailureHUDWithTip:error.description];
+    }];
+}
+- (void)regist{
+    
+    NSDictionary *dic = @{@"mobile":@"13701166693",@"account":@"123",@"password":@"123456"};
+    [kJFClient regist:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"login:%@",responseObject);
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [JFTools showFailureHUDWithTip:error.description];
+    }];
 }
 
 @end
