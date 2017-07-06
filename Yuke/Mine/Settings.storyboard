@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MSp-VX-t2v">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--意见反馈-->
+        <scene sceneID="tDN-Cg-GKP">
+            <objects>
+                <viewController storyboardIdentifier="FeedBackViewController" automaticallyAdjustsScrollViewInsets="NO" id="MSp-VX-t2v" userLabel="意见反馈" customClass="FeedBackViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SfX-7i-S2D"/>
+                        <viewControllerLayoutGuide type="bottom" id="AXS-W3-TrE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bbU-X0-qtf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="61V-S8-fRY" customClass="LimitTextView">
+                                <rect key="frame" x="0.0" y="74" width="375" height="140"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="xG6-BA-4EZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/200" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWk-Hn-aCN">
+                                <rect key="frame" x="313" y="178" width="47" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f4u-5o-a4L">
+                                <rect key="frame" x="0.0" y="226" width="375" height="45"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号/微信号(选填)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uzh-wi-BOo">
+                                        <rect key="frame" x="10" y="14" width="133" height="17"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="89h-lj-e57"/>
+                                    <constraint firstItem="uzh-wi-BOo" firstAttribute="leading" secondItem="f4u-5o-a4L" secondAttribute="leading" constant="10" id="HCR-1n-aBr"/>
+                                    <constraint firstItem="uzh-wi-BOo" firstAttribute="centerY" secondItem="f4u-5o-a4L" secondAttribute="centerY" id="b4y-uJ-Ch8"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="61V-S8-fRY" firstAttribute="leading" secondItem="bbU-X0-qtf" secondAttribute="leading" id="7KE-cE-kdR"/>
+                            <constraint firstAttribute="trailing" secondItem="61V-S8-fRY" secondAttribute="trailing" id="Gqj-mB-Rf8"/>
+                            <constraint firstItem="f4u-5o-a4L" firstAttribute="leading" secondItem="bbU-X0-qtf" secondAttribute="leading" id="Zrk-75-M1h"/>
+                            <constraint firstItem="f4u-5o-a4L" firstAttribute="top" secondItem="61V-S8-fRY" secondAttribute="bottom" constant="12" id="gYE-CL-FdU"/>
+                            <constraint firstAttribute="trailing" secondItem="QWk-Hn-aCN" secondAttribute="trailing" constant="15" id="kxR-ug-b6g"/>
+                            <constraint firstItem="61V-S8-fRY" firstAttribute="top" secondItem="bbU-X0-qtf" secondAttribute="top" constant="74" id="ohF-dh-geL"/>
+                            <constraint firstAttribute="trailing" secondItem="f4u-5o-a4L" secondAttribute="trailing" id="xRy-9s-w9l"/>
+                            <constraint firstItem="QWk-Hn-aCN" firstAttribute="bottom" secondItem="61V-S8-fRY" secondAttribute="bottom" constant="-15" id="xd9-aQ-cAa"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="photoTextField" destination="uzh-wi-BOo" id="cqk-I3-rbP"/>
+                        <outlet property="textView" destination="61V-S8-fRY" id="Rfq-GO-AlU"/>
+                        <outlet property="zishuLabel" destination="QWk-Hn-aCN" id="oUy-91-ane"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lRa-vE-z7x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="521" y="108"/>
+        </scene>
+    </scenes>
+</document>
