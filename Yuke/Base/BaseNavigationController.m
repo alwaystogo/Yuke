@@ -18,12 +18,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //设置状态栏为白色
-    self.navigationBar.barStyle = UIBarStyleBlack;
+    //设置状态栏为黑色
+    self.navigationBar.barStyle = UIBarStyleDefault;
     //导航栏背景颜色
-    self.navigationBar.backgroundColor = COLOR_HEX(0x666666, 0.5);
+    self.navigationBar.backgroundColor = WHITECOLOR;//COLOR_HEX(0x666666, 0.5);
     //设置导航栏字体
-    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:COLOR_HEX(0xffffff, 1),NSFontAttributeName : FONT_REGULAR(18)};
+    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:COLOR_HEX(0x000000, 1),NSFontAttributeName : FONT_REGULAR(18)};
 
 }
 
