@@ -10,4 +10,9 @@
 
 @interface YuePhotoViewController : BaseViewController
 
+@property(nonatomic,strong)UIView *topView;
+@property(nonatomic,strong)UIButton *yueBtn;
+@property(nonatomic,strong)UIButton *yiBtn;
+@property(nonatomic,strong)UIView *bottomView;
+
 @end

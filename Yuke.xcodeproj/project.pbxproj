@@ -91,6 +91,8 @@
 		AE7FA0CD1F0E207E009A8F12 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0CC1F0E207E009A8F12 /* Settings.storyboard */; };
 		AE7FA0D01F0E2567009A8F12 /* black_fanhui@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0CE1F0E2566009A8F12 /* black_fanhui@2x.png */; };
 		AE7FA0D11F0E2567009A8F12 /* black_fanhui@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0CF1F0E2566009A8F12 /* black_fanhui@3x.png */; };
+		AE7FA0D51F0F3895009A8F12 /* FontCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7FA0D31F0F3895009A8F12 /* FontCollectionViewCell.m */; };
+		AE7FA0D61F0F3895009A8F12 /* FontCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0D41F0F3895009A8F12 /* FontCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -247,6 +249,9 @@
 		AE7FA0CC1F0E207E009A8F12 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		AE7FA0CE1F0E2566009A8F12 /* black_fanhui@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "black_fanhui@2x.png"; sourceTree = "<group>"; };
 		AE7FA0CF1F0E2566009A8F12 /* black_fanhui@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "black_fanhui@3x.png"; sourceTree = "<group>"; };
+		AE7FA0D21F0F3895009A8F12 /* FontCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontCollectionViewCell.h; sourceTree = "<group>"; };
+		AE7FA0D31F0F3895009A8F12 /* FontCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontCollectionViewCell.m; sourceTree = "<group>"; };
+		AE7FA0D41F0F3895009A8F12 /* FontCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FontCollectionViewCell.xib; sourceTree = "<group>"; };
 		FE4BF8FEA962BF522F157E8F /* libPods-Yuke.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yuke.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -544,6 +549,9 @@
 			children = (
 				AE61B6F01F025F8200C1F930 /* FontlibraryViewController.h */,
 				AE61B6F11F025F8200C1F930 /* FontlibraryViewController.m */,
+				AE7FA0D21F0F3895009A8F12 /* FontCollectionViewCell.h */,
+				AE7FA0D31F0F3895009A8F12 /* FontCollectionViewCell.m */,
+				AE7FA0D41F0F3895009A8F12 /* FontCollectionViewCell.xib */,
 			);
 			path = Fontlibrary;
 			sourceTree = "<group>";
@@ -726,6 +734,7 @@
 				AE61B6A41F0249A300C1F930 /* TZImagePickerController.bundle in Resources */,
 				AE7FA0C81F0E11A7009A8F12 /* youjiantou@3x.png in Resources */,
 				AE7FA0981F0C967A009A8F12 /* HotCollectionViewCell.xib in Resources */,
+				AE7FA0D61F0F3895009A8F12 /* FontCollectionViewCell.xib in Resources */,
 				AE7FA0A91F0DE689009A8F12 /* ChoosePhoto.xib in Resources */,
 				AE7FA0B61F0DE9FA009A8F12 /* unloginphoto@2x.png in Resources */,
 				AE7FA0BD1F0DEA8B009A8F12 /* photopaishe@3x.png in Resources */,
@@ -831,6 +840,7 @@
 				AE61B69F1F0249A300C1F930 /* MBProgressHUD.m in Sources */,
 				AE61B6A21F0249A300C1F930 /* TZAssetModel.m in Sources */,
 				AE61B63C1F02486B00C1F930 /* LimitTextView.m in Sources */,
+				AE7FA0D51F0F3895009A8F12 /* FontCollectionViewCell.m in Sources */,
 				AE61B6D91F024DA900C1F930 /* JFiPhoneClient+Workspace.m in Sources */,
 				AE61B6A51F0249A300C1F930 /* TZImagePickerController.m in Sources */,
 				AE61B6DC1F024DBD00C1F930 /* JFiPhoneClient+Fontlibrary.m in Sources */,

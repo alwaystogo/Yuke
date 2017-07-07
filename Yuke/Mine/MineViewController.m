@@ -254,7 +254,7 @@
 
 - (void)login{
     
-    NSDictionary *dic = @{@"mobile":@"13701166693",@"account":@"123",@"password":@"123456"};
+    NSDictionary *dic = @{@"mobile":@"13701166693",@"password":@"123456"};
     [kJFClient login:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSLog(@"login:%@",responseObject);
@@ -266,7 +266,7 @@
 }
 - (void)regist{
     
-    NSDictionary *dic = @{@"mobile":@"13701166693",@"account":@"123",@"password":@"123456"};
+    NSDictionary *dic = @{@"mobile":@"13701166693",@"password":@"123456"};
     [kJFClient regist:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"login:%@",responseObject);
         

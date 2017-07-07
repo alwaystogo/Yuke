@@ -31,7 +31,7 @@
     //创建视图控制器
     [self createSubControllers];
     
-    self.selectedIndex = 4;
+    self.selectedIndex = 3;
     
     // 配置全局拦截器
     [self wholeInterceptor];
@@ -70,8 +70,8 @@
     
     YuePhotoViewController *yueVC = [[YuePhotoViewController alloc]init];
     BaseNavigationController *yueNav = [[BaseNavigationController alloc] initWithRootViewController:yueVC];
-    yueVC.navigationItem.title = @"新闻";
-    yueNav.tabBarItem.title = @"新闻";
+    yueVC.navigationItem.title = @"约拍摄";
+    yueNav.tabBarItem.title = @"约拍摄";
     yueNav.tabBarItem.image = [[UIImage imageNamed:@"new"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     yueNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"new-hover"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 

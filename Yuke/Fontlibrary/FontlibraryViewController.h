@@ -8,6 +8,9 @@
 
 #import "BaseViewController.h"
 
-@interface FontlibraryViewController : BaseViewController
+@interface FontlibraryViewController : BaseViewController<UICollectionViewDelegate,UICollectionViewDataSource>
+
+@property(nonatomic,strong)UICollectionView *collectionView;
+@property(nonatomic,strong)UICollectionViewFlowLayout *layout;
 
 @end
