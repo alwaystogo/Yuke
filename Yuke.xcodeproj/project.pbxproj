@@ -93,6 +93,10 @@
 		AE7FA0D11F0E2567009A8F12 /* black_fanhui@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0CF1F0E2566009A8F12 /* black_fanhui@3x.png */; };
 		AE7FA0D51F0F3895009A8F12 /* FontCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7FA0D31F0F3895009A8F12 /* FontCollectionViewCell.m */; };
 		AE7FA0D61F0F3895009A8F12 /* FontCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0D41F0F3895009A8F12 /* FontCollectionViewCell.xib */; };
+		AEB3D7221F1375A70091EE21 /* YuePaisheTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB3D7201F1375A70091EE21 /* YuePaisheTableViewCell.m */; };
+		AEB3D7231F1375A70091EE21 /* YuePaisheTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEB3D7211F1375A70091EE21 /* YuePaisheTableViewCell.xib */; };
+		AEB3D7271F1383E80091EE21 /* YiPaiCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB3D7251F1383E80091EE21 /* YiPaiCollectionViewCell.m */; };
+		AEB3D7281F1383E80091EE21 /* YiPaiCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEB3D7261F1383E80091EE21 /* YiPaiCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -252,6 +256,12 @@
 		AE7FA0D21F0F3895009A8F12 /* FontCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontCollectionViewCell.h; sourceTree = "<group>"; };
 		AE7FA0D31F0F3895009A8F12 /* FontCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontCollectionViewCell.m; sourceTree = "<group>"; };
 		AE7FA0D41F0F3895009A8F12 /* FontCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FontCollectionViewCell.xib; sourceTree = "<group>"; };
+		AEB3D71F1F1375A70091EE21 /* YuePaisheTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuePaisheTableViewCell.h; sourceTree = "<group>"; };
+		AEB3D7201F1375A70091EE21 /* YuePaisheTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuePaisheTableViewCell.m; sourceTree = "<group>"; };
+		AEB3D7211F1375A70091EE21 /* YuePaisheTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YuePaisheTableViewCell.xib; sourceTree = "<group>"; };
+		AEB3D7241F1383E80091EE21 /* YiPaiCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YiPaiCollectionViewCell.h; sourceTree = "<group>"; };
+		AEB3D7251F1383E80091EE21 /* YiPaiCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YiPaiCollectionViewCell.m; sourceTree = "<group>"; };
+		AEB3D7261F1383E80091EE21 /* YiPaiCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YiPaiCollectionViewCell.xib; sourceTree = "<group>"; };
 		FE4BF8FEA962BF522F157E8F /* libPods-Yuke.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yuke.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -526,6 +536,12 @@
 			children = (
 				AE61B6ED1F025F6D00C1F930 /* YuePhotoViewController.h */,
 				AE61B6EE1F025F6D00C1F930 /* YuePhotoViewController.m */,
+				AEB3D71F1F1375A70091EE21 /* YuePaisheTableViewCell.h */,
+				AEB3D7201F1375A70091EE21 /* YuePaisheTableViewCell.m */,
+				AEB3D7211F1375A70091EE21 /* YuePaisheTableViewCell.xib */,
+				AEB3D7241F1383E80091EE21 /* YiPaiCollectionViewCell.h */,
+				AEB3D7251F1383E80091EE21 /* YiPaiCollectionViewCell.m */,
+				AEB3D7261F1383E80091EE21 /* YiPaiCollectionViewCell.xib */,
 			);
 			path = YuePhoto;
 			sourceTree = "<group>";
@@ -734,6 +750,7 @@
 				AE61B6A41F0249A300C1F930 /* TZImagePickerController.bundle in Resources */,
 				AE7FA0C81F0E11A7009A8F12 /* youjiantou@3x.png in Resources */,
 				AE7FA0981F0C967A009A8F12 /* HotCollectionViewCell.xib in Resources */,
+				AEB3D7281F1383E80091EE21 /* YiPaiCollectionViewCell.xib in Resources */,
 				AE7FA0D61F0F3895009A8F12 /* FontCollectionViewCell.xib in Resources */,
 				AE7FA0A91F0DE689009A8F12 /* ChoosePhoto.xib in Resources */,
 				AE7FA0B61F0DE9FA009A8F12 /* unloginphoto@2x.png in Resources */,
@@ -742,6 +759,7 @@
 				AE7FA0BC1F0DEA8B009A8F12 /* photopaishe@2x.png in Resources */,
 				AE7FA0D11F0E2567009A8F12 /* black_fanhui@3x.png in Resources */,
 				AE7FA0B71F0DE9FA009A8F12 /* unloginphoto@3x.png in Resources */,
+				AEB3D7231F1375A70091EE21 /* YuePaisheTableViewCell.xib in Resources */,
 				AE7FA0D01F0E2567009A8F12 /* black_fanhui@2x.png in Resources */,
 				AE7FA0BE1F0DEA8B009A8F12 /* xiangce@2x.png in Resources */,
 				AE61B5FE1F02065400C1F930 /* Main.storyboard in Resources */,
@@ -823,6 +841,7 @@
 				AE61B6DF1F024DD300C1F930 /* JFiPhoneClient+Homepage.m in Sources */,
 				AE61B6A71F0249A300C1F930 /* TZPhotoPreviewCell.m in Sources */,
 				AE61B61C1F02479F00C1F930 /* RootTabBarController.m in Sources */,
+				AEB3D7271F1383E80091EE21 /* YiPaiCollectionViewCell.m in Sources */,
 				AE61B6171F02479F00C1F930 /* BaseAlertViewController.m in Sources */,
 				AE61B66C1F0248CF00C1F930 /* UIView+FrameAddition.m in Sources */,
 				AE61B6611F0248CF00C1F930 /* NSArray+LogHelper.m in Sources */,
@@ -830,6 +849,7 @@
 				AE61B5F51F02065400C1F930 /* main.m in Sources */,
 				AE61B6F51F025F9000C1F930 /* WorkspaceViewController.m in Sources */,
 				AE61B6431F02486B00C1F930 /* YYFImagePickerView.m in Sources */,
+				AEB3D7221F1375A70091EE21 /* YuePaisheTableViewCell.m in Sources */,
 				AE61B67D1F02495900C1F930 /* JFTools.m in Sources */,
 				AE61B6681F0248CF00C1F930 /* UIImage+Extension.m in Sources */,
 				AE7FA0A81F0DE689009A8F12 /* ChoosePhoto.m in Sources */,
