@@ -77,7 +77,7 @@
 - (void)createBottomUI{
     
     self.bkScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.topView.frame)+3, SCREEN_WIDTH, SCREEN_HEIGHT - CGRectGetMaxY(self.topView.frame) - TABBAR_HEIGHT)];
-    self.bkScrollView.backgroundColor = [UIColor grayColor];
+    self.bkScrollView.backgroundColor = [UIColor whiteColor];
     self.bkScrollView.contentSize = CGSizeMake(SCREEN_WIDTH * 2, self.bkScrollView.height);
     self.bkScrollView.pagingEnabled = YES;
     self.bkScrollView.scrollEnabled = NO;
@@ -101,7 +101,7 @@
     CGFloat bili = 300 / 172.0;
     _layout.itemSize = CGSizeMake((SCREEN_WIDTH - 30)/2.0, (SCREEN_WIDTH - 30)/2.0 *bili);
     
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(self.bkScrollView.width + 10, 0, SCREEN_WIDTH - 30, SCREEN_HEIGHT - CGRectGetMaxY(self.topView.frame) - TABBAR_HEIGHT) collectionViewLayout:_layout];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(self.bkScrollView.width + 10, 0, SCREEN_WIDTH - 20, SCREEN_HEIGHT - CGRectGetMaxY(self.topView.frame) - TABBAR_HEIGHT) collectionViewLayout:_layout];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.collectionView.backgroundColor = [UIColor whiteColor];

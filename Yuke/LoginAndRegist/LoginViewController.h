@@ -11,7 +11,6 @@ typedef void(^MyBasicBlock) (id result);
 @interface LoginViewController : BaseViewController
 
 @property (nonatomic, copy) MyBasicBlock block;
-@property (nonatomic, strong) UIViewController *fromViewController;
 
 + (BOOL)checkLogin:(MyBasicBlock)block;
 

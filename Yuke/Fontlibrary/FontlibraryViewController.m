@@ -22,6 +22,9 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self createUI];
     
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    loginVC.hidesBottomBarWhenPushed = YES;
+    [kCurNavController pushViewController:loginVC animated:YES];
 }
 
 - (void)createUI{
