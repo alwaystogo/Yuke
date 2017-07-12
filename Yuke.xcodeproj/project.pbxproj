@@ -97,6 +97,8 @@
 		AEB3D7231F1375A70091EE21 /* YuePaisheTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEB3D7211F1375A70091EE21 /* YuePaisheTableViewCell.xib */; };
 		AEB3D7271F1383E80091EE21 /* YiPaiCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB3D7251F1383E80091EE21 /* YiPaiCollectionViewCell.m */; };
 		AEB3D7281F1383E80091EE21 /* YiPaiCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEB3D7261F1383E80091EE21 /* YiPaiCollectionViewCell.xib */; };
+		AEB3D72B1F1612080091EE21 /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB3D72A1F1612080091EE21 /* RegistViewController.m */; };
+		AEB3D72E1F16121E0091EE21 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB3D72D1F16121E0091EE21 /* ForgetPasswordViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -262,6 +264,10 @@
 		AEB3D7241F1383E80091EE21 /* YiPaiCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YiPaiCollectionViewCell.h; sourceTree = "<group>"; };
 		AEB3D7251F1383E80091EE21 /* YiPaiCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YiPaiCollectionViewCell.m; sourceTree = "<group>"; };
 		AEB3D7261F1383E80091EE21 /* YiPaiCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YiPaiCollectionViewCell.xib; sourceTree = "<group>"; };
+		AEB3D7291F1612080091EE21 /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
+		AEB3D72A1F1612080091EE21 /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
+		AEB3D72C1F16121E0091EE21 /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
+		AEB3D72D1F16121E0091EE21 /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
 		FE4BF8FEA962BF522F157E8F /* libPods-Yuke.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yuke.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -607,6 +613,10 @@
 			children = (
 				AE61B6E71F0253C200C1F930 /* LoginViewController.h */,
 				AE61B6E81F0253C200C1F930 /* LoginViewController.m */,
+				AEB3D7291F1612080091EE21 /* RegistViewController.h */,
+				AEB3D72A1F1612080091EE21 /* RegistViewController.m */,
+				AEB3D72C1F16121E0091EE21 /* ForgetPasswordViewController.h */,
+				AEB3D72D1F16121E0091EE21 /* ForgetPasswordViewController.m */,
 			);
 			path = LoginAndRegist;
 			sourceTree = "<group>";
@@ -827,6 +837,7 @@
 				AE61B6371F02486B00C1F930 /* JFAlertController.m in Sources */,
 				AE61B6631F0248CF00C1F930 /* NSMutableDictionary+Safe.m in Sources */,
 				AE61B6A11F0249A300C1F930 /* TZAssetCell.m in Sources */,
+				AEB3D72B1F1612080091EE21 /* RegistViewController.m in Sources */,
 				AE61B6401F02486B00C1F930 /* SuoFangImage.m in Sources */,
 				AE61B6A81F0249A300C1F930 /* TZPhotoPreviewController.m in Sources */,
 				AE61B6F21F025F8200C1F930 /* FontlibraryViewController.m in Sources */,
@@ -864,6 +875,7 @@
 				AE61B6D91F024DA900C1F930 /* JFiPhoneClient+Workspace.m in Sources */,
 				AE61B6A51F0249A300C1F930 /* TZImagePickerController.m in Sources */,
 				AE61B6DC1F024DBD00C1F930 /* JFiPhoneClient+Fontlibrary.m in Sources */,
+				AEB3D72E1F16121E0091EE21 /* ForgetPasswordViewController.m in Sources */,
 				AE61B6EF1F025F6D00C1F930 /* YuePhotoViewController.m in Sources */,
 				AE61B6A01F0249A300C1F930 /* NSBundle+TZImagePicker.m in Sources */,
 				AE61B6641F0248CF00C1F930 /* NSNumber+FormatExtension.m in Sources */,

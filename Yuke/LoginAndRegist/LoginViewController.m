@@ -90,12 +90,12 @@
         make.centerY.mas_equalTo(self.passwordBkView.mas_centerY);
         make.size.mas_equalTo(CGSizeMake(24, 24));
     }];
-    self.phoneTextField = [[UITextField alloc] init];
+    self.passwordTextField = [[UITextField alloc] init];
     NSAttributedString *attrString2 = [[NSAttributedString alloc] initWithString:@"输入密码" attributes:
                                       @{NSForegroundColorAttributeName:COLOR_HEX(0xffffff, 1),NSFontAttributeName : FONT_REGULAR(14)}];
-    self.phoneTextField.attributedPlaceholder = attrString2;
-    [self.passwordBkView addSubview:self.phoneTextField];
-    [self.phoneTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.passwordTextField.attributedPlaceholder = attrString2;
+    [self.passwordBkView addSubview:self.passwordTextField];
+    [self.passwordTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(passwordImageView.mas_right).offset(10);
         make.right.mas_equalTo(self.passwordBkView.mas_right).offset(-10);
         make.centerY.mas_equalTo(self.passwordBkView.mas_centerY);
@@ -165,7 +165,7 @@
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
     
-    self.navigationController.navigationBar.backgroundColor = COLOR_HEX(0x666666, 0.5);
+    self.navigationController.navigationBar.backgroundColor = WHITECOLOR;
 }
 
 - (void)loginBtnAction{

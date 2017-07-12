@@ -8,6 +8,8 @@
 
 #import "FontlibraryViewController.h"
 #import "FontCollectionViewCell.h"
+#import "RegistViewController.h"
+#import "ForgetPasswordViewController.h"
 
 @interface FontlibraryViewController ()
 
@@ -22,9 +24,6 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self createUI];
     
-    LoginViewController *loginVC = [[LoginViewController alloc] init];
-    loginVC.hidesBottomBarWhenPushed = YES;
-    [kCurNavController pushViewController:loginVC animated:YES];
 }
 
 - (void)createUI{
@@ -73,7 +72,9 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //点击某列
-    
+    RegistViewController *loginVC = [[RegistViewController alloc] init];
+    loginVC.hidesBottomBarWhenPushed = YES;
+    [kCurNavController pushViewController:loginVC animated:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
