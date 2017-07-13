@@ -99,6 +99,8 @@
 		AEB3D7281F1383E80091EE21 /* YiPaiCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEB3D7261F1383E80091EE21 /* YiPaiCollectionViewCell.xib */; };
 		AEB3D72B1F1612080091EE21 /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB3D72A1F1612080091EE21 /* RegistViewController.m */; };
 		AEB3D72E1F16121E0091EE21 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB3D72D1F16121E0091EE21 /* ForgetPasswordViewController.m */; };
+		AEB3D7321F1720D00091EE21 /* UserMoudle.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB3D7311F1720D00091EE21 /* UserMoudle.m */; };
+		AEB3D7351F176A7E0091EE21 /* CustomMessageCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB3D7341F176A7E0091EE21 /* CustomMessageCodeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -268,6 +270,10 @@
 		AEB3D72A1F1612080091EE21 /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
 		AEB3D72C1F16121E0091EE21 /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
 		AEB3D72D1F16121E0091EE21 /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
+		AEB3D7301F1720D00091EE21 /* UserMoudle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserMoudle.h; sourceTree = "<group>"; };
+		AEB3D7311F1720D00091EE21 /* UserMoudle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserMoudle.m; sourceTree = "<group>"; };
+		AEB3D7331F176A7E0091EE21 /* CustomMessageCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMessageCodeView.h; sourceTree = "<group>"; };
+		AEB3D7341F176A7E0091EE21 /* CustomMessageCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomMessageCodeView.m; sourceTree = "<group>"; };
 		FE4BF8FEA962BF522F157E8F /* libPods-Yuke.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yuke.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -329,6 +335,7 @@
 				AE61B6441F0248CF00C1F930 /* Category */,
 				AE61B66F1F02491C00C1F930 /* Config */,
 				AE61B6741F02495900C1F930 /* Tools */,
+				AEB3D72F1F1720D00091EE21 /* Model */,
 				AE61B6E61F0253AB00C1F930 /* LoginAndRegist */,
 				AE61B6B01F024AEC00C1F930 /* Workspace */,
 				AE61B6AF1F024AEC00C1F930 /* Fontlibrary */,
@@ -617,6 +624,8 @@
 				AEB3D72A1F1612080091EE21 /* RegistViewController.m */,
 				AEB3D72C1F16121E0091EE21 /* ForgetPasswordViewController.h */,
 				AEB3D72D1F16121E0091EE21 /* ForgetPasswordViewController.m */,
+				AEB3D7331F176A7E0091EE21 /* CustomMessageCodeView.h */,
+				AEB3D7341F176A7E0091EE21 /* CustomMessageCodeView.m */,
 			);
 			path = LoginAndRegist;
 			sourceTree = "<group>";
@@ -687,6 +696,15 @@
 			children = (
 			);
 			path = YuePhoto;
+			sourceTree = "<group>";
+		};
+		AEB3D72F1F1720D00091EE21 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AEB3D7301F1720D00091EE21 /* UserMoudle.h */,
+				AEB3D7311F1720D00091EE21 /* UserMoudle.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -840,6 +858,7 @@
 				AEB3D72B1F1612080091EE21 /* RegistViewController.m in Sources */,
 				AE61B6401F02486B00C1F930 /* SuoFangImage.m in Sources */,
 				AE61B6A81F0249A300C1F930 /* TZPhotoPreviewController.m in Sources */,
+				AEB3D7351F176A7E0091EE21 /* CustomMessageCodeView.m in Sources */,
 				AE61B6F21F025F8200C1F930 /* FontlibraryViewController.m in Sources */,
 				AE61B6D51F024C9900C1F930 /* JFiPhoneClient+UploadFile.m in Sources */,
 				AE61B6621F0248CF00C1F930 /* NSDictionary+Helper.m in Sources */,
@@ -853,6 +872,7 @@
 				AE61B6A71F0249A300C1F930 /* TZPhotoPreviewCell.m in Sources */,
 				AE61B61C1F02479F00C1F930 /* RootTabBarController.m in Sources */,
 				AEB3D7271F1383E80091EE21 /* YiPaiCollectionViewCell.m in Sources */,
+				AEB3D7321F1720D00091EE21 /* UserMoudle.m in Sources */,
 				AE61B6171F02479F00C1F930 /* BaseAlertViewController.m in Sources */,
 				AE61B66C1F0248CF00C1F930 /* UIView+FrameAddition.m in Sources */,
 				AE61B6611F0248CF00C1F930 /* NSArray+LogHelper.m in Sources */,

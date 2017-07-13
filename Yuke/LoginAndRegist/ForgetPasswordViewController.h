@@ -7,7 +7,8 @@
 //
 
 #import "BaseViewController.h"
+#import "CustomMessageCodeView.h"
 
-@interface ForgetPasswordViewController : BaseViewController
+@interface ForgetPasswordViewController : BaseViewController<CustomMessageCodeViewDelegate>
 
 @end

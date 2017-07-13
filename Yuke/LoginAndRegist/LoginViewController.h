@@ -6,7 +6,7 @@
 //  Copyright © 2016年 JF. All rights reserved.
 //
 
-typedef void(^MyBasicBlock) (id result);
+typedef void(^MyBasicBlock) (BOOL result);
 
 @interface LoginViewController : BaseViewController
 

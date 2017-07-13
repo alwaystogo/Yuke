@@ -100,7 +100,7 @@
 
 // 判断字符串是否是手机号
 - (BOOL) isMobile{
-    NSString *pattern = @"^1+[3578]+\\d{9}";
+    NSString *pattern = @"^1+[3456789]+\\d{9}";
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
     BOOL isMatch = [pred evaluateWithObject:self];
     return isMatch;

@@ -7,6 +7,8 @@
 //
 
 #import "LoginViewController.h"
+#import "RegistViewController.h"
+#import "ForgetPasswordViewController.h"
 
 //距离左右的距离
 #define leftAndRightDistance 33
@@ -37,6 +39,11 @@
     [self setLeftBackNavItem];
     
     [self createUI];
+    
+    UITapGestureRecognizer *resignFirstResponserTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignFirstResponserTap:)];
+    [self.view addGestureRecognizer:resignFirstResponserTap];
+    
+    [self setupNotification];
 }
 - (void)createUI{
     
@@ -51,7 +58,7 @@
     [self.phoneBkView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.view.mas_left).offset(leftAndRightDistance);
         make.right.mas_equalTo(self.view.mas_right).offset(-leftAndRightDistance);
-        make.top.mas_equalTo(self.view.mas_top).offset(200);
+        make.top.mas_equalTo(self.view.mas_top).offset(180 * BiLi_SCREENHEIGHT_NORMAL);
         make.height.mas_equalTo(35);
     }];
     UIImageView *phoneImageView = [[UIImageView alloc] initWithImage:[UIImage imageWithColor:[UIColor blueColor]]];
@@ -142,6 +149,8 @@
         make.size.mas_equalTo(CGSizeMake(75, 40));
     }];
 
+    self.phoneTextField.keyboardType = UIKeyboardTypeNumberPad;
+    self.passwordTextField.secureTextEntry  = YES;
 }
 - (void)viewWillAppear:(BOOL)animated{
     
@@ -168,14 +177,164 @@
     self.navigationController.navigationBar.backgroundColor = WHITECOLOR;
 }
 
+//检查是否已经登录
++ (BOOL)checkLogin:(MyBasicBlock)block{
+    
+    BOOL userHasLogin = !(kUserMoudle.user_Id == nil);
+    
+    /*通过单例中的userid是否为空来判断用户是否已经登录*/
+    if (userHasLogin) {
+        
+        NSLog(@"用户已经登录");
+        block(YES);
+        return YES;
+    }
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    UINavigationController *loginNav = [[UINavigationController alloc]
+                                        initWithRootViewController:loginVC];
+    loginVC.block = block;
+    [kCurNavController presentViewController:loginNav animated:YES completion:^{
+        
+    }];
+    return NO;
+}
+
+//登录成功之后调的方法
+- (void)loginDidSuccess{
+    
+    [kCurNavController dismissViewControllerAnimated:YES completion:nil];
+    
+    if (self.block) {
+        self.block(@(YES));
+    }
+}
+
++ (BOOL)isLogin{
+    
+    return !(kUserMoudle.user_Id == nil);
+}
+//返回按钮
+- (void)goBackToPrevPage{
+    
+    [super goBackToPrevPage];
+    
+    if (self.block) {
+        
+        self.block(NO);
+    }
+    
+}
+
 - (void)loginBtnAction{
     
     //登录
+    NSString *phoneString = self.phoneTextField.text;
+    
+    NSString *pwdString = self.passwordTextField.text;
+    
+    if (![phoneString isMobile]) {
+        
+        [JFTools showTipOnHUD:@"请输入正确格式的手机号码"];
+        
+        return;
+    }
+    
+    if ([pwdString isEmptyString]) {
+        [JFTools showTipOnHUD:@"请输入密码"];
+        
+        return;
+    }
+    
+    [self.view endEditing:YES];
+    
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    
+    [parameters safeSetObject:phoneString forKey:@"mobile"];
+    [parameters safeSetObject:pwdString forKey:@"password"];
+    
+     [JFTools showLoadingHUD];
+    [kJFClient login:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSLog(@"login:%@",responseObject);
+        [JFTools showSuccessHUDWithTip:@"登录成功"];
+        
+        NSDictionary *dic = (NSDictionary *)responseObject;
+        
+        //保存返回来的数据
+        kUserMoudle.user_mobile = phoneString;
+        [kUserMoudle saveDataToUserMoudle:dic];
+        
+        [self performSelector:@selector(loginDidSuccess) withObject:nil afterDelay:1.5];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        [JFTools showFailureHUDWithTip:error.localizedDescription];
+    }];
+
 }
 - (void)forgetPasswordBtnAction{
     
+    ForgetPasswordViewController *forgetVC = [[ForgetPasswordViewController alloc] init];
+    [kCurNavController pushViewController:forgetVC animated:YES];
 }
 - (void)registBtnAction{
     
+    RegistViewController *registVC = [[RegistViewController alloc] init];
+    [kCurNavController pushViewController:registVC animated:YES];
+}
+
+-(void)resignFirstResponserTap:(UITapGestureRecognizer *)tap{
+    [self.view endEditing:YES];
+}
+
+#pragma mark - CustomLoginTextFieldDelegate
+
+- (void)textFieldShouldReturn:(UITextField *) customTextField{
+    
+    [self.view endEditing:YES];
+}
+
+#pragma mark - notification
+
+// 键盘弹出
+- (void)keyboardShow:(NSNotification *) note{
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        
+//        [self.phoneBkView mas_remakeConstraints:^(MASConstraintMaker *make) {
+//            make.left.mas_equalTo(self.view.mas_left).offset(leftAndRightDistance);
+//            make.right.mas_equalTo(self.view.mas_right).offset(-leftAndRightDistance);
+//            make.top.mas_equalTo(self.view.mas_top).offset(NAVBAR_HEIGHT + 1);
+//            make.height.mas_equalTo(35);
+//        }];
+    }];
+    
+}
+
+// 键盘收起
+- (void)keyboardHidden:(NSNotification *) note{
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        
+//        [self.phoneBkView mas_remakeConstraints:^(MASConstraintMaker *make) {
+//            make.left.mas_equalTo(self.view.mas_left).offset(leftAndRightDistance);
+//            make.right.mas_equalTo(self.view.mas_right).offset(-leftAndRightDistance);
+//            make.top.mas_equalTo(self.view.mas_top).offset(200 * BiLi_SCREENHEIGHT_NORMAL);
+//            make.height.mas_equalTo(35);
+//        }];
+    }];
+}
+- (void)setupNotification{
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShow:) name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHidden:) name:UIKeyboardWillHideNotification object:nil];
+    
+}
+
+- (void)dealloc{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 @end

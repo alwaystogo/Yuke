@@ -22,7 +22,7 @@
 
 @property(nonatomic,strong)UIView *yanzhengmaBkView;
 @property(nonatomic,strong)UITextField *yanzhengmaField;
-@property(nonatomic,strong)UIButton *getMessageBtn;
+@property(nonatomic,strong)CustomMessageCodeView *getMessageView;
 
 @property(nonatomic,strong)UIButton *registBtn;
 
@@ -44,6 +44,9 @@
     
     [self createUI];
 
+    UITapGestureRecognizer *resignFirstResponserTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignFirstResponserTap:)];
+    [self.view addGestureRecognizer:resignFirstResponserTap];
+    [self setupNotification];
 }
 
 - (void)createUI{
@@ -59,7 +62,7 @@
     [self.phoneBkView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.view.mas_left).offset(leftAndRightDistance);
         make.right.mas_equalTo(self.view.mas_right).offset(-leftAndRightDistance);
-        make.top.mas_equalTo(self.view.mas_top).offset(150);
+        make.top.mas_equalTo(self.view.mas_top).offset(150 * BiLi_SCREENHEIGHT_NORMAL);
         make.height.mas_equalTo(35);
     }];
     UIImageView *phoneImageView = [[UIImageView alloc] initWithImage:[UIImage imageWithColor:[UIColor blueColor]]];
@@ -97,21 +100,19 @@
         make.right.mas_equalTo(self.yanzhengmaBkView.mas_right).offset(0);
         make.centerY.mas_equalTo(self.yanzhengmaBkView.mas_centerY);
     }];
-    self.getMessageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.getMessageBtn.layer.cornerRadius = 15;
-    self.getMessageBtn.backgroundColor = COLOR_HEX(0xffa632, 1);
-    [self.getMessageBtn setTitle:@"获取短信验证" forState:UIControlStateNormal];
-    [self.getMessageBtn setTitleColor:COLOR_HEX(0x333333, 1) forState:UIControlStateNormal];
-    self.getMessageBtn.titleLabel.font = FONT_REGULAR(14);
-    [self.getMessageBtn addTarget:self action:@selector(getMessageBtnAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.getMessageBtn];
-    [self.getMessageBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    
+    self.getMessageView = [[CustomMessageCodeView alloc] init];
+    self.getMessageView.delegate = self;
+    self.getMessageView.backgroundColor = COLOR_HEX(0xffa632, 1.0);
+    self.getMessageView.titleColor = COLOR_HEX(0x333333, 1);
+    self.getMessageView.timerLableColor = COLOR_HEX(0x333333, 1);
+    [self.view addSubview:self.getMessageView];
+    [self.getMessageView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.right.mas_equalTo(self.view.mas_right).offset(-leftAndRightDistance);
         make.top.mas_equalTo(self.phoneBkView.mas_bottom).offset(30);
         make.size.mas_equalTo(CGSizeMake(125, 35));
     }];
-
     
     self.passwordBkView = [[UIView alloc] init];
     self.passwordBkView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
@@ -201,9 +202,10 @@
     }];
     
     self.xieyiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    //[self.xieyiBtn setImage:[UIImage imageWithColor:[UIColor redColor]] forState:UIControlStateNormal];
+    [self.xieyiBtn setImage:[UIImage imageNamed:@"yuandian-weixuanzhong"] forState:UIControlStateNormal];
+    [self.xieyiBtn setImage:[UIImage imageNamed:@"yuandian"] forState:UIControlStateSelected];
     [self.xieyiBtn setBackgroundColor:[UIColor redColor]];
-    [self.xieyiBtn addTarget:self action:@selector(chooseXieyiBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.xieyiBtn addTarget:self action:@selector(chooseXieyiBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.xieyiBtn];
     [self.xieyiBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -212,6 +214,10 @@
         make.size.mas_equalTo(CGSizeMake(15, 15));
     }];
     
+    self.phoneTextField.keyboardType = UIKeyboardTypeNumberPad;
+    self.yanzhengmaField.keyboardType = UIKeyboardTypeNumberPad;
+    self.passwordTextField.secureTextEntry  = YES;
+    self.checkPasswordTextField.secureTextEntry = YES;
 }
 - (void)viewWillAppear:(BOOL)animated{
     
@@ -239,21 +245,133 @@
 }
 
 - (void)registBtnAction{
+
+    NSString *phoneString = self.phoneTextField.text;
+    NSString *code = self.yanzhengmaField.text;
+    NSString *passwordString = self.passwordTextField.text;
+    NSString *confirmPwdString = self.checkPasswordTextField.text;
     
-    [self.phoneBkView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.view.mas_left).offset(leftAndRightDistance);
-        make.right.mas_equalTo(self.view.mas_right).offset(-leftAndRightDistance);
-        make.top.mas_equalTo(self.view.mas_top).offset(NAVBAR_HEIGHT + 1);
-        make.height.mas_equalTo(35);
+    if (![phoneString isMobile]) {
+        
+        [JFTools showTipOnHUD:@"请输入正确格式的手机号码"];
+        return;
+    }
+    
+    if ([code isEmptyString]) {
+        
+        [JFTools showTipOnHUD:@"请先获取验证码并输入"];
+        return;
+    }
+    
+    if (![passwordString isLegalPassword]) {
+        [JFTools showTipOnHUD:@"密码格式不正确"];
+        return;
+    }
+    
+    if (![passwordString isEqualToString:confirmPwdString]) {
+        [JFTools showTipOnHUD:@"两次密码不一致"];
+        return;
+    }
+    
+    if (!self.xieyiBtn.selected) {
+        
+        [JFTools showTipOnHUD:@"请阅读并同意服务协议"];
+        return;
+    }
+    
+    [self.view endEditing:YES];
+    [JFTools showLoadingHUD];
+    
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters safeSetObject:phoneString forKey:@"mobile"];
+    [parameters safeSetObject:passwordString forKey:@"password"];
+    
+    WeakSelf;
+    [kJFClient regist:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"login:%@",responseObject);
+        
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [JFTools showFailureHUDWithTip:error.description];
     }];
-}
-- (void)getMessageBtnAction{
     
 }
-- (void)chooseXieyiBtnAction{
+//发送验证码
+#pragma mark - CustomLoginTextFieldDelegate
+- (void)customMessageCodeViewClickMessageCodeButton:(CustomMessageCodeView *) customMessageCodeView{
     
+//    NSString *phoneString = self.phoneTextField.text;
+//    if (![phoneString isMobile]) {
+//        
+//        [JFTools showTipOnHUD:@"请输入正确格式的手机号码"];
+//        return;
+//    }
+    
+    [customMessageCodeView beginTimer];
+    
+}
+
+- (void)chooseXieyiBtnAction:(UIButton *)btn{
+    
+    btn.selected = !btn.selected;
 }
 - (void)clickXieyiAction{
     
 }
+
+-(void)resignFirstResponserTap:(UITapGestureRecognizer *)tap{
+    [self.view endEditing:YES];
+}
+
+#pragma mark - CustomLoginTextFieldDelegate
+
+- (void)textFieldShouldReturn:(UITextField *) customTextField{
+    
+    [self.view endEditing:YES];
+}
+
+#pragma mark - notification
+
+// 键盘弹出
+- (void)keyboardShow:(NSNotification *) note{
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        
+                [self.phoneBkView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.left.mas_equalTo(self.view.mas_left).offset(leftAndRightDistance);
+                    make.right.mas_equalTo(self.view.mas_right).offset(-leftAndRightDistance);
+                    make.top.mas_equalTo(self.view.mas_top).offset(NAVBAR_HEIGHT + 1);
+                    make.height.mas_equalTo(35);
+                }];
+    }];
+    
+}
+
+// 键盘收起
+- (void)keyboardHidden:(NSNotification *) note{
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        
+                [self.phoneBkView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.left.mas_equalTo(self.view.mas_left).offset(leftAndRightDistance);
+                    make.right.mas_equalTo(self.view.mas_right).offset(-leftAndRightDistance);
+                    make.top.mas_equalTo(self.view.mas_top).offset(150 * BiLi_SCREENHEIGHT_NORMAL);
+                    make.height.mas_equalTo(35);
+                }];
+    }];
+}
+- (void)setupNotification{
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShow:) name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHidden:) name:UIKeyboardWillHideNotification object:nil];
+    
+}
+
+- (void)dealloc{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
 @end

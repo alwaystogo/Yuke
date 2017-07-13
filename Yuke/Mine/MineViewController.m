@@ -25,7 +25,7 @@
     // Do any additional setup after loading the view.
     
     //[self login];
-    [self regist];
+    //[self regist];
      self.dataArray = @[@"分享娱客",@"联系电话",@"使用秘籍",@"意见反馈",@"清空缓存",@"退出登录"];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self createUI];
@@ -258,6 +258,7 @@
     [kJFClient login:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSLog(@"login:%@",responseObject);
+        
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         

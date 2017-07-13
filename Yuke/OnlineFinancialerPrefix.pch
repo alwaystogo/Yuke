@@ -55,5 +55,6 @@
 #import "JFRefreshControl.h"
 
 #import "LoginViewController.h"
+#import "UserMoudle.h"
 
 #endif /* OnlineFinancialerPrefix_pch */

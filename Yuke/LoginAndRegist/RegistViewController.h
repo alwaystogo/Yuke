@@ -7,7 +7,8 @@
 //
 
 #import "BaseViewController.h"
+#import "CustomMessageCodeView.h"
 
-@interface RegistViewController : BaseViewController
+@interface RegistViewController : BaseViewController<CustomMessageCodeViewDelegate>
 
 @end

@@ -72,9 +72,18 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //点击某列
-    RegistViewController *loginVC = [[RegistViewController alloc] init];
-    loginVC.hidesBottomBarWhenPushed = YES;
-    [kCurNavController pushViewController:loginVC animated:YES];
+    
+//    LoginViewController *loginVC = [[LoginViewController alloc] init];
+//    loginVC.hidesBottomBarWhenPushed = YES;
+//    [kCurNavController pushViewController:loginVC animated:YES];
+    [LoginViewController checkLogin:^(BOOL result) {
+        
+        if (result) {
+            NSLog(@"登录成功");
+        }else{
+            NSLog(@"登录失败");
+        }
+    }];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
