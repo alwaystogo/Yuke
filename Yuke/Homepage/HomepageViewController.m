@@ -8,11 +8,14 @@
 
 #import "HomepageViewController.h"
 #import "HotCollectionViewCell.h"
+#import "NewHuodongViewController.h"
+#import "YirenViewController.h"
 
 #define fourWidth 27
 #define hotPicWidth 181
 #define hotPicHeight 220
 
+#define baseTag 1000
 @interface HomepageViewController ()
 
 @property(nonatomic,assign)CGFloat label1MaxY;
@@ -87,19 +90,27 @@
     CGFloat jianju = (SCREEN_WIDTH - 66 - fourWidth * 4) / 3;
     
     UIImageView *imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(33, CGRectGetMaxY(self.carouselSV.frame) + 15, fourWidth, fourWidth)];
+    imageView1.userInteractionEnabled = YES;
     imageView1.image = [UIImage imageWithColor:[UIColor grayColor]];
+    imageView1.tag = baseTag + 1;
     [self.bkScrollView addSubview:imageView1];
     
     UIImageView *imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView1.frame) + jianju, CGRectGetMaxY(self.carouselSV.frame) + 15, fourWidth, fourWidth)];
+    imageView2.userInteractionEnabled = YES;
     imageView2.image = [UIImage imageWithColor:[UIColor grayColor]];
+    imageView2.tag = baseTag + 2;
     [self.bkScrollView addSubview:imageView2];
     
     UIImageView *imageView3 = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView2.frame) + jianju, CGRectGetMaxY(self.carouselSV.frame) + 15, fourWidth, fourWidth)];
+    imageView3.userInteractionEnabled = YES;
     imageView3.image = [UIImage imageWithColor:[UIColor grayColor]];
+    imageView3.tag = baseTag + 3;
     [self.bkScrollView addSubview:imageView3];
     
     UIImageView *imageView4 = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView3.frame) + jianju, CGRectGetMaxY(self.carouselSV.frame) + 15, fourWidth, fourWidth)];
+    imageView4.userInteractionEnabled = YES;
     imageView4.image = [UIImage imageWithColor:[UIColor grayColor]];
+    imageView4.tag = baseTag + 4;
     [self.bkScrollView addSubview:imageView4];
 
     UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(imageView1.frame), 60,30)];
@@ -108,6 +119,8 @@
     label1.font = FONT_REGULAR(12);
     label1.textColor = COLOR_HEX(0x333333, 1);
     label1.textAlignment = NSTextAlignmentCenter;
+    label1.userInteractionEnabled = YES;
+    label1.tag = baseTag + 1;
     [self.bkScrollView addSubview:label1];
     
     self.label1MaxY = CGRectGetMaxY(label1.frame);
@@ -118,6 +131,8 @@
     label2.font = FONT_REGULAR(12);
     label2.textColor = COLOR_HEX(0x333333, 1);
     label2.textAlignment = NSTextAlignmentCenter;
+    label2.userInteractionEnabled = YES;
+    label2.tag = baseTag + 2;
     [self.bkScrollView addSubview:label2];
     
     UILabel *label3 = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(imageView1.frame), 60,30)];
@@ -126,6 +141,8 @@
     label3.font = FONT_REGULAR(12);
     label3.textColor = COLOR_HEX(0x333333, 1);
     label3.textAlignment = NSTextAlignmentCenter;
+    label3.userInteractionEnabled = YES;
+    label3.tag = baseTag + 3;
     [self.bkScrollView addSubview:label3];
 
     UILabel *label4 = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(imageView1.frame), 60,30)];
@@ -134,7 +151,28 @@
     label4.font = FONT_REGULAR(12);
     label4.textColor = COLOR_HEX(0x333333, 1);
     label4.textAlignment = NSTextAlignmentCenter;
+    label4.userInteractionEnabled = YES;
+    label4.tag = baseTag + 4;
     [self.bkScrollView addSubview:label4];
+    
+    UITapGestureRecognizer *tapGr1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBtnAction:)];
+    UITapGestureRecognizer *tapGr2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBtnAction:)];
+    UITapGestureRecognizer *tapGr3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBtnAction:)];
+    UITapGestureRecognizer *tapGr4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBtnAction:)];
+    UITapGestureRecognizer *tapGr5 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBtnAction:)];
+    UITapGestureRecognizer *tapGr6 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBtnAction:)];
+    UITapGestureRecognizer *tapGr7 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBtnAction:)];
+    UITapGestureRecognizer *tapGr8 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBtnAction:)];
+    [imageView1 addGestureRecognizer:tapGr1];
+    [label1 addGestureRecognizer:tapGr2];
+    [imageView2 addGestureRecognizer:tapGr3];
+    [label2 addGestureRecognizer:tapGr4];
+    [imageView3 addGestureRecognizer:tapGr5];
+    [label3 addGestureRecognizer:tapGr6];
+    [imageView4 addGestureRecognizer:tapGr7];
+    [label4 addGestureRecognizer:tapGr8];
+
+    
 }
 
 - (void)createInfoShow{
@@ -263,4 +301,32 @@
 
 }
 
+- (void)tapBtnAction:(UITapGestureRecognizer *)tapGR{
+    
+    NSInteger tag = tapGR.view.tag - baseTag;
+
+    
+    NSLog(@"点击了tag - %ld",tag);
+    if (tag == 1) {
+        //mei
+    }
+    
+    if (tag == 2) {
+        //yi
+        YirenViewController *yirenVC = [[YirenViewController alloc] init];
+        yirenVC.hidesBottomBarWhenPushed = YES;
+        [kCurNavController pushViewController:yirenVC animated:YES];
+    }
+    
+    if (tag == 3) {
+        //zui
+        NewHuodongViewController *newVC = [[NewHuodongViewController alloc] init];
+        newVC.hidesBottomBarWhenPushed = YES;
+        [kCurNavController pushViewController:newVC animated:YES];
+    }
+    
+    if (tag == 4) {
+        //shang
+    }
+}
 @end
