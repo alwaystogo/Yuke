@@ -10,6 +10,7 @@
 #import "HotCollectionViewCell.h"
 #import "NewHuodongViewController.h"
 #import "YirenViewController.h"
+#import "MeiriZuXunViewController.h"
 
 #define fourWidth 27
 #define hotPicWidth 181
@@ -309,6 +310,9 @@
     NSLog(@"点击了tag - %ld",tag);
     if (tag == 1) {
         //mei
+        MeiriZuXunViewController *zuXunVC = [[MeiriZuXunViewController alloc] init];
+        zuXunVC.hidesBottomBarWhenPushed = YES;
+        [kCurNavController pushViewController:zuXunVC animated:YES];
     }
     
     if (tag == 2) {
