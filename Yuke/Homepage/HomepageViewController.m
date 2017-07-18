@@ -13,6 +13,7 @@
 #import "MeiriZuXunViewController.h"
 #import "PicShowViewController.h"
 #import "VieoShowViewController.h"
+#import "ShangwuhezuoViewController.h"
 
 #define fourWidth 27
 #define hotPicWidth 181
@@ -341,6 +342,9 @@
     
     if (tag == 4) {
         //shang
+        ShangwuhezuoViewController *newVC = [[ShangwuhezuoViewController alloc] init];
+        newVC.hidesBottomBarWhenPushed = YES;
+        [kCurNavController pushViewController:newVC animated:YES];
     }
 }
 
@@ -360,17 +364,16 @@
 - (void)updatePicRequst{
     
     
-    UIImage *image = [UIImage imageNamed:@"unloginphoto"];
-    NSData *data = UIImageJPEGRepresentation(image, 0.8);
-    NSString *pictureDataString=[data base64Encoding];
-    NSDictionary *dic = @{@"user_id":NON(kUserMoudle.user_Id)};
-    [JFTools showLoadingHUD];
-    [kJFClient uploadPictureWithMethod:@"index.php/Api/Card/update_card" param:dic picData:image paramName:@"image" success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"---%@",responseObject);
-        [JFTools showSuccessHUDWithTip:@"上传图片成功"];
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [JFTools showFailureHUDWithTip:error.localizedDescription];
-    }];
-    
+//    UIImage *image = [UIImage imageNamed:@"unloginphoto"];
+//    
+//    NSDictionary *dic = @{@"user_id":NON(kUserMoudle.user_Id)};
+//    [JFTools showLoadingHUD];
+//    [kJFClient uploadPictureWithMethod:@"index.php/Api/Card/update_card" param:dic picData:image paramName:@"image" success:^(NSURLSessionDataTask *task, id responseObject) {
+//        NSLog(@"---%@",responseObject);
+//        [JFTools showSuccessHUDWithTip:@"上传图片成功"];
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        [JFTools showFailureHUDWithTip:error.localizedDescription];
+//    }];
+//    
 }
 @end

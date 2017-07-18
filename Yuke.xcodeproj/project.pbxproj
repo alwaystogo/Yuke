@@ -120,6 +120,8 @@
 		AEDDAB571F1DB5C7006BD05A /* VieoShowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEDDAB551F1DB5C7006BD05A /* VieoShowCell.xib */; };
 		AEDDAB5B1F1DB9E6006BD05A /* ModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDDAB591F1DB9E6006BD05A /* ModifyPasswordViewController.m */; };
 		AEDDAB5C1F1DB9E6006BD05A /* ModifyPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEDDAB5A1F1DB9E6006BD05A /* ModifyPasswordViewController.xib */; };
+		E82FDD001F1E490400A3A9A3 /* ShangwuhezuoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E82FDCFE1F1E490400A3A9A3 /* ShangwuhezuoViewController.m */; };
+		E82FDD011F1E490400A3A9A3 /* ShangwuhezuoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E82FDCFF1F1E490400A3A9A3 /* ShangwuhezuoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -324,6 +326,9 @@
 		AEDDAB581F1DB9E6006BD05A /* ModifyPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPasswordViewController.h; sourceTree = "<group>"; };
 		AEDDAB591F1DB9E6006BD05A /* ModifyPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPasswordViewController.m; sourceTree = "<group>"; };
 		AEDDAB5A1F1DB9E6006BD05A /* ModifyPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModifyPasswordViewController.xib; sourceTree = "<group>"; };
+		E82FDCFD1F1E490400A3A9A3 /* ShangwuhezuoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangwuhezuoViewController.h; sourceTree = "<group>"; };
+		E82FDCFE1F1E490400A3A9A3 /* ShangwuhezuoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShangwuhezuoViewController.m; sourceTree = "<group>"; };
+		E82FDCFF1F1E490400A3A9A3 /* ShangwuhezuoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShangwuhezuoViewController.xib; sourceTree = "<group>"; };
 		FE4BF8FEA962BF522F157E8F /* libPods-Yuke.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yuke.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -650,6 +655,9 @@
 				AEDDAB531F1DB5C7006BD05A /* VieoShowCell.h */,
 				AEDDAB541F1DB5C7006BD05A /* VieoShowCell.m */,
 				AEDDAB551F1DB5C7006BD05A /* VieoShowCell.xib */,
+				E82FDCFD1F1E490400A3A9A3 /* ShangwuhezuoViewController.h */,
+				E82FDCFE1F1E490400A3A9A3 /* ShangwuhezuoViewController.m */,
+				E82FDCFF1F1E490400A3A9A3 /* ShangwuhezuoViewController.xib */,
 			);
 			path = Homepage;
 			sourceTree = "<group>";
@@ -852,6 +860,7 @@
 			files = (
 				AE7FA0C41F0E0D95009A8F12 /* MineCell.xib in Resources */,
 				AE7FA0CD1F0E207E009A8F12 /* Settings.storyboard in Resources */,
+				E82FDD011F1E490400A3A9A3 /* ShangwuhezuoViewController.xib in Resources */,
 				AE61B63F1F02486B00C1F930 /* ShareView.xib in Resources */,
 				AE61B6031F02065400C1F930 /* LaunchScreen.storyboard in Resources */,
 				AE61B6001F02065400C1F930 /* Assets.xcassets in Resources */,
@@ -987,6 +996,7 @@
 				AE61B6D91F024DA900C1F930 /* JFiPhoneClient+Workspace.m in Sources */,
 				AE61B6A51F0249A300C1F930 /* TZImagePickerController.m in Sources */,
 				AE61B6DC1F024DBD00C1F930 /* JFiPhoneClient+Fontlibrary.m in Sources */,
+				E82FDD001F1E490400A3A9A3 /* ShangwuhezuoViewController.m in Sources */,
 				AEB3D72E1F16121E0091EE21 /* ForgetPasswordViewController.m in Sources */,
 				AE61B6EF1F025F6D00C1F930 /* YuePhotoViewController.m in Sources */,
 				AE61B6A01F0249A300C1F930 /* NSBundle+TZImagePicker.m in Sources */,

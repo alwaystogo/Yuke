@@ -31,7 +31,7 @@
             return ;
         }
         NSData *picData = UIImageJPEGRepresentation(pic, 0.8);
-        picData = [picData base64EncodedDataWithOptions:0];
+        
         NSString *fileName = [NSString stringWithFormat:@"%@.png",paramName];
         
         [formData appendPartWithFileData:picData name:paramName fileName:fileName mimeType:@"image/jpeg/png"];
