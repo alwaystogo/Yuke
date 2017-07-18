@@ -12,7 +12,7 @@
 #define kUserSaveFileName @"saveUser.archive"
 #define kUserArchiveKey   @"JFUserInfo_ArchiveKey"
 
-#define kUser_userId    @"userId"
+#define kUser_userId    @"user_id"
 #define kUser_token     @"token"
 #define kUSer_status    @"status"
 #define kUSer_nick      @"userNick"
@@ -132,7 +132,7 @@
 
 //登录的接口返回的数据
 - (void)saveDataToUserMoudle:(NSDictionary *)dic{
-    _user_Id = dic[@"userId"];
+    _user_Id = dic[@"user_id"];
     _user_Token  = dic[@"token"];
     _user_Nick = NON(dic[@"nickName"]);
     _user_avatar = dic[@"headimg"];

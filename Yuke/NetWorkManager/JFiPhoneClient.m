@@ -82,11 +82,12 @@ static NSString *const JFErrorDomain = @"Yuke.com";
         id result = [self parseResponse:responseObject];
         
         NSLog(@"---- PARAMETER %@",temp);
-        NSLog(@"---- RESPONSE OBJECT : %@",(NSDictionary *)result);
+        //NSLog(@"---- RESPONSE OBJECT : %@",(NSDictionary *)result);
         if ([result isKindOfClass:[NSError class]]) {
             NSError *error = (NSError *)result;
-            NSLog(@"ERROR DESC : %@",error.localizedDescription);
+            NSLog(@"REQUEST ERROR CODE : %zd",error.code);
             //token失效
+            failure(task, (NSError *)result);
             
         } else{
             success(task ,result);
@@ -95,11 +96,12 @@ static NSString *const JFErrorDomain = @"Yuke.com";
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
     
         error = [self parseFailureError:error];
-        NSLog(@"---- PARAMETER %@",temp);
         NSLog(@"REQUEST ERROR CODE : %zd",error.code);
-        NSLog(@"ERROR DESC : %@",error.localizedDescription);
+        //NSLog(@"ERROR DESC : %@",error.localizedDescription);
 
         //token失效
+        failure(task, error);
+
 }];
     
     NSLog(@"---- REQUEST URL : %@",task.currentRequest.URL.absoluteString);

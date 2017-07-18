@@ -26,5 +26,19 @@
                   success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
                   failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure;
 
+- (void)modifyPassword:(NSDictionary *)params
+      success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+      failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure;
 
+- (void)newHuodongList:(NSDictionary *)params
+               success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+               failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure;
+
+- (void)picShowList:(NSDictionary *)params
+               success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+               failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure;
+
+- (void)updatePic:(NSDictionary *)params
+          success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+          failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure;
 @end

@@ -1,25 +1,25 @@
 //
-//  NewHuodongViewController.m
+//  PicShowViewController.m
 //  Yuke
 //
-//  Created by yangyunfei on 2017/7/14.
+//  Created by yangyunfei on 2017/7/18.
 //  Copyright © 2017年 yang. All rights reserved.
 //
 
-#import "NewHuodongViewController.h"
-#import "NewHuodongCell.h"
+#import "PicShowViewController.h"
+#import "PicShowCell.h"
 
-@interface NewHuodongViewController ()
+@interface PicShowViewController ()
 
 @end
 
-@implementation NewHuodongViewController
+@implementation PicShowViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"最新活动";
+    self.title = @"资料展示";
     [self setLeftBackNavItem];
     [self createUI];
     
@@ -37,7 +37,7 @@
     self.tableView.showsHorizontalScrollIndicator = NO;
     self.tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.tableView];
-
+    
 }
 
 //组的个数
@@ -53,15 +53,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *indentify = @"NewHuodongCell";
+    static NSString *indentify = @"PicShowCell";
     
-    NewHuodongCell *cell = [tableView dequeueReusableCellWithIdentifier:indentify];
+    PicShowCell *cell = [tableView dequeueReusableCellWithIdentifier:indentify];
     if (cell == nil) {
         
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"NewHuodongCell" owner:self options:nil] lastObject];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"PicShowCell" owner:self options:nil] lastObject];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.picImageView.image = [UIImage imageWithColor:[UIColor grayColor]];
+    
     return cell;
 }
 
@@ -73,12 +73,11 @@
 - (void)requestListData{
     
     [JFTools showLoadingHUD];
-    [kJFClient newHuodongList:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"huodongList - %@",responseObject);
+    [kJFClient picShowList:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"piclist - %@",responseObject);
         [JFTools HUDHide];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [JFTools showFailureHUDWithTip:error.localizedDescription];
     }];
 }
-
 @end

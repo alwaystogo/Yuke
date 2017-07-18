@@ -263,11 +263,6 @@
         return;
     }
     
-    if (![passwordString isLegalPassword]) {
-        [JFTools showTipOnHUD:@"密码格式不正确"];
-        return;
-    }
-    
     if (![passwordString isEqualToString:confirmPwdString]) {
         [JFTools showTipOnHUD:@"两次密码不一致"];
         return;
@@ -292,7 +287,7 @@
         
         [weakSelf.navigationController popViewControllerAnimated:YES];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [JFTools showFailureHUDWithTip:error.description];
+        [JFTools showFailureHUDWithTip:error.localizedDescription];
     }];
     
 }

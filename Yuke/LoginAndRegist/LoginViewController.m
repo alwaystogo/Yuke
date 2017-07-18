@@ -262,7 +262,8 @@
         
         //保存返回来的数据
         kUserMoudle.user_mobile = phoneString;
-        [kUserMoudle saveDataToUserMoudle:dic];
+        
+        [kUserMoudle saveDataToUserMoudle:[dic objectForKeySafe:@"user"]];
         
         [self performSelector:@selector(loginDidSuccess) withObject:nil afterDelay:1.5];
         

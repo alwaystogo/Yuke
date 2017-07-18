@@ -11,8 +11,10 @@
 #import "MineCell.h"
 #import "AppConfig.h"
 #import "FeedBackViewController.h"
+#import "ModifyPasswordViewController.h"
 
 #define fourWidth 22
+#define baseTag 5000
 
 @interface MineViewController ()
 
@@ -24,9 +26,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //[self login];
-    //[self regist];
-     self.dataArray = @[@"分享娱客",@"联系电话",@"使用秘籍",@"意见反馈",@"清空缓存",@"退出登录"];
+    self.dataArray = @[@"分享娱客",@"联系电话",@"使用秘籍",@"意见反馈",@"清空缓存",@"退出登录"];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self createUI];
 }
@@ -78,12 +78,18 @@
     
     UIImageView *imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(36, 147, fourWidth, fourWidth)];
     imageView1.image = [UIImage imageWithColor:[UIColor grayColor]];
+    imageView1.tag = baseTag + 1;
+    imageView1.userInteractionEnabled = YES;
     [self.bkScrollView addSubview:imageView1];
     UIImageView *imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView1.frame) + jianju, 147, fourWidth, fourWidth)];
     imageView2.image = [UIImage imageWithColor:[UIColor grayColor]];
+    imageView2.tag = baseTag + 2;
+    imageView2.userInteractionEnabled = YES;
     [self.bkScrollView addSubview:imageView2];
     UIImageView *imageView3 = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView2.frame) + jianju, 147, fourWidth, fourWidth)];
     imageView3.image = [UIImage imageWithColor:[UIColor grayColor]];
+    imageView3.tag = baseTag + 3;
+    imageView3.userInteractionEnabled = YES;
     [self.bkScrollView addSubview:imageView3];
     
     UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(imageView1.frame), 60,30)];
@@ -92,6 +98,8 @@
     label1.font = FONT_REGULAR(12);
     label1.textColor = COLOR_HEX(0x333333, 1);
     label1.textAlignment = NSTextAlignmentCenter;
+    label1.userInteractionEnabled = YES;
+    label1.tag = baseTag + 1;
     [self.bkScrollView addSubview:label1];
     UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(imageView1.frame), 60,30)];
     label2.centerX = imageView2.centerX;
@@ -99,6 +107,8 @@
     label2.font = FONT_REGULAR(12);
     label2.textColor = COLOR_HEX(0x333333, 1);
     label2.textAlignment = NSTextAlignmentCenter;
+    label2.userInteractionEnabled = YES;
+    label2.tag = baseTag + 2;
     [self.bkScrollView addSubview:label2];
     UILabel *label3 = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(imageView1.frame), 60,30)];
     label3.centerX = imageView3.centerX;
@@ -106,7 +116,23 @@
     label3.font = FONT_REGULAR(12);
     label3.textColor = COLOR_HEX(0x333333, 1);
     label3.textAlignment = NSTextAlignmentCenter;
+    label3.userInteractionEnabled = YES;
+    label3.tag = baseTag + 3;
     [self.bkScrollView addSubview:label3];
+    
+    UITapGestureRecognizer *tapGr1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBtnAction:)];
+    UITapGestureRecognizer *tapGr2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBtnAction:)];
+    UITapGestureRecognizer *tapGr3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBtnAction:)];
+    UITapGestureRecognizer *tapGr4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBtnAction:)];
+    UITapGestureRecognizer *tapGr5 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBtnAction:)];
+    UITapGestureRecognizer *tapGr6 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBtnAction:)];
+    [imageView1 addGestureRecognizer:tapGr1];
+    [label1 addGestureRecognizer:tapGr2];
+    [imageView2 addGestureRecognizer:tapGr3];
+    [label2 addGestureRecognizer:tapGr4];
+    [imageView3 addGestureRecognizer:tapGr5];
+    [label3 addGestureRecognizer:tapGr6];
+
     
     //线
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(label1.frame)+10, SCREEN_WIDTH, 2)];
@@ -151,7 +177,7 @@
     cell.leftPicImageView.backgroundColor = [UIColor grayColor];
     if (indexPath.row == 1) {
         //电话
-        cell.rightTextLabel.text = [NSString stringWithFormat:@"%@",@"13701166699"];
+        cell.rightTextLabel.text = [NSString stringWithFormat:@"%@",NON(kUserMoudle.user_mobile)];
         cell.rightTextLabel.font = FONT_REGULAR(13);
         cell.rightTextLabel.textColor = COLOR_HEX(0x333333, 1);
         cell.rightPicImageView.hidden = YES;
@@ -208,7 +234,21 @@
         case 5:
         {
             //退出
-            
+            [JFTools showAlertWithTitle:@"提示"
+                                message:@"是否退出当前账户？"
+                            cancelTitle:@"确定"
+                             otherTitle:@"取消"
+                             completion:^(BOOL canceled, NSInteger buttonIndex) {
+                                 
+                                 if (canceled) {
+                                     [kUserMoudle removeUserLoginInfo];
+                                     [kAppDelegate.tabBarController setSelectedIndex:2];
+                                     kAppDelegate.tabBarController.tabBar.hidden = NO;
+                                     
+                                 }
+                             }
+            ];
+
         }
             break;
         default:
@@ -240,6 +280,28 @@
     };
 }
 
+- (void)tapBtnAction:(UITapGestureRecognizer *)tapGR{
+    
+    NSInteger tag = tapGR.view.tag - baseTag;
+    
+    
+    NSLog(@"点击了tag - %ld",tag);
+    if (tag == 1) {
+        
+    }
+    
+    if (tag == 2) {
+        
+    }
+    
+    if (tag == 3) {
+     
+        ModifyPasswordViewController *newVC = [[ModifyPasswordViewController alloc] init];
+        newVC.hidesBottomBarWhenPushed = YES;
+        [kCurNavController pushViewController:newVC animated:YES];
+    }
+}
+
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     
@@ -250,30 +312,7 @@
     [super viewWillAppear:animated];
     
     self.navigationController.navigationBarHidden = YES;
-}
-
-- (void)login{
-    
-    NSDictionary *dic = @{@"mobile":@"13701166693",@"password":@"123456"};
-    [kJFClient login:dic success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-        NSLog(@"login:%@",responseObject);
-        
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
-        [JFTools showFailureHUDWithTip:error.description];
-    }];
-}
-- (void)regist{
-    
-    NSDictionary *dic = @{@"mobile":@"13701166693",@"password":@"123456"};
-    [kJFClient regist:dic success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"login:%@",responseObject);
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [JFTools showFailureHUDWithTip:error.description];
-    }];
+    [self.tableView reloadData];
 }
 
 @end

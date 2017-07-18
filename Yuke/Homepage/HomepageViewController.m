@@ -11,6 +11,8 @@
 #import "NewHuodongViewController.h"
 #import "YirenViewController.h"
 #import "MeiriZuXunViewController.h"
+#import "PicShowViewController.h"
+#import "VieoShowViewController.h"
 
 #define fourWidth 27
 #define hotPicWidth 181
@@ -35,6 +37,8 @@
 
     [self requestBanner];
     [self requestHot];
+    
+    [self updatePicRequst];
 }
 
 - (void)createUI{
@@ -91,9 +95,9 @@
     CGFloat jianju = (SCREEN_WIDTH - 66 - fourWidth * 4) / 3;
     
     UIImageView *imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(33, CGRectGetMaxY(self.carouselSV.frame) + 15, fourWidth, fourWidth)];
-    imageView1.userInteractionEnabled = YES;
     imageView1.image = [UIImage imageWithColor:[UIColor grayColor]];
     imageView1.tag = baseTag + 1;
+    imageView1.userInteractionEnabled = YES;
     [self.bkScrollView addSubview:imageView1];
     
     UIImageView *imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView1.frame) + jianju, CGRectGetMaxY(self.carouselSV.frame) + 15, fourWidth, fourWidth)];
@@ -195,12 +199,18 @@
     UIImageView *imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(imageView1.frame) + 3, imageWidth, 272/2 * (imageWidth/ (345/2)))];
     imageView2.image = [UIImage imageWithColor:[UIColor grayColor]];
     [self.bkScrollView addSubview:imageView2];
+    imageView2.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapPicShow = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapPicShowAction)];
+    [imageView2 addGestureRecognizer:tapPicShow];
     
     self.picImageViewMaxY = CGRectGetMaxY(imageView2.frame);
     
     UIImageView *imageView3 = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView2.frame) + 10, CGRectGetMaxY(imageView1.frame) + 3, imageWidth, 272/2 * (imageWidth/ (345/2)))];
     imageView3.image = [UIImage imageWithColor:[UIColor grayColor]];
     [self.bkScrollView addSubview:imageView3];
+    imageView3.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapVieoShow = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapVieoShowAction)];
+    [imageView3 addGestureRecognizer:tapVieoShow];
 }
 
 - (void)createHot{
@@ -332,5 +342,35 @@
     if (tag == 4) {
         //shang
     }
+}
+
+- (void)tapPicShowAction{
+    
+    PicShowViewController *newVC = [[PicShowViewController alloc] init];
+    newVC.hidesBottomBarWhenPushed = YES;
+    [kCurNavController pushViewController:newVC animated:YES];
+}
+- (void)tapVieoShowAction{
+    
+    VieoShowViewController *newVC = [[VieoShowViewController alloc] init];
+    newVC.hidesBottomBarWhenPushed = YES;
+    [kCurNavController pushViewController:newVC animated:YES];
+}
+
+- (void)updatePicRequst{
+    
+    
+    UIImage *image = [UIImage imageNamed:@"unloginphoto"];
+    NSData *data = UIImageJPEGRepresentation(image, 0.8);
+    NSString *pictureDataString=[data base64Encoding];
+    NSDictionary *dic = @{@"user_id":NON(kUserMoudle.user_Id)};
+    [JFTools showLoadingHUD];
+    [kJFClient uploadPictureWithMethod:@"index.php/Api/Card/update_card" param:dic picData:image paramName:@"image" success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"---%@",responseObject);
+        [JFTools showSuccessHUDWithTip:@"上传图片成功"];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [JFTools showFailureHUDWithTip:error.localizedDescription];
+    }];
+    
 }
 @end

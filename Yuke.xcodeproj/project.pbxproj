@@ -112,6 +112,14 @@
 		AEDDAB421F1CA160006BD05A /* ZuXunCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEDDAB401F1CA160006BD05A /* ZuXunCell.xib */; };
 		AEDDAB461F1CB042006BD05A /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDDAB441F1CB042006BD05A /* MenuCell.m */; };
 		AEDDAB471F1CB042006BD05A /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEDDAB451F1CB042006BD05A /* MenuCell.xib */; };
+		AEDDAB4A1F1DABB7006BD05A /* PicShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDDAB491F1DABB7006BD05A /* PicShowViewController.m */; };
+		AEDDAB4D1F1DABDE006BD05A /* VieoShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDDAB4C1F1DABDE006BD05A /* VieoShowViewController.m */; };
+		AEDDAB511F1DB2A3006BD05A /* PicShowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDDAB4F1F1DB2A3006BD05A /* PicShowCell.m */; };
+		AEDDAB521F1DB2A3006BD05A /* PicShowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEDDAB501F1DB2A3006BD05A /* PicShowCell.xib */; };
+		AEDDAB561F1DB5C7006BD05A /* VieoShowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDDAB541F1DB5C7006BD05A /* VieoShowCell.m */; };
+		AEDDAB571F1DB5C7006BD05A /* VieoShowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEDDAB551F1DB5C7006BD05A /* VieoShowCell.xib */; };
+		AEDDAB5B1F1DB9E6006BD05A /* ModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDDAB591F1DB9E6006BD05A /* ModifyPasswordViewController.m */; };
+		AEDDAB5C1F1DB9E6006BD05A /* ModifyPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEDDAB5A1F1DB9E6006BD05A /* ModifyPasswordViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -303,6 +311,19 @@
 		AEDDAB431F1CB042006BD05A /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
 		AEDDAB441F1CB042006BD05A /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
 		AEDDAB451F1CB042006BD05A /* MenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
+		AEDDAB481F1DABB7006BD05A /* PicShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicShowViewController.h; sourceTree = "<group>"; };
+		AEDDAB491F1DABB7006BD05A /* PicShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicShowViewController.m; sourceTree = "<group>"; };
+		AEDDAB4B1F1DABDE006BD05A /* VieoShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VieoShowViewController.h; sourceTree = "<group>"; };
+		AEDDAB4C1F1DABDE006BD05A /* VieoShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VieoShowViewController.m; sourceTree = "<group>"; };
+		AEDDAB4E1F1DB2A3006BD05A /* PicShowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicShowCell.h; sourceTree = "<group>"; };
+		AEDDAB4F1F1DB2A3006BD05A /* PicShowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicShowCell.m; sourceTree = "<group>"; };
+		AEDDAB501F1DB2A3006BD05A /* PicShowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicShowCell.xib; sourceTree = "<group>"; };
+		AEDDAB531F1DB5C7006BD05A /* VieoShowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VieoShowCell.h; sourceTree = "<group>"; };
+		AEDDAB541F1DB5C7006BD05A /* VieoShowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VieoShowCell.m; sourceTree = "<group>"; };
+		AEDDAB551F1DB5C7006BD05A /* VieoShowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VieoShowCell.xib; sourceTree = "<group>"; };
+		AEDDAB581F1DB9E6006BD05A /* ModifyPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPasswordViewController.h; sourceTree = "<group>"; };
+		AEDDAB591F1DB9E6006BD05A /* ModifyPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPasswordViewController.m; sourceTree = "<group>"; };
+		AEDDAB5A1F1DB9E6006BD05A /* ModifyPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModifyPasswordViewController.xib; sourceTree = "<group>"; };
 		FE4BF8FEA962BF522F157E8F /* libPods-Yuke.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yuke.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -569,6 +590,9 @@
 				AE7FA0C91F0E1F31009A8F12 /* FeedBackViewController.h */,
 				AE7FA0CA1F0E1F31009A8F12 /* FeedBackViewController.m */,
 				AE7FA0CC1F0E207E009A8F12 /* Settings.storyboard */,
+				AEDDAB581F1DB9E6006BD05A /* ModifyPasswordViewController.h */,
+				AEDDAB591F1DB9E6006BD05A /* ModifyPasswordViewController.m */,
+				AEDDAB5A1F1DB9E6006BD05A /* ModifyPasswordViewController.xib */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -616,6 +640,16 @@
 				AEDDAB431F1CB042006BD05A /* MenuCell.h */,
 				AEDDAB441F1CB042006BD05A /* MenuCell.m */,
 				AEDDAB451F1CB042006BD05A /* MenuCell.xib */,
+				AEDDAB481F1DABB7006BD05A /* PicShowViewController.h */,
+				AEDDAB491F1DABB7006BD05A /* PicShowViewController.m */,
+				AEDDAB4E1F1DB2A3006BD05A /* PicShowCell.h */,
+				AEDDAB4F1F1DB2A3006BD05A /* PicShowCell.m */,
+				AEDDAB501F1DB2A3006BD05A /* PicShowCell.xib */,
+				AEDDAB4B1F1DABDE006BD05A /* VieoShowViewController.h */,
+				AEDDAB4C1F1DABDE006BD05A /* VieoShowViewController.m */,
+				AEDDAB531F1DB5C7006BD05A /* VieoShowCell.h */,
+				AEDDAB541F1DB5C7006BD05A /* VieoShowCell.m */,
+				AEDDAB551F1DB5C7006BD05A /* VieoShowCell.xib */,
 			);
 			path = Homepage;
 			sourceTree = "<group>";
@@ -824,6 +858,7 @@
 				AE7FA0BF1F0DEA8B009A8F12 /* xiangce@3x.png in Resources */,
 				AE61B6A41F0249A300C1F930 /* TZImagePickerController.bundle in Resources */,
 				AE7FA0C81F0E11A7009A8F12 /* youjiantou@3x.png in Resources */,
+				AEDDAB5C1F1DB9E6006BD05A /* ModifyPasswordViewController.xib in Resources */,
 				AEDDAB471F1CB042006BD05A /* MenuCell.xib in Resources */,
 				AE7FA0981F0C967A009A8F12 /* HotCollectionViewCell.xib in Resources */,
 				AEB3D7281F1383E80091EE21 /* YiPaiCollectionViewCell.xib in Resources */,
@@ -833,6 +868,7 @@
 				AE7FA0BD1F0DEA8B009A8F12 /* photopaishe@3x.png in Resources */,
 				AEDDAB421F1CA160006BD05A /* ZuXunCell.xib in Resources */,
 				AE7FA0C71F0E11A7009A8F12 /* youjiantou@2x.png in Resources */,
+				AEDDAB571F1DB5C7006BD05A /* VieoShowCell.xib in Resources */,
 				AE7FA0BC1F0DEA8B009A8F12 /* photopaishe@2x.png in Resources */,
 				AE7FA0D11F0E2567009A8F12 /* black_fanhui@3x.png in Resources */,
 				AEB3D7421F18B37D0091EE21 /* YirenTableViewCell.xib in Resources */,
@@ -841,6 +877,7 @@
 				AE7FA0D01F0E2567009A8F12 /* black_fanhui@2x.png in Resources */,
 				AE7FA0BE1F0DEA8B009A8F12 /* xiangce@2x.png in Resources */,
 				AE61B5FE1F02065400C1F930 /* Main.storyboard in Resources */,
+				AEDDAB521F1DB2A3006BD05A /* PicShowCell.xib in Resources */,
 				AEB3D73D1F1898BB0091EE21 /* NewHuodongCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -927,6 +964,7 @@
 				AEB3D7321F1720D00091EE21 /* UserMoudle.m in Sources */,
 				AE61B6171F02479F00C1F930 /* BaseAlertViewController.m in Sources */,
 				AE61B66C1F0248CF00C1F930 /* UIView+FrameAddition.m in Sources */,
+				AEDDAB561F1DB5C7006BD05A /* VieoShowCell.m in Sources */,
 				AE61B6611F0248CF00C1F930 /* NSArray+LogHelper.m in Sources */,
 				AE7FA0CB1F0E1F31009A8F12 /* FeedBackViewController.m in Sources */,
 				AE61B5F51F02065400C1F930 /* main.m in Sources */,
@@ -953,6 +991,9 @@
 				AE61B6EF1F025F6D00C1F930 /* YuePhotoViewController.m in Sources */,
 				AE61B6A01F0249A300C1F930 /* NSBundle+TZImagePicker.m in Sources */,
 				AE61B6641F0248CF00C1F930 /* NSNumber+FormatExtension.m in Sources */,
+				AEDDAB511F1DB2A3006BD05A /* PicShowCell.m in Sources */,
+				AEDDAB4A1F1DABB7006BD05A /* PicShowViewController.m in Sources */,
+				AEDDAB4D1F1DABDE006BD05A /* VieoShowViewController.m in Sources */,
 				AE7FA0931F0BA47C009A8F12 /* CarouselScrollView.m in Sources */,
 				AE61B6A61F0249A300C1F930 /* TZPhotoPickerController.m in Sources */,
 				AE61B66D1F0248CF00C1F930 /* UIViewController+Help.m in Sources */,
@@ -969,6 +1010,7 @@
 				AE61B6391F02486B00C1F930 /* JFRefreshControl.m in Sources */,
 				AE61B6691F0248CF00C1F930 /* UIImageView+SDCache.m in Sources */,
 				AE61B6FF1F02659900C1F930 /* PXAlertView.m in Sources */,
+				AEDDAB5B1F1DB9E6006BD05A /* ModifyPasswordViewController.m in Sources */,
 				AE61B6671F0248CF00C1F930 /* UIFont+Extension.m in Sources */,
 				AE61B63B1F02486B00C1F930 /* LimitTextField.m in Sources */,
 				AE61B69E1F0249A300C1F930 /* EGOCache.m in Sources */,

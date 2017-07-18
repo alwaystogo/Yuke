@@ -1,19 +1,18 @@
 //
-//  NewHuodongCell.m
+//  PicShowCell.m
 //  Yuke
 //
-//  Created by yangyunfei on 2017/7/14.
+//  Created by yangyunfei on 2017/7/18.
 //  Copyright © 2017年 yang. All rights reserved.
 //
 
-#import "NewHuodongCell.h"
+#import "PicShowCell.h"
 
-@implementation NewHuodongCell
+@implementation PicShowCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
