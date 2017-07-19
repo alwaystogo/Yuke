@@ -193,7 +193,10 @@
         case 0:
         {
             //分享
-            
+            ShareView *shareView = [[[NSBundle mainBundle] loadNibNamed:@"ShareView" owner:self options:nil] lastObject];
+            //设置view的frame
+            shareView.frame = [UIScreen mainScreen].bounds;
+            [kAppDelegate.window addSubview:shareView];
         }
             break;
         case 1:
@@ -277,6 +280,17 @@
 //            [JFTools showFailureHUDWithTip:error.localizedDescription];
 //        }];
         
+            NSDictionary *dic = @{@"user_id":NON(kUserMoudle.user_Id)};
+            [JFTools showLoadingHUD];
+            [kJFClient uploadPictureWithMethod:@"index.php/Api/User/up_headimg" param:dic picData:image paramName:@"image" success:^(NSURLSessionDataTask *task, id responseObject) {
+                NSLog(@"---%@",responseObject);
+                [JFTools showSuccessHUDWithTip:@"设置头像成功"];
+                [weakSelf.photoImageView setImage:image];
+                
+            } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                [JFTools showFailureHUDWithTip:error.localizedDescription];
+            }];
+
     };
 }
 

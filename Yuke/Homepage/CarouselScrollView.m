@@ -10,7 +10,7 @@
 #import "UIImageView+WebCache.h"
 
 
-#define CarouselDefalutImageName @"image_morenzizizs.png"
+#define CarouselDefalutImageName @"lunbotu.png"
 
 @interface CarouselScrollView ()<UIScrollViewDelegate>
 

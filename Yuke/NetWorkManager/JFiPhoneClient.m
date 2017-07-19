@@ -124,7 +124,7 @@ static NSString *const JFErrorDomain = @"Yuke.com";
     
     //response = [response safeAllEx];
     response = [NSDictionary changeType:response];
-    if ([response[@"status"] intValue] == 200) {
+    if ([response[@"status"] intValue] == 200 || [response[@"status"] intValue] == 2003) {
         if (response[@"data"]) {
             return response[@"data"];
         }

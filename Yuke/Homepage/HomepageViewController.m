@@ -361,9 +361,10 @@
     [kCurNavController pushViewController:newVC animated:YES];
 }
 
+
 - (void)updatePicRequst{
-    
-    
+
+    //上传图片
 //    UIImage *image = [UIImage imageNamed:@"unloginphoto"];
 //    
 //    NSDictionary *dic = @{@"user_id":NON(kUserMoudle.user_Id)};
@@ -374,6 +375,6 @@
 //    } failure:^(NSURLSessionDataTask *task, NSError *error) {
 //        [JFTools showFailureHUDWithTip:error.localizedDescription];
 //    }];
-//    
+    
 }
 @end

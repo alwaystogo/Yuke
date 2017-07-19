@@ -10,4 +10,17 @@
 
 @implementation JFiPhoneClient (YuePhoto)
 
+- (void)yuePaisheList:(NSDictionary *)params
+              success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+              failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{
+    [self enqueueRequestWithMethod:@"index.php/Api/Shot/shotList" param:params success:success failure:failure];
+}
+
+- (void)yuePaisheBanner:(NSDictionary *)params
+                success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+                failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{
+    
+    [self enqueueRequestWithMethod:@"index.php/Api/Shot/topBanner" param:params success:success failure:failure];
+}
+
 @end

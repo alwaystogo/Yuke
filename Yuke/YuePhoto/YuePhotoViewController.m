@@ -23,6 +23,9 @@
     
     [self createUI];
     [self createBottomUI];
+    
+    [self requestBannerData];
+    [self requestListData];
 }
 
 - (void)createUI{
@@ -155,7 +158,7 @@
 //每个组中行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 10;
+    return self.listArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -168,7 +171,8 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"YuePaisheTableViewCell" owner:self options:nil] lastObject];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.picImageView.image = [UIImage imageWithColor:[UIColor grayColor]];
+    [cell.picImageView getImageWithUrl:[self.listArray[indexPath.row] objectForKeySafe:@"sm_thumb"] placeholderImage:[UIImage imageNamed:PlaceHolderPic]];
+    
     return cell;
 }
 
@@ -187,29 +191,11 @@
     _carouselSV = [[CarouselScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), LunboHeight)];
     _carouselSV.backgroundColor = [UIColor blueColor];
     
-    NSArray *dicArray = @[
-                          //                          @{
-                          //                              @"carouseUrl" : @"http://pic.58pic.com/58pic/17/27/03/07B58PIC3zg_1024.jpg"
-                          //                              },
-                          //                          @{
-                          //                              @"carouseUrl" : @"http://pic.58pic.com/58pic/13/56/99/88f58PICuBh_1024.jpg"
-                          //                              },
-                          //                          @{
-                          //                              @"carouseUrl" : @"http://pic.58pic.com/58pic/17/77/53/558d11422a923_1024.png"
-                          //                              },
-                          //                          @{
-                          //                              @"carouseUrl" : @"http://pic.58pic.com/58pic/13/18/14/87m58PICVvM_1024.jpg"
-                          //                              },
-                          //                          @{
-                          //                              @"carouseUrl" : @"http://pic.qiantucdn.com/58pic/17/79/77/41N58PICaMu_1024.jpg"
-                          //                              }
-                          ];
-    
     _carouselSV.click = ^(NSInteger index) {
         
         NSLog(@"点击了第%ld",index);
     };
-    [_carouselSV setCarouseWithArray:dicArray];
+    [_carouselSV setCarouseWithArray:self.bannerArray];
 
     return self.carouselSV;
 }
@@ -246,4 +232,32 @@
     
 }
 
+- (void)requestBannerData{
+    
+    [kJFClient yuePaisheBanner:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"banner- %@",responseObject);
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            
+            self.bannerArray = responseObject;
+            [self.tableView reloadData];
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [JFTools showFailureHUDWithTip:error.localizedDescription];
+    }];
+}
+
+- (void)requestListData{
+    
+    [kJFClient yuePaisheList:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"yuepaisheList- %@",responseObject);
+
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            
+            self.listArray = responseObject;
+            [self.tableView reloadData];
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [JFTools showFailureHUDWithTip:error.localizedDescription];
+    }];
+}
 @end
