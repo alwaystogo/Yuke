@@ -26,6 +26,7 @@
     
     [self requestBannerData];
     [self requestListData];
+    [self requestYipaiData];
 }
 
 - (void)createUI{
@@ -259,5 +260,23 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [JFTools showFailureHUDWithTip:error.localizedDescription];
     }];
+}
+
+- (void)requestYipaiData{
+    
+    NSDictionary *dic = @{@"user_id":NON(kUserMoudle.user_Id)};
+    
+    [kJFClient yiPaiList:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"yiPaiList- %@",responseObject);
+        
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            
+            self.yiPaiListArray = responseObject;
+            [self.collectionView reloadData];
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [JFTools showFailureHUDWithTip:error.localizedDescription];
+    }];
+
 }
 @end

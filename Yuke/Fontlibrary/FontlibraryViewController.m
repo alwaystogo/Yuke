@@ -24,6 +24,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self createUI];
     
+    [self requestFontListData];
 }
 
 - (void)createUI{
@@ -54,7 +55,7 @@
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
-    return 10;
+    return self.listArray.count;
 }
 /** cell的内容*/
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -66,22 +67,19 @@
     cell.backgroundColor = [UIColor grayColor];
     cell.layer.cornerRadius = 5;
     cell.picImageView.layer.cornerRadius = 5;
-    cell.picImageView.image = [UIImage imageWithColor:[UIColor greenColor]];
+    [cell.picImageView getImageWithUrl:[self.listArray[indexPath.row] objectForKeySafe:@"thumb"] placeholderImage:[UIImage imageNamed:PlaceHolderPic]];
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //点击某列
-    
-//    LoginViewController *loginVC = [[LoginViewController alloc] init];
-//    loginVC.hidesBottomBarWhenPushed = YES;
-//    [kCurNavController pushViewController:loginVC animated:YES];
+
     [LoginViewController checkLogin:^(BOOL result) {
         
         if (result) {
-            NSLog(@"登录成功");
+            [JFTools showTipOnHUD:@"登录成功"];
         }else{
-            NSLog(@"登录失败");
+            [JFTools showTipOnHUD:@"登录失败"];
         }
     }];
 }
@@ -96,6 +94,21 @@
     [super viewWillAppear:animated];
     
     self.navigationController.navigationBarHidden = YES;
+}
+
+- (void)requestFontListData{
+    
+    [kJFClient fontList:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"fontList- %@",responseObject);
+        
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            
+            self.listArray = responseObject;
+            [self.collectionView reloadData];
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [JFTools showFailureHUDWithTip:error.localizedDescription];
+    }];
 }
 
 @end

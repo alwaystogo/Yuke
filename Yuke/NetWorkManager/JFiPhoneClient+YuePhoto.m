@@ -23,4 +23,10 @@
     [self enqueueRequestWithMethod:@"index.php/Api/Shot/topBanner" param:params success:success failure:failure];
 }
 
+- (void)yiPaiList:(NSDictionary *)params
+          success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+          failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{
+    
+    [self enqueueRequestWithMethod:@"index.php/Api/Shot/userShotList" param:params success:success failure:failure];
+}
 @end

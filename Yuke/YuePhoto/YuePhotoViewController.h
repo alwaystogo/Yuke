@@ -24,5 +24,5 @@
 
 @property(nonatomic,strong)NSArray *bannerArray;
 @property(nonatomic,strong)NSArray *listArray;
-
+@property(nonatomic,strong)NSArray *yiPaiListArray;
 @end

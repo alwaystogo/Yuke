@@ -13,4 +13,5 @@
 @property(nonatomic,strong)UICollectionView *collectionView;
 @property(nonatomic,strong)UICollectionViewFlowLayout *layout;
 
+@property(nonatomic,strong)NSArray *listArray;
 @end
