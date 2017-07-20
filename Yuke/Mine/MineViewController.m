@@ -193,10 +193,15 @@
         case 0:
         {
             //分享
-            ShareView *shareView = [[[NSBundle mainBundle] loadNibNamed:@"ShareView" owner:self options:nil] lastObject];
-            //设置view的frame
-            shareView.frame = [UIScreen mainScreen].bounds;
-            [kAppDelegate.window addSubview:shareView];
+            ShareViewController *shareViewController = [[ShareViewController alloc] init];
+            shareViewController.shareUrlString = @"www.baidu.com";
+            shareViewController.shareTitleString = @"ceshi";
+            shareViewController.shareDescriptionString = @"ceyixia";
+            UIImageView *imageView = [[UIImageView alloc] init];
+            [imageView getImageWithUrl:@"aaa" placeholderImage:[UIImage imageNamed:@"pengyouquan"]];
+            shareViewController.shareImage = imageView.image;
+            
+            [self presentViewController:shareViewController animated:YES completion:nil];
         }
             break;
         case 1:

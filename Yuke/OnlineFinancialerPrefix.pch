@@ -57,7 +57,6 @@
 
 #import "LoginViewController.h"
 #import "UserMoudle.h"
-#import "ShareView.h"
 #import "ShareViewController.h"
 
 #endif /* OnlineFinancialerPrefix_pch */
