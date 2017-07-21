@@ -400,4 +400,8 @@ static CGFloat kShareViewControllerBottomViewCollectionViewBottomMargin = 10.0;
     return _titleStringArray;
 }
 
+- (void)dealloc{
+    
+    NSLog(@"回收");
+}
 @end

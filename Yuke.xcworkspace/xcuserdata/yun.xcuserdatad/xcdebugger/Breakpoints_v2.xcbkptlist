@@ -9,54 +9,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Yuke/Mine/MineViewController.m"
-            timestampString = "522237527.565388"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
-            landmarkName = "-changePhotoAction"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__39-[MineViewController changePhotoAction]_block_invoke"
-                  moduleName = "Yuke"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yun/Desktop/Yuke.git/trunk/Yuke/Mine/MineViewController.m"
-                  timestampString = "522237528.636343"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "299"
-                  endingLineNumber = "299"
-                  offsetFromSymbolStart = "608">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__39-[MineViewController changePhotoAction]_block_invoke_2"
-                  moduleName = "Yuke"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yun/Desktop/Yuke.git/trunk/Yuke/Mine/MineViewController.m"
-                  timestampString = "522237528.637731"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "299"
-                  endingLineNumber = "299"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Yuke/NetWorkManager/JFiPhoneClient+UploadFile.m"
             timestampString = "522126248.106534"
             startingColumnNumber = "9223372036854775807"

@@ -49,21 +49,21 @@
     
     WorkspaceViewController *performanceVC =[[WorkspaceViewController alloc] init];
     BaseNavigationController *questionAndAnswerNav = [[BaseNavigationController alloc] initWithRootViewController:performanceVC];
-    performanceVC.navigationItem.title = @"业绩管理";
-    questionAndAnswerNav.tabBarItem.title = @"业绩";
+    performanceVC.navigationItem.title = @"工作区";
+    questionAndAnswerNav.tabBarItem.title = @"工作区";
     questionAndAnswerNav.tabBarItem.image = [[UIImage imageNamed:@"yeji"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     questionAndAnswerNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"yeji-hover"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     FontlibraryViewController *fontVC = [[FontlibraryViewController alloc]init];
     BaseNavigationController *discoverNav = [[BaseNavigationController alloc] initWithRootViewController:fontVC];
-    fontVC.navigationItem.title = @"新闻";
-    discoverNav.tabBarItem.title = @"新闻";
+    fontVC.navigationItem.title = @"字体库";
+    discoverNav.tabBarItem.title = @"字体库";
     discoverNav.tabBarItem.image = [[UIImage imageNamed:@"new"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     discoverNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"new-hover"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 
     HomepageViewController *homePageVC = [[HomepageViewController alloc] init];
     BaseNavigationController *homePageNav = [[BaseNavigationController alloc] initWithRootViewController:homePageVC];
-    homePageVC.navigationItem.title = @"加法理财师";
+    homePageVC.navigationItem.title = @"首页";
     homePageNav.tabBarItem.title = @"首页";
     homePageNav.tabBarItem.image = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     homePageNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"home--hover"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
