@@ -17,6 +17,8 @@
 @property(nonatomic,strong)UITableView *typeTableView;
 @property(nonatomic,strong)UITableView *dateTableView;
 
+@property(nonatomic,strong)NSArray *listArray;
+
 @property(nonatomic,strong)NSArray *typeArray;
 @property(nonatomic,strong)NSArray *dateArray;
 

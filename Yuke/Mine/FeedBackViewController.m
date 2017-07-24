@@ -50,7 +50,16 @@
         return;
     }
     
-    //
+    NSDictionary *dic = @{@"content":NON(self.textView.text),@"mobile":NON(self.photoTextField.text)};
+    [JFTools showLoadingHUD];
+    [kJFClient feedback:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"fanjui- %@",responseObject);
+        [JFTools HUDHide];
+        [JFTools showSuccessHUDWithTip:@"提交成功"];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [JFTools showFailureHUDWithTip:error.localizedDescription];
+    }];
+    
  }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{

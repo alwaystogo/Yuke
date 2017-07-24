@@ -53,10 +53,10 @@
     [self enqueueRequestWithMethod:@"index.php/Api/Card/card_list" param:params success:success failure:failure];
 }
 
-- (void)updatePic:(NSDictionary *)params
+- (void)zuXunList:(NSDictionary *)params
           success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
           failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{
     
-    [self enqueueRequestWithMethod:@"index.php/Api/Card/update_card" param:params success:success failure:failure];
+    [self enqueueRequestWithMethod:@"index.php/Api/News/newsList" param:params success:success failure:failure];
 }
 @end

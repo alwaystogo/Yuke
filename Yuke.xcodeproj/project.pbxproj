@@ -119,6 +119,9 @@
 		AEB3D7411F18B37D0091EE21 /* YirenTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB3D73F1F18B37D0091EE21 /* YirenTableViewCell.m */; };
 		AEB3D7421F18B37D0091EE21 /* YirenTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEB3D7401F18B37D0091EE21 /* YirenTableViewCell.xib */; };
 		AEB3D7451F18B3950091EE21 /* YirenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB3D7441F18B3950091EE21 /* YirenViewController.m */; };
+		AEC988211F25D7CB006D9983 /* MoteCardsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC988201F25D7CB006D9983 /* MoteCardsListViewController.m */; };
+		AEC988241F25D7EB006D9983 /* YanyuanCardsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC988231F25D7EB006D9983 /* YanyuanCardsListViewController.m */; };
+		AEC988271F25D885006D9983 /* VieoMakerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC988261F25D885006D9983 /* VieoMakerViewController.m */; };
 		AEDDAB3D1F1C9192006BD05A /* MeiriZuXunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDDAB3C1F1C9192006BD05A /* MeiriZuXunViewController.m */; };
 		AEDDAB411F1CA160006BD05A /* ZuXunCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDDAB3F1F1CA160006BD05A /* ZuXunCell.m */; };
 		AEDDAB421F1CA160006BD05A /* ZuXunCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEDDAB401F1CA160006BD05A /* ZuXunCell.xib */; };
@@ -355,6 +358,12 @@
 		AEB3D7401F18B37D0091EE21 /* YirenTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YirenTableViewCell.xib; sourceTree = "<group>"; };
 		AEB3D7431F18B3950091EE21 /* YirenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YirenViewController.h; sourceTree = "<group>"; };
 		AEB3D7441F18B3950091EE21 /* YirenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YirenViewController.m; sourceTree = "<group>"; };
+		AEC9881F1F25D7CB006D9983 /* MoteCardsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoteCardsListViewController.h; sourceTree = "<group>"; };
+		AEC988201F25D7CB006D9983 /* MoteCardsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoteCardsListViewController.m; sourceTree = "<group>"; };
+		AEC988221F25D7EB006D9983 /* YanyuanCardsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YanyuanCardsListViewController.h; sourceTree = "<group>"; };
+		AEC988231F25D7EB006D9983 /* YanyuanCardsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YanyuanCardsListViewController.m; sourceTree = "<group>"; };
+		AEC988251F25D885006D9983 /* VieoMakerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VieoMakerViewController.h; sourceTree = "<group>"; };
+		AEC988261F25D885006D9983 /* VieoMakerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VieoMakerViewController.m; sourceTree = "<group>"; };
 		AEDDAB3B1F1C9192006BD05A /* MeiriZuXunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeiriZuXunViewController.h; sourceTree = "<group>"; };
 		AEDDAB3C1F1C9192006BD05A /* MeiriZuXunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeiriZuXunViewController.m; sourceTree = "<group>"; };
 		AEDDAB3E1F1CA160006BD05A /* ZuXunCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZuXunCell.h; sourceTree = "<group>"; };
@@ -752,6 +761,12 @@
 			children = (
 				AE61B6F31F025F9000C1F930 /* WorkspaceViewController.h */,
 				AE61B6F41F025F9000C1F930 /* WorkspaceViewController.m */,
+				AEC9881F1F25D7CB006D9983 /* MoteCardsListViewController.h */,
+				AEC988201F25D7CB006D9983 /* MoteCardsListViewController.m */,
+				AEC988221F25D7EB006D9983 /* YanyuanCardsListViewController.h */,
+				AEC988231F25D7EB006D9983 /* YanyuanCardsListViewController.m */,
+				AEC988251F25D885006D9983 /* VieoMakerViewController.h */,
+				AEC988261F25D885006D9983 /* VieoMakerViewController.m */,
 			);
 			path = Workspace;
 			sourceTree = "<group>";
@@ -1143,6 +1158,7 @@
 				AE7FA0CB1F0E1F31009A8F12 /* FeedBackViewController.m in Sources */,
 				AE61B5F51F02065400C1F930 /* main.m in Sources */,
 				AE61B6F51F025F9000C1F930 /* WorkspaceViewController.m in Sources */,
+				AEC988271F25D885006D9983 /* VieoMakerViewController.m in Sources */,
 				AE61B6431F02486B00C1F930 /* YYFImagePickerView.m in Sources */,
 				AEB3D7221F1375A70091EE21 /* YuePaisheTableViewCell.m in Sources */,
 				AEDDAB411F1CA160006BD05A /* ZuXunCell.m in Sources */,
@@ -1164,9 +1180,11 @@
 				E82FDD001F1E490400A3A9A3 /* ShangwuhezuoViewController.m in Sources */,
 				AEB3D72E1F16121E0091EE21 /* ForgetPasswordViewController.m in Sources */,
 				AE61B6EF1F025F6D00C1F930 /* YuePhotoViewController.m in Sources */,
+				AEC988211F25D7CB006D9983 /* MoteCardsListViewController.m in Sources */,
 				AE61B6A01F0249A300C1F930 /* NSBundle+TZImagePicker.m in Sources */,
 				AE61B6641F0248CF00C1F930 /* NSNumber+FormatExtension.m in Sources */,
 				AEDDAB511F1DB2A3006BD05A /* PicShowCell.m in Sources */,
+				AEC988241F25D7EB006D9983 /* YanyuanCardsListViewController.m in Sources */,
 				AEDDAB4A1F1DABB7006BD05A /* PicShowViewController.m in Sources */,
 				AEDDAB4D1F1DABDE006BD05A /* VieoShowViewController.m in Sources */,
 				AE7FA0931F0BA47C009A8F12 /* CarouselScrollView.m in Sources */,

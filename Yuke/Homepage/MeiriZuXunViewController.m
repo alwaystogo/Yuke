@@ -28,6 +28,8 @@
     [self setupRightNavButton:ImageNamed(@"black_fanhui") target:self action:@selector(rightBtnAction)];
     [self createUI];
 
+    [self requestZuxunListWithType:self.selectType withDate:self.selectDate];
+    
 }
 
 - (void)createUI{
@@ -126,7 +128,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
     if (tableView.tag == 3000) {
-        return 10;
+        return self.listArray.count;
     }else if (tableView.tag == 3001){
         return 1;
     }else if (tableView.tag == 3002){
@@ -159,8 +161,11 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ZuXunCell" owner:self options:nil] lastObject];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.picImageView.image = [UIImage imageWithColor:[UIColor grayColor]];
+        [cell.picImageView getImageWithUrl:[self.listArray[indexPath.section] objectForKeySafe:@"thumb"] placeholderImage:[UIImage imageNamed:PlaceHolderPic]];
         cell.smallImageView.image = [UIImage imageWithColor:[UIColor grayColor]];
+        cell.titleLabel.text = [self.listArray[indexPath.section] objectForKeySafe:@"title"];
+        cell.dateLabel.text = [self.listArray[indexPath.section] objectForKeySafe:@"startime"];
+        [cell.typeBtn setTitle:[self.listArray[indexPath.section] objectForKeySafe:@"cate_id"] forState:UIControlStateNormal];
         
         return cell;
     }else if (tableView.tag == 3001){
@@ -208,7 +213,8 @@
         newCell.menuLabel.textColor = COLOR_HEX(0xffffff, 1);
         newCell.backgroundColor = COLOR_HEX(0xffa632, 1);
         self.selectType = indexPath.row;
-
+        
+        [self requestZuxunListWithType:self.selectType withDate:self.selectDate];
     }else if (tableView.tag == 3002){
         self.dateTableView.hidden = !self.dateTableView.hidden;
         MenuCell *oldCell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.selectDate inSection:0]];
@@ -218,6 +224,8 @@
         newCell.menuLabel.textColor = COLOR_HEX(0xffffff, 1);
         newCell.backgroundColor = COLOR_HEX(0xffa632, 1);
         self.selectDate = indexPath.row;
+        
+        [self requestZuxunListWithType:self.selectType withDate:self.selectDate];
     }
 
 }
@@ -263,5 +271,27 @@
     
     self.typeTableView.hidden = YES;
     self.dateTableView.hidden = YES;
+}
+
+- (void)requestZuxunListWithType:(NSInteger)type withDate:(NSInteger)date{
+    
+    NSDictionary *dic = @{@"cate_id":[NSString stringWithFormat:@"%ld",type],@"time":[NSString stringWithFormat:@"%ld",date]};
+    [JFTools showLoadingHUD];
+    [kJFClient zuXunList:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"zuxunlist- %@",responseObject);
+        
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            
+            self.listArray = responseObject;
+        }else{
+            
+            self.listArray = [[NSArray alloc] init];
+        }
+       
+        [self.tableView reloadData];
+        [JFTools HUDHide];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [JFTools showFailureHUDWithTip:error.localizedDescription];
+    }];
 }
 @end
