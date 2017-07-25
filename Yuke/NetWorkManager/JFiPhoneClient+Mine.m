@@ -24,4 +24,10 @@
     [self enqueueRequestWithMethod:@"index.php/Api/User/feedback" param:params success:success failure:failure];
 
 }
+- (void)getUserInfo:(NSDictionary *)params
+            success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+            failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{
+    
+    [self enqueueRequestWithMethod:@"index.php/Api/User/get_user_info" param:params success:success failure:failure];
+}
 @end

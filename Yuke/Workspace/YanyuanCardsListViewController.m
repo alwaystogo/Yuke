@@ -9,6 +9,7 @@
 #import "YanyuanCardsListViewController.h"
 #import "YanyuanCardsCollectionViewCell.h"
 #import "HotCollectionViewCell.h"
+#import "EditViewController.h"
 
 @interface YanyuanCardsListViewController ()
 
@@ -30,8 +31,8 @@
 
 - (void)createUI{
     
-    CGFloat hotPicWidth = 110 * BiLi_SCREENWIDTH_NORMAL;
-    CGFloat hotPicHeight = 170 * BiLi_SCREENHEIGHT_NORMAL;
+    CGFloat hotPicWidth = 90 * BiLi_SCREENWIDTH_NORMAL;
+    CGFloat hotPicHeight = 140 * BiLi_SCREENHEIGHT_NORMAL;
     //创建collectionView 362
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumLineSpacing = 10;
@@ -96,6 +97,9 @@
 
 - (void)tapImageViewAction{
     
+    EditViewController *editVC = [[EditViewController alloc] init];
+    editVC.hidesBottomBarWhenPushed = YES;
+    [kCurNavController pushViewController:editVC animated:YES];
 }
 
 @end

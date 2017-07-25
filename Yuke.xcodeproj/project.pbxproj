@@ -124,6 +124,11 @@
 		AEC988271F25D885006D9983 /* VieoMakerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC988261F25D885006D9983 /* VieoMakerViewController.m */; };
 		AEC988301F26EF22006D9983 /* YanyuanCardsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC9882E1F26EF22006D9983 /* YanyuanCardsCollectionViewCell.m */; };
 		AEC988311F26EF22006D9983 /* YanyuanCardsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEC9882F1F26EF22006D9983 /* YanyuanCardsCollectionViewCell.xib */; };
+		AEC988351F272B97006D9983 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC988331F272B97006D9983 /* EditViewController.m */; };
+		AEC988361F272B97006D9983 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEC988341F272B97006D9983 /* EditViewController.xib */; };
+		AEC9883B1F272BD4006D9983 /* YYFPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC988381F272BD4006D9983 /* YYFPickView.m */; };
+		AEC9883C1F272BD4006D9983 /* ZmjPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC9883A1F272BD4006D9983 /* ZmjPickView.m */; };
+		AEC9883F1F273948006D9983 /* YYFPickViewThree.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC9883E1F273948006D9983 /* YYFPickViewThree.m */; };
 		AEDDAB3D1F1C9192006BD05A /* MeiriZuXunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDDAB3C1F1C9192006BD05A /* MeiriZuXunViewController.m */; };
 		AEDDAB411F1CA160006BD05A /* ZuXunCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDDAB3F1F1CA160006BD05A /* ZuXunCell.m */; };
 		AEDDAB421F1CA160006BD05A /* ZuXunCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEDDAB401F1CA160006BD05A /* ZuXunCell.xib */; };
@@ -369,6 +374,15 @@
 		AEC9882D1F26EF22006D9983 /* YanyuanCardsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YanyuanCardsCollectionViewCell.h; sourceTree = "<group>"; };
 		AEC9882E1F26EF22006D9983 /* YanyuanCardsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YanyuanCardsCollectionViewCell.m; sourceTree = "<group>"; };
 		AEC9882F1F26EF22006D9983 /* YanyuanCardsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YanyuanCardsCollectionViewCell.xib; sourceTree = "<group>"; };
+		AEC988321F272B97006D9983 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		AEC988331F272B97006D9983 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
+		AEC988341F272B97006D9983 /* EditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
+		AEC988371F272BD4006D9983 /* YYFPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPickView.h; sourceTree = "<group>"; };
+		AEC988381F272BD4006D9983 /* YYFPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPickView.m; sourceTree = "<group>"; };
+		AEC988391F272BD4006D9983 /* ZmjPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZmjPickView.h; sourceTree = "<group>"; };
+		AEC9883A1F272BD4006D9983 /* ZmjPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZmjPickView.m; sourceTree = "<group>"; };
+		AEC9883D1F273948006D9983 /* YYFPickViewThree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPickViewThree.h; sourceTree = "<group>"; };
+		AEC9883E1F273948006D9983 /* YYFPickViewThree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPickViewThree.m; sourceTree = "<group>"; };
 		AEDDAB3B1F1C9192006BD05A /* MeiriZuXunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeiriZuXunViewController.h; sourceTree = "<group>"; };
 		AEDDAB3C1F1C9192006BD05A /* MeiriZuXunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeiriZuXunViewController.m; sourceTree = "<group>"; };
 		AEDDAB3E1F1CA160006BD05A /* ZuXunCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZuXunCell.h; sourceTree = "<group>"; };
@@ -775,6 +789,15 @@
 				AEC9882F1F26EF22006D9983 /* YanyuanCardsCollectionViewCell.xib */,
 				AEC988251F25D885006D9983 /* VieoMakerViewController.h */,
 				AEC988261F25D885006D9983 /* VieoMakerViewController.m */,
+				AEC988321F272B97006D9983 /* EditViewController.h */,
+				AEC988331F272B97006D9983 /* EditViewController.m */,
+				AEC988341F272B97006D9983 /* EditViewController.xib */,
+				AEC988371F272BD4006D9983 /* YYFPickView.h */,
+				AEC988381F272BD4006D9983 /* YYFPickView.m */,
+				AEC9883D1F273948006D9983 /* YYFPickViewThree.h */,
+				AEC9883E1F273948006D9983 /* YYFPickViewThree.m */,
+				AEC988391F272BD4006D9983 /* ZmjPickView.h */,
+				AEC9883A1F272BD4006D9983 /* ZmjPickView.m */,
 			);
 			path = Workspace;
 			sourceTree = "<group>";
@@ -1056,6 +1079,7 @@
 				AEDDAB571F1DB5C7006BD05A /* VieoShowCell.xib in Resources */,
 				AEDDAB761F1F5B59006BD05A /* QQ空间@2x.png in Resources */,
 				AE7FA0BC1F0DEA8B009A8F12 /* photopaishe@2x.png in Resources */,
+				AEC988361F272B97006D9983 /* EditViewController.xib in Resources */,
 				AE7FA0D11F0E2567009A8F12 /* black_fanhui@3x.png in Resources */,
 				AEB3D7421F18B37D0091EE21 /* YirenTableViewCell.xib in Resources */,
 				AE7FA0B71F0DE9FA009A8F12 /* unloginphoto@3x.png in Resources */,
@@ -1144,6 +1168,7 @@
 				AEDDAB461F1CB042006BD05A /* MenuCell.m in Sources */,
 				AE61B6A81F0249A300C1F930 /* TZPhotoPreviewController.m in Sources */,
 				AEB3D7351F176A7E0091EE21 /* CustomMessageCodeView.m in Sources */,
+				AEC9883F1F273948006D9983 /* YYFPickViewThree.m in Sources */,
 				AE61B6F21F025F8200C1F930 /* FontlibraryViewController.m in Sources */,
 				AE61B6D51F024C9900C1F930 /* JFiPhoneClient+UploadFile.m in Sources */,
 				AE61B6621F0248CF00C1F930 /* NSDictionary+Helper.m in Sources */,
@@ -1159,6 +1184,8 @@
 				AE61B61C1F02479F00C1F930 /* RootTabBarController.m in Sources */,
 				AEB3D7271F1383E80091EE21 /* YiPaiCollectionViewCell.m in Sources */,
 				AEB3D7321F1720D00091EE21 /* UserMoudle.m in Sources */,
+				AEC988351F272B97006D9983 /* EditViewController.m in Sources */,
+				AEC9883C1F272BD4006D9983 /* ZmjPickView.m in Sources */,
 				AE61B6171F02479F00C1F930 /* BaseAlertViewController.m in Sources */,
 				AE61B66C1F0248CF00C1F930 /* UIView+FrameAddition.m in Sources */,
 				AEDDAB561F1DB5C7006BD05A /* VieoShowCell.m in Sources */,
@@ -1179,6 +1206,7 @@
 				AE61B6A31F0249A300C1F930 /* TZImageManager.m in Sources */,
 				AE61B6A91F0249A300C1F930 /* TZVideoPlayerController.m in Sources */,
 				AE7FA0971F0C967A009A8F12 /* HotCollectionViewCell.m in Sources */,
+				AEC9883B1F272BD4006D9983 /* YYFPickView.m in Sources */,
 				AE61B69F1F0249A300C1F930 /* MBProgressHUD.m in Sources */,
 				AE61B6A21F0249A300C1F930 /* TZAssetModel.m in Sources */,
 				AE61B63C1F02486B00C1F930 /* LimitTextView.m in Sources */,
