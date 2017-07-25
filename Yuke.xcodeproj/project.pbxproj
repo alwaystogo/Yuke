@@ -122,6 +122,8 @@
 		AEC988211F25D7CB006D9983 /* MoteCardsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC988201F25D7CB006D9983 /* MoteCardsListViewController.m */; };
 		AEC988241F25D7EB006D9983 /* YanyuanCardsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC988231F25D7EB006D9983 /* YanyuanCardsListViewController.m */; };
 		AEC988271F25D885006D9983 /* VieoMakerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC988261F25D885006D9983 /* VieoMakerViewController.m */; };
+		AEC988301F26EF22006D9983 /* YanyuanCardsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC9882E1F26EF22006D9983 /* YanyuanCardsCollectionViewCell.m */; };
+		AEC988311F26EF22006D9983 /* YanyuanCardsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEC9882F1F26EF22006D9983 /* YanyuanCardsCollectionViewCell.xib */; };
 		AEDDAB3D1F1C9192006BD05A /* MeiriZuXunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDDAB3C1F1C9192006BD05A /* MeiriZuXunViewController.m */; };
 		AEDDAB411F1CA160006BD05A /* ZuXunCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDDAB3F1F1CA160006BD05A /* ZuXunCell.m */; };
 		AEDDAB421F1CA160006BD05A /* ZuXunCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEDDAB401F1CA160006BD05A /* ZuXunCell.xib */; };
@@ -364,6 +366,9 @@
 		AEC988231F25D7EB006D9983 /* YanyuanCardsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YanyuanCardsListViewController.m; sourceTree = "<group>"; };
 		AEC988251F25D885006D9983 /* VieoMakerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VieoMakerViewController.h; sourceTree = "<group>"; };
 		AEC988261F25D885006D9983 /* VieoMakerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VieoMakerViewController.m; sourceTree = "<group>"; };
+		AEC9882D1F26EF22006D9983 /* YanyuanCardsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YanyuanCardsCollectionViewCell.h; sourceTree = "<group>"; };
+		AEC9882E1F26EF22006D9983 /* YanyuanCardsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YanyuanCardsCollectionViewCell.m; sourceTree = "<group>"; };
+		AEC9882F1F26EF22006D9983 /* YanyuanCardsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YanyuanCardsCollectionViewCell.xib; sourceTree = "<group>"; };
 		AEDDAB3B1F1C9192006BD05A /* MeiriZuXunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeiriZuXunViewController.h; sourceTree = "<group>"; };
 		AEDDAB3C1F1C9192006BD05A /* MeiriZuXunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeiriZuXunViewController.m; sourceTree = "<group>"; };
 		AEDDAB3E1F1CA160006BD05A /* ZuXunCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZuXunCell.h; sourceTree = "<group>"; };
@@ -765,6 +770,9 @@
 				AEC988201F25D7CB006D9983 /* MoteCardsListViewController.m */,
 				AEC988221F25D7EB006D9983 /* YanyuanCardsListViewController.h */,
 				AEC988231F25D7EB006D9983 /* YanyuanCardsListViewController.m */,
+				AEC9882D1F26EF22006D9983 /* YanyuanCardsCollectionViewCell.h */,
+				AEC9882E1F26EF22006D9983 /* YanyuanCardsCollectionViewCell.m */,
+				AEC9882F1F26EF22006D9983 /* YanyuanCardsCollectionViewCell.xib */,
 				AEC988251F25D885006D9983 /* VieoMakerViewController.h */,
 				AEC988261F25D885006D9983 /* VieoMakerViewController.m */,
 			);
@@ -1044,6 +1052,7 @@
 				AE7FA0BD1F0DEA8B009A8F12 /* photopaishe@3x.png in Resources */,
 				AEDDAB421F1CA160006BD05A /* ZuXunCell.xib in Resources */,
 				AE7FA0C71F0E11A7009A8F12 /* youjiantou@2x.png in Resources */,
+				AEC988311F26EF22006D9983 /* YanyuanCardsCollectionViewCell.xib in Resources */,
 				AEDDAB571F1DB5C7006BD05A /* VieoShowCell.xib in Resources */,
 				AEDDAB761F1F5B59006BD05A /* QQ空间@2x.png in Resources */,
 				AE7FA0BC1F0DEA8B009A8F12 /* photopaishe@2x.png in Resources */,
@@ -1208,6 +1217,7 @@
 				AEDDAB5B1F1DB9E6006BD05A /* ModifyPasswordViewController.m in Sources */,
 				AE61B6671F0248CF00C1F930 /* UIFont+Extension.m in Sources */,
 				AE61B63B1F02486B00C1F930 /* LimitTextField.m in Sources */,
+				AEC988301F26EF22006D9983 /* YanyuanCardsCollectionViewCell.m in Sources */,
 				AE61B69E1F0249A300C1F930 /* EGOCache.m in Sources */,
 				AEB3D7381F18955D0091EE21 /* NewHuodongViewController.m in Sources */,
 				AE61B6E91F0253C200C1F930 /* LoginViewController.m in Sources */,

@@ -113,7 +113,10 @@
     self.collectionView.showsHorizontalScrollIndicator = NO;
     [self.bkScrollView addSubview:self.collectionView];
     
-    [self.collectionView registerClass:[YiPaiCollectionViewCell class] forCellWithReuseIdentifier:@"YiPaiCollectionViewCell"];
+    //注册单元格,相当于设置了闲置池
+    UINib *nib = [UINib nibWithNibName:@"YiPaiCollectionViewCell" bundle: [NSBundle mainBundle]];
+    [_collectionView registerNib:nib forCellWithReuseIdentifier:@"YiPaiCollectionViewCell"];
+
 }
 
 - (void)yueBtnAction{
@@ -224,7 +227,7 @@
     cell.backgroundColor = [UIColor grayColor];
     cell.layer.cornerRadius = 5;
     cell.picImageView.layer.cornerRadius = 5;
-    cell.picImageView.image = [UIImage imageWithColor:[UIColor greenColor]];
+    cell.picImageView.image = [UIImage imageWithColor:[UIColor grayColor]];
     return cell;
 }
 

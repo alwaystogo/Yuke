@@ -45,8 +45,9 @@
     self.collectionView.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:self.collectionView];
     
-    [self.collectionView registerClass:[FontCollectionViewCell class] forCellWithReuseIdentifier:@"FontCell"];
-
+    //注册单元格,相当于设置了闲置池
+    UINib *nib = [UINib nibWithNibName:@"FontCollectionViewCell" bundle: [NSBundle mainBundle]];
+    [_collectionView registerNib:nib forCellWithReuseIdentifier:@"FontCell"];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{

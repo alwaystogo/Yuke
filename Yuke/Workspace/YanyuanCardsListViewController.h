@@ -8,6 +8,11 @@
 
 #import "BaseViewController.h"
 
-@interface YanyuanCardsListViewController : BaseViewController
+@interface YanyuanCardsListViewController : BaseViewController<UICollectionViewDelegate,UICollectionViewDataSource>
+
+@property(nonatomic,strong)UICollectionView *collectionView;
+@property(nonatomic,strong)UIImageView *imageView;
+@property(nonatomic,strong)NSArray *mobanArray;
+@property(nonatomic,assign)NSInteger selectedNum;
 
 @end

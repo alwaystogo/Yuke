@@ -115,8 +115,9 @@
     self.collectionView.showsHorizontalScrollIndicator = NO;
     [headerView addSubview:self.collectionView];
     
-    [self.collectionView registerClass:[HotCollectionViewCell class] forCellWithReuseIdentifier:@"hotCell"];
-
+    //注册单元格,相当于设置了闲置池
+    UINib *nib = [UINib nibWithNibName:@"HotCollectionViewCell" bundle: [NSBundle mainBundle]];
+    [_collectionView registerNib:nib forCellWithReuseIdentifier:@"hotCell"];
     //headerView.height = CGRectGetMaxY(self.collectionView.frame) + 10;
     if (section == 0) {
         

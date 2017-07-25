@@ -244,8 +244,9 @@
     self.collectionView.showsHorizontalScrollIndicator = NO;
     [self.bkScrollView addSubview:self.collectionView];
     
-    [self.collectionView registerClass:[HotCollectionViewCell class] forCellWithReuseIdentifier:@"hotCell"];
-    
+    UINib *nib = [UINib nibWithNibName:@"HotCollectionViewCell" bundle: [NSBundle mainBundle]];
+    [_collectionView registerNib:nib forCellWithReuseIdentifier:@"hotCell"];
+
     //重新设置
     self.bkScrollView.contentSize = CGSizeMake(SCREEN_WIDTH, CGRectGetMaxY(self.collectionView.frame)+20);
 }
@@ -268,7 +269,7 @@
     cell.backgroundColor = [UIColor grayColor];
     cell.layer.cornerRadius = 10;
     cell.picImageView.layer.cornerRadius = 10;
-    cell.picImageView.image = [UIImage imageNamed:@"1"];
+    cell.picImageView.image = [UIImage imageWithColor:[UIColor grayColor]];
     
     return cell;
 }
