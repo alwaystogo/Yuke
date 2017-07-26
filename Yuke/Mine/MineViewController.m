@@ -290,6 +290,8 @@
 //            [JFTools showFailureHUDWithTip:error.localizedDescription];
 //        }];
         
+        //上传图片
+        image = [UIImage imageNamed:@"unloginphoto"];
             NSDictionary *dic = @{@"user_id":NON(kUserMoudle.user_Id)};
             [JFTools showLoadingHUD];
             [kJFClient uploadPictureWithMethod:@"index.php/Api/User/up_headimg" param:dic picData:image paramName:@"image" success:^(NSURLSessionDataTask *task, id responseObject) {

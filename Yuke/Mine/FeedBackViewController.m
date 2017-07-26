@@ -56,6 +56,7 @@
         NSLog(@"fanjui- %@",responseObject);
         [JFTools HUDHide];
         [JFTools showSuccessHUDWithTip:@"提交成功"];
+        [kCurNavController popViewControllerAnimated:YES];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [JFTools showFailureHUDWithTip:error.localizedDescription];
     }];
