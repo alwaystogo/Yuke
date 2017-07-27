@@ -14,4 +14,8 @@
 @property(nonatomic,strong)UICollectionView *collectionView;
 @property(nonatomic,strong)UICollectionViewFlowLayout *layout;
 
+@property(nonatomic,strong)NSArray *hotArray;
+@property(nonatomic,strong)NSMutableArray *listArray;
+@property(nonatomic,assign)NSInteger currentPage;
+
 @end

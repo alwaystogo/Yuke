@@ -26,4 +26,6 @@
 
 @property(nonatomic,strong)YYFPickViewThree *addressPickView;
 
+@property(nonatomic,strong)NSDictionary *userInfoDic;
+
 @end

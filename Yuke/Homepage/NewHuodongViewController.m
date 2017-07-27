@@ -48,7 +48,7 @@
 //每个组中行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 10;
+    return self.listArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -61,7 +61,8 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"NewHuodongCell" owner:self options:nil] lastObject];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.picImageView.image = [UIImage imageWithColor:[UIColor grayColor]];
+    [cell.picImageView getImageWithUrl:[self.listArray[indexPath.row] objectForKeySafe:@"thumb"] placeholderImage:[UIImage imageNamed:PlaceHolderPic]];
+
     return cell;
 }
 
@@ -75,6 +76,11 @@
     [JFTools showLoadingHUD];
     [kJFClient newHuodongList:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"huodongList - %@",responseObject);
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            
+            self.listArray = responseObject;
+        }
+        [self.tableView reloadData];
         [JFTools HUDHide];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [JFTools showFailureHUDWithTip:error.localizedDescription];

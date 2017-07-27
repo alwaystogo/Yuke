@@ -24,9 +24,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.listArray = [NSMutableArray array];
+
     self.title = @"艺人专访";
     [self setLeftBackNavItem];
     [self createUI];
+
+    [self requestHot];
+    [self refreshAction];
 }
 
 - (void)createUI{
@@ -38,14 +43,17 @@
     self.tableView.rowHeight = 220;
     //self.tableView.separatorStyle = NO;//去除分割线
     self.tableView.showsHorizontalScrollIndicator = NO;
-    self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.showsVerticalScrollIndicator = NO;//JFRefreshControl
+    //self.tableView.mj_header = [MJRefreshHeader refreshControlWithTarget:self action:@selector(refreshAction)];
+    self.tableView.mj_header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshAction)];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreAction)];
     [self.view addSubview:self.tableView];
 
 }
 //组的个数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
-    return 10;
+    return self.listArray.count;
 }
 //每个组中行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -63,7 +71,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"YirenTableViewCell" owner:self options:nil] lastObject];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.picImageView.image = [UIImage imageWithColor:[UIColor grayColor]];
+    [cell.picImageView getImageWithUrl:[self.listArray[indexPath.section] objectForKeySafe:@"thumb"] placeholderImage:[UIImage imageNamed:PlaceHolderPic]];
     return cell;
 }
 
@@ -141,7 +149,7 @@
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
-    return 10;
+    return self.hotArray.count;
 }
 /** cell的内容*/
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -153,7 +161,7 @@
     cell.backgroundColor = [UIColor grayColor];
     cell.layer.cornerRadius = 10;
     cell.picImageView.layer.cornerRadius = 10;
-    cell.picImageView.image = [UIImage imageNamed:@"1"];
+    [cell.picImageView getImageWithUrl:[self.hotArray[indexPath.row] objectForKeySafe:@"thumb"] placeholderImage:[UIImage imageNamed:PlaceHolderPic]];
     
     return cell;
 }
@@ -161,6 +169,87 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //点击某列
     
+}
+
+- (void)requestHot{
+    
+    [JFTools showLoadingHUD];
+    [kJFClient getHomePageHot:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        [JFTools HUDHide];
+        NSLog(@"--- :%@",responseObject);
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            
+            self.hotArray = responseObject;
+            [self.collectionView reloadData];
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        [JFTools showTipOnHUD:error.localizedDescription];
+    }];
+    
+}
+
+//下拉刷新
+- (void)refreshAction{
+    
+    self.currentPage = 1;
+    
+    NSDictionary *dic = @{@"pager":[NSString stringWithFormat:@"%ld",self.currentPage]};
+    [JFTools showLoadingHUD];
+    [kJFClient zhuanfangList:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        [JFTools HUDHide];
+        NSLog(@"--- :%@",responseObject);
+        [self.tableView.mj_header endRefreshing];
+        [self.listArray removeAllObjects];
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            
+            self.listArray = responseObject;
+            [self.tableView reloadData];
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self.tableView.mj_header endRefreshing];
+        [JFTools showTipOnHUD:error.localizedDescription];
+    }];
+
+}
+//上拉加载
+-(void)loadMoreAction{
+    
+    if (self.currentPage < 2) {
+        
+        self.currentPage = 2;
+    }
+    
+    NSDictionary *dic = @{@"pager":[NSString stringWithFormat:@"%ld",self.currentPage]};
+    [JFTools showLoadingHUD];
+    [kJFClient zhuanfangList:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        [JFTools HUDHide];
+        NSLog(@"--- :%@",responseObject);
+        [self.tableView.mj_header endRefreshing];
+        [self.listArray removeAllObjects];
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            
+            NSArray *array = (NSArray *)responseObject;
+            if (array.count == 0) {
+                [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            }else{
+                [self.listArray addObjectsFromArray:array];
+                [self.tableView.mj_footer endRefreshing];
+            }
+          
+        }else{
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
+        self.currentPage++;
+        [self.tableView reloadData];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self.tableView.mj_footer endRefreshing];
+        [JFTools showTipOnHUD:error.localizedDescription];
+    }];
+
 }
 
 @end

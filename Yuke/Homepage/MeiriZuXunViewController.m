@@ -20,6 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    //电视剧 ID为1  网络剧 ID为2  ...
     self.typeArray = @[@"电视剧",@"网络剧",@"电影",@"网络电影",@"广告",@"综艺",@"其他"];
     self.dateArray = @[@"开机时间",@"发布时间"];
     self.view.backgroundColor = COLOR_RGB(236, 236, 236, 1);
@@ -164,8 +165,13 @@
         [cell.picImageView getImageWithUrl:[self.listArray[indexPath.section] objectForKeySafe:@"thumb"] placeholderImage:[UIImage imageNamed:PlaceHolderPic]];
         cell.smallImageView.image = [UIImage imageWithColor:[UIColor grayColor]];
         cell.titleLabel.text = [self.listArray[indexPath.section] objectForKeySafe:@"title"];
-        cell.dateLabel.text = [self.listArray[indexPath.section] objectForKeySafe:@"startime"];
-        [cell.typeBtn setTitle:[self.listArray[indexPath.section] objectForKeySafe:@"cate_id"] forState:UIControlStateNormal];
+        NSString *dateStr = [self.listArray[indexPath.section] objectForKeySafe:@"startime"];
+        dateStr = [NSString stringWithFormat:@"%@年%@月%@日",[dateStr substringWithRange:NSMakeRange(0, 4)],[dateStr substringWithRange:NSMakeRange(5, 2)],[dateStr substringWithRange:NSMakeRange(8, 2)]];
+        ;
+        cell.dateLabel.text = dateStr;
+        NSString *strId = [self.listArray[indexPath.section] objectForKeySafe:@"cate_id"];
+        NSInteger typeId = [strId integerValue] - 1;
+        [cell.typeBtn setTitle:self.typeArray[typeId] forState:UIControlStateNormal];
         
         return cell;
     }else if (tableView.tag == 3001){
@@ -214,7 +220,7 @@
         newCell.backgroundColor = COLOR_HEX(0xffa632, 1);
         self.selectType = indexPath.row;
         
-        [self requestZuxunListWithType:self.selectType withDate:self.selectDate];
+        [self requestZuxunListWithType:self.selectType + 1 withDate:self.selectDate];
     }else if (tableView.tag == 3002){
         self.dateTableView.hidden = !self.dateTableView.hidden;
         MenuCell *oldCell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.selectDate inSection:0]];
@@ -225,7 +231,7 @@
         newCell.backgroundColor = COLOR_HEX(0xffa632, 1);
         self.selectDate = indexPath.row;
         
-        [self requestZuxunListWithType:self.selectType withDate:self.selectDate];
+        [self requestZuxunListWithType:self.selectType withDate:self.selectDate + 1];
     }
 
 }

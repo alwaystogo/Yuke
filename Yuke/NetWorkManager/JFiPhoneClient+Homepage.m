@@ -59,4 +59,11 @@
     
     [self enqueueRequestWithMethod:@"index.php/Api/News/newsList" param:params success:success failure:failure];
 }
+
+- (void)zhuanfangList:(NSDictionary *)params
+              success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+              failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{
+    
+    [self enqueueRequestWithMethod:@"index.php/Api/Index/get_interviewList" param:params success:success failure:failure];
+}
 @end

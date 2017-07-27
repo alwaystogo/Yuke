@@ -132,9 +132,22 @@
 
 - (void)requestInitData{
     
+    [JFTools showLoadingHUD];
     NSDictionary *dic = @{@"user_id":NON(kUserMoudle.user_Id)};
     [kJFClient getUserInfo:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"xinxi- %@",responseObject);
+        [JFTools HUDHide];
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            
+            self.userInfoDic = responseObject;
+            self.nickNameTextField.text = [responseObject objectForKeySafe:@"name"];
+            self.hangyeLabel.text = [responseObject objectForKeySafe:@"stature"];
+            self.yearsLabel.text = [responseObject objectForKeySafe:@"weight"];
+            self.addressLabel.text = [responseObject objectForKeySafe:@"bwh"];
+            self.xieMaLabel.text = [responseObject objectForKeySafe:@"shoe_size"];
+            self.jigouTextField.text = [responseObject objectForKeySafe:@"address"];
+        }
+        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [JFTools showFailureHUDWithTip:error.localizedDescription];
     }];
