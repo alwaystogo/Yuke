@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SavePicAndVideoViewController">
+            <connections>
+                <outlet property="friendImageView" destination="vRh-6X-Y6G" id="Be3-ym-qGb"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="weiboImageView" destination="fAi-oR-MDt" id="YME-yd-CEV"/>
+                <outlet property="weixinImageView" destination="YTz-Go-J2i" id="79B-oz-yk2"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6DZ-qE-gSq">
+                    <rect key="frame" x="82.5" y="82" width="50" height="50"/>
+                    <color key="backgroundColor" red="1" green="0.65098039215686276" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="XDy-BN-mBI"/>
+                        <constraint firstAttribute="height" constant="50" id="yEm-fc-FgR"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengyouquan.png" translatesAutoresizingMaskIntoConstraints="NO" id="vRh-6X-Y6G">
+                    <rect key="frame" x="172" y="394" width="30" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="Bob-7n-JKz"/>
+                        <constraint firstAttribute="height" constant="30" id="Rgk-Zf-pFh"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="高清模卡已成功" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YuV-fe-RXp">
+                    <rect key="frame" x="157.5" y="83" width="121.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="0.65098039215686276" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="保存至相册！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnu-3l-vBu">
+                    <rect key="frame" x="158" y="109" width="104" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="0.65098039220000004" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tLj-FI-nbn">
+                    <rect key="frame" x="39" y="151" width="297" height="170"/>
+                    <color key="backgroundColor" red="0.59763671875000002" green="0.59763671875000002" blue="0.59763671875000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="170" id="uWi-G1-5gs"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="━━直接分享━━" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LY-PV-NYk">
+                    <rect key="frame" x="126.5" y="351" width="122" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="朋友圈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0n-AM-WzP">
+                    <rect key="frame" x="168.5" y="429" width="37" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weixin-.png" translatesAutoresizingMaskIntoConstraints="NO" id="YTz-Go-J2i">
+                    <rect key="frame" x="77" y="394" width="30" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="JVf-zN-S5X"/>
+                        <constraint firstAttribute="height" constant="30" id="vqC-LF-BR3"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqt-HQ-CEP">
+                    <rect key="frame" x="79" y="429" width="25" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="新浪微博.png" translatesAutoresizingMaskIntoConstraints="NO" id="fAi-oR-MDt">
+                    <rect key="frame" x="267" y="394" width="30" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="4g9-Ke-8yU"/>
+                        <constraint firstAttribute="height" constant="30" id="5UD-8g-fbS"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新浪微博" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ewr-aF-Meh">
+                    <rect key="frame" x="257" y="429" width="49.5" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Ewr-aF-Meh" firstAttribute="top" secondItem="fAi-oR-MDt" secondAttribute="bottom" constant="5" id="2rP-gX-h3P"/>
+                <constraint firstItem="tLj-FI-nbn" firstAttribute="top" secondItem="6DZ-qE-gSq" secondAttribute="bottom" constant="19" id="3I1-Yg-SFG"/>
+                <constraint firstItem="nnu-3l-vBu" firstAttribute="top" secondItem="YuV-fe-RXp" secondAttribute="bottom" constant="5" id="3ZY-te-mLd"/>
+                <constraint firstItem="2LY-PV-NYk" firstAttribute="top" secondItem="tLj-FI-nbn" secondAttribute="bottom" constant="30" id="6e4-iX-Tb8"/>
+                <constraint firstItem="tLj-FI-nbn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="39" id="A8N-uf-gQf"/>
+                <constraint firstItem="b0n-AM-WzP" firstAttribute="top" secondItem="vRh-6X-Y6G" secondAttribute="bottom" constant="5" id="DDp-Ey-bGf"/>
+                <constraint firstItem="iqt-HQ-CEP" firstAttribute="top" secondItem="YTz-Go-J2i" secondAttribute="bottom" constant="5" id="Dve-Ke-pG8"/>
+                <constraint firstItem="vRh-6X-Y6G" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="GGa-fQ-QOr"/>
+                <constraint firstItem="vRh-6X-Y6G" firstAttribute="top" secondItem="2LY-PV-NYk" secondAttribute="bottom" constant="25" id="JEv-6y-b4k"/>
+                <constraint firstItem="YuV-fe-RXp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="83" id="LKg-4l-M09"/>
+                <constraint firstItem="fAi-oR-MDt" firstAttribute="leading" secondItem="vRh-6X-Y6G" secondAttribute="trailing" constant="65" id="Ly5-rh-FLP"/>
+                <constraint firstItem="Ewr-aF-Meh" firstAttribute="centerX" secondItem="fAi-oR-MDt" secondAttribute="centerX" id="Q8K-4d-olG"/>
+                <constraint firstItem="YTz-Go-J2i" firstAttribute="top" secondItem="vRh-6X-Y6G" secondAttribute="top" id="S13-n0-A2x"/>
+                <constraint firstItem="2LY-PV-NYk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZbM-Xe-s7E"/>
+                <constraint firstItem="fAi-oR-MDt" firstAttribute="top" secondItem="vRh-6X-Y6G" secondAttribute="top" id="Zpa-yr-zyI"/>
+                <constraint firstItem="iqt-HQ-CEP" firstAttribute="centerX" secondItem="YTz-Go-J2i" secondAttribute="centerX" id="ccR-IF-GEN"/>
+                <constraint firstItem="b0n-AM-WzP" firstAttribute="centerX" secondItem="vRh-6X-Y6G" secondAttribute="centerX" id="dB8-xs-13A"/>
+                <constraint firstItem="YuV-fe-RXp" firstAttribute="leading" secondItem="6DZ-qE-gSq" secondAttribute="trailing" constant="25" id="fyu-nA-Sb8"/>
+                <constraint firstItem="6DZ-qE-gSq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-80" id="ljJ-A3-EhE"/>
+                <constraint firstItem="nnu-3l-vBu" firstAttribute="leading" secondItem="YuV-fe-RXp" secondAttribute="leading" id="mM7-0H-jVr"/>
+                <constraint firstItem="vRh-6X-Y6G" firstAttribute="leading" secondItem="YTz-Go-J2i" secondAttribute="trailing" constant="65" id="pM7-pF-uZn"/>
+                <constraint firstItem="6DZ-qE-gSq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="82" id="tJn-an-UTy"/>
+                <constraint firstAttribute="trailing" secondItem="tLj-FI-nbn" secondAttribute="trailing" constant="39" id="wlx-O6-Phz"/>
+            </constraints>
+            <point key="canvasLocation" x="21" y="-2"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="pengyouquan.png" width="34" height="34"/>
+        <image name="weixin-.png" width="34" height="34"/>
+        <image name="新浪微博.png" width="34" height="34"/>
+    </resources>
+</document>

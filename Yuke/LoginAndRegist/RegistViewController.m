@@ -7,6 +7,7 @@
 //
 
 #import "RegistViewController.h"
+#import "XieYiViewController.h"
 
 //距离左右的距离
 #define leftAndRightDistance 33
@@ -312,6 +313,8 @@
 }
 - (void)clickXieyiAction{
     
+    XieYiViewController *VC = [[XieYiViewController alloc] init];
+    [kCurNavController pushViewController:VC animated:YES];
 }
 
 -(void)resignFirstResponserTap:(UITapGestureRecognizer *)tap{

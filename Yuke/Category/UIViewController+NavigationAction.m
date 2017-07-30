@@ -19,7 +19,7 @@ static NSInteger kNewCustomerWebPageBarImageTag = 933;
 
 - (void)goBackToHomePage{
     
-    [kAppDelegate.tabBarController setSelectedIndex:0];
+    [kAppDelegate.tabBarController setSelectedIndex:2];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
