@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "CGPlayer.h"
 
 @interface VieoShowViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 

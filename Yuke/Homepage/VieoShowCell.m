@@ -20,5 +20,9 @@
 
     // Configure the view for the selected state
 }
+- (IBAction)playClick:(id)sender {
+    [self.delegate playButtonClick:self];
+
+}
 
 @end

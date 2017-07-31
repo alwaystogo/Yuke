@@ -1,19 +1,50 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="VieoShowCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="163" id="KGk-i7-Jjw" customClass="VieoShowCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="163"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="163"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q1O-c3-WIJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="162.5"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYl-Zf-8y2">
+                        <rect key="frame" x="128" y="49.5" width="64" height="64"/>
+                        <state key="normal" image="video_play_btn_bg.png"/>
+                        <connections>
+                            <action selector="playClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YRJ-Ss-rfw"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="XYl-Zf-8y2" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="4GK-ez-O6v"/>
+                    <constraint firstItem="q1O-c3-WIJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Zne-fY-WG5"/>
+                    <constraint firstItem="q1O-c3-WIJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="agy-fu-5Aj"/>
+                    <constraint firstAttribute="trailing" secondItem="q1O-c3-WIJ" secondAttribute="trailing" id="hWI-Kj-PE3"/>
+                    <constraint firstItem="XYl-Zf-8y2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="prq-AU-si3"/>
+                    <constraint firstAttribute="bottom" secondItem="q1O-c3-WIJ" secondAttribute="bottom" id="yLC-Rg-w3S"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="imageVedioView" destination="q1O-c3-WIJ" id="jse-kI-4VI"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="113.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="video_play_btn_bg.png" width="64" height="64"/>
+    </resources>
 </document>
