@@ -8,6 +8,9 @@
 
 #import "VieoShowViewController.h"
 #import "VieoShowCell.h"
+#import <AVFoundation/AVAsset.h>
+#import <AVFoundation/AVAssetImageGenerator.h>
+#import <AVFoundation/AVTime.h>
 
 #define kScreenW ([UIScreen mainScreen].bounds.size.width)
 #define kScreenH ([UIScreen mainScreen].bounds.size.height)
@@ -34,13 +37,24 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.videoPreImageViewArray = [NSMutableArray array];
+    
     self.title = @"视频展示";
     [self setLeftBackNavItem];
     [self createUI];
     
     //注册播放完成通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fullScreen:) name:kNOTIFYCATIONFULLSCREEN object:nil];
-}
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        for (int i = 0; i < 10; i++) {
+            
+            UIImage * image = [self getVideoPreViewImage:[NSURL URLWithString:videoUrl]];
+            [self.videoPreImageViewArray addObject:image];
+            [self.tableView reloadData];
+        }
+    });
+    }
 
 - (void)createUI{
     
@@ -64,7 +78,7 @@
 //每个组中行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 10;
+    return self.videoPreImageViewArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -79,6 +93,12 @@
     }
     cell.delegate = self;//设置代理
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    cell.imageVedioView.image = self.videoPreImageViewArray[indexPath.row];
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        cell.imageVedioView.image = [self getVideoPreViewImage:[NSURL URLWithString:videoUrl]];;
+//        //cell.imageVedioView.image = [self firstFrameWithVideoURL:[NSURL URLWithString:videoUrl] size:CGSizeMake(SCREEN_WIDTH, 200)];
+//    });
     
     //解决循环引用问题
     if (_cgPlayer) {
@@ -313,6 +333,40 @@
 #pragma clang diagnostic pop
     }];
     
+}
+
+  // 获取视频第一帧
+- (UIImage *)firstFrameWithVideoURL:(NSURL *)url size:(CGSize)size
+{
+    // 获取视频第一帧
+    NSDictionary *opts = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
+    AVURLAsset *urlAsset = [AVURLAsset URLAssetWithURL:url options:opts];
+    AVAssetImageGenerator *generator = [AVAssetImageGenerator assetImageGeneratorWithAsset:urlAsset];
+    generator.appliesPreferredTrackTransform = YES;
+    generator.maximumSize = CGSizeMake(size.width, size.height);
+    NSError *error = nil;
+    CGImageRef img = [generator copyCGImageAtTime:CMTimeMake(0, 10) actualTime:NULL error:&error];
+    if (error == nil)
+    {
+        return [UIImage imageWithCGImage:img];
+    }
+    return nil;
+}
+
+// 获取视频第一帧
+- (UIImage*) getVideoPreViewImage:(NSURL *)path
+{
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:path options:nil];
+    AVAssetImageGenerator *assetGen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+    
+    assetGen.appliesPreferredTrackTransform = YES;
+    CMTime time = CMTimeMakeWithSeconds(0.0, 600);
+    NSError *error = nil;
+    CMTime actualTime;  
+    CGImageRef image = [assetGen copyCGImageAtTime:time actualTime:&actualTime error:&error];
+    UIImage *videoImage = [[UIImage alloc] initWithCGImage:image];
+    CGImageRelease(image);
+    return videoImage;
 }
 
 -(void)dealloc{

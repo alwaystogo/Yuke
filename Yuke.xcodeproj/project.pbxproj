@@ -156,6 +156,9 @@
 		AEDDAB771F1F5B59006BD05A /* QQ空间@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AEDDAB6D1F1F5B59006BD05A /* QQ空间@3x.png */; };
 		AEDDAB781F1F5B59006BD05A /* weixin-@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AEDDAB6E1F1F5B59006BD05A /* weixin-@2x.png */; };
 		AEDDAB791F1F5B59006BD05A /* weixin-@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AEDDAB6F1F1F5B59006BD05A /* weixin-@3x.png */; };
+		AEEFD80F1F30508B00E667B0 /* libffmpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEFD80C1F30508B00E667B0 /* libffmpeg.a */; };
+		AEEFD8101F30508B00E667B0 /* libopenssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEFD80D1F30508B00E667B0 /* libopenssl.a */; };
+		AEEFD8111F30508B00E667B0 /* libVitamio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEFD80E1F30508B00E667B0 /* libVitamio.a */; };
 		E82FDD001F1E490400A3A9A3 /* ShangwuhezuoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E82FDCFE1F1E490400A3A9A3 /* ShangwuhezuoViewController.m */; };
 		E82FDD011F1E490400A3A9A3 /* ShangwuhezuoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E82FDCFF1F1E490400A3A9A3 /* ShangwuhezuoViewController.xib */; };
 		E8E873651F2D8D6A00DB944F /* XieYiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E873631F2D8D6A00DB944F /* XieYiViewController.m */; };
@@ -180,9 +183,6 @@
 		E8E8739F1F2F76D000DB944F /* CGPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E8E8738C1F2F76D000DB944F /* CGPlayer.bundle */; };
 		E8E873A01F2F76D000DB944F /* CGPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E8738E1F2F76D000DB944F /* CGPlayer.m */; };
 		E8E873A11F2F76D000DB944F /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = E8E873901F2F76D000DB944F /* CHANGELOG.md */; };
-		E8E873A21F2F76D000DB944F /* libffmpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E8739B1F2F76D000DB944F /* libffmpeg.a */; };
-		E8E873A31F2F76D000DB944F /* libopenssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E8739C1F2F76D000DB944F /* libopenssl.a */; };
-		E8E873A41F2F76D000DB944F /* libVitamio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E8739D1F2F76D000DB944F /* libVitamio.a */; };
 		E8E873A51F2F76D000DB944F /* Vitamio_SDK_for_iOS_User_Manual_cn.md in Sources */ = {isa = PBXBuildFile; fileRef = E8E8739E1F2F76D000DB944F /* Vitamio_SDK_for_iOS_User_Manual_cn.md */; };
 		E8E873A71F2F789E00DB944F /* video_play_btn_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8E873A61F2F789E00DB944F /* video_play_btn_bg@2x.png */; };
 /* End PBXBuildFile section */
@@ -445,6 +445,9 @@
 		AEDDAB6D1F1F5B59006BD05A /* QQ空间@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QQ空间@3x.png"; sourceTree = "<group>"; };
 		AEDDAB6E1F1F5B59006BD05A /* weixin-@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weixin-@2x.png"; sourceTree = "<group>"; };
 		AEDDAB6F1F1F5B59006BD05A /* weixin-@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weixin-@3x.png"; sourceTree = "<group>"; };
+		AEEFD80C1F30508B00E667B0 /* libffmpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libffmpeg.a; sourceTree = "<group>"; };
+		AEEFD80D1F30508B00E667B0 /* libopenssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopenssl.a; sourceTree = "<group>"; };
+		AEEFD80E1F30508B00E667B0 /* libVitamio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libVitamio.a; sourceTree = "<group>"; };
 		E82FDCFD1F1E490400A3A9A3 /* ShangwuhezuoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangwuhezuoViewController.h; sourceTree = "<group>"; };
 		E82FDCFE1F1E490400A3A9A3 /* ShangwuhezuoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShangwuhezuoViewController.m; sourceTree = "<group>"; };
 		E82FDCFF1F1E490400A3A9A3 /* ShangwuhezuoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShangwuhezuoViewController.xib; sourceTree = "<group>"; };
@@ -482,9 +485,6 @@
 		E8E873981F2F76D000DB944F /* VMediaPlayerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMediaPlayerDelegate.h; sourceTree = "<group>"; };
 		E8E873991F2F76D000DB944F /* VPlayerManageDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPlayerManageDef.h; sourceTree = "<group>"; };
 		E8E8739A1F2F76D000DB944F /* VSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSingleton.h; sourceTree = "<group>"; };
-		E8E8739B1F2F76D000DB944F /* libffmpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libffmpeg.a; sourceTree = "<group>"; };
-		E8E8739C1F2F76D000DB944F /* libopenssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopenssl.a; sourceTree = "<group>"; };
-		E8E8739D1F2F76D000DB944F /* libVitamio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libVitamio.a; sourceTree = "<group>"; };
 		E8E8739E1F2F76D000DB944F /* Vitamio_SDK_for_iOS_User_Manual_cn.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Vitamio_SDK_for_iOS_User_Manual_cn.md; sourceTree = "<group>"; };
 		E8E873A61F2F789E00DB944F /* video_play_btn_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_play_btn_bg@2x.png"; sourceTree = "<group>"; };
 		FE4BF8FEA962BF522F157E8F /* libPods-Yuke.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yuke.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -506,13 +506,13 @@
 				E8E8737A1F2F760900DB944F /* QuartzCore.framework in Frameworks */,
 				E8E873781F2F75FF00DB944F /* UIKit.framework in Frameworks */,
 				E8E873761F2F75ED00DB944F /* libiconv.tbd in Frameworks */,
-				E8E873A41F2F76D000DB944F /* libVitamio.a in Frameworks */,
+				AEEFD8111F30508B00E667B0 /* libVitamio.a in Frameworks */,
 				E8E873741F2F75DF00DB944F /* libstdc++.tbd in Frameworks */,
-				E8E873A21F2F76D000DB944F /* libffmpeg.a in Frameworks */,
+				AEEFD80F1F30508B00E667B0 /* libffmpeg.a in Frameworks */,
 				E8E873721F2F75CA00DB944F /* libbz2.tbd in Frameworks */,
 				AEAB38BE1F20A210008FC136 /* libz.tbd in Frameworks */,
 				AEAB38BC1F20A203008FC136 /* libsqlite3.0.tbd in Frameworks */,
-				E8E873A31F2F76D000DB944F /* libopenssl.a in Frameworks */,
+				AEEFD8101F30508B00E667B0 /* libopenssl.a in Frameworks */,
 				AEAB38BA1F20A1F4008FC136 /* libc++.tbd in Frameworks */,
 				AEAB38B81F20A1E5008FC136 /* CoreTelephony.framework in Frameworks */,
 				A1CEFF70B4B75806BE5433A3 /* libPods-Yuke.a in Frameworks */,
@@ -1111,11 +1111,11 @@
 		E8E8738F1F2F76D000DB944F /* Vitamio */ = {
 			isa = PBXGroup;
 			children = (
+				AEEFD80C1F30508B00E667B0 /* libffmpeg.a */,
+				AEEFD80D1F30508B00E667B0 /* libopenssl.a */,
+				AEEFD80E1F30508B00E667B0 /* libVitamio.a */,
 				E8E873901F2F76D000DB944F /* CHANGELOG.md */,
 				E8E873911F2F76D000DB944F /* include */,
-				E8E8739B1F2F76D000DB944F /* libffmpeg.a */,
-				E8E8739C1F2F76D000DB944F /* libopenssl.a */,
-				E8E8739D1F2F76D000DB944F /* libVitamio.a */,
 				E8E8739E1F2F76D000DB944F /* Vitamio_SDK_for_iOS_User_Manual_cn.md */,
 			);
 			path = Vitamio;
@@ -1539,6 +1539,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9SAQA8L42D;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Yuke/Share/qq",
@@ -1587,6 +1588,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9SAQA8L42D;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Yuke/Share/qq",
