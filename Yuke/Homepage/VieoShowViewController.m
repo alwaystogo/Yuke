@@ -17,7 +17,7 @@
 #define kNavbarHeight 0//导航栏高度
 #define kTabBarHeight 44//dock条高度
 #define videoUrl @"http://flv3.bn.netease.com/videolib3/1707/31/NVeMJ1940/SD/NVeMJ1940-mobile.mp4"
-@interface VieoShowViewController ()<ViewCellDelegate,CGPlayerDelegate>
+@interface VieoShowViewController ()<ViewCellDelegate,CGPlayerDelegate,UIGestureRecognizerDelegate>
 
 @property (nonatomic,strong) CGPlayer *cgPlayer;
 
@@ -46,15 +46,25 @@
     //注册播放完成通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fullScreen:) name:kNOTIFYCATIONFULLSCREEN object:nil];
     
-    dispatch_async(dispatch_get_main_queue(), ^{
+    WeakSelf
+    //异步请求
+    dispatch_async(dispatch_get_global_queue(0,0), ^{
         for (int i = 0; i < 10; i++) {
             
             UIImage * image = [self getVideoPreViewImage:[NSURL URLWithString:videoUrl]];
-            [self.videoPreImageViewArray addObject:image];
-            [self.tableView reloadData];
+            if (image != nil) {
+                [self.videoPreImageViewArray addObject:image];
+                //更新UI，回到主线程
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [weakSelf.tableView reloadData];
+                });
+            }
+            
+            
         }
     });
-    }
+    
+}
 
 - (void)createUI{
     
@@ -78,11 +88,15 @@
 //每个组中行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return self.videoPreImageViewArray.count;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    //如果是当前播放的cell,则直接跳过，否则视频会被关闭
+    if (self.currentIndexPath.section == indexPath.section && self.currentIndexPath.row == indexPath.row && self.currentCell != nil) {
+        return self.currentCell;
+    }
     static NSString *indentify = @"VieoShowCell";
     
     VieoShowCell *cell = [tableView dequeueReusableCellWithIdentifier:indentify];
@@ -94,7 +108,10 @@
     cell.delegate = self;//设置代理
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    cell.imageVedioView.image = self.videoPreImageViewArray[indexPath.row];
+    if (self.videoPreImageViewArray.count > indexPath.row) {
+        cell.imageVedioView.image = self.videoPreImageViewArray[indexPath.row];
+    }
+    
 //    dispatch_async(dispatch_get_main_queue(), ^{
 //        cell.imageVedioView.image = [self getVideoPreViewImage:[NSURL URLWithString:videoUrl]];;
 //        //cell.imageVedioView.image = [self firstFrameWithVideoURL:[NSURL URLWithString:videoUrl] size:CGSizeMake(SCREEN_WIDTH, 200)];
@@ -360,9 +377,10 @@
     AVAssetImageGenerator *assetGen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
     
     assetGen.appliesPreferredTrackTransform = YES;
-    CMTime time = CMTimeMakeWithSeconds(0.0, 600);
+    //视图时间，想要截取对应时间的帧，可以更改这个参数
+    CMTime time = CMTimeMakeWithSeconds(2.0, 600);
     NSError *error = nil;
-    CMTime actualTime;  
+    CMTime actualTime;//可不设置，传NULL
     CGImageRef image = [assetGen copyCGImageAtTime:time actualTime:&actualTime error:&error];
     UIImage *videoImage = [[UIImage alloc] initWithCGImage:image];
     CGImageRelease(image);
