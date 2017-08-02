@@ -37,6 +37,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    //禁止掉全局左滑手势
+    self.fd_interactivePopDisabled = YES;
+    
     self.videoPreImageViewArray = [NSMutableArray array];
     
     self.title = @"视频展示";
@@ -46,21 +49,19 @@
     //注册播放完成通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fullScreen:) name:kNOTIFYCATIONFULLSCREEN object:nil];
     
-    WeakSelf
+     __weak typeof(self) weakSelf = self;
     //异步请求
     dispatch_async(dispatch_get_global_queue(0,0), ^{
         for (int i = 0; i < 10; i++) {
             
-            UIImage * image = [self getVideoPreViewImage:[NSURL URLWithString:videoUrl]];
+            UIImage * image = [weakSelf getVideoPreViewImage:[NSURL URLWithString:videoUrl]];
             if (image != nil) {
-                [self.videoPreImageViewArray addObject:image];
+                [weakSelf.videoPreImageViewArray addObject:image];
                 //更新UI，回到主线程
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [weakSelf.tableView reloadData];
                 });
             }
-            
-            
         }
     });
     
@@ -370,7 +371,7 @@
     return nil;
 }
 
-// 获取视频第一帧
+// 获取视频某一帧，返回UIImage
 - (UIImage*) getVideoPreViewImage:(NSURL *)path
 {
     AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:path options:nil];
