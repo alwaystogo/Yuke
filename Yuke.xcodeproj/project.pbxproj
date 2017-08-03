@@ -159,6 +159,8 @@
 		AEEFD80F1F30508B00E667B0 /* libffmpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEFD80C1F30508B00E667B0 /* libffmpeg.a */; };
 		AEEFD8101F30508B00E667B0 /* libopenssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEFD80D1F30508B00E667B0 /* libopenssl.a */; };
 		AEEFD8111F30508B00E667B0 /* libVitamio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEFD80E1F30508B00E667B0 /* libVitamio.a */; };
+		AEEFD8171F331F0400E667B0 /* XSMediaPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEFD8141F331F0400E667B0 /* XSMediaPlayer.m */; };
+		AEEFD8181F331F0400E667B0 /* XSMediaPlayerMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEFD8161F331F0400E667B0 /* XSMediaPlayerMaskView.m */; };
 		E82FDD001F1E490400A3A9A3 /* ShangwuhezuoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E82FDCFE1F1E490400A3A9A3 /* ShangwuhezuoViewController.m */; };
 		E82FDD011F1E490400A3A9A3 /* ShangwuhezuoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E82FDCFF1F1E490400A3A9A3 /* ShangwuhezuoViewController.xib */; };
 		E8E873651F2D8D6A00DB944F /* XieYiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E873631F2D8D6A00DB944F /* XieYiViewController.m */; };
@@ -448,6 +450,10 @@
 		AEEFD80C1F30508B00E667B0 /* libffmpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libffmpeg.a; sourceTree = "<group>"; };
 		AEEFD80D1F30508B00E667B0 /* libopenssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopenssl.a; sourceTree = "<group>"; };
 		AEEFD80E1F30508B00E667B0 /* libVitamio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libVitamio.a; sourceTree = "<group>"; };
+		AEEFD8131F331F0400E667B0 /* XSMediaPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMediaPlayer.h; sourceTree = "<group>"; };
+		AEEFD8141F331F0400E667B0 /* XSMediaPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMediaPlayer.m; sourceTree = "<group>"; };
+		AEEFD8151F331F0400E667B0 /* XSMediaPlayerMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMediaPlayerMaskView.h; sourceTree = "<group>"; };
+		AEEFD8161F331F0400E667B0 /* XSMediaPlayerMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMediaPlayerMaskView.m; sourceTree = "<group>"; };
 		E82FDCFD1F1E490400A3A9A3 /* ShangwuhezuoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangwuhezuoViewController.h; sourceTree = "<group>"; };
 		E82FDCFE1F1E490400A3A9A3 /* ShangwuhezuoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShangwuhezuoViewController.m; sourceTree = "<group>"; };
 		E82FDCFF1F1E490400A3A9A3 /* ShangwuhezuoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShangwuhezuoViewController.xib; sourceTree = "<group>"; };
@@ -598,6 +604,7 @@
 				AE61B67E1F0249A300C1F930 /* ThirdPart */,
 				AEAB38921F20A158008FC136 /* Share */,
 				E8E8738B1F2F76D000DB944F /* CGPlayer */,
+				AEEFD8121F331F0400E667B0 /* SingleBofangqi */,
 				AE7FA0AE1F0DE9DD009A8F12 /* Resource */,
 				AE61B5FC1F02065400C1F930 /* Main.storyboard */,
 				AE61B5FF1F02065400C1F930 /* Assets.xcassets */,
@@ -1097,6 +1104,17 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		AEEFD8121F331F0400E667B0 /* SingleBofangqi */ = {
+			isa = PBXGroup;
+			children = (
+				AEEFD8131F331F0400E667B0 /* XSMediaPlayer.h */,
+				AEEFD8141F331F0400E667B0 /* XSMediaPlayer.m */,
+				AEEFD8151F331F0400E667B0 /* XSMediaPlayerMaskView.h */,
+				AEEFD8161F331F0400E667B0 /* XSMediaPlayerMaskView.m */,
+			);
+			path = SingleBofangqi;
+			sourceTree = "<group>";
+		};
 		E8E8738B1F2F76D000DB944F /* CGPlayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1331,6 +1349,7 @@
 				E8E873A11F2F76D000DB944F /* CHANGELOG.md in Sources */,
 				AE61B6D51F024C9900C1F930 /* JFiPhoneClient+UploadFile.m in Sources */,
 				AE61B6621F0248CF00C1F930 /* NSDictionary+Helper.m in Sources */,
+				AEEFD8181F331F0400E667B0 /* XSMediaPlayerMaskView.m in Sources */,
 				E8E8736A1F2DA21F00DB944F /* SavePicAndVideoViewController.m in Sources */,
 				AE61B61B1F02479F00C1F930 /* BaseWebViewViewController.m in Sources */,
 				AE61B67B1F02495900C1F930 /* AppConfig.m in Sources */,
@@ -1381,6 +1400,7 @@
 				AEB3D72E1F16121E0091EE21 /* ForgetPasswordViewController.m in Sources */,
 				AE61B6EF1F025F6D00C1F930 /* YuePhotoViewController.m in Sources */,
 				AEC988211F25D7CB006D9983 /* MoteCardsListViewController.m in Sources */,
+				AEEFD8171F331F0400E667B0 /* XSMediaPlayer.m in Sources */,
 				AE61B6A01F0249A300C1F930 /* NSBundle+TZImagePicker.m in Sources */,
 				AE61B6641F0248CF00C1F930 /* NSNumber+FormatExtension.m in Sources */,
 				AEDDAB511F1DB2A3006BD05A /* PicShowCell.m in Sources */,

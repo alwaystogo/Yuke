@@ -59,7 +59,7 @@
         if (authStatus == AVAuthorizationStatusRestricted ||
             authStatus == AVAuthorizationStatusDenied) {
             [JFTools showAlertWithTitle:@"提示"
-                                message:@"请在iPhone的“设置-隐私-相机”选项中，允许加法理财师访问您的相机"
+                                message:@"请在iPhone的“设置-隐私-相机”选项中，允许加娱客访问您的相机"
                             cancelTitle:@"好"
                              otherTitle:nil
                              completion:nil];
@@ -78,10 +78,10 @@
     picker.delegate=self;
     picker.allowsEditing=YES;
 
-    //设置导航栏背景颜色
-    picker.navigationBar.barTintColor = COLOR_HEX(0x666666, 1);
-    //设置字体颜色
-    picker.navigationBar.tintColor = [UIColor whiteColor];
+//    //设置导航栏背景颜色
+//    picker.navigationBar.barTintColor = COLOR_HEX(0x666666, 1);
+//    //设置字体颜色
+//    picker.navigationBar.tintColor = [UIColor whiteColor];
     
     picker.sourceType=UIImagePickerControllerSourceTypeSavedPhotosAlbum;
     [kCurNavController presentViewController:picker animated:YES completion:^{
@@ -91,7 +91,7 @@
         if (authStatus == ALAuthorizationStatusRestricted ||
             authStatus == ALAuthorizationStatusDenied) {
             [JFTools showAlertWithTitle:@"提示"
-                                message:@"请在iPhone的“设置-隐私-照片”选项中，允许加法理财师访问您的相册"
+                                message:@"请在iPhone的“设置-隐私-照片”选项中，允许娱客访问您的相册"
                             cancelTitle:@"好"
                              otherTitle:nil
                              completion:nil];

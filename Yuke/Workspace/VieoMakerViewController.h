@@ -8,6 +8,8 @@
 
 #import "BaseViewController.h"
 
-@interface VieoMakerViewController : BaseViewController
+@interface VieoMakerViewController : BaseViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
+@property(nonatomic,strong)NSURL *videoUrl;
+@property(nonatomic,strong)UIImageView *imageView;
 @end
