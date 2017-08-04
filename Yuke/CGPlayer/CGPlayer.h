@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "VMediaPlayer.h"
 
+#pragma 视频播放列表中使用的播放器
+
+
 //点击全屏或缩小通知
 #define kNOTIFYCATIONFULLSCREEN (@"kNOTIFYCATIONFULLSCREEN")
 

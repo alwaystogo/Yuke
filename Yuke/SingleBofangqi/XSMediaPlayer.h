@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 //#import "XibView.h"
 
+#pragma 制作视频时，使用的播放器
 
 @interface XSMediaPlayer : UIView
 
