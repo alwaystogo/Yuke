@@ -106,7 +106,15 @@
     mainCompositionInst.renderSize = CGSizeMake(renderWidth, renderHeight);
     mainCompositionInst.instructions = [NSArray arrayWithObject:mainInstruction];
     mainCompositionInst.frameDuration = CMTimeMake(1, 25);
+    
+    //shuiyin
     [self applyVideoEffectsToComposition:mainCompositionInst WithWaterImg:img WithCoverImage:coverImg WithQustion:question size:CGSizeMake(renderWidth, renderHeight)];
+//    //UI操作放到主线程执行
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        
+//        [self applyVideoEffectsToComposition:mainCompositionInst WithWaterImg:img WithCoverImage:coverImg WithQustion:question size:CGSizeMake(renderWidth, renderHeight)];
+//
+//    });
     
     // 4 - 输出路径
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -114,6 +122,11 @@
     
     NSString *myPathDocs =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp4",fileName]];
     unlink([myPathDocs UTF8String]);
+    
+    //如果文件已经存在，先移除，否则会报无法存储的错误
+    NSFileManager *manager = [NSFileManager defaultManager];
+    [manager removeItemAtPath:myPathDocs error:nil];
+    
     NSURL* videoUrl = [NSURL fileURLWithPath:myPathDocs];
     
     dlink = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateProgress)];
@@ -279,7 +292,12 @@
 //                             [NSString stringWithFormat:@"mergeVideo-%d.mov",arc4random() % 1000]];
     NSString *myPathDocs =  [documentsDirectory stringByAppendingPathComponent:
                              [NSString stringWithFormat:@"%@.mov",@"combinVideo"]];
+    //如果文件已经存在，先移除，否则会报无法存储的错误
+    NSFileManager *manager = [NSFileManager defaultManager];
+    [manager removeItemAtPath:myPathDocs error:nil];
+    
     NSURL *videoUrl = [NSURL fileURLWithPath:myPathDocs];
+    
     // 5 - Create exporter
     exporter = [[AVAssetExportSession alloc] initWithAsset:mixComposition
                                                 presetName:AVAssetExportPresetHighestQuality];

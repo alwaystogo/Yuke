@@ -7,9 +7,17 @@
 //
 
 #import "BaseViewController.h"
+#import "CGPlayer.h"
+#import "XSMediaPlayer.h"
+#import "SFDualWaySlider.h"
 
 @interface VieoMakerViewController : BaseViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property(nonatomic,strong)NSURL *videoUrl;
 @property(nonatomic,strong)UIImageView *imageView;
+
+@property(nonatomic,strong)XSMediaPlayer *videoPlayer;//bofangqi
+
+@property(nonatomic,strong)SFDualWaySlider *slider;//huagan
+
 @end

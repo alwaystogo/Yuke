@@ -318,6 +318,9 @@
 		AEDDAB771F1F5B59006BD05A /* QQ空间@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AEDDAB6D1F1F5B59006BD05A /* QQ空间@3x.png */; };
 		AEDDAB781F1F5B59006BD05A /* weixin-@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AEDDAB6E1F1F5B59006BD05A /* weixin-@2x.png */; };
 		AEDDAB791F1F5B59006BD05A /* weixin-@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AEDDAB6F1F1F5B59006BD05A /* weixin-@3x.png */; };
+		AEE4A0901F386BDE009F396F /* huakuai_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AEE4A08B1F386BDE009F396F /* huakuai_icon@2x.png */; };
+		AEE4A0911F386BDE009F396F /* SFDualWayIndicateView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE4A08D1F386BDE009F396F /* SFDualWayIndicateView.m */; };
+		AEE4A0921F386BDE009F396F /* SFDualWaySlider.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE4A08F1F386BDE009F396F /* SFDualWaySlider.m */; };
 		AEEFD80F1F30508B00E667B0 /* libffmpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEFD80C1F30508B00E667B0 /* libffmpeg.a */; };
 		AEEFD8101F30508B00E667B0 /* libopenssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEFD80D1F30508B00E667B0 /* libopenssl.a */; };
 		AEEFD8111F30508B00E667B0 /* libVitamio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEFD80E1F30508B00E667B0 /* libVitamio.a */; };
@@ -675,8 +678,8 @@
 		AE5DC5171F3461CA003215FB /* GPUImagePicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImagePicture.m; sourceTree = "<group>"; };
 		AE5DC5181F3461CA003215FB /* GPUImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageView.h; sourceTree = "<group>"; };
 		AE5DC5191F3461CA003215FB /* GPUImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageView.m; sourceTree = "<group>"; };
-		AE5DC5BA1F34622B003215FB /* VideoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoManager.h; path = VideoManager/GPUImage/VideoManager.h; sourceTree = "<group>"; };
-		AE5DC5BB1F34622B003215FB /* VideoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoManager.m; path = VideoManager/GPUImage/VideoManager.m; sourceTree = "<group>"; };
+		AE5DC5BA1F34622B003215FB /* VideoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoManager.h; path = GPUImage/VideoManager.h; sourceTree = "<group>"; };
+		AE5DC5BB1F34622B003215FB /* VideoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoManager.m; path = GPUImage/VideoManager.m; sourceTree = "<group>"; };
 		AE5DC5BD1F347187003215FB /* selfH.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = selfH.MOV; sourceTree = "<group>"; };
 		AE61B5F01F02065400C1F930 /* Yuke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yuke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE61B5F41F02065400C1F930 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -933,6 +936,11 @@
 		AEDDAB6D1F1F5B59006BD05A /* QQ空间@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QQ空间@3x.png"; sourceTree = "<group>"; };
 		AEDDAB6E1F1F5B59006BD05A /* weixin-@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weixin-@2x.png"; sourceTree = "<group>"; };
 		AEDDAB6F1F1F5B59006BD05A /* weixin-@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weixin-@3x.png"; sourceTree = "<group>"; };
+		AEE4A08B1F386BDE009F396F /* huakuai_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "huakuai_icon@2x.png"; sourceTree = "<group>"; };
+		AEE4A08C1F386BDE009F396F /* SFDualWayIndicateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFDualWayIndicateView.h; sourceTree = "<group>"; };
+		AEE4A08D1F386BDE009F396F /* SFDualWayIndicateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFDualWayIndicateView.m; sourceTree = "<group>"; };
+		AEE4A08E1F386BDE009F396F /* SFDualWaySlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFDualWaySlider.h; sourceTree = "<group>"; };
+		AEE4A08F1F386BDE009F396F /* SFDualWaySlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFDualWaySlider.m; sourceTree = "<group>"; };
 		AEEFD80C1F30508B00E667B0 /* libffmpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libffmpeg.a; sourceTree = "<group>"; };
 		AEEFD80D1F30508B00E667B0 /* libopenssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopenssl.a; sourceTree = "<group>"; };
 		AEEFD80E1F30508B00E667B0 /* libVitamio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libVitamio.a; sourceTree = "<group>"; };
@@ -1054,6 +1062,8 @@
 		AE5DC3D61F3461C9003215FB /* VideoManager */ = {
 			isa = PBXGroup;
 			children = (
+				AE5DC5BA1F34622B003215FB /* VideoManager.h */,
+				AE5DC5BB1F34622B003215FB /* VideoManager.m */,
 				AE5DC3D71F3461C9003215FB /* GPUImage */,
 			);
 			path = VideoManager;
@@ -1436,8 +1446,7 @@
 				E8E8738B1F2F76D000DB944F /* CGPlayer */,
 				AEEFD8121F331F0400E667B0 /* SingleBofangqi */,
 				AE5DC3D61F3461C9003215FB /* VideoManager */,
-				AE5DC5BA1F34622B003215FB /* VideoManager.h */,
-				AE5DC5BB1F34622B003215FB /* VideoManager.m */,
+				AEE4A08A1F386BDE009F396F /* SFDualWaySlider */,
 				AE7FA0AE1F0DE9DD009A8F12 /* Resource */,
 				AE61B5FC1F02065400C1F930 /* Main.storyboard */,
 				AE61B5FF1F02065400C1F930 /* Assets.xcassets */,
@@ -1938,6 +1947,18 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		AEE4A08A1F386BDE009F396F /* SFDualWaySlider */ = {
+			isa = PBXGroup;
+			children = (
+				AEE4A08E1F386BDE009F396F /* SFDualWaySlider.h */,
+				AEE4A08F1F386BDE009F396F /* SFDualWaySlider.m */,
+				AEE4A08C1F386BDE009F396F /* SFDualWayIndicateView.h */,
+				AEE4A08D1F386BDE009F396F /* SFDualWayIndicateView.m */,
+				AEE4A08B1F386BDE009F396F /* huakuai_icon@2x.png */,
+			);
+			path = SFDualWaySlider;
+			sourceTree = "<group>";
+		};
 		AEEFD8121F331F0400E667B0 /* SingleBofangqi */ = {
 			isa = PBXGroup;
 			children = (
@@ -2062,6 +2083,7 @@
 				AE7FA0CD1F0E207E009A8F12 /* Settings.storyboard in Resources */,
 				E82FDD011F1E490400A3A9A3 /* ShangwuhezuoViewController.xib in Resources */,
 				AEDDAB771F1F5B59006BD05A /* QQ空间@3x.png in Resources */,
+				AEE4A0901F386BDE009F396F /* huakuai_icon@2x.png in Resources */,
 				AEDDAB621F1F3DF0006BD05A /* huodongPic@2x.png in Resources */,
 				AE61B6031F02065400C1F930 /* LaunchScreen.storyboard in Resources */,
 				AE61B6001F02065400C1F930 /* Assets.xcassets in Resources */,
@@ -2205,6 +2227,7 @@
 				AE5DC53F1F3461CA003215FB /* GPUImageErosionFilter.m in Sources */,
 				AE61B6621F0248CF00C1F930 /* NSDictionary+Helper.m in Sources */,
 				AE5DC59E1F3461CA003215FB /* GPUImageSwirlFilter.m in Sources */,
+				AEE4A0911F386BDE009F396F /* SFDualWayIndicateView.m in Sources */,
 				AE5DC58D1F3461CA003215FB /* GPUImageScreenBlendFilter.m in Sources */,
 				AE5DC5241F3461CA003215FB /* GPUImageBoxBlurFilter.m in Sources */,
 				AE5DC56C1F3461CA003215FB /* GPUImageMonochromeFilter.m in Sources */,
@@ -2282,6 +2305,7 @@
 				AE5DC5491F3461CA003215FB /* GPUImageGaussianBlurFilter.m in Sources */,
 				AEB3D7221F1375A70091EE21 /* YuePaisheTableViewCell.m in Sources */,
 				AE5DC5761F3461CA003215FB /* GPUImageOpacityFilter.m in Sources */,
+				AEE4A0921F386BDE009F396F /* SFDualWaySlider.m in Sources */,
 				AE5DC5751F3461CA003215FB /* GPUImageNormalBlendFilter.m in Sources */,
 				AE5DC5AE1F3461CA003215FB /* GPUImageUnsharpMaskFilter.m in Sources */,
 				AEDDAB411F1CA160006BD05A /* ZuXunCell.m in Sources */,

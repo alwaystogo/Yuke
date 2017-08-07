@@ -11,49 +11,6 @@
 #import "XSMediaPlayer.h"
 #import "XSMediaPlayerMaskView.h"
 
-
-
-// 枚举值，包含水平移动方向和垂直移动方向
-typedef NS_ENUM(NSInteger, PanDirection){
-    PanDirectionHorizontalMoved, //横向移动
-    PanDirectionVerticalMoved    //纵向移动
-};
-
-//播放器的几种状态
-typedef NS_ENUM(NSInteger, ZFPlayerState) {
-    ZFPlayerStateBuffering,  //缓冲中
-    ZFPlayerStatePlaying,    //播放中
-    ZFPlayerStateStopped,    //停止播放
-    ZFPlayerStatePause       //暂停播放
-};
-
-
-@interface XSMediaPlayer ()<UIGestureRecognizerDelegate>
-
-@property(nonatomic,strong)AVPlayer *player;
-@property(nonatomic,strong)AVPlayerItem *playerItme;
-@property(nonatomic,strong)AVPlayerLayer *playerLayer;
-
-@property(nonatomic,strong)XSMediaPlayerMaskView *maskView;
-
-@property(nonatomic,assign)CGRect smallFrame;
-@property(nonatomic,assign)CGRect bigFrame;
-
-/** 定义一个实例变量，保存枚举值 */
-@property (nonatomic, assign) PanDirection     panDirection;
-@property(nonatomic,assign)ZFPlayerState playState;
-
-
-@property(nonatomic,assign)BOOL isDragSlider;
-/** 是否被用户暂停 */
-@property (nonatomic,assign) BOOL    isPauseByUser;
-
-/** 滑杆 */
-@property (nonatomic, strong) UISlider  *volumeViewSlider;
-
-@end
-
-
 @implementation XSMediaPlayer
 
 /*
@@ -84,8 +41,9 @@ typedef NS_ENUM(NSInteger, ZFPlayerState) {
         }
         [self.layer insertSublayer:self.playerLayer atIndex:0];
         
-        self.maskView = [[XSMediaPlayerMaskView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-        [self addSubview:self.maskView];
+        //注释 by yang
+//        self.maskView = [[XSMediaPlayerMaskView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+//        [self addSubview:self.maskView];
         
         [self.maskView.fullScreenBtn addTarget:self action:@selector(fullScreenBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         // 播放按钮点击事件
@@ -107,7 +65,7 @@ typedef NS_ENUM(NSInteger, ZFPlayerState) {
         [self listeningRotating];
         //根据播放器的回调方法，更新当前播放的时间等
         [self setTheProgressOfPlayTime];
-        [self getVolumeVolue];
+        //[self getVolumeVolue];
         // 添加平移手势，用来控制音量、亮度、快进快退
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panDirection:)];
         pan.delegate                = self;
@@ -121,29 +79,29 @@ typedef NS_ENUM(NSInteger, ZFPlayerState) {
 
 #pragma mark - Volume 系统音量
 
--(void)getVolumeVolue
-{
-    MPVolumeView *volumeView = [[MPVolumeView alloc] init];
-    _volumeViewSlider = nil;
-    for (UIView *view in [volumeView subviews]){
-        if ([view.class.description isEqualToString:@"MPVolumeSlider"]){
-            _volumeViewSlider = (UISlider *)view;
-            
-            [self addSubview:_volumeViewSlider];
-         break;
-        }
-    }
-    _volumeViewSlider.frame = CGRectMake(-1000, -1000, 100, 100);
-    
-    
-    /* 马上获取不到值 */
-    [self performSelector:@selector(afterOneSecond) withObject:nil afterDelay:1];
-}
+//-(void)getVolumeVolue
+//{
+//    MPVolumeView *volumeView = [[MPVolumeView alloc] init];
+//    _volumeViewSlider = nil;
+//    for (UIView *view in [volumeView subviews]){
+//        if ([view.class.description isEqualToString:@"MPVolumeSlider"]){
+//            _volumeViewSlider = (UISlider *)view;
+//            
+//            [self addSubview:_volumeViewSlider];
+//         break;
+//        }
+//    }
+//    _volumeViewSlider.frame = CGRectMake(-1000, -1000, 100, 100);
+//    
+//    
+//    /* 马上获取不到值 */
+//    [self performSelector:@selector(afterOneSecond) withObject:nil afterDelay:1];
+//}
 
--(void)afterOneSecond
-{
-    self.maskView.volumeProgress.progress = _volumeViewSlider.value;
-}
+//-(void)afterOneSecond
+//{
+//    self.maskView.volumeProgress.progress = _volumeViewSlider.value;
+//}
 
 
 #pragma mark - slider事件
@@ -560,7 +518,7 @@ typedef NS_ENUM(NSInteger, ZFPlayerState) {
                     break;
                 }
                 case PanDirectionVerticalMoved:{
-                    [self verticalMoved:veloctyPoint.y]; // 垂直移动方法只要y方向的值
+                    //[self verticalMoved:veloctyPoint.y]; // 垂直移动方法只要y方向的值
                     break;
                 }
                 default:
@@ -591,12 +549,12 @@ typedef NS_ENUM(NSInteger, ZFPlayerState) {
 }
 
 
-- (void)verticalMoved:(CGFloat)value
-{
-        // 更改系统的音量
-        self.volumeViewSlider.value      -= value / 10000;// 越小幅度越小
-
-}
+//- (void)verticalMoved:(CGFloat)value
+//{
+//        // 更改系统的音量
+//        self.volumeViewSlider.value      -= value / 10000;// 越小幅度越小
+//
+//}
 -(void)horizontalMoved:(CGFloat)value
 {
     self.maskView.videoSlider.value += value/10000;
