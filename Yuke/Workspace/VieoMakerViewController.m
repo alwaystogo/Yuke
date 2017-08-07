@@ -26,42 +26,79 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.fd_interactivePopDisabled = YES;
+    self.title = @"编辑";
+    [self setLeftBackNavItem];
     // Do any additional setup after loading the view.
     
-    UIButton *btn4 = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn4.frame = CGRectMake(300, 150, 50, 30);
-    [btn4 setTitle:@"播放" forState:UIControlStateNormal];
-    btn4.backgroundColor = [UIColor grayColor];
-    [btn4 addTarget:self action:@selector(clickBofangBtnActiton) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn4];
-
-    UIButton *btn3 = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn3.frame = CGRectMake(100, 100, 100, 30);
-    [btn3 setTitle:@"相册选择" forState:UIControlStateNormal];
-    btn3.backgroundColor = [UIColor grayColor];
-    [btn3 addTarget:self action:@selector(selectThreeKuAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn3];
+//    UIButton *btn4 = [UIButton buttonWithType:UIButtonTypeCustom];
+//    btn4.frame = CGRectMake(300, 150, 50, 30);
+//    [btn4 setTitle:@"播放" forState:UIControlStateNormal];
+//    btn4.backgroundColor = [UIColor grayColor];
+//    [btn4 addTarget:self action:@selector(clickBofangBtnActiton) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:btn4];
+//
+//    UIButton *btn3 = [UIButton buttonWithType:UIButtonTypeCustom];
+//    btn3.frame = CGRectMake(100, 100, 100, 30);
+//    [btn3 setTitle:@"相册选择" forState:UIControlStateNormal];
+//    btn3.backgroundColor = [UIColor grayColor];
+//    [btn3 addTarget:self action:@selector(selectThreeKuAction) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:btn3];
+//    
+//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    btn.frame = CGRectMake(100, 150, 100, 30);
+//    [btn setTitle:@"裁剪+水印+拼接" forState:UIControlStateNormal];
+//    btn.backgroundColor = [UIColor grayColor];
+//    [btn addTarget:self action:@selector(clickBtnActiton) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:btn];
+//
+//    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(200, 300, 200, 200)];
+//    [self.view addSubview:_imageView];
     
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(100, 150, 100, 30);
-    [btn setTitle:@"裁剪+水印+拼接" forState:UIControlStateNormal];
-    btn.backgroundColor = [UIColor grayColor];
-    [btn addTarget:self action:@selector(clickBtnActiton) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
-
-    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(200, 300, 200, 200)];
-    [self.view addSubview:_imageView];
+    self.selectBkView = [[UIView alloc] init];
+    self.selectBkView.backgroundColor = COLOR_HEX(0x999999, 1);
+    [self.view addSubview:self.selectBkView];
+    [self.selectBkView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+        make.centerY.equalTo(self.view.mas_centerY);
+        make.height.mas_equalTo(200);
+    }];
+    UIImageView *imageView = [[UIImageView alloc] init];
+    imageView.image = ImageNamed(@"video_play_btn_bg");
+    imageView.userInteractionEnabled = YES;
+    [self.selectBkView addSubview:imageView];
+    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.selectBkView.mas_centerY);
+        make.centerX.equalTo(self.selectBkView.mas_centerX);
+        make.size.mas_equalTo(CGSizeMake(50, 50));
+    }];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(selectThreeKuAction)];
+    [imageView addGestureRecognizer:tap];
+    
+    UILabel *label1 = [[UILabel alloc] init];
+    label1.text = @"点击上传视频";
+    label1.font = FONT_REGULAR(12);
+    label1.textColor = COLOR_HEX(0x333333, 1);
+    label1.textAlignment = NSTextAlignmentCenter;
+    label1.userInteractionEnabled = YES;
+    [self.selectBkView addSubview:label1];
+    [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(imageView.mas_bottom);
+        make.centerX.equalTo(self.selectBkView.mas_centerX);
+        make.size.mas_equalTo(CGSizeMake(100, 30));
+    }];
 }
 
 - (void)clickBofangBtnActiton{
     
-    _videoPlayer = [[XSMediaPlayer alloc] initWithFrame:CGRectMake(10, 310, SCREEN_WIDTH - 20, 250)];
+    _videoPlayer = [[XSMediaPlayer alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 450 * BiLi_SCREENHEIGHT_NORMAL)];
     _videoPlayer.videoURL = self.videoUrl;
     [self.view addSubview:_videoPlayer];
     
     //总秒数
     CGFloat total   = (CGFloat)_videoPlayer.playerItme.duration.value / _videoPlayer.playerItme.duration.timescale;
-    SFDualWaySlider *slider = [[SFDualWaySlider alloc] initWithFrame:CGRectMake(10, 400, [UIScreen mainScreen].bounds.size.width-20, 270) minValue:0 maxValue:total blockSpaceValue:2];
+    SFDualWaySlider *slider = [[SFDualWaySlider alloc] initWithFrame:CGRectMake(10, SCREEN_HEIGHT - 100 - 30, [UIScreen mainScreen].bounds.size.width-20, 100) minValue:0 maxValue:total blockSpaceValue:1];
     slider.progressRadius = 5;
     [slider.minIndicateView setTitle:@"0:00"];
     [slider.maxIndicateView setTitle:[NSString stringWithFormat:@"0:%.2f",total]];
@@ -111,6 +148,9 @@
     //选择完视频之后的回调
     [imagePickerVc setDidFinishPickingVideoHandle:^(UIImage *coverImage,id asset){
         
+        //移除
+        [self.selectBkView removeFromSuperview];
+        
         self.imageView.image = coverImage;
         //iOS8以后返回PHAsset
         PHAsset *phAsset = asset;
@@ -127,6 +167,13 @@
                 NSURL *url = urlAsset.URL;
                 self.videoUrl = url;
                 NSLog(@"%@",url);
+                
+                WeakSelf
+                //播放视频
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [weakSelf clickBofangBtnActiton];;
+                });
+                
             }];
         }
     }];

@@ -67,9 +67,9 @@
         [self setTheProgressOfPlayTime];
         //[self getVolumeVolue];
         // 添加平移手势，用来控制音量、亮度、快进快退
-        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panDirection:)];
-        pan.delegate                = self;
-        [self addGestureRecognizer:pan];
+//        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panDirection:)];
+//        pan.delegate                = self;
+//        [self addGestureRecognizer:pan];
         
         
         

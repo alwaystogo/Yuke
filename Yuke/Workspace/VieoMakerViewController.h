@@ -20,4 +20,6 @@
 
 @property(nonatomic,strong)SFDualWaySlider *slider;//huagan
 
+@property(nonatomic,strong)UIView *selectBkView;
+
 @end
