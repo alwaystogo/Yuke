@@ -119,10 +119,10 @@
     [kCurNavController pushViewController:newVC animated:YES];
 
 }
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    VieoMakerViewController *newVC = [[VieoMakerViewController alloc] init];
-    newVC.hidesBottomBarWhenPushed = YES;
-    [kCurNavController pushViewController:newVC animated:YES];
-}
+//- (void)viewWillAppear:(BOOL)animated{
+//    [super viewWillAppear:animated];
+//    VieoMakerViewController *newVC = [[VieoMakerViewController alloc] init];
+//    newVC.hidesBottomBarWhenPushed = YES;
+//    [kCurNavController pushViewController:newVC animated:YES];
+//}
 @end

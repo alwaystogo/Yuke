@@ -58,6 +58,9 @@
 @property (strong, nonatomic, readonly) SFDualWayIndicateView *maxIndicateView;//滑块指示视图
 
 @property(nonatomic,strong)UIImageView *bkImageView;//背景图片
+@property(nonatomic,assign)CGFloat currentTime;//播放到的时间，算间距的
+@property(nonatomic,strong)UIView *currentTimeView;//体现播放到哪里的竖线
+
 /**
  滑块值变化调用的block 最大 最小变化都会调用
  */

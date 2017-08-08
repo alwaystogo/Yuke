@@ -31,30 +31,6 @@
     [self setLeftBackNavItem];
     // Do any additional setup after loading the view.
     
-//    UIButton *btn4 = [UIButton buttonWithType:UIButtonTypeCustom];
-//    btn4.frame = CGRectMake(300, 150, 50, 30);
-//    [btn4 setTitle:@"播放" forState:UIControlStateNormal];
-//    btn4.backgroundColor = [UIColor grayColor];
-//    [btn4 addTarget:self action:@selector(clickBofangBtnActiton) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:btn4];
-//
-//    UIButton *btn3 = [UIButton buttonWithType:UIButtonTypeCustom];
-//    btn3.frame = CGRectMake(100, 100, 100, 30);
-//    [btn3 setTitle:@"相册选择" forState:UIControlStateNormal];
-//    btn3.backgroundColor = [UIColor grayColor];
-//    [btn3 addTarget:self action:@selector(selectThreeKuAction) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:btn3];
-//    
-//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    btn.frame = CGRectMake(100, 150, 100, 30);
-//    [btn setTitle:@"裁剪+水印+拼接" forState:UIControlStateNormal];
-//    btn.backgroundColor = [UIColor grayColor];
-//    [btn addTarget:self action:@selector(clickBtnActiton) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:btn];
-//
-//    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(200, 300, 200, 200)];
-//    [self.view addSubview:_imageView];
-    
     self.selectBkView = [[UIView alloc] init];
     self.selectBkView.backgroundColor = COLOR_HEX(0x999999, 1);
     [self.view addSubview:self.selectBkView];
@@ -99,12 +75,13 @@
     _videoPlayer = [[XSMediaPlayer alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 450 * BiLi_SCREENHEIGHT_NORMAL)];
     _videoPlayer.videoURL = self.videoUrl;
     [self.view addSubview:_videoPlayer];
-    
+    WeakSelf
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         //总秒数
         CGFloat total   = (CGFloat)_videoPlayer.playerItme.duration.value / _videoPlayer.playerItme.duration.timescale;
+        weakSelf.maxTime = total;
         SFDualWaySlider *slider = [[SFDualWaySlider alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 130*BiLi_SCREENHEIGHT_NORMAL - 30, [UIScreen mainScreen].bounds.size.width-40, 130 *BiLi_SCREENHEIGHT_NORMAL) minValue:0 maxValue:total blockSpaceValue:1];
-        slider.bkImageView.image = self.videoBkImage;
+        slider.bkImageView.image = weakSelf.videoBkImage;
         slider.progressRadius = 5;
         [slider.minIndicateView setTitle:@"0:00"];
         [slider.maxIndicateView setTitle:[NSString stringWithFormat:@"0:%02.0f",total]];
@@ -116,9 +93,9 @@
         };
         
         slider.getMinTitle = ^NSString *(CGFloat minValue) {
-            self.minTime = minValue;
+            weakSelf.minTime = minValue;
             CMTime scriptTime = CMTimeMakeWithSeconds(minValue, 600);
-            [self.videoPlayer.player seekToTime:scriptTime completionHandler:^(BOOL finished) {
+            [weakSelf.videoPlayer.player seekToTime:scriptTime completionHandler:^(BOOL finished) {
                 NSLog(@"跳转到%f秒播放",minValue);
             }];
             if (floor(minValue) == 0.f) {
@@ -130,7 +107,7 @@
         };
         
         slider.getMaxTitle = ^NSString *(CGFloat maxValue) {
-            self.maxTime = maxValue;
+            weakSelf.maxTime = maxValue;
             if (floor(maxValue) == total) {
                 return [NSString stringWithFormat:@"0:%02.0f",total];
             }else{
@@ -139,12 +116,15 @@
         };
         [self.view addSubview:slider];
 
-        //
+        //视频播放的回调方法
         WeakSelf
-        [self.videoPlayer.player addPeriodicTimeObserverForInterval:CMTimeMake(1.0, 1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+        [self.videoPlayer.player addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(0.2, 600) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
             
             float current=CMTimeGetSeconds(time);
-            if (current >= self.maxTime) {
+            
+            [slider setCurrentTime:current];//设置回调
+            
+            if (current >= weakSelf.maxTime) {
                 [weakSelf moviePlayDidEnd:nil];
             }
 //            //秒数
@@ -171,14 +151,16 @@
     imagePickerVc.allowPickingOriginalPhoto = NO;
     //按时间排序
     imagePickerVc.sortAscendingByModificationDate = YES;
-    
+    WeakSelf
     //选择完视频之后的回调
     [imagePickerVc setDidFinishPickingVideoHandle:^(UIImage *coverImage,id asset){
         
+        [weakSelf setupRightNavButton:@"完成" withTextFont:FONT_REGULAR(16) withTextColor:COLOR_HEX(0xffa632, 1) target:self
+                           action:@selector(wanchengBtnAction)];
         //移除
-        [self.selectBkView removeFromSuperview];
+        [weakSelf.selectBkView removeFromSuperview];
         
-        self.videoBkImage = coverImage;
+        weakSelf.videoBkImage = coverImage;
         //iOS8以后返回PHAsset
         PHAsset *phAsset = asset;
         
@@ -192,7 +174,7 @@
                 AVURLAsset *urlAsset = (AVURLAsset *)asset;
                 
                 NSURL *url = urlAsset.URL;
-                self.videoUrl = url;
+                weakSelf.videoUrl = url;
                 NSLog(@"%@",url);
                 
                 WeakSelf
@@ -211,7 +193,7 @@
 - (void)clickBtnActiton2{
     
     //    NSURL * videoUrl = [NSURL URLWithString:@"http://flv3.bn.netease.com/videolib3/1707/31/NVeMJ1940/SD/NVeMJ1940-mobile.mp4"];
-    
+    WeakSelf
     VideoManager *mangerV = [[VideoManager alloc] init];
     [mangerV cropWithVideoUrlStr:self.videoUrl start:3 end:20 completion:^(NSURL *outputURL, Float64 videoDuration, BOOL isSuccess) {
         if (isSuccess) {
@@ -223,7 +205,7 @@
                     
                     if (isSuccess) {
                         NSLog(@"视频合成成功");
-                        [self writeVideoToPhotoLibrary:outputURL];
+                        [weakSelf writeVideoToPhotoLibrary:outputURL];
                     }else{
                         dispatch_async(dispatch_get_main_queue(), ^{
                             [JFTools showFailureHUDWithTip:@"视频合成失败"];
@@ -240,7 +222,7 @@
 - (void)clickBtnActiton{
     
 //    NSURL * videoUrl = [NSURL URLWithString:@"http://flv3.bn.netease.com/videolib3/1707/31/NVeMJ1940/SD/NVeMJ1940-mobile.mp4"];
-    
+    WeakSelf
     VideoManager *mangerV = [[VideoManager alloc] init];
     [mangerV cropWithVideoUrlStr:self.videoUrl start:3 end:20 completion:^(NSURL *outputURL, Float64 videoDuration, BOOL isSuccess) {
         if (isSuccess) {
@@ -255,7 +237,7 @@
                         
                         if (isSuccess) {
                             NSLog(@"视频合成成功");
-                            [self writeVideoToPhotoLibrary:outputURL];
+                            [weakSelf writeVideoToPhotoLibrary:outputURL];
                         }else{
                             dispatch_async(dispatch_get_main_queue(), ^{
                                 [JFTools showFailureHUDWithTip:@"视频合成失败"];
@@ -286,7 +268,7 @@
 - (void)writeVideoToPhotoLibrary:(NSURL *)url
 {
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-    
+    WeakSelf
     [library writeVideoAtPathToSavedPhotosAlbum:url completionBlock:^(NSURL *assetURL, NSError *error){
         if (error == nil) {
             
@@ -295,7 +277,7 @@
             [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
             }]];
-            [self presentViewController:alert animated:true completion:nil];
+            [weakSelf presentViewController:alert animated:true completion:nil];
             
         }else{
             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"视频保存失败" preferredStyle:UIAlertControllerStyleAlert];
@@ -303,7 +285,7 @@
             [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
             }]];
-            [self presentViewController:alert animated:true completion:nil];
+            [weakSelf presentViewController:alert animated:true completion:nil];
         }
     }];
 }
@@ -312,16 +294,103 @@
 // 播放完了
 - (void)moviePlayDidEnd:(NSNotification *)notification
 {
+    WeakSelf
     NSLog(@"播放完了");
     CMTime scriptTime = CMTimeMakeWithSeconds(self.minTime, 600);
     [self.videoPlayer.player seekToTime:scriptTime completionHandler:^(BOOL finished) {
-        NSLog(@"跳转到%f秒播放",self.minTime);
+        NSLog(@"跳转到%f秒播放",weakSelf.minTime);
+        [weakSelf.videoPlayer.player play];
     }];
 
 }
 
+- (void)wanchengBtnAction{
+    
+//    WeakSelf
+//    VideoManager *mangerV = [[VideoManager alloc] init];
+//    [mangerV cropWithVideoUrlStr:self.videoUrl start:self.minTime end:self.maxTime completion:^(NSURL *outputURL, Float64 videoDuration, BOOL isSuccess) {
+//        if (isSuccess) {
+//            NSLog(@"裁剪视频成功");
+//            
+//            
+//            [mangerV AVsaveVideoPath:outputURL WithWaterImg:ImageNamed(@"pengyouquan") WithCoverImage:ImageNamed(@"QQ") WithQustion:@"这个水印加的棒不棒" WithFileName:@"shuiyin" completion:^(NSURL *outputURL, BOOL isSuccess) {
+//                
+//                if (isSuccess) {
+//                    NSURL *pathUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"selfH" ofType:@"MOV"]];
+//                    [mangerV addFirstVideo:outputURL andSecondVideo:pathUrl withMusic:nil completion:^(NSURL *outputURL, BOOL isSuccess) {
+//                        
+//                        if (isSuccess) {
+//                            NSLog(@"视频合成成功");
+//                            [weakSelf writeVideoToPhotoLibrary:outputURL];
+//                        }else{
+//                            dispatch_async(dispatch_get_main_queue(), ^{
+//                                [JFTools showFailureHUDWithTip:@"视频合成失败"];
+//                            });
+//                            
+//                        }
+//                    }];
+//                    
+//                }else{
+//                    dispatch_async(dispatch_get_main_queue(), ^{
+//                        [JFTools showTipOnHUD:@"添加水印失败"];
+//                        
+//                    });
+//                    
+//                }
+//            }];
+//            
+//        }else{
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [JFTools showTipOnHUD:@"裁剪视频失败"];
+//            });
+//            
+//        };
+//    }];
+    
+    WeakSelf
+    VideoManager *mangerV = [[VideoManager alloc] init];
+        if (1) {
+            NSLog(@"裁剪视频成功");
+            
+            
+            [mangerV AVsaveVideoPath:self.videoUrl WithWaterImg:ImageNamed(@"pengyouquan") WithCoverImage:ImageNamed(@"QQ") WithQustion:@"这个水印加的棒不棒" WithFileName:@"shuiyin" completion:^(NSURL *outputURL, BOOL isSuccess) {
+                
+                if (isSuccess) {
+                    NSURL *pathUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"selfH" ofType:@"MOV"]];
+                    [mangerV addFirstVideo:outputURL andSecondVideo:pathUrl withMusic:nil completion:^(NSURL *outputURL, BOOL isSuccess) {
+                        
+                        if (isSuccess) {
+                            NSLog(@"视频合成成功");
+                            [weakSelf writeVideoToPhotoLibrary:outputURL];
+                        }else{
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                [JFTools showFailureHUDWithTip:@"视频合成失败"];
+                            });
+                            
+                        }
+                    }];
+                    
+                }else{
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [JFTools showTipOnHUD:@"添加水印失败"];
+                        
+                    });
+                    
+                }
+            }];
+            
+        }
+        else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [JFTools showTipOnHUD:@"裁剪视频失败"];
+            });
+        }
+    
+
+}
 - (void)dealloc{
     
      [[NSNotificationCenter defaultCenter]removeObserver:self];
+    NSLog(@"dealloc 关闭了");
 }
 @end

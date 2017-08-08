@@ -234,7 +234,8 @@
     
     //add by yang
     _bkImageView = [[UIImageView alloc] init];
-    
+    _currentTimeView = [[UIView alloc] init];
+    _currentTimeView.backgroundColor = WHITECOLOR;
     
     UIPanGestureRecognizer *minButtonPan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panMinAction:)];
     [minButtonPan setMaximumNumberOfTouches:1];
@@ -258,6 +259,7 @@
     [self addSubview:_progressView];
     [self addSubview:_bkImageView];
     [self addSubview:_lightView];
+    [self addSubview:_currentTimeView];
     [self addSubview:_minButton];
     [self addSubview:_maxButton];
     [self addSubview:_minIndicateView];
@@ -432,4 +434,14 @@
     }
 }
 
+- (void)setCurrentTime:(CGFloat)currentTime{
+    _currentTime = currentTime;
+    
+    [_currentTimeView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_progressView.mas_top);
+        make.bottom.equalTo(_progressView.mas_bottom);
+        make.width.equalTo(@2);
+        make.left.equalTo(_progressView.mas_left).offset(currentTime / self.maxSetValue * _progressView.width);
+    }];
+}
 @end
