@@ -14,12 +14,15 @@
 @interface VieoMakerViewController : BaseViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property(nonatomic,strong)NSURL *videoUrl;
-@property(nonatomic,strong)UIImageView *imageView;
+@property(nonatomic,strong)UIImage *videoBkImage;
 
 @property(nonatomic,strong)XSMediaPlayer *videoPlayer;//bofangqi
 
 @property(nonatomic,strong)SFDualWaySlider *slider;//huagan
 
 @property(nonatomic,strong)UIView *selectBkView;
+
+@property(nonatomic,assign)CGFloat minTime;//选择的开始时间
+@property(nonatomic,assign)CGFloat maxTime;
 
 @end

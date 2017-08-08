@@ -23,7 +23,7 @@
         _indicateLabel = [[UILabel alloc] init];
         _indicateLabel.backgroundColor = [UIColor colorWithRed:0.24 green:0.61 blue:0.91 alpha:1.00];
         _indicateLabel.textColor       = [UIColor whiteColor];
-        _indicateLabel.font            = [UIFont systemFontOfSize:15];
+        _indicateLabel.font            = [UIFont systemFontOfSize:12];
         _indicateLabel.textAlignment   = NSTextAlignmentCenter;
         _indicateLabel.layer.cornerRadius = 4;
         _indicateLabel.layer.masksToBounds = YES;

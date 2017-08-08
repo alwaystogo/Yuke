@@ -57,6 +57,7 @@
 @property (strong, nonatomic, readonly) SFDualWayIndicateView *minIndicateView;//滑块指示视图
 @property (strong, nonatomic, readonly) SFDualWayIndicateView *maxIndicateView;//滑块指示视图
 
+@property(nonatomic,strong)UIImageView *bkImageView;//背景图片
 /**
  滑块值变化调用的block 最大 最小变化都会调用
  */

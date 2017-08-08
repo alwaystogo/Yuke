@@ -88,6 +88,10 @@
         make.centerX.equalTo(self.selectBkView.mas_centerX);
         make.size.mas_equalTo(CGSizeMake(100, 30));
     }];
+    
+    // AVPlayer播放完成通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayDidEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:self.videoPlayer.player.currentItem];
+
 }
 
 - (void)clickBofangBtnActiton{
@@ -96,39 +100,62 @@
     _videoPlayer.videoURL = self.videoUrl;
     [self.view addSubview:_videoPlayer];
     
-    //总秒数
-    CGFloat total   = (CGFloat)_videoPlayer.playerItme.duration.value / _videoPlayer.playerItme.duration.timescale;
-    SFDualWaySlider *slider = [[SFDualWaySlider alloc] initWithFrame:CGRectMake(10, SCREEN_HEIGHT - 100 - 30, [UIScreen mainScreen].bounds.size.width-20, 100) minValue:0 maxValue:total blockSpaceValue:1];
-    slider.progressRadius = 5;
-    [slider.minIndicateView setTitle:@"0:00"];
-    [slider.maxIndicateView setTitle:[NSString stringWithFormat:@"0:%.2f",total]];
-    slider.lightColor = [UIColor yellowColor];
-    slider.minIndicateView.backIndicateColor = [UIColor greenColor];
-    slider.maxIndicateView.backIndicateColor = [UIColor greenColor];
-    //    slider.indicateViewOffset = 10;
-    //    slider.indicateViewWidth = 80;
-    slider.sliderValueChanged = ^(CGFloat minValue, CGFloat maxValue) {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //总秒数
+        CGFloat total   = (CGFloat)_videoPlayer.playerItme.duration.value / _videoPlayer.playerItme.duration.timescale;
+        SFDualWaySlider *slider = [[SFDualWaySlider alloc] initWithFrame:CGRectMake(20, SCREEN_HEIGHT - 130*BiLi_SCREENHEIGHT_NORMAL - 30, [UIScreen mainScreen].bounds.size.width-40, 130 *BiLi_SCREENHEIGHT_NORMAL) minValue:0 maxValue:total blockSpaceValue:1];
+        slider.bkImageView.image = self.videoBkImage;
+        slider.progressRadius = 5;
+        [slider.minIndicateView setTitle:@"0:00"];
+        [slider.maxIndicateView setTitle:[NSString stringWithFormat:@"0:%02.0f",total]];
+        slider.lightColor = CLEARCOLOR;
+        slider.minIndicateView.backIndicateColor = COLOR_HEX(0xffa632, 1);
+        slider.maxIndicateView.backIndicateColor = COLOR_HEX(0xffa632, 1);
+        slider.sliderValueChanged = ^(CGFloat minValue, CGFloat maxValue) {
+            
+        };
         
+        slider.getMinTitle = ^NSString *(CGFloat minValue) {
+            self.minTime = minValue;
+            CMTime scriptTime = CMTimeMakeWithSeconds(minValue, 600);
+            [self.videoPlayer.player seekToTime:scriptTime completionHandler:^(BOOL finished) {
+                NSLog(@"跳转到%f秒播放",minValue);
+            }];
+            if (floor(minValue) == 0.f) {
+                return @"0:00";
+            }else{
+                return [NSString stringWithFormat:@"0:%02.0f",minValue];
+            }
         
-    };
-    
-    slider.getMinTitle = ^NSString *(CGFloat minValue) {
-        if (floor(minValue) == 0.f) {
-            return @"不限";
-        }else{
-            return [NSString stringWithFormat:@"%.fK",floor(minValue)];
-        }
+        };
         
-    };
-    
-    slider.getMaxTitle = ^NSString *(CGFloat maxValue) {
-        if (floor(maxValue) == 80.f) {
-            return @"不限";
-        }else{
-            return [NSString stringWithFormat:@"%.fK",floor(maxValue)];
-        }
-    };
-    [self.view addSubview:slider];
+        slider.getMaxTitle = ^NSString *(CGFloat maxValue) {
+            self.maxTime = maxValue;
+            if (floor(maxValue) == total) {
+                return [NSString stringWithFormat:@"0:%02.0f",total];
+            }else{
+                return [NSString stringWithFormat:@"0:%02.0f",maxValue];
+            }
+        };
+        [self.view addSubview:slider];
+
+        //
+        WeakSelf
+        [self.videoPlayer.player addPeriodicTimeObserverForInterval:CMTimeMake(1.0, 1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+            
+            float current=CMTimeGetSeconds(time);
+            if (current >= self.maxTime) {
+                [weakSelf moviePlayDidEnd:nil];
+            }
+//            //秒数
+//            NSInteger proSec = (NSInteger)current%60;
+//            //分钟
+//            NSInteger proMin = (NSInteger)current/60;
+            
+       
+        } ];
+
+    });
 }
 
 //方式一：
@@ -151,7 +178,7 @@
         //移除
         [self.selectBkView removeFromSuperview];
         
-        self.imageView.image = coverImage;
+        self.videoBkImage = coverImage;
         //iOS8以后返回PHAsset
         PHAsset *phAsset = asset;
         
@@ -281,4 +308,20 @@
     }];
 }
 
+#pragma mark - NSNotification Action
+// 播放完了
+- (void)moviePlayDidEnd:(NSNotification *)notification
+{
+    NSLog(@"播放完了");
+    CMTime scriptTime = CMTimeMakeWithSeconds(self.minTime, 600);
+    [self.videoPlayer.player seekToTime:scriptTime completionHandler:^(BOOL finished) {
+        NSLog(@"跳转到%f秒播放",self.minTime);
+    }];
+
+}
+
+- (void)dealloc{
+    
+     [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
 @end

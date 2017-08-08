@@ -77,7 +77,7 @@
         _showAnimate       = YES;
         _progressWidth     = self.frame.size.width - _progressLeftSpace*2;
         _indicateViewOffset = 3;
-        _indicateViewWidth  = 35;
+        _indicateViewWidth  = 30;
         [self initSliderUI];
     }
     return self;
@@ -219,6 +219,8 @@
     _progressView.backgroundColor = _darkColor;
     _lightView = [[UIView alloc] init];
     _lightView.backgroundColor = _lightColor;
+    _lightView.layer.borderColor = COLOR_HEX(0xffa632, 1).CGColor;
+    _lightView.layer.borderWidth = 2;
     
     _minButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _minButton.backgroundColor = [UIColor clearColor];
@@ -229,6 +231,9 @@
     _maxButton.backgroundColor = [UIColor clearColor];
     _maxButton.adjustsImageWhenHighlighted = NO;
     [_maxButton setImage:_blockImage forState:UIControlStateNormal];
+    
+    //add by yang
+    _bkImageView = [[UIImageView alloc] init];
     
     
     UIPanGestureRecognizer *minButtonPan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panMinAction:)];
@@ -251,11 +256,20 @@
     [_maxIndicateView addGestureRecognizer:maxIndicatePan];
     
     [self addSubview:_progressView];
+    [self addSubview:_bkImageView];
     [self addSubview:_lightView];
     [self addSubview:_minButton];
     [self addSubview:_maxButton];
     [self addSubview:_minIndicateView];
     [self addSubview:_maxIndicateView];
+    
+    
+    [_bkImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_progressView.mas_left);
+        make.right.equalTo(_progressView.mas_right);
+        make.top.equalTo(_progressView.mas_top);
+        make.bottom.equalTo(_progressView.mas_bottom);
+    }];
     
     [_progressView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@(_progressLeftSpace));

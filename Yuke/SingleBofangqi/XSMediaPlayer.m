@@ -328,18 +328,18 @@
 - (void)moviePlayDidEnd:(NSNotification *)notification
 {
 
-    NSLog(@"播放完了");
-    
-    
-    [_player seekToTime:CMTimeMake(0, 1) completionHandler:^(BOOL finish){
-
-        [self.maskView.videoSlider setValue:0.0 animated:YES];
-        self.maskView.currentTimeLabel.text = @"00:00";
-        
-    }];
-    
-    self.playState = ZFPlayerStateStopped;
-    self.maskView.startBtn.selected = NO;
+//    NSLog(@"播放完了");
+//    
+//    
+//    [_player seekToTime:CMTimeMake(0, 1) completionHandler:^(BOOL finish){
+//
+//        [self.maskView.videoSlider setValue:0.0 animated:YES];
+//        self.maskView.currentTimeLabel.text = @"00:00";
+//        
+//    }];
+//    
+//    self.playState = ZFPlayerStateStopped;
+//    self.maskView.startBtn.selected = NO;
 }
 
 // 应用退到后台
