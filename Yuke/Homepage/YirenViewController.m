@@ -228,7 +228,7 @@
         [JFTools HUDHide];
         NSLog(@"--- :%@",responseObject);
         [self.tableView.mj_header endRefreshing];
-        [self.listArray removeAllObjects];
+        //[self.listArray removeAllObjects];
         if ([responseObject isKindOfClass:[NSArray class]]) {
             
             NSArray *array = (NSArray *)responseObject;
