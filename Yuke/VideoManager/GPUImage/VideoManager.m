@@ -120,7 +120,9 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     
-    NSString *myPathDocs =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp4",fileName]];
+    NSString *myPathDocs =  [documentsDirectory stringByAppendingPathComponent:
+                             [NSString stringWithFormat:@"%@-%d.mov",fileName,arc4random() % 1000]];
+//    NSString *myPathDocs =  [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mov",fileName]];
     unlink([myPathDocs UTF8String]);
     
     //如果文件已经存在，先移除，否则会报无法存储的错误
@@ -288,10 +290,10 @@
     // 4 - Get path
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-//    NSString *myPathDocs =  [documentsDirectory stringByAppendingPathComponent:
-//                             [NSString stringWithFormat:@"mergeVideo-%d.mov",arc4random() % 1000]];
     NSString *myPathDocs =  [documentsDirectory stringByAppendingPathComponent:
-                             [NSString stringWithFormat:@"%@.mov",@"combinVideo"]];
+                             [NSString stringWithFormat:@"mergeVideo-%d.mov",arc4random() % 1000]];
+//    NSString *myPathDocs =  [documentsDirectory stringByAppendingPathComponent:
+//                             [NSString stringWithFormat:@"%@.mov",@"combinVideo"]];
     //如果文件已经存在，先移除，否则会报无法存储的错误
     NSFileManager *manager = [NSFileManager defaultManager];
     [manager removeItemAtPath:myPathDocs error:nil];
@@ -345,7 +347,14 @@
     //获取视频总时长
     Float64 duration = CMTimeGetSeconds(asset.duration);
     
-    NSString *outputPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"dafei.mp4"];
+    //NSString *outputPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"dafei.mov"];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSString *outputPath =  [documentsDirectory stringByAppendingPathComponent:
+                             [NSString stringWithFormat:@"dafei-%d.mov",arc4random() % 1000]];
+
+    
     NSURL *outputURL = [NSURL fileURLWithPath:outputPath];
     
     //如果文件已经存在，先移除，否则会报无法存储的错误

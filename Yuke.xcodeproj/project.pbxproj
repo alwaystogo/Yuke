@@ -321,6 +321,7 @@
 		AEE4A0901F386BDE009F396F /* huakuai_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AEE4A08B1F386BDE009F396F /* huakuai_icon@2x.png */; };
 		AEE4A0911F386BDE009F396F /* SFDualWayIndicateView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE4A08D1F386BDE009F396F /* SFDualWayIndicateView.m */; };
 		AEE4A0921F386BDE009F396F /* SFDualWaySlider.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE4A08F1F386BDE009F396F /* SFDualWaySlider.m */; };
+		AEE4A0951F3AB733009F396F /* CropVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE4A0941F3AB733009F396F /* CropVideoViewController.m */; };
 		AEEFD80F1F30508B00E667B0 /* libffmpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEFD80C1F30508B00E667B0 /* libffmpeg.a */; };
 		AEEFD8101F30508B00E667B0 /* libopenssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEFD80D1F30508B00E667B0 /* libopenssl.a */; };
 		AEEFD8111F30508B00E667B0 /* libVitamio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEFD80E1F30508B00E667B0 /* libVitamio.a */; };
@@ -941,6 +942,8 @@
 		AEE4A08D1F386BDE009F396F /* SFDualWayIndicateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFDualWayIndicateView.m; sourceTree = "<group>"; };
 		AEE4A08E1F386BDE009F396F /* SFDualWaySlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFDualWaySlider.h; sourceTree = "<group>"; };
 		AEE4A08F1F386BDE009F396F /* SFDualWaySlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFDualWaySlider.m; sourceTree = "<group>"; };
+		AEE4A0931F3AB733009F396F /* CropVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropVideoViewController.h; sourceTree = "<group>"; };
+		AEE4A0941F3AB733009F396F /* CropVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropVideoViewController.m; sourceTree = "<group>"; };
 		AEEFD80C1F30508B00E667B0 /* libffmpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libffmpeg.a; sourceTree = "<group>"; };
 		AEEFD80D1F30508B00E667B0 /* libopenssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopenssl.a; sourceTree = "<group>"; };
 		AEEFD80E1F30508B00E667B0 /* libVitamio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libVitamio.a; sourceTree = "<group>"; };
@@ -1064,6 +1067,8 @@
 			children = (
 				AE5DC5BA1F34622B003215FB /* VideoManager.h */,
 				AE5DC5BB1F34622B003215FB /* VideoManager.m */,
+				AEE4A0931F3AB733009F396F /* CropVideoViewController.h */,
+				AEE4A0941F3AB733009F396F /* CropVideoViewController.m */,
 				AE5DC3D71F3461C9003215FB /* GPUImage */,
 			);
 			path = VideoManager;
@@ -2220,6 +2225,7 @@
 				AE5DC5931F3461CA003215FB /* GPUImageSketchFilter.m in Sources */,
 				AE61B6F21F025F8200C1F930 /* FontlibraryViewController.m in Sources */,
 				AE5DC56F1F3461CA003215FB /* GPUImageMotionDetector.m in Sources */,
+				AEE4A0951F3AB733009F396F /* CropVideoViewController.m in Sources */,
 				E8E873A11F2F76D000DB944F /* CHANGELOG.md in Sources */,
 				AE5DC5851F3461CA003215FB /* GPUImageRawDataOutput.m in Sources */,
 				AE61B6D51F024C9900C1F930 /* JFiPhoneClient+UploadFile.m in Sources */,

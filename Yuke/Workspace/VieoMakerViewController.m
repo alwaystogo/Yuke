@@ -17,6 +17,7 @@
 #import "XSMediaPlayer.h"
 
 #import "VideoManager.h"
+#import "CropVideoViewController.h"
 
 @interface VieoMakerViewController ()
 
@@ -155,12 +156,6 @@
     //选择完视频之后的回调
     [imagePickerVc setDidFinishPickingVideoHandle:^(UIImage *coverImage,id asset){
         
-        [weakSelf setupRightNavButton:@"完成" withTextFont:FONT_REGULAR(16) withTextColor:COLOR_HEX(0xffa632, 1) target:self
-                           action:@selector(wanchengBtnAction)];
-        //移除
-        [weakSelf.selectBkView removeFromSuperview];
-        
-        weakSelf.videoBkImage = coverImage;
         //iOS8以后返回PHAsset
         PHAsset *phAsset = asset;
         
@@ -171,17 +166,27 @@
             options.deliveryMode = PHVideoRequestOptionsDeliveryModeAutomatic;
             PHImageManager *manager = [PHImageManager defaultManager];
             [manager requestAVAssetForVideo:phAsset options:options resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
+                
                 AVURLAsset *urlAsset = (AVURLAsset *)asset;
-                
                 NSURL *url = urlAsset.URL;
-                weakSelf.videoUrl = url;
-                NSLog(@"%@",url);
-                
-                WeakSelf
-                //播放视频
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [weakSelf clickBofangBtnActiton];;
-                });
+                //判断是不是微信录制的视频
+                if (![weakSelf isWeXinVideo:urlAsset]) {
+                    //移除
+                    [weakSelf.selectBkView removeFromSuperview];
+                    weakSelf.videoBkImage = coverImage;
+                    weakSelf.videoUrl = url;
+                    NSLog(@"%@",url);
+                    //播放视频
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [weakSelf setupRightNavButton:@"完成" withTextFont:FONT_REGULAR(16) withTextColor:COLOR_HEX(0xffa632, 1) target:weakSelf
+                                               action:@selector(wanchengBtnAction)];
+                        [weakSelf clickBofangBtnActiton];
+                    });
+                }else{
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [JFTools showTipOnHUD:@"请选择系统拍摄的视频"];
+                    });
+                }
                 
             }];
         }
@@ -306,54 +311,13 @@
 
 - (void)wanchengBtnAction{
     
-//    WeakSelf
-//    VideoManager *mangerV = [[VideoManager alloc] init];
-//    [mangerV cropWithVideoUrlStr:self.videoUrl start:self.minTime end:self.maxTime completion:^(NSURL *outputURL, Float64 videoDuration, BOOL isSuccess) {
-//        if (isSuccess) {
-//            NSLog(@"裁剪视频成功");
-//            
-//            
-//            [mangerV AVsaveVideoPath:outputURL WithWaterImg:ImageNamed(@"pengyouquan") WithCoverImage:ImageNamed(@"QQ") WithQustion:@"这个水印加的棒不棒" WithFileName:@"shuiyin" completion:^(NSURL *outputURL, BOOL isSuccess) {
-//                
-//                if (isSuccess) {
-//                    NSURL *pathUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"selfH" ofType:@"MOV"]];
-//                    [mangerV addFirstVideo:outputURL andSecondVideo:pathUrl withMusic:nil completion:^(NSURL *outputURL, BOOL isSuccess) {
-//                        
-//                        if (isSuccess) {
-//                            NSLog(@"视频合成成功");
-//                            [weakSelf writeVideoToPhotoLibrary:outputURL];
-//                        }else{
-//                            dispatch_async(dispatch_get_main_queue(), ^{
-//                                [JFTools showFailureHUDWithTip:@"视频合成失败"];
-//                            });
-//                            
-//                        }
-//                    }];
-//                    
-//                }else{
-//                    dispatch_async(dispatch_get_main_queue(), ^{
-//                        [JFTools showTipOnHUD:@"添加水印失败"];
-//                        
-//                    });
-//                    
-//                }
-//            }];
-//            
-//        }else{
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [JFTools showTipOnHUD:@"裁剪视频失败"];
-//            });
-//            
-//        };
-//    }];
-    
     WeakSelf
     VideoManager *mangerV = [[VideoManager alloc] init];
-        if (1) {
+    [mangerV cropWithVideoUrlStr:self.videoUrl start:self.minTime end:self.maxTime completion:^(NSURL *outputURL, Float64 videoDuration, BOOL isSuccess) {
+        if (isSuccess) {
             NSLog(@"裁剪视频成功");
             
-            
-            [mangerV AVsaveVideoPath:self.videoUrl WithWaterImg:ImageNamed(@"pengyouquan") WithCoverImage:ImageNamed(@"QQ") WithQustion:@"这个水印加的棒不棒" WithFileName:@"shuiyin" completion:^(NSURL *outputURL, BOOL isSuccess) {
+            [mangerV AVsaveVideoPath:outputURL WithWaterImg:ImageNamed(@"pengyouquan") WithCoverImage:ImageNamed(@"QQ") WithQustion:@"这个水印加的棒不棒" WithFileName:@"shuiyin" completion:^(NSURL *outputURL, BOOL isSuccess) {
                 
                 if (isSuccess) {
                     NSURL *pathUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"selfH" ofType:@"MOV"]];
@@ -379,13 +343,94 @@
                 }
             }];
             
-        }
-        else{
+        }else{
             dispatch_async(dispatch_get_main_queue(), ^{
                 [JFTools showTipOnHUD:@"裁剪视频失败"];
             });
-        }
+            
+        };
+    }];
     
+}
+
+- (void)quanbuHudongdong{
+    WeakSelf
+    VideoManager *mangerV = [[VideoManager alloc] init];
+    CropVideoViewController *vc = [[CropVideoViewController alloc] init];
+    [vc saveVideoPath:self.videoUrl withStartTime:self.minTime withEndTime:self.maxTime withSize:CGSizeZero withVideoDealPoint:CGPointZero WithFileName:@"caijian" shouldScale:YES completion:^(NSURL *outputURL, BOOL isSuccess) {
+        
+        if (isSuccess) {
+            NSLog(@"裁剪视频成功");
+            
+            
+            [mangerV AVsaveVideoPath:outputURL WithWaterImg:ImageNamed(@"pengyouquan") WithCoverImage:ImageNamed(@"QQ") WithQustion:@"这个水印加的棒不棒" WithFileName:@"shuiyin" completion:^(NSURL *outputURL, BOOL isSuccess) {
+                
+                if (isSuccess) {
+                    NSURL *pathUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"selfH" ofType:@"MOV"]];
+                    [mangerV addFirstVideo:outputURL andSecondVideo:pathUrl withMusic:nil completion:^(NSURL *outputURL, BOOL isSuccess) {
+                        
+                        if (isSuccess) {
+                            NSLog(@"视频合成成功");
+                            [weakSelf writeVideoToPhotoLibrary:outputURL];
+                        }else{
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                [JFTools showFailureHUDWithTip:@"视频合成失败"];
+                            });
+                            
+                        }
+                    }];
+                    
+                }else{
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [JFTools showTipOnHUD:@"添加水印失败"];
+                        
+                    });
+                    
+                }
+            }];
+            
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [JFTools showTipOnHUD:@"裁剪视频失败"];
+            });
+            
+        };
+        
+    }];
+
+}
+- (void)testNoCaijian{
+    WeakSelf
+    VideoManager *mangerV = [[VideoManager alloc] init];
+    if (1) {
+        
+        [mangerV AVsaveVideoPath:self.videoUrl WithWaterImg:ImageNamed(@"pengyouquan") WithCoverImage:ImageNamed(@"QQ") WithQustion:@"这个水印加的棒不棒" WithFileName:@"shuiyin" completion:^(NSURL *outputURL, BOOL isSuccess) {
+            
+            if (isSuccess) {
+                NSURL *pathUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"selfH" ofType:@"MOV"]];
+                [mangerV addFirstVideo:outputURL andSecondVideo:pathUrl withMusic:nil completion:^(NSURL *outputURL, BOOL isSuccess) {
+                    
+                    if (isSuccess) {
+                        NSLog(@"视频合成成功");
+                        [weakSelf writeVideoToPhotoLibrary:outputURL];
+                    }else{
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [JFTools showFailureHUDWithTip:@"视频合成失败"];
+                        });
+                        
+                    }
+                }];
+                
+            }else{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [JFTools showTipOnHUD:@"添加水印失败"];
+                    
+                });
+                
+            }
+        }];
+        
+    }
 
 }
 - (void)dealloc{
@@ -393,4 +438,38 @@
      [[NSNotificationCenter defaultCenter]removeObserver:self];
     NSLog(@"dealloc 关闭了");
 }
+
+//判断是否是微信录制的视频
+- (BOOL)isWeXinVideo:(AVURLAsset *)urlAsset{
+    
+    bool isWXVideo = false;
+    for (int i=0; i<urlAsset.metadata.count; i++) {
+        AVMetadataItem * item = [urlAsset.metadata objectAtIndex:i];
+        //NSLog(@"======metadata:%@,%@,%@,%@",item.identifier,item.extraAttributes,item.value,item.dataType);
+        NSDictionary *dic = [self StrToArrayOrNSDictionary:[NSString stringWithFormat:@"%@",item.value]];
+        //WXVer 是微信的标志
+        if ([[dic.allKeys objectAtIndex:0] isEqualToString: @"WXVer"]) {
+            isWXVideo = true;
+           };
+    }
+
+        return isWXVideo;
+}
+// 将JSONDATA转化为字典或者数组
+- (id)DataToArrayOrNSDictionary:(NSData *)jsonData{
+    NSError *error = nil;
+    id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&error];
+    if (jsonObject != nil && error == nil){
+        return jsonObject;
+    }else{
+        // 解析错误
+        return nil;
+    }
+}
+// 将JSON串转化为字典或者数组
+- (id)StrToArrayOrNSDictionary:(NSString *)jsonStr {
+    NSData *jsonData = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];
+    return [self DataToArrayOrNSDictionary:jsonData];
+}
+
 @end
