@@ -281,6 +281,13 @@
         make.top.equalTo(self.mas_top).offset(myTopHeight);
     }];
     
+    [_currentTimeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_progressView.mas_top);
+        make.bottom.equalTo(_progressView.mas_bottom);
+        make.width.equalTo(@2);
+        make.left.equalTo(_progressView.mas_left);
+    }];
+
     //选择的区域
     [_lightView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.centerY.equalTo(_progressView);
