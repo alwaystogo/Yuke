@@ -171,6 +171,9 @@
         cell.dateLabel.text = dateStr;
         NSString *strId = [self.listArray[indexPath.section] objectForKeySafe:@"cate_id"];
         NSInteger typeId = [strId integerValue] - 1;
+        if (typeId < 0) {
+            typeId = 0;
+        }
         [cell.typeBtn setTitle:self.typeArray[typeId] forState:UIControlStateNormal];
         
         return cell;
