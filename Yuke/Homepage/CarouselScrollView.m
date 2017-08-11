@@ -138,9 +138,9 @@
     NSDictionary *centerDic = self.carouselArray[_currentPage];
     NSDictionary *rightDic = self.carouselArray[rightIndex];
     
-    NSString *leftString = [leftDic objectForKey:@"carouseUrl"];
-    NSString *centerString = [centerDic objectForKey:@"carouseUrl"];
-    NSString *rightString = [rightDic objectForKey:@"carouseUrl"];
+    NSString *leftString = [leftDic objectForKey:@"image"];
+    NSString *centerString = [centerDic objectForKey:@"image"];
+    NSString *rightString = [rightDic objectForKey:@"image"];
     
     [self.leftIV sd_setImageWithURL:[NSURL URLWithString:leftString]
                    placeholderImage:[UIImage imageNamed:CarouselDefalutImageName]];

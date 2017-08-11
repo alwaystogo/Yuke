@@ -15,4 +15,6 @@
 @property(nonatomic,strong)CarouselScrollView *carouselSV;
 @property(nonatomic,strong)UICollectionView *collectionView;
 
+@property(nonatomic,strong)NSArray *bannerArray;
+@property(nonatomic,strong)NSArray *hotArray;
 @end

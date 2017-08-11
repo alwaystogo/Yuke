@@ -192,7 +192,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
     //轮播控件
-    _carouselSV = [[CarouselScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), LunboHeight)];
+     _carouselSV = [[CarouselScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), LunboHeight)];
     _carouselSV.backgroundColor = [UIColor blueColor];
     
     _carouselSV.click = ^(NSInteger index) {
@@ -201,7 +201,7 @@
     };
     [_carouselSV setCarouseWithArray:self.bannerArray];
 
-    return self.carouselSV;
+    return _carouselSV;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     
@@ -243,7 +243,8 @@
         if ([responseObject isKindOfClass:[NSArray class]]) {
             
             self.bannerArray = responseObject;
-            [self.tableView reloadData];
+            //[self.tableView reloadData];
+            [_carouselSV setCarouseWithArray:self.bannerArray];
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [JFTools showFailureHUDWithTip:error.localizedDescription];

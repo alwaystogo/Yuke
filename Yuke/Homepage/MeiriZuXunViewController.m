@@ -20,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //电视剧 ID为1  网络剧 ID为2  ...
+    //电视剧 ID为2  网络剧 ID为3  ...
     self.typeArray = @[@"电视剧",@"网络剧",@"电影",@"网络电影",@"广告",@"综艺",@"其他"];
     self.dateArray = @[@"开机时间",@"发布时间"];
     self.view.backgroundColor = COLOR_RGB(236, 236, 236, 1);
@@ -170,7 +170,7 @@
         ;
         cell.dateLabel.text = dateStr;
         NSString *strId = [self.listArray[indexPath.section] objectForKeySafe:@"cate_id"];
-        NSInteger typeId = [strId integerValue] - 1;
+        NSInteger typeId = [strId integerValue] - 2;
         if (typeId < 0) {
             typeId = 0;
         }
@@ -223,7 +223,7 @@
         newCell.backgroundColor = COLOR_HEX(0xffa632, 1);
         self.selectType = indexPath.row;
         
-        [self requestZuxunListWithType:self.selectType + 1 withDate:self.selectDate];
+        [self requestZuxunListWithType:self.selectType + 2 withDate:self.selectDate];
     }else if (tableView.tag == 3002){
         self.dateTableView.hidden = !self.dateTableView.hidden;
         MenuCell *oldCell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.selectDate inSection:0]];

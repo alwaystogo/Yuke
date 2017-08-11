@@ -88,7 +88,7 @@
         
         NSLog(@"点击了第%ld",index);
     };
-    [_carouselSV setCarouseWithArray:dicArray];
+    [_carouselSV setCarouseWithArray:self.bannerArray];
 }
 
 -(void)createFour{
@@ -257,7 +257,7 @@
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
-    return 10;
+    return self.hotArray.count;
 }
 /** cell的内容*/
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -269,7 +269,7 @@
     cell.backgroundColor = [UIColor grayColor];
     cell.layer.cornerRadius = 10;
     cell.picImageView.layer.cornerRadius = 10;
-    cell.picImageView.image = [UIImage imageWithColor:[UIColor grayColor]];
+    [cell.picImageView getImageWithUrl:[self.hotArray[indexPath.row] objectForKeySafe:@"thumb"] placeholderImage:[UIImage imageNamed:PlaceHolderPic]];
     
     return cell;
 }
@@ -296,6 +296,11 @@
     [kJFClient getHomePageBanner:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         [JFTools HUDHide];
         NSLog(@"--- :%@",responseObject);
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            
+            self.bannerArray = responseObject;
+            [_carouselSV setCarouseWithArray:self.bannerArray];
+        }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
         [JFTools showTipOnHUD:error.localizedDescription];
@@ -307,6 +312,11 @@
     [kJFClient getHomePageHot:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         [JFTools HUDHide];
         NSLog(@"--- :%@",responseObject);
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            
+            self.hotArray = responseObject;
+            [self.collectionView reloadData];
+        }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
         [JFTools showTipOnHUD:error.localizedDescription];
