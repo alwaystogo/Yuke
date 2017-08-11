@@ -17,7 +17,6 @@
 #import "XSMediaPlayer.h"
 
 #import "VideoManager.h"
-#import "CropVideoViewController.h"
 
 @interface VieoMakerViewController ()
 
@@ -194,36 +193,6 @@
     [kCurNavController presentViewController:imagePickerVc animated:YES completion:nil];
 }
 
-//测试的
-- (void)clickBtnActiton2{
-    
-    //    NSURL * videoUrl = [NSURL URLWithString:@"http://flv3.bn.netease.com/videolib3/1707/31/NVeMJ1940/SD/NVeMJ1940-mobile.mp4"];
-    WeakSelf
-    VideoManager *mangerV = [[VideoManager alloc] init];
-    [mangerV cropWithVideoUrlStr:self.videoUrl start:3 end:20 completion:^(NSURL *outputURL, Float64 videoDuration, BOOL isSuccess) {
-        if (isSuccess) {
-            NSLog(@"裁剪视频成功");
-            
-            if (isSuccess) {
-                NSURL *pathUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"selfH" ofType:@"MOV"]];
-                [mangerV addFirstVideo:outputURL andSecondVideo:pathUrl withMusic:nil completion:^(NSURL *outputURL, BOOL isSuccess) {
-                    
-                    if (isSuccess) {
-                        NSLog(@"视频合成成功");
-                        [weakSelf writeVideoToPhotoLibrary:outputURL];
-                    }else{
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            [JFTools showFailureHUDWithTip:@"视频合成失败"];
-                        });
-                        
-                    }
-                    
-                }];
-            }
-        }
-        }];
-}
-
 - (void)clickBtnActiton{
     
 //    NSURL * videoUrl = [NSURL URLWithString:@"http://flv3.bn.netease.com/videolib3/1707/31/NVeMJ1940/SD/NVeMJ1940-mobile.mp4"];
@@ -351,88 +320,9 @@
         };
     }];
     
-}
-
-- (void)quanbuHudongdong{
-    WeakSelf
-    VideoManager *mangerV = [[VideoManager alloc] init];
-    CropVideoViewController *vc = [[CropVideoViewController alloc] init];
-    [vc saveVideoPath:self.videoUrl withStartTime:self.minTime withEndTime:self.maxTime withSize:CGSizeZero withVideoDealPoint:CGPointZero WithFileName:@"caijian" shouldScale:YES completion:^(NSURL *outputURL, BOOL isSuccess) {
-        
-        if (isSuccess) {
-            NSLog(@"裁剪视频成功");
-            
-            
-            [mangerV AVsaveVideoPath:outputURL WithWaterImg:ImageNamed(@"pengyouquan") WithCoverImage:ImageNamed(@"QQ") WithQustion:@"这个水印加的棒不棒" WithFileName:@"shuiyin" completion:^(NSURL *outputURL, BOOL isSuccess) {
-                
-                if (isSuccess) {
-                    NSURL *pathUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"selfH" ofType:@"MOV"]];
-                    [mangerV addFirstVideo:outputURL andSecondVideo:pathUrl withMusic:nil completion:^(NSURL *outputURL, BOOL isSuccess) {
-                        
-                        if (isSuccess) {
-                            NSLog(@"视频合成成功");
-                            [weakSelf writeVideoToPhotoLibrary:outputURL];
-                        }else{
-                            dispatch_async(dispatch_get_main_queue(), ^{
-                                [JFTools showFailureHUDWithTip:@"视频合成失败"];
-                            });
-                            
-                        }
-                    }];
-                    
-                }else{
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [JFTools showTipOnHUD:@"添加水印失败"];
-                        
-                    });
-                    
-                }
-            }];
-            
-        }else{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [JFTools showTipOnHUD:@"裁剪视频失败"];
-            });
-            
-        };
-        
-    }];
 
 }
-- (void)testNoCaijian{
-    WeakSelf
-    VideoManager *mangerV = [[VideoManager alloc] init];
-    if (1) {
-        
-        [mangerV AVsaveVideoPath:self.videoUrl WithWaterImg:ImageNamed(@"pengyouquan") WithCoverImage:ImageNamed(@"QQ") WithQustion:@"这个水印加的棒不棒" WithFileName:@"shuiyin" completion:^(NSURL *outputURL, BOOL isSuccess) {
-            
-            if (isSuccess) {
-                NSURL *pathUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"selfH" ofType:@"MOV"]];
-                [mangerV addFirstVideo:outputURL andSecondVideo:pathUrl withMusic:nil completion:^(NSURL *outputURL, BOOL isSuccess) {
-                    
-                    if (isSuccess) {
-                        NSLog(@"视频合成成功");
-                        [weakSelf writeVideoToPhotoLibrary:outputURL];
-                    }else{
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            [JFTools showFailureHUDWithTip:@"视频合成失败"];
-                        });
-                        
-                    }
-                }];
-                
-            }else{
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [JFTools showTipOnHUD:@"添加水印失败"];
-                    
-                });
-                
-            }
-        }];
-        
-    }
 
-}
 - (void)dealloc{
     
      [[NSNotificationCenter defaultCenter]removeObserver:self];
@@ -448,9 +338,12 @@
         //NSLog(@"======metadata:%@,%@,%@,%@",item.identifier,item.extraAttributes,item.value,item.dataType);
         NSDictionary *dic = [self StrToArrayOrNSDictionary:[NSString stringWithFormat:@"%@",item.value]];
         //WXVer 是微信的标志
-        if ([[dic.allKeys objectAtIndex:0] isEqualToString: @"WXVer"]) {
-            isWXVideo = true;
-           };
+        if ([dic isKindOfClass:[NSDictionary class]]) {
+            if ([[dic.allKeys objectAtIndex:0] isEqualToString: @"WXVer"]) {
+                isWXVideo = true;
+            };
+        }
+        
     }
 
         return isWXVideo;
