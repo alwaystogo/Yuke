@@ -13,6 +13,7 @@
 #import "VieoMakerViewController.h"
 #import "SavePicAndVideoViewController.h"
 #import "SavePicViewController.h"
+#import "MakeHengViewController.h"
 
 @interface WorkspaceViewController ()
 
@@ -103,13 +104,16 @@
 }
 
 - (void)shipinTapAction{
-    
-    VieoMakerViewController *newVC = [[VieoMakerViewController alloc] init];
-    newVC.hidesBottomBarWhenPushed = YES;
-    [kCurNavController pushViewController:newVC animated:YES];
+//    
+//    VieoMakerViewController *newVC = [[VieoMakerViewController alloc] init];
+//    newVC.hidesBottomBarWhenPushed = YES;
+//    [kCurNavController pushViewController:newVC animated:YES];
 //    SavePicViewController *vc = [[SavePicViewController alloc] init];
 //    vc.hidesBottomBarWhenPushed = YES;
 //    [kCurNavController pushViewController:vc animated:YES];
+
+    MakeHengViewController *vc = [[MakeHengViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:nil];
 
 }
 

@@ -20,6 +20,19 @@
 @property(nonatomic,strong)UIButton *shuiyinBtn;
 @property(nonatomic,strong)UIButton *zitiBtn;
 
+@property(nonatomic,strong)UIView *beijingBkView;
+@property(nonatomic,strong)UIView *shuiyinBkView;
+@property(nonatomic,strong)UIView *zitiBkView;
+@property(nonatomic,strong)UIImageView *beijingImageView1;
+@property(nonatomic,strong)UIImageView *beijingImageView2;
+@property(nonatomic,strong)UIImageView *shuiyinImageView1;
+@property(nonatomic,strong)UIImageView *shuiyinImageView2;
+
+@property(nonatomic,assign)NSInteger selectEditType;
+@property(nonatomic,assign)NSInteger selectBeijing;
+@property(nonatomic,assign)NSInteger selectShuiyin;
+@property(nonatomic,assign)NSInteger selectZiti;
+
 @end
 
 @implementation MakeHengViewController
@@ -27,19 +40,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    UILabel *label = [[UILabel alloc] init];
-//    label.frame = CGRectMake(0, 0, 100, 30);
-//    label.backgroundColor = [UIColor grayColor];
-//    label.text = @"这是新闻页面";
-//    [self.view addSubview:label];
-//    
-//    UILabel *label2 = [[UILabel alloc] init];
-//    label2.frame = CGRectMake(0, 100, 100, 30);
-//    label2.backgroundColor = [UIColor grayColor];
-//    label2.text = @"这是新闻页面";
-//    [self.view addSubview:label2];
+    
+    self.view.backgroundColor = COLOR_HEX(0x999999, 1);
+    
+    self.selectEditType = 1;
+    self.selectBeijing = 1;
+    self.selectShuiyin = 1;
+    self.selectZiti = 1;
     [self creatTopUI];
     [self createBottomUI];
+    [self createxuanzeBeijingUI];
+    [self createshuiyinUI];
+    [self createzitiUI];
+    self.bottomBkView.hidden =YES;
+    self.beijingBkView.hidden = YES;
+    self.shuiyinBkView.hidden = YES;
+    self.zitiBkView.hidden = YES;
 }
 
 - (void)creatTopUI{
@@ -153,6 +169,81 @@
 
 
 }
+- (void)createxuanzeBeijingUI{
+    
+    self.beijingBkView = [[UIView alloc] init];
+    self.beijingBkView.backgroundColor = COLOR_HEX(0xdddddd, 1);
+    [self.view addSubview:self.beijingBkView];
+    [self.beijingBkView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.bottomBkView.mas_top);
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+        make.height.equalTo(@120);
+    }];
+    
+     self.beijingImageView1 = [[UIImageView alloc] init];
+    self.beijingImageView1.image = [UIImage imageWithColor:[UIColor grayColor]];
+    [self.beijingBkView addSubview:self.beijingImageView1];
+    [self.beijingImageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.beijingBkView.mas_centerX).offset(-50);
+        make.centerY.equalTo(self.beijingBkView.mas_centerY);
+        make.size.mas_equalTo(CGSizeMake(125, 93));
+    }];
+    self.beijingImageView1.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(beijingImageView1Action)];
+    [self.beijingImageView1 addGestureRecognizer:tap1];
+    
+    self.beijingImageView2 = [[UIImageView alloc] init];
+    self.beijingImageView2.image = [UIImage imageWithColor:[UIColor grayColor]];
+    [self.beijingBkView addSubview:self.beijingImageView2];
+    [self.beijingImageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.beijingBkView.mas_centerX).offset(50);
+        make.centerY.equalTo(self.beijingBkView.mas_centerY);
+        make.size.mas_equalTo(CGSizeMake(125, 93));
+    }];
+    self.beijingImageView2.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(beijingImageView2Action)];
+    [self.beijingImageView2 addGestureRecognizer:tap2];
+}
+- (void)createshuiyinUI{
+   
+    self.shuiyinBkView = [[UIView alloc] init];
+    self.shuiyinBkView.backgroundColor = COLOR_HEX(0xdddddd, 1);
+    [self.view addSubview:self.shuiyinBkView];
+    [self.shuiyinBkView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.bottomBkView.mas_top);
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+        make.height.equalTo(@120);
+    }];
+    
+    self.shuiyinImageView1 = [[UIImageView alloc] init];
+    self.shuiyinImageView1.image = [UIImage imageWithColor:[UIColor grayColor]];
+    [self.shuiyinBkView addSubview:self.shuiyinImageView1];
+    [self.shuiyinImageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.shuiyinBkView.mas_centerX).offset(-50);
+        make.centerY.equalTo(self.shuiyinBkView.mas_centerY);
+        make.size.mas_equalTo(CGSizeMake(125, 93));
+    }];
+    self.shuiyinImageView1.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shuiyinImageView1Action)];
+    [self.shuiyinImageView1 addGestureRecognizer:tap1];
+    
+    self.shuiyinImageView2 = [[UIImageView alloc] init];
+    self.shuiyinImageView2.image = [UIImage imageWithColor:[UIColor grayColor]];
+    [self.shuiyinBkView addSubview:self.shuiyinImageView2];
+    [self.shuiyinImageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.shuiyinBkView.mas_centerX).offset(50);
+        make.centerY.equalTo(self.shuiyinBkView.mas_centerY);
+        make.size.mas_equalTo(CGSizeMake(125, 93));
+    }];
+    self.shuiyinImageView2.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shuiyinImageView2Action)];
+    [self.shuiyinImageView2 addGestureRecognizer:tap2];
+}
+- (void)createzitiUI{
+    
+}
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [UIView animateWithDuration:0.3f animations:^{
@@ -175,20 +266,83 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)editBtnAction{
-    
+    if (self.bottomBkView.hidden) {
+        //如果隐藏了，就显示出来
+        self.bottomBkView.hidden = NO;
+        [self beijingBtnAction];
+        
+    }else{
+        //隐藏起来
+        self.bottomBkView.hidden = YES;
+        self.beijingBkView.hidden = YES;
+        self.zitiBkView.hidden = YES;
+        self.shuiyinBkView.hidden = YES;
+    }
 }
 - (void)wanchengBtnAction{
     
 }
 
 - (void)beijingBtnAction{
-    
+    self.beijingBkView.hidden = NO;
+    self.shuiyinBkView.hidden = YES;
+    self.zitiBkView.hidden = YES;
+    self.beijingBtn.backgroundColor = COLOR_HEX(0xff9000, 1);
+    self.shuiyinBtn.backgroundColor = COLOR_HEX(0xffa632, 1);
+    self.zitiBtn.backgroundColor = COLOR_HEX(0xffa632, 1);
+
+    if (self.selectBeijing == 1) {
+        self.beijingImageView1.layer.borderColor = COLOR_HEX(0xffa632,1).CGColor;
+        self.beijingImageView1.layer.borderWidth = 2;
+        self.beijingImageView2.layer.borderWidth = 0;
+    }else{
+        self.beijingImageView2.layer.borderColor = COLOR_HEX(0xffa632,1).CGColor;
+        self.beijingImageView2.layer.borderWidth = 2;
+        self.beijingImageView1.layer.borderWidth = 0;
+    }
+
 }
 - (void)shuiyinBtnAction{
-    
+    self.beijingBkView.hidden = YES;
+    self.shuiyinBkView.hidden = NO;
+    self.zitiBkView.hidden = YES;
+    self.beijingBtn.backgroundColor = COLOR_HEX(0xffa632, 1);
+    self.shuiyinBtn.backgroundColor = COLOR_HEX(0xff9000, 1);
+    self.zitiBtn.backgroundColor = COLOR_HEX(0xffa632, 1);
+    if (self.selectShuiyin == 1) {
+        self.shuiyinImageView1.layer.borderColor = COLOR_HEX(0xffa632,1).CGColor;
+        self.shuiyinImageView1.layer.borderWidth = 2;
+        self.shuiyinImageView2.layer.borderWidth = 0;
+    }else{
+        self.shuiyinImageView2.layer.borderColor = COLOR_HEX(0xffa632,1).CGColor;
+        self.shuiyinImageView2.layer.borderWidth = 2;
+        self.shuiyinImageView1.layer.borderWidth = 0;
+    }
+
 }
 - (void)zitiBtnAction{
-    
+    self.beijingBkView.hidden = YES;
+    self.shuiyinBkView.hidden = YES;
+    self.zitiBkView.hidden = NO;
+    self.beijingBtn.backgroundColor = COLOR_HEX(0xffa632, 1);
+    self.shuiyinBtn.backgroundColor = COLOR_HEX(0xffa632, 1);
+    self.zitiBtn.backgroundColor = COLOR_HEX(0xff9000, 1);
 }
 
+- (void)beijingImageView1Action{
+    self.selectBeijing = 1;
+    [self beijingBtnAction];
+}
+- (void)beijingImageView2Action{
+    self.selectBeijing = 2;
+    [self beijingBtnAction];
+}
+- (void)shuiyinImageView1Action{
+    self.selectShuiyin = 1;
+    [self shuiyinBtnAction];
+}
+- (void)shuiyinImageView2Action{
+    self.selectShuiyin = 2;
+    [self shuiyinBtnAction];
+}
 @end
