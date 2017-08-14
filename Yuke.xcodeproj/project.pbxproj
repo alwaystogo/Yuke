@@ -253,6 +253,7 @@
 		AE7FA0D11F0E2567009A8F12 /* black_fanhui@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0CF1F0E2566009A8F12 /* black_fanhui@3x.png */; };
 		AE7FA0D51F0F3895009A8F12 /* FontCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7FA0D31F0F3895009A8F12 /* FontCollectionViewCell.m */; };
 		AE7FA0D61F0F3895009A8F12 /* FontCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0D41F0F3895009A8F12 /* FontCollectionViewCell.xib */; };
+		AEA365FE1F41A9AB0057AB3E /* MakeHengViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA365FD1F41A9AB0057AB3E /* MakeHengViewController.m */; };
 		AEAB38AD1F20A158008FC136 /* QQActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAB38951F20A158008FC136 /* QQActivity.m */; };
 		AEAB38AE1F20A158008FC136 /* QQZoneActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAB38971F20A158008FC136 /* QQZoneActivity.m */; };
 		AEAB38AF1F20A158008FC136 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEAB38981F20A158008FC136 /* TencentOpenAPI.framework */; };
@@ -832,6 +833,8 @@
 		AE7FA0D21F0F3895009A8F12 /* FontCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontCollectionViewCell.h; sourceTree = "<group>"; };
 		AE7FA0D31F0F3895009A8F12 /* FontCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontCollectionViewCell.m; sourceTree = "<group>"; };
 		AE7FA0D41F0F3895009A8F12 /* FontCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FontCollectionViewCell.xib; sourceTree = "<group>"; };
+		AEA365FC1F41A9AB0057AB3E /* MakeHengViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeHengViewController.h; sourceTree = "<group>"; };
+		AEA365FD1F41A9AB0057AB3E /* MakeHengViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeHengViewController.m; sourceTree = "<group>"; };
 		AEAB38941F20A158008FC136 /* QQActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQActivity.h; sourceTree = "<group>"; };
 		AEAB38951F20A158008FC136 /* QQActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQActivity.m; sourceTree = "<group>"; };
 		AEAB38961F20A158008FC136 /* QQZoneActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQZoneActivity.h; sourceTree = "<group>"; };
@@ -1749,6 +1752,8 @@
 				E8E873671F2DA21F00DB944F /* SavePicAndVideoViewController.h */,
 				E8E873681F2DA21F00DB944F /* SavePicAndVideoViewController.m */,
 				E8E873691F2DA21F00DB944F /* SavePicAndVideoViewController.xib */,
+				AEA365FC1F41A9AB0057AB3E /* MakeHengViewController.h */,
+				AEA365FD1F41A9AB0057AB3E /* MakeHengViewController.m */,
 			);
 			path = Workspace;
 			sourceTree = "<group>";
@@ -2290,6 +2295,7 @@
 				AE5DC5651F3461CA003215FB /* GPUImageLowPassFilter.m in Sources */,
 				E8E873A51F2F76D000DB944F /* Vitamio_SDK_for_iOS_User_Manual_cn.md in Sources */,
 				AE5DC54B1F3461CA003215FB /* GPUImageGaussianSelectiveBlurFilter.m in Sources */,
+				AEA365FE1F41A9AB0057AB3E /* MakeHengViewController.m in Sources */,
 				AE5DC5A71F3461CA003215FB /* GPUImageToonFilter.m in Sources */,
 				AE61B6F51F025F9000C1F930 /* WorkspaceViewController.m in Sources */,
 				AE5DC5291F3461CA003215FB /* GPUImageCGAColorspaceFilter.m in Sources */,
