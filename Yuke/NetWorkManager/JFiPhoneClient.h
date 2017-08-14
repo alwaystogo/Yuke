@@ -37,6 +37,8 @@ FOUNDATION_EXPORT NSString * const JFiPhoneClient_NetBaseUrl;
 
 @property (copy, nonatomic) NSString *devBaseUrl;
 @property (copy, nonatomic) NSString *prodBaseUrl;
+@property (copy, nonatomic) NSString * baseUrl;
+
 @property (strong, nonatomic) AFHTTPSessionManager *manager;
 
 + (instancetype) shareClient;

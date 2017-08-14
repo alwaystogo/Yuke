@@ -313,7 +313,11 @@
     
     NSLog(@"点击了tag - %ld",tag);
     if (tag == 1) {
-        
+        //我的主页
+        NSString *strUrl = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,kUserMoudle.user_info];
+        BaseWebViewViewController *webVc= [[BaseWebViewViewController alloc] initWithURL:strUrl];
+        webVc.title = @"个人主页";
+        [kCurNavController pushViewController:webVc animated:YES];
     }
     
     if (tag == 2) {

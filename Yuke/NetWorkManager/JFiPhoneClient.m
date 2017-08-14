@@ -48,13 +48,12 @@ static NSString *const JFErrorDomain = @"Yuke.com";
     self.devBaseUrl  = JFiPhoneClient_DebugBaseUrl;
     self.prodBaseUrl = JFiPhoneClient_PrdBaseUrl;
     
-    NSString * baseUrl;
 #ifdef DEBUG
-    baseUrl = self.devBaseUrl;
+    self.baseUrl = self.devBaseUrl;
 #else
-    baseUrl = self.prodBaseUrl;
+    self.baseUrl = self.prodBaseUrl;
 #endif
-    self.manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:baseUrl]];
+    self.manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:self.baseUrl]];
     
     //设置超时时间
     [self.manager.requestSerializer setTimeoutInterval:30];

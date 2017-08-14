@@ -212,7 +212,11 @@
     NSLog(@"点击了-%ld",indexPath.row);
     
     if (tableView.tag == 3000) {
-       ;
+        NSString *strUrl = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,[self.listArray[indexPath.section] objectForKeySafe:@"info_url"]];
+        BaseWebViewViewController *webVc= [[BaseWebViewViewController alloc] initWithURL:strUrl];
+        webVc.title = @"组训详情";
+        [kCurNavController pushViewController:webVc animated:YES];
+;
     }else if (tableView.tag == 3001){
         self.typeTableView.hidden = !self.typeTableView.hidden;
         MenuCell *oldCell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.selectType inSection:0]];

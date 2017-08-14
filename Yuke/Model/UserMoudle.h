@@ -34,6 +34,9 @@
 //用户的手机号码
 @property (copy, nonatomic) NSString * user_mobile;
 
+//个人主页H5地址
+@property(copy,nonatomic) NSString *user_info;
+
 #pragma mark - methods
 
 + (instancetype)shareUserMoudle;

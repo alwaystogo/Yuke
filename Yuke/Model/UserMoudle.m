@@ -21,6 +21,7 @@
 #define kUser_AvatarBg  @"userAvatarBg"
 #define kUser_Mobile    @"userMobile"
 #define kUser_Gender    @"user_gender"
+#define kUser_user_info @"user_info"
 
 @interface UserMoudle ()<NSCoding>
 
@@ -93,6 +94,10 @@
         if (mobile) {
             _user_mobile = mobile;
         }
+        NSString *user_info = [aDecoder decodeObjectForKey:kUser_user_info];
+        if (user_info) {
+            _user_info = user_info;
+        }
         }
     return self;
 }
@@ -105,6 +110,7 @@
     [aCoder encodeObject:_user_avatar forKey:kUser_Avatar];
     [aCoder encodeObject:_user_avatarBg forKey:kUser_AvatarBg];
     [aCoder encodeObject:_user_mobile forKey:kUser_Mobile];
+    [aCoder encodeObject:_user_info forKey:kUser_user_info];
 }
 
 #pragma mark -
@@ -136,6 +142,7 @@
     _user_Token  = dic[@"token"];
     _user_Nick = NON(dic[@"nickName"]);
     _user_avatar = dic[@"headimg"];
+    _user_info = dic[@"user_info"];
     [self saveToFile];
 }
 
@@ -161,6 +168,7 @@
     _user_avatar = nil;
     _user_mobile = nil;
     _user_avatarBg = nil;
+    _user_info = nil;
     [self saveToFile];
 }
 

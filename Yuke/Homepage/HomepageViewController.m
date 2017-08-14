@@ -276,7 +276,10 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //点击某列
-    
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,[self.hotArray[indexPath.row] objectForKeySafe:@"info_url"]];
+    BaseWebViewViewController *webVc= [[BaseWebViewViewController alloc] initWithURL:strUrl];
+    webVc.title = @"专访详情";
+    [kCurNavController pushViewController:webVc animated:YES];
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
