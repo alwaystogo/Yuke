@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface MakeHengViewController : BaseViewController
+@interface MakeHengViewController : BaseViewController<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @end

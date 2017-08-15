@@ -14,6 +14,7 @@
 #import "SavePicAndVideoViewController.h"
 #import "SavePicViewController.h"
 #import "MakeHengViewController.h"
+#import "MakeShuViewController.h"
 
 @interface WorkspaceViewController ()
 
@@ -118,10 +119,13 @@
 }
 
 - (void)moteTapAction{
-    MoteCardsListViewController *newVC = [[MoteCardsListViewController alloc] init];
-    newVC.hidesBottomBarWhenPushed = YES;
-    [kCurNavController pushViewController:newVC animated:YES];
-
+//    MoteCardsListViewController *newVC = [[MoteCardsListViewController alloc] init];
+//    newVC.hidesBottomBarWhenPushed = YES;
+//    [kCurNavController pushViewController:newVC animated:YES];
+    
+    MakeShuViewController *vc = [[MakeShuViewController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [kCurNavController pushViewController:vc animated:YES];
 }
 //- (void)viewWillAppear:(BOOL)animated{
 //    [super viewWillAppear:animated];

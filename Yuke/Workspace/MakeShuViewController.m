@@ -1,21 +1,19 @@
 //
-//  MakeHengViewController.m
-//  OnlineFinancialer
+//  MakeShuViewController.m
+//  Yuke
 //
-//  Created by yangyunfei on 2017/8/14.
-//  Copyright © 2017年 wkj. All rights reserved.
+//  Created by yangyunfei on 2017/8/15.
+//  Copyright © 2017年 yang. All rights reserved.
 //
 
-#import "MakeHengViewController.h"
+#import "MakeShuViewController.h"
 #import "ZitiCollectionViewCell.h"
 
-@interface MakeHengViewController ()
+#define  TopMenuHeight  35
 
-@property(nonatomic,strong)UIView *topBkView;
+@interface MakeShuViewController ()
+
 @property(nonatomic,strong)UIView *bottomBkView;
-@property(nonatomic,strong)UIButton *fanhuiBtn;
-@property(nonatomic,strong)UIButton *editBtn;
-@property(nonatomic,strong)UIButton *wanchengBtn;
 
 @property(nonatomic,strong)UIButton *beijingBtn;
 @property(nonatomic,strong)UIButton *shuiyinBtn;
@@ -31,31 +29,31 @@
 @property(nonatomic,strong)UICollectionView *collectionView;
 @property(nonatomic,strong)NSArray *zitiArray;
 
-@property(nonatomic,assign)NSInteger selectEditType;
 @property(nonatomic,assign)NSInteger selectBeijing;
 @property(nonatomic,assign)NSInteger selectShuiyin;
 @property(nonatomic,assign)NSInteger selectZiti;
 
 @end
 
-@implementation MakeHengViewController
+@implementation MakeShuViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = COLOR_HEX(0x999999, 1);
+    self.title = @"zhizuokapian";
+    [self setLeftBackNavItem];
+    [self setupRightNavButton:@"完成" withTextFont:FONT_REGULAR(16) withTextColor:COLOR_HEX(0xffa632, 1) target:self
+                       action:@selector(wanchengBtnAction)];
     
-    self.selectEditType = 1;
     self.selectBeijing = 1;
     self.selectShuiyin = 1;
     self.selectZiti = 0;
-    [self creatTopUI];
     [self createBottomUI];
     [self createxuanzeBeijingUI];
     [self createshuiyinUI];
     [self createzitiUI];
-    self.bottomBkView.hidden =YES;
     self.beijingBkView.hidden = YES;
     self.shuiyinBkView.hidden = YES;
     self.zitiBkView.hidden = YES;
@@ -63,63 +61,6 @@
     [self requestZitiInfo];
 }
 
-- (void)creatTopUI{
-    
-    _topBkView = [[UIView alloc] init];
-    self.topBkView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:_topBkView];
-    [self.topBkView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left);
-        make.right.equalTo(self.view.mas_right);
-        make.top.equalTo(self.view.mas_top);
-        make.height.equalTo(@44);
-    }];
-    self.fanhuiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.fanhuiBtn setImage:ImageNamed(kLeftNavImageName) forState:UIControlStateNormal];
-    [self.fanhuiBtn addTarget:self action:@selector(fanhuiBtnAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.topBkView addSubview:self.fanhuiBtn];
-    
-    self.editBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.editBtn setTitle:@"编辑" forState:UIControlStateNormal];
-    self.editBtn.titleLabel.font = FONT_REGULAR(15);
-    [self.editBtn setTitleColor:COLOR_HEX(0xffa632, 1) forState:UIControlStateNormal];
-    [self.editBtn addTarget:self action:@selector(editBtnAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.topBkView addSubview:self.editBtn];
-    
-    self.wanchengBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.wanchengBtn setTitle:@"完成" forState:UIControlStateNormal];
-    self.wanchengBtn.titleLabel.font = FONT_REGULAR(15);
-    [self.wanchengBtn setTitleColor:COLOR_HEX(0xffa632, 1) forState:UIControlStateNormal];
-    [self.wanchengBtn addTarget:self action:@selector(wanchengBtnAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.topBkView addSubview:self.wanchengBtn];
-    
-    UILabel *titleLabel = [[UILabel alloc] init];
-    titleLabel.textColor = COLOR_HEX(0x333333, 1);
-    titleLabel.text = @"制作卡片";
-    titleLabel.font = FONT_REGULAR(17);
-    [self.topBkView addSubview:titleLabel];
-    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.topBkView.mas_centerY);
-        make.centerX.equalTo(self.topBkView.mas_centerX);
-    }];
-
-    [self.fanhuiBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.topBkView.mas_left).offset(10);
-        make.centerY.equalTo(self.topBkView.mas_centerY);
-        make.size.mas_equalTo(CGSizeMake(30, 30));
-    }];
-    [self.wanchengBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.topBkView.mas_right).offset(-20);
-        make.centerY.equalTo(self.topBkView.mas_centerY);
-        make.size.mas_equalTo(CGSizeMake(40, 30));
-    }];
-    [self.editBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.wanchengBtn.mas_left).offset(-15);
-        make.centerY.equalTo(self.topBkView.mas_centerY);
-        make.size.mas_equalTo(CGSizeMake(40, 30));
-    }];
-
-}
 - (void)createBottomUI{
     
     _bottomBkView = [[UIView alloc] init];
@@ -128,13 +69,12 @@
     [self.bottomBkView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
-        make.bottom.equalTo(self.view.mas_bottom);
-        make.height.equalTo(@28);
+        make.top.equalTo(self.view.mas_top).offset(NAVBAR_HEIGHT);
+        make.height.equalTo(@TopMenuHeight);
     }];
-
+    
     self.beijingBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.beijingBtn setTitle:@"选择背景" forState:UIControlStateNormal];
-    self.beijingBtn.backgroundColor = COLOR_HEX(0xffa632, 1);
     self.beijingBtn.titleLabel.font = FONT_REGULAR(15);
     [self.beijingBtn setTitleColor:COLOR_HEX(0x333333, 1) forState:UIControlStateNormal];
     [self.beijingBtn addTarget:self action:@selector(beijingBtnAction) forControlEvents:UIControlEventTouchUpInside];
@@ -142,12 +82,11 @@
     [self.beijingBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.bottomBkView.mas_left).offset(0);
         make.centerY.equalTo(self.bottomBkView.mas_centerY);
-        make.size.mas_equalTo(CGSizeMake(self.view.height / 3, 28));
+        make.size.mas_equalTo(CGSizeMake(self.view.width / 3, TopMenuHeight));
     }];
     
     self.zitiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.zitiBtn setTitle:@"更换字体" forState:UIControlStateNormal];
-    self.zitiBtn.backgroundColor = COLOR_HEX(0xffa632, 1);
     self.zitiBtn.titleLabel.font = FONT_REGULAR(15);
     [self.zitiBtn setTitleColor:COLOR_HEX(0x333333, 1) forState:UIControlStateNormal];
     [self.zitiBtn addTarget:self action:@selector(zitiBtnAction) forControlEvents:UIControlEventTouchUpInside];
@@ -155,12 +94,11 @@
     [self.zitiBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.bottomBkView.mas_right).offset(0);
         make.centerY.equalTo(self.bottomBkView.mas_centerY);
-        make.size.mas_equalTo(CGSizeMake(self.view.height / 3, 28));
+        make.size.mas_equalTo(CGSizeMake(self.view.width / 3, TopMenuHeight));
     }];
-
+    
     self.shuiyinBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.shuiyinBtn setTitle:@"去掉水印" forState:UIControlStateNormal];
-    self.shuiyinBtn.backgroundColor = COLOR_HEX(0xffa632, 1);
     self.shuiyinBtn.titleLabel.font = FONT_REGULAR(15);
     [self.shuiyinBtn setTitleColor:COLOR_HEX(0x333333, 1) forState:UIControlStateNormal];
     [self.shuiyinBtn addTarget:self action:@selector(shuiyinBtnAction) forControlEvents:UIControlEventTouchUpInside];
@@ -171,8 +109,8 @@
         make.top.equalTo(self.bottomBkView.mas_top);
         make.bottom.equalTo(self.bottomBkView.mas_bottom);
     }];
-
-
+    
+    
 }
 - (void)createxuanzeBeijingUI{
     
@@ -180,19 +118,19 @@
     self.beijingBkView.backgroundColor = COLOR_HEX(0xdddddd, 1);
     [self.view addSubview:self.beijingBkView];
     [self.beijingBkView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.bottomBkView.mas_top);
+        make.top.equalTo(self.bottomBkView.mas_bottom);
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
         make.height.equalTo(@120);
     }];
     
-     self.beijingImageView1 = [[UIImageView alloc] init];
+    self.beijingImageView1 = [[UIImageView alloc] init];
     self.beijingImageView1.image = [UIImage imageWithColor:[UIColor grayColor]];
     [self.beijingBkView addSubview:self.beijingImageView1];
     [self.beijingImageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.beijingBkView.mas_centerX).offset(-50);
         make.centerY.equalTo(self.beijingBkView.mas_centerY);
-        make.size.mas_equalTo(CGSizeMake(125, 93));
+        make.size.mas_equalTo(CGSizeMake(77, 93));
     }];
     self.beijingImageView1.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(beijingImageView1Action)];
@@ -204,19 +142,19 @@
     [self.beijingImageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.beijingBkView.mas_centerX).offset(50);
         make.centerY.equalTo(self.beijingBkView.mas_centerY);
-        make.size.mas_equalTo(CGSizeMake(125, 93));
+        make.size.mas_equalTo(CGSizeMake(77, 93));
     }];
     self.beijingImageView2.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(beijingImageView2Action)];
     [self.beijingImageView2 addGestureRecognizer:tap2];
 }
 - (void)createshuiyinUI{
-   
+    
     self.shuiyinBkView = [[UIView alloc] init];
     self.shuiyinBkView.backgroundColor = COLOR_HEX(0xdddddd, 1);
     [self.view addSubview:self.shuiyinBkView];
     [self.shuiyinBkView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.bottomBkView.mas_top);
+        make.top.equalTo(self.bottomBkView.mas_bottom);
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
         make.height.equalTo(@120);
@@ -228,7 +166,7 @@
     [self.shuiyinImageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.shuiyinBkView.mas_centerX).offset(-50);
         make.centerY.equalTo(self.shuiyinBkView.mas_centerY);
-        make.size.mas_equalTo(CGSizeMake(125, 93));
+        make.size.mas_equalTo(CGSizeMake(77, 93));
     }];
     self.shuiyinImageView1.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shuiyinImageView1Action)];
@@ -240,7 +178,7 @@
     [self.shuiyinImageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.shuiyinBkView.mas_centerX).offset(50);
         make.centerY.equalTo(self.shuiyinBkView.mas_centerY);
-        make.size.mas_equalTo(CGSizeMake(125, 93));
+        make.size.mas_equalTo(CGSizeMake(77, 93));
     }];
     self.shuiyinImageView2.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shuiyinImageView2Action)];
@@ -252,13 +190,13 @@
     self.zitiBkView.backgroundColor = COLOR_HEX(0xdddddd, 1);
     [self.view addSubview:self.zitiBkView];
     [self.zitiBkView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.bottomBkView.mas_top);
+        make.top.equalTo(self.bottomBkView.mas_bottom);
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
         make.height.equalTo(@120);
     }];
-
-    CGFloat hotPicWidth = 125;
+    
+    CGFloat hotPicWidth = 77;
     CGFloat hotPicHeight = 93;
     //创建collectionView 362
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -280,7 +218,7 @@
         make.right.equalTo(self.zitiBkView.mas_right);
         make.top.equalTo(self.zitiBkView.mas_top);
     }];
-
+    
     //注册单元格,相当于设置了闲置池
     UINib *nib = [UINib nibWithNibName:@"ZitiCollectionViewCell" bundle: [NSBundle mainBundle]];
     [_collectionView registerNib:nib forCellWithReuseIdentifier:@"ZitiCell"];
@@ -300,7 +238,7 @@
         
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ZitiCollectionViewCell" owner:self options:nil] lastObject];
     }
-
+    
     cell.zitiLabel.text = self.zitiArray[indexPath.row];
     if (indexPath.row == self.selectZiti) {
         
@@ -319,41 +257,6 @@
     [self.collectionView reloadData];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [UIView animateWithDuration:0.3f animations:^{
-        self.view.transform = CGAffineTransformIdentity;
-        self.view.transform = CGAffineTransformMakeRotation(M_PI_2);
-        } completion:^(BOOL finished) {
-            //隐藏bar
-             [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-    }];
-
-}
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    //显示bar
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-}
-
-- (void)fanhuiBtnAction{
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-- (void)editBtnAction{
-    if (self.bottomBkView.hidden) {
-        //如果隐藏了，就显示出来
-        self.bottomBkView.hidden = NO;
-        [self beijingBtnAction];
-        
-    }else{
-        //隐藏起来
-        self.bottomBkView.hidden = YES;
-        self.beijingBkView.hidden = YES;
-        self.zitiBkView.hidden = YES;
-        self.shuiyinBkView.hidden = YES;
-    }
-}
 - (void)wanchengBtnAction{
     
 }
@@ -362,10 +265,10 @@
     self.beijingBkView.hidden = NO;
     self.shuiyinBkView.hidden = YES;
     self.zitiBkView.hidden = YES;
-    self.beijingBtn.backgroundColor = COLOR_HEX(0xff9000, 1);
-    self.shuiyinBtn.backgroundColor = COLOR_HEX(0xffa632, 1);
-    self.zitiBtn.backgroundColor = COLOR_HEX(0xffa632, 1);
-
+    [self.beijingBtn setTitleColor:COLOR_HEX(0xffa632, 1) forState:UIControlStateNormal];
+    [self.shuiyinBtn setTitleColor:COLOR_HEX(0x333333, 1) forState:UIControlStateNormal];
+    [self.zitiBtn setTitleColor:COLOR_HEX(0x333333, 1) forState:UIControlStateNormal];
+    
     if (self.selectBeijing == 1) {
         self.beijingImageView1.layer.borderColor = COLOR_HEX(0xffa632,1).CGColor;
         self.beijingImageView1.layer.borderWidth = 2;
@@ -375,15 +278,15 @@
         self.beijingImageView2.layer.borderWidth = 2;
         self.beijingImageView1.layer.borderWidth = 0;
     }
-
+    
 }
 - (void)shuiyinBtnAction{
     self.beijingBkView.hidden = YES;
     self.shuiyinBkView.hidden = NO;
     self.zitiBkView.hidden = YES;
-    self.beijingBtn.backgroundColor = COLOR_HEX(0xffa632, 1);
-    self.shuiyinBtn.backgroundColor = COLOR_HEX(0xff9000, 1);
-    self.zitiBtn.backgroundColor = COLOR_HEX(0xffa632, 1);
+    [self.beijingBtn setTitleColor:COLOR_HEX(0x333333, 1) forState:UIControlStateNormal];
+    [self.shuiyinBtn setTitleColor:COLOR_HEX(0xffa632, 1) forState:UIControlStateNormal];
+    [self.zitiBtn setTitleColor:COLOR_HEX(0x333333, 1) forState:UIControlStateNormal];
     if (self.selectShuiyin == 1) {
         self.shuiyinImageView1.layer.borderColor = COLOR_HEX(0xffa632,1).CGColor;
         self.shuiyinImageView1.layer.borderWidth = 2;
@@ -393,15 +296,15 @@
         self.shuiyinImageView2.layer.borderWidth = 2;
         self.shuiyinImageView1.layer.borderWidth = 0;
     }
-
+    
 }
 - (void)zitiBtnAction{
     self.beijingBkView.hidden = YES;
     self.shuiyinBkView.hidden = YES;
     self.zitiBkView.hidden = NO;
-    self.beijingBtn.backgroundColor = COLOR_HEX(0xffa632, 1);
-    self.shuiyinBtn.backgroundColor = COLOR_HEX(0xffa632, 1);
-    self.zitiBtn.backgroundColor = COLOR_HEX(0xff9000, 1);
+    [self.beijingBtn setTitleColor:COLOR_HEX(0x333333, 1) forState:UIControlStateNormal];
+    [self.shuiyinBtn setTitleColor:COLOR_HEX(0x333333, 1) forState:UIControlStateNormal];
+    [self.zitiBtn setTitleColor:COLOR_HEX(0xffa632, 1) forState:UIControlStateNormal];
 }
 
 - (void)beijingImageView1Action{
@@ -426,4 +329,5 @@
     self.zitiArray = @[@"1",@"2",@"3",@"4",@"5",@"6"];
     [self.collectionView reloadData];
 }
+
 @end

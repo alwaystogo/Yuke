@@ -254,6 +254,9 @@
 		AE7FA0D51F0F3895009A8F12 /* FontCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7FA0D31F0F3895009A8F12 /* FontCollectionViewCell.m */; };
 		AE7FA0D61F0F3895009A8F12 /* FontCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0D41F0F3895009A8F12 /* FontCollectionViewCell.xib */; };
 		AEA365FE1F41A9AB0057AB3E /* MakeHengViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA365FD1F41A9AB0057AB3E /* MakeHengViewController.m */; };
+		AEA366051F42DC680057AB3E /* ZitiCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA366031F42DC680057AB3E /* ZitiCollectionViewCell.m */; };
+		AEA366061F42DC680057AB3E /* ZitiCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEA366041F42DC680057AB3E /* ZitiCollectionViewCell.xib */; };
+		AEA366091F42E3ED0057AB3E /* MakeShuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA366081F42E3ED0057AB3E /* MakeShuViewController.m */; };
 		AEAB38AD1F20A158008FC136 /* QQActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAB38951F20A158008FC136 /* QQActivity.m */; };
 		AEAB38AE1F20A158008FC136 /* QQZoneActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAB38971F20A158008FC136 /* QQZoneActivity.m */; };
 		AEAB38AF1F20A158008FC136 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEAB38981F20A158008FC136 /* TencentOpenAPI.framework */; };
@@ -835,6 +838,11 @@
 		AE7FA0D41F0F3895009A8F12 /* FontCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FontCollectionViewCell.xib; sourceTree = "<group>"; };
 		AEA365FC1F41A9AB0057AB3E /* MakeHengViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeHengViewController.h; sourceTree = "<group>"; };
 		AEA365FD1F41A9AB0057AB3E /* MakeHengViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeHengViewController.m; sourceTree = "<group>"; };
+		AEA366021F42DC680057AB3E /* ZitiCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZitiCollectionViewCell.h; sourceTree = "<group>"; };
+		AEA366031F42DC680057AB3E /* ZitiCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZitiCollectionViewCell.m; sourceTree = "<group>"; };
+		AEA366041F42DC680057AB3E /* ZitiCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZitiCollectionViewCell.xib; sourceTree = "<group>"; };
+		AEA366071F42E3ED0057AB3E /* MakeShuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeShuViewController.h; sourceTree = "<group>"; };
+		AEA366081F42E3ED0057AB3E /* MakeShuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeShuViewController.m; sourceTree = "<group>"; };
 		AEAB38941F20A158008FC136 /* QQActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQActivity.h; sourceTree = "<group>"; };
 		AEAB38951F20A158008FC136 /* QQActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQActivity.m; sourceTree = "<group>"; };
 		AEAB38961F20A158008FC136 /* QQZoneActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQZoneActivity.h; sourceTree = "<group>"; };
@@ -1754,6 +1762,11 @@
 				E8E873691F2DA21F00DB944F /* SavePicAndVideoViewController.xib */,
 				AEA365FC1F41A9AB0057AB3E /* MakeHengViewController.h */,
 				AEA365FD1F41A9AB0057AB3E /* MakeHengViewController.m */,
+				AEA366071F42E3ED0057AB3E /* MakeShuViewController.h */,
+				AEA366081F42E3ED0057AB3E /* MakeShuViewController.m */,
+				AEA366021F42DC680057AB3E /* ZitiCollectionViewCell.h */,
+				AEA366031F42DC680057AB3E /* ZitiCollectionViewCell.m */,
+				AEA366041F42DC680057AB3E /* ZitiCollectionViewCell.xib */,
 			);
 			path = Workspace;
 			sourceTree = "<group>";
@@ -2122,6 +2135,7 @@
 				AE7FA0B71F0DE9FA009A8F12 /* unloginphoto@3x.png in Resources */,
 				AEDDAB791F1F5B59006BD05A /* weixin-@3x.png in Resources */,
 				AEDDAB641F1F3DF0006BD05A /* lunbotu@2x.png in Resources */,
+				AEA366061F42DC680057AB3E /* ZitiCollectionViewCell.xib in Resources */,
 				AEDDAB701F1F5B59006BD05A /* 新浪微博@2x.png in Resources */,
 				AEAB38B31F20A158008FC136 /* WeiboSDK.bundle in Resources */,
 				AEDDAB741F1F5B59006BD05A /* QQ@2x.png in Resources */,
@@ -2201,6 +2215,7 @@
 				AE5DC5A01F3461CA003215FB /* GPUImageTextureOutput.m in Sources */,
 				AE61B6D61F024C9900C1F930 /* JFiPhoneClient.m in Sources */,
 				AE7FA0C31F0E0D95009A8F12 /* MineCell.m in Sources */,
+				AEA366051F42DC680057AB3E /* ZitiCollectionViewCell.m in Sources */,
 				AE61B6371F02486B00C1F930 /* JFAlertController.m in Sources */,
 				AE61B6631F0248CF00C1F930 /* NSMutableDictionary+Safe.m in Sources */,
 				AE5DC5B61F3461CA003215FB /* GPUImageContext.m in Sources */,
@@ -2263,6 +2278,7 @@
 				AE5DC55A1F3461CA003215FB /* GPUImageJFAVoronoiFilter.m in Sources */,
 				AEB3D7271F1383E80091EE21 /* YiPaiCollectionViewCell.m in Sources */,
 				AE5DC5B41F3461CA003215FB /* GPUImageXYDerivativeFilter.m in Sources */,
+				AEA366091F42E3ED0057AB3E /* MakeShuViewController.m in Sources */,
 				AEB3D7321F1720D00091EE21 /* UserMoudle.m in Sources */,
 				AE5DC5571F3461CA003215FB /* GPUImageHSBFilter.m in Sources */,
 				AE5DC5811F3461CA003215FB /* GPUImagePolkaDotFilter.m in Sources */,
