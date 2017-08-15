@@ -356,6 +356,7 @@
 		E8E873A11F2F76D000DB944F /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = E8E873901F2F76D000DB944F /* CHANGELOG.md */; };
 		E8E873A51F2F76D000DB944F /* Vitamio_SDK_for_iOS_User_Manual_cn.md in Sources */ = {isa = PBXBuildFile; fileRef = E8E8739E1F2F76D000DB944F /* Vitamio_SDK_for_iOS_User_Manual_cn.md */; };
 		E8E873A71F2F789E00DB944F /* video_play_btn_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8E873A61F2F789E00DB944F /* video_play_btn_bg@2x.png */; };
+		E8E873AA1F43430D00DB944F /* Shu1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E873A91F43430D00DB944F /* Shu1ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -998,6 +999,8 @@
 		E8E8739A1F2F76D000DB944F /* VSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSingleton.h; sourceTree = "<group>"; };
 		E8E8739E1F2F76D000DB944F /* Vitamio_SDK_for_iOS_User_Manual_cn.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Vitamio_SDK_for_iOS_User_Manual_cn.md; sourceTree = "<group>"; };
 		E8E873A61F2F789E00DB944F /* video_play_btn_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_play_btn_bg@2x.png"; sourceTree = "<group>"; };
+		E8E873A81F43430D00DB944F /* Shu1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shu1ViewController.h; sourceTree = "<group>"; };
+		E8E873A91F43430D00DB944F /* Shu1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shu1ViewController.m; sourceTree = "<group>"; };
 		FE4BF8FEA962BF522F157E8F /* libPods-Yuke.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yuke.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1764,6 +1767,8 @@
 				AEA365FD1F41A9AB0057AB3E /* MakeHengViewController.m */,
 				AEA366071F42E3ED0057AB3E /* MakeShuViewController.h */,
 				AEA366081F42E3ED0057AB3E /* MakeShuViewController.m */,
+				E8E873A81F43430D00DB944F /* Shu1ViewController.h */,
+				E8E873A91F43430D00DB944F /* Shu1ViewController.m */,
 				AEA366021F42DC680057AB3E /* ZitiCollectionViewCell.h */,
 				AEA366031F42DC680057AB3E /* ZitiCollectionViewCell.m */,
 				AEA366041F42DC680057AB3E /* ZitiCollectionViewCell.xib */,
@@ -2256,6 +2261,7 @@
 				E8E8736A1F2DA21F00DB944F /* SavePicAndVideoViewController.m in Sources */,
 				AE61B61B1F02479F00C1F930 /* BaseWebViewViewController.m in Sources */,
 				AE5DC5371F3461CA003215FB /* GPUImageDarkenBlendFilter.m in Sources */,
+				E8E873AA1F43430D00DB944F /* Shu1ViewController.m in Sources */,
 				AE61B67B1F02495900C1F930 /* AppConfig.m in Sources */,
 				AE61B6AA1F0249A300C1F930 /* UIView+Layout.m in Sources */,
 				AE5DC51A1F3461CA003215FB /* GLProgram.m in Sources */,

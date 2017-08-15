@@ -33,16 +33,26 @@
 @property(nonatomic,assign)NSInteger selectShuiyin;
 @property(nonatomic,assign)NSInteger selectZiti;
 
+@property(nonatomic,strong)UIView *picBkView;
 @end
 
 @implementation MakeShuViewController
 
+- (instancetype)initWith:(NSInteger)mobanNum withImageArray:(NSArray *)imageArray withInfo:(NSDictionary *)infoDic{
+    self = [super init];
+    if (self) {
+        self.mobanNum = mobanNum;
+        self.imageArray = imageArray;
+        self.infoDic = infoDic;
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = COLOR_HEX(0x999999, 1);
-    self.title = @"zhizuokapian";
+    self.view.backgroundColor = COLOR_HEX(0xdddddd, 1);
+    self.title = @"制作卡片";
     [self setLeftBackNavItem];
     [self setupRightNavButton:@"完成" withTextFont:FONT_REGULAR(16) withTextColor:COLOR_HEX(0xffa632, 1) target:self
                        action:@selector(wanchengBtnAction)];
@@ -59,9 +69,17 @@
     self.zitiBkView.hidden = YES;
     
     [self requestZitiInfo];
+    
+    if (self.mobanNum == 1) {
+        [self makeMoban1];
+    }
 }
 
 - (void)createBottomUI{
+    
+    self.picBkView = [[UIView alloc] initWithFrame:CGRectMake(10, NAVBAR_HEIGHT + TopMenuHeight + 20, SCREEN_WIDTH - 20, SCREEN_HEIGHT - NAVBAR_HEIGHT - TopMenuHeight - 20 - 20)];
+    self.picBkView.backgroundColor = WHITECOLOR;
+    [self.view addSubview:self.picBkView];
     
     _bottomBkView = [[UIView alloc] init];
     self.bottomBkView.backgroundColor = [UIColor whiteColor];
@@ -115,10 +133,10 @@
 - (void)createxuanzeBeijingUI{
     
     self.beijingBkView = [[UIView alloc] init];
-    self.beijingBkView.backgroundColor = COLOR_HEX(0xdddddd, 1);
+    self.beijingBkView.backgroundColor = WHITECOLOR;
     [self.view addSubview:self.beijingBkView];
     [self.beijingBkView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.bottomBkView.mas_bottom);
+        make.top.equalTo(self.bottomBkView.mas_bottom).offset(1);
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
         make.height.equalTo(@120);
@@ -151,10 +169,10 @@
 - (void)createshuiyinUI{
     
     self.shuiyinBkView = [[UIView alloc] init];
-    self.shuiyinBkView.backgroundColor = COLOR_HEX(0xdddddd, 1);
+    self.shuiyinBkView.backgroundColor = WHITECOLOR;
     [self.view addSubview:self.shuiyinBkView];
     [self.shuiyinBkView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.bottomBkView.mas_bottom);
+        make.top.equalTo(self.bottomBkView.mas_bottom).offset(1);
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
         make.height.equalTo(@120);
@@ -187,16 +205,16 @@
 - (void)createzitiUI{
     
     self.zitiBkView = [[UIView alloc] init];
-    self.zitiBkView.backgroundColor = COLOR_HEX(0xdddddd, 1);
+    self.zitiBkView.backgroundColor = WHITECOLOR;
     [self.view addSubview:self.zitiBkView];
     [self.zitiBkView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.bottomBkView.mas_bottom);
+        make.top.equalTo(self.bottomBkView.mas_bottom).offset(1);
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
         make.height.equalTo(@120);
     }];
     
-    CGFloat hotPicWidth = 77;
+    CGFloat hotPicWidth = 125;
     CGFloat hotPicHeight = 93;
     //创建collectionView 362
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -206,7 +224,7 @@
     layout.itemSize = CGSizeMake(hotPicWidth, hotPicHeight);
     
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-    self.collectionView.backgroundColor = COLOR_HEX(0xdddddd, 1);
+    self.collectionView.backgroundColor = WHITECOLOR;
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.collectionView.showsVerticalScrollIndicator = NO;
@@ -214,8 +232,8 @@
     [self.zitiBkView addSubview:self.collectionView];
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.zitiBkView.mas_bottom);
-        make.left.equalTo(self.zitiBkView.mas_left);
-        make.right.equalTo(self.zitiBkView.mas_right);
+        make.left.equalTo(self.zitiBkView.mas_left).offset(10);
+        make.right.equalTo(self.zitiBkView.mas_right).offset(-10);
         make.top.equalTo(self.zitiBkView.mas_top);
     }];
     
@@ -330,4 +348,8 @@
     [self.collectionView reloadData];
 }
 
+- (void)makeMoban1{
+    UIScrollView *scrollView1 = [[UIScrollView alloc] init];
+    
+}
 @end

@@ -28,4 +28,7 @@
 
 @property(nonatomic,strong)NSDictionary *userInfoDic;
 
+@property(nonatomic,assign)NSInteger mobanNum;
+@property(nonatomic,strong)NSArray *imageArray;
+- (instancetype)initWith:(NSInteger)mobanNum withImageArray:(NSArray *)imageArray;
 @end

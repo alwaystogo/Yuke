@@ -7,6 +7,7 @@
 //
 
 #import "EditViewController.h"
+#import "MakeShuViewController.h"
 
 @interface EditViewController ()
 
@@ -14,6 +15,14 @@
 
 @implementation EditViewController
 
+- (instancetype)initWith:(NSInteger)mobanNum withImageArray:(NSArray *)imageArray{
+    self = [super init];
+    if (self) {
+        self.mobanNum = mobanNum;
+        self.imageArray = imageArray;
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -127,7 +136,10 @@
     [self.view addSubview:pickView];
 }
 - (void)rightNavBtnAction{
-    
+    NSLog(@"点击了下一步");
+    NSDictionary *dic = @{@"shengao":@"170"};
+    MakeShuViewController *vc = [[MakeShuViewController alloc] initWith:self.mobanNum withImageArray:self.imageArray withInfo:dic];
+    [kCurNavController pushViewController:vc animated:YES];
 }
 
 - (void)requestInitData{

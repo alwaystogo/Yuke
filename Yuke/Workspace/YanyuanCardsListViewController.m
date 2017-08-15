@@ -10,6 +10,7 @@
 #import "YanyuanCardsCollectionViewCell.h"
 #import "HotCollectionViewCell.h"
 #import "EditViewController.h"
+#import "TZImagePickerController.h"
 
 @interface YanyuanCardsListViewController ()
 
@@ -97,9 +98,26 @@
 
 - (void)tapImageViewAction{
     
-    EditViewController *editVC = [[EditViewController alloc] init];
-    editVC.hidesBottomBarWhenPushed = YES;
-    [kCurNavController pushViewController:editVC animated:YES];
-}
+    NSInteger max = 0;
+    if (self.selectedNum == 0) {
+        max = 1;
+    }
+    
+    WeakSelf
+    TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:max columnNumber:4 delegate:nil pushPhotoPickerVc:YES];
+    imagePickerVc.minImagesCount = max;
+    imagePickerVc.allowPickingVideo = NO;
+    imagePickerVc.allowPickingImage = YES;
+    imagePickerVc.allowPickingOriginalPhoto = NO;
+    imagePickerVc.sortAscendingByModificationDate = YES;
+    [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+        
+        EditViewController *editVC = [[EditViewController alloc] initWith:weakSelf.selectedNum+1 withImageArray:photos];
+        editVC.hidesBottomBarWhenPushed = YES;
+        [weakSelf.navigationController pushViewController:editVC animated:YES];
+        
+    }];
+    [self presentViewController:imagePickerVc animated:YES completion:nil];
 
+}
 @end

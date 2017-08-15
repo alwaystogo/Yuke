@@ -15,6 +15,7 @@
 #import "SavePicViewController.h"
 #import "MakeHengViewController.h"
 #import "MakeShuViewController.h"
+#import "Shu1ViewController.h"
 
 @interface WorkspaceViewController ()
 
@@ -97,6 +98,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+//竖卡
 - (void)yanyuanTapAction{
     YanyuanCardsListViewController *newVC = [[YanyuanCardsListViewController alloc] init];
     newVC.hidesBottomBarWhenPushed = YES;
@@ -118,14 +120,19 @@
 
 }
 
+//横卡
 - (void)moteTapAction{
-//    MoteCardsListViewController *newVC = [[MoteCardsListViewController alloc] init];
-//    newVC.hidesBottomBarWhenPushed = YES;
-//    [kCurNavController pushViewController:newVC animated:YES];
+    MoteCardsListViewController *newVC = [[MoteCardsListViewController alloc] init];
+    newVC.hidesBottomBarWhenPushed = YES;
+    [kCurNavController pushViewController:newVC animated:YES];
     
-    MakeShuViewController *vc = [[MakeShuViewController alloc] init];
-    vc.hidesBottomBarWhenPushed = YES;
-    [kCurNavController pushViewController:vc animated:YES];
+//    MakeShuViewController *vc = [[MakeShuViewController alloc] init];
+//    vc.hidesBottomBarWhenPushed = YES;
+//    [kCurNavController pushViewController:vc animated:YES];
+//    Shu1ViewController *vc = [[Shu1ViewController alloc] init];
+//    vc.hidesBottomBarWhenPushed = YES;
+//    [kCurNavController pushViewController:vc animated:YES];
+
 }
 //- (void)viewWillAppear:(BOOL)animated{
 //    [super viewWillAppear:animated];
