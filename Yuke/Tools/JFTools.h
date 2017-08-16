@@ -372,4 +372,7 @@ static inline BOOL IsEmpty(id thing) {
 
 // 截取URL中的参数
 + (NSMutableDictionary *)getURLParametersFromURL:(NSString *)urlStr;
+
+//根据屏幕大小，返回适配的字体
++ (UIFont *)fontWithSize:(NSInteger)size withType:(NSInteger)type;
 @end

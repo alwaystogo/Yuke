@@ -44,6 +44,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.fd_interactivePopDisabled = YES;
     self.view.backgroundColor = COLOR_HEX(0x999999, 1);
     
     self.selectEditType = 1;

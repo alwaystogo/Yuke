@@ -137,8 +137,23 @@
 }
 - (void)rightNavBtnAction{
     NSLog(@"点击了下一步");
-    NSDictionary *dic = @{@"shengao":@"170"};
-    MakeShuViewController *vc = [[MakeShuViewController alloc] initWith:self.mobanNum withImageArray:self.imageArray withInfo:dic];
+    
+    NSString *sanwei = self.addressLabel.text;
+    if (sanwei.length < 8) {
+        [JFTools showTipOnHUD:@"三围信息不正确，请重新选择"];
+        return ;
+    }
+    NSArray *array = [sanwei componentsSeparatedByString:@"-"];
+    NSDictionary *infoDic = @{@"name":self.nickNameTextField.text,@"shengao":self.hangyeLabel.text
+                              ,@"tizhong":self.yearsLabel.text
+                              ,@"xiongwei":array[0]
+                              ,@"yaowei":array[1]
+                              ,@"tunwei":array[2]
+                              ,@"sanwei":sanwei
+                              ,@"xiema":self.xieMaLabel.text
+                              ,@"diqu":self.jigouTextField.text};
+
+    MakeShuViewController *vc = [[MakeShuViewController alloc] initWith:self.mobanNum withImageArray:self.imageArray withInfo:infoDic];
     [kCurNavController pushViewController:vc animated:YES];
 }
 
@@ -158,6 +173,7 @@
             self.addressLabel.text = [responseObject objectForKeySafe:@"bwh"];
             self.xieMaLabel.text = [responseObject objectForKeySafe:@"shoe_size"];
             self.jigouTextField.text = [responseObject objectForKeySafe:@"address"];
+            
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

@@ -971,6 +971,46 @@ static dispatch_once_t onceToken;
     
     return params;
 }
+
++ (UIFont *)fontWithSize:(NSInteger)size withType:(NSInteger)type{
+    if (type == 0) {
+        if (SCREEN_WIDTH == 320) {
+            return FONT_REGULAR(size - 1);
+        }
+        if (SCREEN_WIDTH == 375) {
+            return FONT_REGULAR(size);
+        }
+        if (SCREEN_WIDTH == 414) {
+            return FONT_REGULAR(size + 1);
+        }
+    }
+    if (type == 1) {
+        if (SCREEN_WIDTH == 320) {
+            return FONT_MEDIUM(size - 1);
+        }
+        if (SCREEN_WIDTH == 375) {
+            return FONT_MEDIUM(size);
+        }
+        if (SCREEN_WIDTH == 414) {
+            return FONT_MEDIUM(size + 1);
+        }
+    }
+    
+    if (type == 2) {
+        if (SCREEN_WIDTH == 320) {
+            return FONT_BOLD(size - 1);
+        }
+        if (SCREEN_WIDTH == 375) {
+            return FONT_BOLD(size);
+        }
+        if (SCREEN_WIDTH == 414) {
+            return FONT_BOLD(size + 1);
+        }
+    }
+    
+    return nil;
+}
+
 @end
 
 

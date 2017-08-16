@@ -52,6 +52,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.fd_interactivePopDisabled = YES;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = COLOR_HEX(0xdddddd, 1);
     self.title = @"制作卡片";
     [self setLeftBackNavItem];
@@ -73,6 +75,9 @@
     
     if (self.mobanNum == 1) {
         [self makeMoban1];
+    }
+    if (self.mobanNum == 2) {
+        [self makeMoban2];
     }
 }
 
@@ -276,10 +281,6 @@
     [self.collectionView reloadData];
 }
 
-- (void)wanchengBtnAction{
-    
-}
-
 - (void)beijingBtnAction{
     self.beijingBkView.hidden = NO;
     self.shuiyinBkView.hidden = YES;
@@ -349,6 +350,7 @@
     [self.collectionView reloadData];
 }
 
+//添加放置图片的scrollview
 - (void)addAllScrollViewWithRectArray:(NSArray *)rectArray withImageArray:(NSArray *)imageArray{
     
     for (int i = 0; i < imageArray.count; i++) {
@@ -358,8 +360,116 @@
         [self.picBkView addSubview:scroll];
     }
 }
-- (void)makeMoban1{
-    UIScrollView *scrollView1 = [[UIScrollView alloc] init];
+//给图片添加文字水印
+- (UIImage *)addWaterTextWithImage:(UIImage *)image withLabel:(UILabel *)label{
+    
+    NSDictionary *attributedDic = @{NSFontAttributeName:label.font,NSForegroundColorAttributeName:label.textColor};
+    //1.开启上下文
+    UIGraphicsBeginImageContextWithOptions(image.size, NO, SCALE);
+    //2.绘制图片
+    [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height)];
+    //添加水印文字
+    [label.text drawAtPoint:label.origin withAttributes:attributedDic];
+    //3.从上下文中获取新图片
+    UIImage * newImage = UIGraphicsGetImageFromCurrentImageContext();
+    //4.关闭图形上下文
+    UIGraphicsEndImageContext();
+    //返回图片
+    return newImage;
     
 }
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    if (error) {
+        
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"标题" message:@"保存失败" preferredStyle:UIAlertControllerStyleAlert];
+        
+        [self presentViewController:alertVC animated:YES completion:nil];
+    }else
+    {
+        
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"标题" message:@"保存成功" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+        [alertVC addAction:action];
+        [self presentViewController:alertVC animated:YES completion:nil];
+        
+    }
+}
+
+//完成事件
+- (void)wanchengBtnAction{
+    
+    NSArray *viewArray = [self.picBkView subviews];
+    //隐藏
+    for (int i =0; i < viewArray.count; i++) {
+        if ([viewArray[i] isKindOfClass:[UILabel class]]) {
+            UILabel *label = (UILabel *)viewArray[i];
+            label.hidden = YES;
+        }
+    }
+    UIGraphicsBeginImageContextWithOptions(self.picBkView.frame.size, NO, SCALE);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    //剪切指定视图的画面
+    [self.picBkView.layer renderInContext:context];
+    UIImage * cutImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    for (int i =0; i < viewArray.count; i++) {
+        if ([viewArray[i] isKindOfClass:[UILabel class]]) {
+            UILabel *label = (UILabel *)viewArray[i];
+            cutImage = [self addWaterTextWithImage:cutImage withLabel:label];
+        }
+    }
+    
+    UIImageWriteToSavedPhotosAlbum(cutImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+
+- (void)makeMoban1{
+    CGRect rect1 = CGRectMake(0, 0, self.picBkView.width, self.picBkView.height - 40);
+    [self addAllScrollViewWithRectArray:@[[NSValue valueWithCGRect:rect1]] withImageArray:self.imageArray];
+    
+    UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(0, self.picBkView.height - 120, 150, 80)];
+    label1.centerX = self.picBkView.centerX;
+    label1.text = [self.infoDic objectForKey:@"name"];
+    label1.font = [JFTools fontWithSize:40 withType:2];
+    [self.picBkView addSubview:label1];
+    
+    UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(0, self.picBkView.height - 30, self.picBkView.width, 20)];
+    label2.centerX = self.picBkView.centerX;
+    label2.text = [NSString stringWithFormat:@"HEIGHT %@ WEIGHT %@ BUST %@ WAIST %@ HIPS %@ SHOES %@",[self.infoDic objectForKey:@"shengao"],[self.infoDic objectForKey:@"tizhong"],[self.infoDic objectForKey:@"xiongwei"],[self.infoDic objectForKey:@"yaowei"],[self.infoDic objectForKey:@"tunwei"],[self.infoDic objectForKey:@"xiema"]];
+    label2.font = [JFTools fontWithSize:11 withType:0];
+    [self.picBkView addSubview:label2];
+}
+
+- (void)makeMoban2{
+    
+    CGFloat imageWidth = (self.picBkView.width - 55) /2;
+    CGFloat imageHeight = (self.picBkView.height - 140) /2;
+    
+    CGRect rect1 = CGRectMake(20, 20, imageWidth, imageHeight);
+    CGRect rect2 = CGRectMake(CGRectGetMaxX(rect1)+20, 20, imageWidth, imageHeight);
+    CGRect rect3 = CGRectMake(20, CGRectGetMaxY(rect1)+20, imageWidth, imageHeight);
+    CGRect rect4 = CGRectMake(CGRectGetMaxX(rect1)+20, CGRectGetMaxY(rect1)+20, imageWidth, imageHeight);
+    [self addAllScrollViewWithRectArray:@[[NSValue valueWithCGRect:rect1],[NSValue valueWithCGRect:rect2],[NSValue valueWithCGRect:rect3],[NSValue valueWithCGRect:rect4],] withImageArray:self.imageArray];
+    
+    UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(20, self.picBkView.height - 85, 100, 40)];
+    //label1.centerX = self.picBkView.centerX;
+    label1.text = [self.infoDic objectForKey:@"name"];
+    label1.font = [JFTools fontWithSize:17 withType:2];
+    [self.picBkView addSubview:label1];
+    
+    UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(20, self.picBkView.height - 50, 200, 20)];
+    //label2.centerX = self.picBkView.centerX;
+    label2.text = [NSString stringWithFormat:@"HEIGHT %@ WEIGHT %@",[self.infoDic objectForKey:@"shengao"],[self.infoDic objectForKey:@"tizhong"]];
+    label2.font = [JFTools fontWithSize:12 withType:0];
+    [self.picBkView addSubview:label2];
+    
+    UILabel *label3 = [[UILabel alloc] initWithFrame:CGRectMake(20, self.picBkView.height - 30, 300, 20)];
+    //label2.centerX = self.picBkView.centerX;
+    label3.text = [NSString stringWithFormat:@"BUST %@ WAIST %@ HIPS %@ SHOES %@",[self.infoDic objectForKey:@"xiongwei"],[self.infoDic objectForKey:@"yaowei"],[self.infoDic objectForKey:@"tunwei"],[self.infoDic objectForKey:@"xiema"]];
+    label3.font = [JFTools fontWithSize:12 withType:0];
+    [self.picBkView addSubview:label3];
+    
+}
+
 @end

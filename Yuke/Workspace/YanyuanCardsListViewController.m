@@ -102,13 +102,16 @@
     if (self.selectedNum == 0) {
         max = 1;
     }
+    if (self.selectedNum == 1) {
+        max = 4;
+    }
     
     WeakSelf
     TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:max columnNumber:4 delegate:nil pushPhotoPickerVc:YES];
     imagePickerVc.minImagesCount = max;
     imagePickerVc.allowPickingVideo = NO;
     imagePickerVc.allowPickingImage = YES;
-    imagePickerVc.allowPickingOriginalPhoto = NO;
+    imagePickerVc.allowPickingOriginalPhoto = YES;
     imagePickerVc.sortAscendingByModificationDate = YES;
     [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
         
