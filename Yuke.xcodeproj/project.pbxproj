@@ -257,6 +257,7 @@
 		AEA366051F42DC680057AB3E /* ZitiCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA366031F42DC680057AB3E /* ZitiCollectionViewCell.m */; };
 		AEA366061F42DC680057AB3E /* ZitiCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEA366041F42DC680057AB3E /* ZitiCollectionViewCell.xib */; };
 		AEA366091F42E3ED0057AB3E /* MakeShuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA366081F42E3ED0057AB3E /* MakeShuViewController.m */; };
+		AEA3660C1F443A750057AB3E /* CardScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA3660B1F443A750057AB3E /* CardScrollView.m */; };
 		AEAB38AD1F20A158008FC136 /* QQActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAB38951F20A158008FC136 /* QQActivity.m */; };
 		AEAB38AE1F20A158008FC136 /* QQZoneActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAB38971F20A158008FC136 /* QQZoneActivity.m */; };
 		AEAB38AF1F20A158008FC136 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEAB38981F20A158008FC136 /* TencentOpenAPI.framework */; };
@@ -844,6 +845,8 @@
 		AEA366041F42DC680057AB3E /* ZitiCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZitiCollectionViewCell.xib; sourceTree = "<group>"; };
 		AEA366071F42E3ED0057AB3E /* MakeShuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeShuViewController.h; sourceTree = "<group>"; };
 		AEA366081F42E3ED0057AB3E /* MakeShuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeShuViewController.m; sourceTree = "<group>"; };
+		AEA3660A1F443A750057AB3E /* CardScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardScrollView.h; sourceTree = "<group>"; };
+		AEA3660B1F443A750057AB3E /* CardScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardScrollView.m; sourceTree = "<group>"; };
 		AEAB38941F20A158008FC136 /* QQActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQActivity.h; sourceTree = "<group>"; };
 		AEAB38951F20A158008FC136 /* QQActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQActivity.m; sourceTree = "<group>"; };
 		AEAB38961F20A158008FC136 /* QQZoneActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQZoneActivity.h; sourceTree = "<group>"; };
@@ -1767,6 +1770,8 @@
 				AEA365FD1F41A9AB0057AB3E /* MakeHengViewController.m */,
 				AEA366071F42E3ED0057AB3E /* MakeShuViewController.h */,
 				AEA366081F42E3ED0057AB3E /* MakeShuViewController.m */,
+				AEA3660A1F443A750057AB3E /* CardScrollView.h */,
+				AEA3660B1F443A750057AB3E /* CardScrollView.m */,
 				E8E873A81F43430D00DB944F /* Shu1ViewController.h */,
 				E8E873A91F43430D00DB944F /* Shu1ViewController.m */,
 				AEA366021F42DC680057AB3E /* ZitiCollectionViewCell.h */,
@@ -2464,6 +2469,7 @@
 				AE5DC5201F3461CA003215FB /* GPUImageAmatorkaFilter.m in Sources */,
 				AEB3D7381F18955D0091EE21 /* NewHuodongViewController.m in Sources */,
 				AE61B6E91F0253C200C1F930 /* LoginViewController.m in Sources */,
+				AEA3660C1F443A750057AB3E /* CardScrollView.m in Sources */,
 				AE5DC58E1F3461CA003215FB /* GPUImageSepiaFilter.m in Sources */,
 				AE61B61A1F02479F00C1F930 /* BaseViewController.m in Sources */,
 				AE5DC5A81F3461CA003215FB /* GPUImageTransformFilter.m in Sources */,

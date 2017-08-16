@@ -8,6 +8,7 @@
 
 #import "MakeShuViewController.h"
 #import "ZitiCollectionViewCell.h"
+#import "CardScrollView.h"
 
 #define  TopMenuHeight  35
 
@@ -348,6 +349,15 @@
     [self.collectionView reloadData];
 }
 
+- (void)addAllScrollViewWithRectArray:(NSArray *)rectArray withImageArray:(NSArray *)imageArray{
+    
+    for (int i = 0; i < imageArray.count; i++) {
+        CardScrollView *scroll = [[CardScrollView alloc] initWithFrame:[rectArray[i] CGRectValue] withImage:imageArray[i]];
+        scroll.showsVerticalScrollIndicator = NO;
+        scroll.showsHorizontalScrollIndicator = NO;
+        [self.picBkView addSubview:scroll];
+    }
+}
 - (void)makeMoban1{
     UIScrollView *scrollView1 = [[UIScrollView alloc] init];
     

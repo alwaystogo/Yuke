@@ -144,4 +144,6 @@ isKindOfClass:[UINavigationController class]] \
 //请求不到图片时的占位图
 #define PlaceHolderPic @"huodongPic"
 
+//卡片缩放倍数
+#define SCALE 10
 #endif /* Config_h */

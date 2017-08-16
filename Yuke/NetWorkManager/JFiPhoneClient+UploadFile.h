@@ -25,4 +25,11 @@
                                            success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
                                            failure:(void (^)(NSURLSessionDataTask * task, NSError * error)) failure;
 
+//上传video
+- (NSURLSessionDataTask *)uploadVideoWithMethod:(NSString *)method
+                                            param:(NSDictionary *)data
+                                          videoUrl:(NSURL *)videoUrl
+                                        paramName:(NSString *)paramName
+                                          success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+                                          failure:(void (^)(NSURLSessionDataTask * task, NSError * error)) failure;
 @end
