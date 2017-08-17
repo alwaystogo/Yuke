@@ -99,11 +99,8 @@
 - (void)tapImageViewAction{
     
     NSInteger max = 0;
-    if (self.selectedNum == 0) {
+    if (self.selectedNum < 8) {
         max = 1;
-    }
-    if (self.selectedNum == 1) {
-        max = 4;
     }
     
     WeakSelf
