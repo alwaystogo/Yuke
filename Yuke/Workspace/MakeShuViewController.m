@@ -35,6 +35,10 @@
 @property(nonatomic,assign)NSInteger selectZiti;
 
 @property(nonatomic,strong)UIView *picBkView;
+@property(nonatomic,strong)UIColor *picBkViewColor;
+
+@property(nonatomic,strong)UIFont *labelFont;
+
 @end
 
 @implementation MakeShuViewController
@@ -71,6 +75,7 @@
     self.shuiyinBkView.hidden = YES;
     self.zitiBkView.hidden = YES;
     
+    self.picBkViewColor = [UIColor blackColor];
     [self requestZitiInfo];
     
     if (self.mobanNum == 1) {
@@ -84,7 +89,7 @@
 - (void)createBottomUI{
     
     self.picBkView = [[UIView alloc] initWithFrame:CGRectMake(10, NAVBAR_HEIGHT + TopMenuHeight + 20, SCREEN_WIDTH - 20, SCREEN_HEIGHT - NAVBAR_HEIGHT - TopMenuHeight - 20 - 20)];
-    self.picBkView.backgroundColor = WHITECOLOR;
+    self.picBkView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:self.picBkView];
     
     _bottomBkView = [[UIView alloc] init];
@@ -279,6 +284,8 @@
     //点击某列
     self.selectZiti = indexPath.row;
     [self.collectionView reloadData];
+    //更改字体
+    [self changeLabelFont];
 }
 
 - (void)beijingBtnAction{
@@ -327,18 +334,28 @@
     [self.zitiBtn setTitleColor:COLOR_HEX(0xffa632, 1) forState:UIControlStateNormal];
 }
 
+//hei
 - (void)beijingImageView1Action{
     self.selectBeijing = 1;
     [self beijingBtnAction];
+    self.picBkView.backgroundColor = [UIColor blackColor];
+    self.picBkViewColor = [UIColor blackColor];
+    [self changeLabelTextColor];
 }
+//bai
 - (void)beijingImageView2Action{
     self.selectBeijing = 2;
     [self beijingBtnAction];
+    self.picBkView.backgroundColor = [UIColor whiteColor];
+    self.picBkViewColor = [UIColor whiteColor];
+    [self changeLabelTextColor];
 }
+//youshuiyin
 - (void)shuiyinImageView1Action{
     self.selectShuiyin = 1;
     [self shuiyinBtnAction];
 }
+//wushuiyin
 - (void)shuiyinImageView2Action{
     self.selectShuiyin = 2;
     [self shuiyinBtnAction];
@@ -393,6 +410,31 @@
         [alertVC addAction:action];
         [self presentViewController:alertVC animated:YES completion:nil];
         
+    }
+}
+
+- (void)changeLabelTextColor{
+    NSArray *viewArray = [self.picBkView subviews];
+    for (int i =0; i < viewArray.count; i++) {
+        if ([viewArray[i] isKindOfClass:[UILabel class]]) {
+            UILabel *label = (UILabel *)viewArray[i];
+            if (self.selectBeijing == 1) {
+                 label.textColor = [UIColor whiteColor];
+            }else{
+                label.textColor = [UIColor blackColor];
+            }
+           
+        }
+    }
+}
+
+- (void)changeLabelFont{
+    NSArray *viewArray = [self.picBkView subviews];
+    for (int i =0; i < viewArray.count; i++) {
+        if ([viewArray[i] isKindOfClass:[UILabel class]]) {
+            UILabel *label = (UILabel *)viewArray[i];
+            
+        }
     }
 }
 
