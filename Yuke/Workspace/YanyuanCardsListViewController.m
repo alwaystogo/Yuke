@@ -98,36 +98,58 @@
 
 - (void)tapImageViewAction{
     
-    NSInteger max = 0;
-    if (self.selectedNum < 8) {
-        max = 1;
-    }
-    
-    WeakSelf
-    TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:max columnNumber:4 delegate:nil pushPhotoPickerVc:YES];
-    imagePickerVc.minImagesCount = max;
-    imagePickerVc.allowPickingVideo = NO;
-    imagePickerVc.allowPickingImage = YES;
-    imagePickerVc.allowPickingOriginalPhoto = YES;
-    imagePickerVc.sortAscendingByModificationDate = YES;
-    [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+    [LoginViewController checkLogin:^(BOOL result) {
         
-        [LoginViewController checkLogin:^(BOOL result) {
-            
-            if (result) {
-                [JFTools showTipOnHUD:@"登录成功"];
-                
-            }else{
-                [JFTools showTipOnHUD:@"登录失败"];
+        if (result) {
+            //[JFTools showTipOnHUD:@"登录成功"];
+            NSInteger max = 0;
+            if (self.selectedNum < 8) {
+                max = 1;
             }
-        }];
-        EditViewController *editVC = [[EditViewController alloc] initWith:weakSelf.selectedNum+1 withImageArray:photos];
-        editVC.hidesBottomBarWhenPushed = YES;
-        [weakSelf.navigationController pushViewController:editVC animated:YES];
-       
-        
+            if (self.selectedNum == 8) {
+                max = 2;
+            }
+            if (self.selectedNum == 9) {
+                max = 3;
+            }
+            if (self.selectedNum == 10) {
+                max = 4;
+            }
+            if (self.selectedNum == 11) {
+                max = 4;
+            }
+            if (self.selectedNum == 12) {
+                max = 9;
+            }
+            if (self.selectedNum == 13) {
+                max = 9;
+            }
+            if (self.selectedNum == 14) {
+                max = 9;
+            }
+            if (self.selectedNum == 15) {
+                max = 17;
+            }
+            WeakSelf
+            TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:max columnNumber:4 delegate:nil pushPhotoPickerVc:YES];
+            imagePickerVc.minImagesCount = max;
+            imagePickerVc.allowPickingVideo = NO;
+            imagePickerVc.allowPickingImage = YES;
+            imagePickerVc.allowPickingOriginalPhoto = YES;
+            imagePickerVc.sortAscendingByModificationDate = YES;
+            [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+                
+                EditViewController *editVC = [[EditViewController alloc] initWith:weakSelf.selectedNum+1 withImageArray:photos];
+                editVC.hidesBottomBarWhenPushed = YES;
+                [weakSelf.navigationController pushViewController:editVC animated:YES];
+            }];
+            [self presentViewController:imagePickerVc animated:YES completion:nil];
+
+        }else{
+            //[JFTools showTipOnHUD:@"登录失败"];
+        }
     }];
-    [self presentViewController:imagePickerVc animated:YES completion:nil];
+    
 
 }
 @end
