@@ -388,7 +388,7 @@
     [self beijingBtnAction];
     self.picBkView.backgroundColor = [UIColor blackColor];
     self.picBkViewColor = [UIColor blackColor];
-    [self changeLabelTextColor];
+    [self changeLabelTextColor];//
 }
 //youshuiyin
 - (void)shuiyinImageView1Action{
@@ -435,6 +435,23 @@
     return newImage;
     
 }
+//给图片添加logo水印
+- (UIImage *)addWaterTextWithImage:(UIImage *)image withLogo:(UIImage *)logoImage{
+    
+    //1.开启上下文
+    UIGraphicsBeginImageContextWithOptions(image.size, NO, SCALE);
+    //2.绘制图片
+    [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height)];
+    //添加水印
+    [logoImage drawInRect:CGRectMake(image.size.width - 30, 0, 30, 20)];
+    //3.从上下文中获取新图片
+    UIImage * newImage = UIGraphicsGetImageFromCurrentImageContext();
+    //4.关闭图形上下文
+    UIGraphicsEndImageContext();
+    //返回图片
+    return newImage;
+    
+}
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
     if (error) {
@@ -458,22 +475,32 @@
     for (int i =0; i < viewArray.count; i++) {
         if ([viewArray[i] isKindOfClass:[UILabel class]]) {
             UILabel *label = (UILabel *)viewArray[i];
-            if (self.selectBeijing == 2) {
-                 label.textColor = [UIColor whiteColor];
-            }else{
-                label.textColor = [UIColor blackColor];
+            //tag大于1000的不变颜色
+            if (label.tag < 1000) {
+                if (self.selectBeijing == 2) {
+                    label.textColor = [UIColor whiteColor];
+                }else{
+                    label.textColor = [UIColor blackColor];
+                }
             }
-           
+            
         }
     }
 }
 
 - (void)changeLabelFont{
+    
     NSArray *viewArray = [self.picBkView subviews];
     for (int i =0; i < viewArray.count; i++) {
         if ([viewArray[i] isKindOfClass:[UILabel class]]) {
             UILabel *label = (UILabel *)viewArray[i];
-            
+            //获取label字体大小
+            NSString *size = [label.font.fontDescriptor objectForKey:@"NSFontSizeAttribute"];
+            NSInteger fontSize = [size integerValue];
+            if (self.selectZiti == 1) {
+                label.font = FONT_BOLD(fontSize);
+            }
+
         }
     }
 }
@@ -502,6 +529,8 @@
             cutImage = [self addWaterTextWithImage:cutImage withLabel:label];
         }
     }
+    //添加logo水印
+    cutImage = [self addWaterTextWithImage:cutImage withLogo:ImageNamed(@"huodongPic")];
     
     UIImageWriteToSavedPhotosAlbum(cutImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }

@@ -112,9 +112,19 @@
     imagePickerVc.sortAscendingByModificationDate = YES;
     [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
         
+        [LoginViewController checkLogin:^(BOOL result) {
+            
+            if (result) {
+                [JFTools showTipOnHUD:@"登录成功"];
+                
+            }else{
+                [JFTools showTipOnHUD:@"登录失败"];
+            }
+        }];
         EditViewController *editVC = [[EditViewController alloc] initWith:weakSelf.selectedNum+1 withImageArray:photos];
         editVC.hidesBottomBarWhenPushed = YES;
         [weakSelf.navigationController pushViewController:editVC animated:YES];
+       
         
     }];
     [self presentViewController:imagePickerVc animated:YES completion:nil];

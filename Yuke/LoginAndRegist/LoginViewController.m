@@ -196,6 +196,7 @@
     [kCurNavController presentViewController:loginNav animated:YES completion:^{
         
     }];
+   
     return NO;
 }
 
