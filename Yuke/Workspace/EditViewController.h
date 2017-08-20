@@ -30,5 +30,6 @@
 
 @property(nonatomic,assign)NSInteger mobanNum;
 @property(nonatomic,strong)NSArray *imageArray;
-- (instancetype)initWith:(NSInteger)mobanNum withImageArray:(NSArray *)imageArray;
+@property(nonatomic,assign)NSInteger type;//0竖 1横
+- (instancetype)initWith:(NSInteger)mobanNum withImageArray:(NSArray *)imageArray withType:(NSInteger)type;
 @end

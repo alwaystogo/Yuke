@@ -8,6 +8,8 @@
 
 #import "MoteCardsListViewController.h"
 #import "YuePaisheTableViewCell.h"
+#import "EditViewController.h"
+#import "TZImagePickerController.h"
 
 @interface MoteCardsListViewController ()
 
@@ -66,8 +68,80 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"点击了-%ld",indexPath.row);
+    NSLog(@"点击了-%ld",indexPath.section);
+    self.selectedNum = indexPath.section;
     
+    [LoginViewController checkLogin:^(BOOL result) {
+        
+        if (result) {
+            //[JFTools showTipOnHUD:@"登录成功"];
+            NSInteger max = 0;
+            if (self.selectedNum == 0) {
+                max = 3;
+            }
+            if (self.selectedNum == 1) {
+                max = 5;
+            }
+            if (self.selectedNum == 2) {
+                max = 7;
+            }
+            if (self.selectedNum == 3) {
+                max = 9;
+            }
+            if (self.selectedNum == 4) {
+                max = 1;
+            }
+            if (self.selectedNum == 5) {
+                max = 1;
+            }
+            if (self.selectedNum == 6) {
+                max = 1;
+            }
+            if (self.selectedNum == 7) {
+                max = 1;
+            }
+            if (self.selectedNum == 8) {
+                max = 2;
+            }
+            if (self.selectedNum == 9) {
+                max = 3;
+            }
+            if (self.selectedNum == 10) {
+                max = 4;
+            }
+            if (self.selectedNum == 11) {
+                max = 4;
+            }
+            if (self.selectedNum == 12) {
+                max = 9;
+            }
+            if (self.selectedNum == 13) {
+                max = 9;
+            }
+            if (self.selectedNum == 14) {
+                max = 17;
+            }
+            
+            WeakSelf
+            TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:max columnNumber:4 delegate:nil pushPhotoPickerVc:YES];
+            imagePickerVc.minImagesCount = max;
+            imagePickerVc.allowPickingVideo = NO;
+            imagePickerVc.allowPickingImage = YES;
+            imagePickerVc.allowPickingOriginalPhoto = YES;
+            imagePickerVc.sortAscendingByModificationDate = YES;
+            [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+                
+                EditViewController *editVC = [[EditViewController alloc] initWith:weakSelf.selectedNum+1 withImageArray:photos withType:1];
+                editVC.hidesBottomBarWhenPushed = YES;
+                [weakSelf.navigationController pushViewController:editVC animated:YES];
+            }];
+            [self presentViewController:imagePickerVc animated:YES completion:nil];
+            
+        }else{
+            //[JFTools showTipOnHUD:@"登录失败"];
+        }
+    }];
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

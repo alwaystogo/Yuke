@@ -8,6 +8,7 @@
 
 #import "MakeHengViewController.h"
 #import "ZitiCollectionViewCell.h"
+#import "CardScrollView.h"
 
 @interface MakeHengViewController ()
 
@@ -36,9 +37,24 @@
 @property(nonatomic,assign)NSInteger selectShuiyin;
 @property(nonatomic,assign)NSInteger selectZiti;
 
+@property(nonatomic,strong)UIView *picBkView;
+@property(nonatomic,strong)UIColor *picBkViewColor;
+
+@property(nonatomic,strong)UIFont *labelFont;
+
 @end
 
 @implementation MakeHengViewController
+
+- (instancetype)initWith:(NSInteger)mobanNum withImageArray:(NSArray *)imageArray withInfo:(NSDictionary *)infoDic{
+    self = [super init];
+    if (self) {
+        self.mobanNum = mobanNum;
+        self.imageArray = imageArray;
+        self.infoDic = infoDic;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -61,13 +77,61 @@
     self.shuiyinBkView.hidden = YES;
     self.zitiBkView.hidden = YES;
     
+    self.picBkViewColor = [UIColor whiteColor];
     [self requestZitiInfo];
+    
+    if (self.mobanNum == 1) {
+        [self makeMoban1];
+    }
+    if (self.mobanNum == 2) {
+        [self makeMoban2];
+    }
+    if (self.mobanNum == 3) {
+        [self makeMoban3];
+    }
+    if (self.mobanNum == 4) {
+        [self makeMoban4];
+    }
+    if (self.mobanNum == 5) {
+        [self makeMoban5];
+    }
+    if (self.mobanNum == 6) {
+        [self makeMoban6];
+    }
+    if (self.mobanNum == 7) {
+        [self makeMoban7];
+    }
+    if (self.mobanNum == 8) {
+        [self makeMoban8];
+    }
+    if (self.mobanNum == 9) {
+        [self makeMoban9];
+    }
+    if (self.mobanNum == 10) {
+        [self makeMoban10];
+    }
+    if (self.mobanNum == 11) {
+        [self makeMoban11];
+    }
+    if (self.mobanNum == 12) {
+        [self makeMoban12];
+    }
+    if (self.mobanNum == 13) {
+        [self makeMoban13];
+    }
+    if (self.mobanNum == 14) {
+        [self makeMoban14];
+    }
+    if (self.mobanNum == 15) {
+        [self makeMoban15];
+    }
+
 }
 
 - (void)creatTopUI{
     
     _topBkView = [[UIView alloc] init];
-    self.topBkView.backgroundColor = [UIColor whiteColor];
+    self.topBkView.backgroundColor = COLOR_HEX(0xdddddd, 1);
     [self.view addSubview:_topBkView];
     [self.topBkView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left);
@@ -122,6 +186,12 @@
 
 }
 - (void)createBottomUI{
+    
+    self.picBkView = [[UIView alloc] initWithFrame:CGRectMake(0,44,self.view.height,self.view.width - 44)];
+    self.picBkView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.picBkView];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapPickBkViewAction)];
+    [self.picBkView addGestureRecognizer:tap];
     
     _bottomBkView = [[UIView alloc] init];
     self.bottomBkView.backgroundColor = [UIColor whiteColor];
@@ -318,6 +388,9 @@
     //点击某列
     self.selectZiti = indexPath.row;
     [self.collectionView reloadData];
+    
+    //更改字体
+    [self changeLabelFont];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -329,35 +402,16 @@
             //隐藏bar
              [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     }];
+    self.navigationController.navigationBar.hidden = YES;
 
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     //显示bar
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+    self.navigationController.navigationBar.hidden = NO;
 }
 
-- (void)fanhuiBtnAction{
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-- (void)editBtnAction{
-    if (self.bottomBkView.hidden) {
-        //如果隐藏了，就显示出来
-        self.bottomBkView.hidden = NO;
-        [self beijingBtnAction];
-        
-    }else{
-        //隐藏起来
-        self.bottomBkView.hidden = YES;
-        self.beijingBkView.hidden = YES;
-        self.zitiBkView.hidden = YES;
-        self.shuiyinBkView.hidden = YES;
-    }
-}
-- (void)wanchengBtnAction{
-    
-}
 
 - (void)beijingBtnAction{
     self.beijingBkView.hidden = NO;
@@ -405,26 +459,274 @@
     self.zitiBtn.backgroundColor = COLOR_HEX(0xff9000, 1);
 }
 
+//bai
 - (void)beijingImageView1Action{
     self.selectBeijing = 1;
     [self beijingBtnAction];
+    self.picBkView.backgroundColor = [UIColor whiteColor];
+    self.picBkViewColor = [UIColor whiteColor];
+    [self changeLabelTextColor];
 }
+//hei
 - (void)beijingImageView2Action{
     self.selectBeijing = 2;
     [self beijingBtnAction];
+    self.picBkView.backgroundColor = [UIColor blackColor];
+    self.picBkViewColor = [UIColor blackColor];
+    [self changeLabelTextColor];//
 }
+//youshuiyin
 - (void)shuiyinImageView1Action{
     self.selectShuiyin = 1;
     [self shuiyinBtnAction];
 }
+//wushuiyin
 - (void)shuiyinImageView2Action{
     self.selectShuiyin = 2;
     [self shuiyinBtnAction];
 }
 
+
 -(void)requestZitiInfo{
     
     self.zitiArray = @[@"1",@"2",@"3",@"4",@"5",@"6"];
     [self.collectionView reloadData];
+}
+- (void)fanhuiBtnAction{
+    
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+- (void)editBtnAction{
+    if (self.bottomBkView.hidden) {
+        //如果隐藏了，就显示出来
+        self.bottomBkView.hidden = NO;
+        [self beijingBtnAction];
+        
+    }else{
+        //隐藏起来
+        self.bottomBkView.hidden = YES;
+        self.beijingBkView.hidden = YES;
+        self.zitiBkView.hidden = YES;
+        self.shuiyinBkView.hidden = YES;
+    }
+}
+//添加放置图片的scrollview
+- (void)addAllScrollViewWithRectArray:(NSArray *)rectArray withImageArray:(NSArray *)imageArray{
+    
+    for (int i = 0; i < imageArray.count; i++) {
+        CardScrollView *scroll = [[CardScrollView alloc] initWithFrame:[rectArray[i] CGRectValue] withImage:imageArray[i]];
+        scroll.showsVerticalScrollIndicator = NO;
+        scroll.showsHorizontalScrollIndicator = NO;
+        [self.picBkView addSubview:scroll];
+    }
+}
+//给图片添加文字水印
+- (UIImage *)addWaterTextWithImage:(UIImage *)image withLabel:(UILabel *)label{
+    
+    NSDictionary *attributedDic = @{NSFontAttributeName:label.font,NSForegroundColorAttributeName:label.textColor};
+    //1.开启上下文
+    UIGraphicsBeginImageContextWithOptions(image.size, NO, SCALE);
+    //2.绘制图片
+    [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height)];
+    //添加水印文字
+    [label.text drawAtPoint:label.origin withAttributes:attributedDic];
+    //3.从上下文中获取新图片
+    UIImage * newImage = UIGraphicsGetImageFromCurrentImageContext();
+    //4.关闭图形上下文
+    UIGraphicsEndImageContext();
+    //返回图片
+    return newImage;
+    
+}
+//给图片添加logo水印
+- (UIImage *)addWaterTextWithImage:(UIImage *)image withLogo:(UIImage *)logoImage{
+    
+    //1.开启上下文
+    UIGraphicsBeginImageContextWithOptions(image.size, NO, SCALE);
+    //2.绘制图片
+    [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height)];
+    //添加水印
+    [logoImage drawInRect:CGRectMake(image.size.width - 30, 0, 30, 20)];
+    //3.从上下文中获取新图片
+    UIImage * newImage = UIGraphicsGetImageFromCurrentImageContext();
+    //4.关闭图形上下文
+    UIGraphicsEndImageContext();
+    //返回图片
+    return newImage;
+    
+}
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    if (error) {
+        
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"标题" message:@"保存失败" preferredStyle:UIAlertControllerStyleAlert];
+        
+        [self presentViewController:alertVC animated:YES completion:nil];
+    }else
+    {
+        
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"标题" message:@"保存成功" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+        [alertVC addAction:action];
+        [self presentViewController:alertVC animated:YES completion:nil];
+        
+    }
+}
+
+- (void)changeLabelTextColor{
+    NSArray *viewArray = [self.picBkView subviews];
+    for (int i =0; i < viewArray.count; i++) {
+        if ([viewArray[i] isKindOfClass:[UILabel class]]) {
+            UILabel *label = (UILabel *)viewArray[i];
+            //tag大于1000的不变颜色
+            if (label.tag < 1000) {
+                if (self.selectBeijing == 2) {
+                    label.textColor = [UIColor whiteColor];
+                }else{
+                    label.textColor = [UIColor blackColor];
+                }
+            }
+            
+        }
+    }
+}
+
+- (void)changeLabelFont{
+    
+    NSArray *viewArray = [self.picBkView subviews];
+    for (int i =0; i < viewArray.count; i++) {
+        if ([viewArray[i] isKindOfClass:[UILabel class]]) {
+            UILabel *label = (UILabel *)viewArray[i];
+            //获取label字体大小
+            NSString *size = [label.font.fontDescriptor objectForKey:@"NSFontSizeAttribute"];
+            NSInteger fontSize = [size integerValue];
+            if (self.selectZiti == 1) {
+                label.font = FONT_BOLD(fontSize);
+            }
+            
+        }
+    }
+}
+
+//完成事件
+- (void)wanchengBtnAction{
+    
+    NSArray *viewArray = [self.picBkView subviews];
+    //隐藏
+    for (int i =0; i < viewArray.count; i++) {
+        if ([viewArray[i] isKindOfClass:[UILabel class]]) {
+            UILabel *label = (UILabel *)viewArray[i];
+            label.hidden = YES;
+        }
+    }
+    UIGraphicsBeginImageContextWithOptions(self.picBkView.frame.size, NO, SCALE);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    //剪切指定视图的画面
+    [self.picBkView.layer renderInContext:context];
+    UIImage * cutImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    for (int i =0; i < viewArray.count; i++) {
+        if ([viewArray[i] isKindOfClass:[UILabel class]]) {
+            UILabel *label = (UILabel *)viewArray[i];
+            cutImage = [self addWaterTextWithImage:cutImage withLabel:label];
+        }
+    }
+    //添加logo水印
+    cutImage = [self addWaterTextWithImage:cutImage withLogo:ImageNamed(@"huodongPic")];
+    
+    UIImageWriteToSavedPhotosAlbum(cutImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//    
+//    self.bottomBkView.hidden = YES;
+//    self.beijingBkView.hidden = YES;
+//    self.shuiyinBkView.hidden = YES;
+//    self.zitiBkView.hidden = YES;
+//    [self.beijingBtn setTitleColor:COLOR_HEX(0x333333, 1) forState:UIControlStateNormal];
+//    [self.shuiyinBtn setTitleColor:COLOR_HEX(0x333333, 1) forState:UIControlStateNormal];
+//    [self.zitiBtn setTitleColor:COLOR_HEX(0x333333, 1) forState:UIControlStateNormal];
+//}
+- (void)tapPickBkViewAction{
+    self.bottomBkView.hidden = YES;
+    self.beijingBkView.hidden = YES;
+    self.shuiyinBkView.hidden = YES;
+    self.zitiBkView.hidden = YES;
+    [self.beijingBtn setTitleColor:COLOR_HEX(0x333333, 1) forState:UIControlStateNormal];
+    [self.shuiyinBtn setTitleColor:COLOR_HEX(0x333333, 1) forState:UIControlStateNormal];
+    [self.zitiBtn setTitleColor:COLOR_HEX(0x333333, 1) forState:UIControlStateNormal];
+}
+
+- (void)makeMoban1{
+    CGFloat picWidth = (self.picBkView.width - 50)/3;
+    CGFloat picHeight = self.picBkView.height - 105;
+    CGRect rect1 = CGRectMake(15, 15, picWidth, picHeight);
+    CGRect rect2 = CGRectMake(CGRectGetMaxX(rect1)+10, 15, picWidth, picHeight);
+    CGRect rect3 = CGRectMake(CGRectGetMaxX(rect2)+10, 15, picWidth, picHeight);
+    [self addAllScrollViewWithRectArray:@[[NSValue valueWithCGRect:rect1],[NSValue valueWithCGRect:rect2],[NSValue valueWithCGRect:rect3]] withImageArray:self.imageArray];
+    
+    UILabel *label1 = [[UILabel alloc] init];
+    label1.textAlignment = NSTextAlignmentCenter;
+    label1.text = [self.infoDic objectForKey:@"name"];
+    label1.font = [JFTools fontWithSize:25 withType:1];
+    [self.picBkView addSubview:label1];
+    [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.picBkView.mas_right).offset(-12);
+        make.top.equalTo(self.picBkView.mas_top).offset(15+picHeight +10);
+    }];
+    
+    UILabel *label2 = [[UILabel alloc] init];
+    label2.textAlignment = NSTextAlignmentCenter;
+    label2.text = [NSString stringWithFormat:@"HEIGHT %@ WEIGHT %@ BUST %@ WAIST %@ HIPS %@ SHOES %@",[self.infoDic objectForKey:@"shengao"],[self.infoDic objectForKey:@"tizhong"],[self.infoDic objectForKey:@"xiongwei"],[self.infoDic objectForKey:@"yaowei"],[self.infoDic objectForKey:@"tunwei"],[self.infoDic objectForKey:@"xiema"]];
+    label2.font = [JFTools fontWithSize:20 withType:1];
+    [self.picBkView addSubview:label2];
+    [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.picBkView.mas_bottom).offset(-10);
+        make.centerX.equalTo(self.picBkView.mas_centerX);
+    }];
+ 
+}
+- (void)makeMoban2{
+    
+}
+- (void)makeMoban3{
+    
+}
+- (void)makeMoban4{
+    
+}
+- (void)makeMoban5{
+    
+}
+- (void)makeMoban6{
+    
+}
+- (void)makeMoban7{
+    
+}
+- (void)makeMoban8{
+    
+}
+- (void)makeMoban9{
+    
+}
+- (void)makeMoban10{
+    
+}
+- (void)makeMoban11{
+    
+}
+- (void)makeMoban12{
+    
+}
+- (void)makeMoban13{
+    
+}
+- (void)makeMoban14{
+    
+}
+- (void)makeMoban15{
+    
 }
 @end

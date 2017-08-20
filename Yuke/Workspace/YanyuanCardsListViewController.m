@@ -125,11 +125,9 @@
                 max = 9;
             }
             if (self.selectedNum == 14) {
-                max = 9;
-            }
-            if (self.selectedNum == 15) {
                 max = 17;
             }
+            
             WeakSelf
             TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:max columnNumber:4 delegate:nil pushPhotoPickerVc:YES];
             imagePickerVc.minImagesCount = max;
@@ -139,7 +137,7 @@
             imagePickerVc.sortAscendingByModificationDate = YES;
             [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
                 
-                EditViewController *editVC = [[EditViewController alloc] initWith:weakSelf.selectedNum+1 withImageArray:photos];
+                EditViewController *editVC = [[EditViewController alloc] initWith:weakSelf.selectedNum+1 withImageArray:photos withType:0];
                 editVC.hidesBottomBarWhenPushed = YES;
                 [weakSelf.navigationController pushViewController:editVC animated:YES];
             }];

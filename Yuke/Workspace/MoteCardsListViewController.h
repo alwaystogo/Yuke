@@ -12,5 +12,6 @@
 
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSArray *mobanArray;
+@property(nonatomic,assign)NSInteger selectedNum;
 
 @end

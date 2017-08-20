@@ -8,6 +8,7 @@
 
 #import "EditViewController.h"
 #import "MakeShuViewController.h"
+#import "MakeHengViewController.h"
 
 @interface EditViewController ()
 
@@ -15,11 +16,12 @@
 
 @implementation EditViewController
 
-- (instancetype)initWith:(NSInteger)mobanNum withImageArray:(NSArray *)imageArray{
+- (instancetype)initWith:(NSInteger)mobanNum withImageArray:(NSArray *)imageArray withType:(NSInteger)type{
     self = [super init];
     if (self) {
         self.mobanNum = mobanNum;
         self.imageArray = imageArray;
+        self.type = type;
     }
     return self;
 }
@@ -153,8 +155,15 @@
                               ,@"xiema":self.xieMaLabel.text
                               ,@"diqu":self.jigouTextField.text};
 
-    MakeShuViewController *vc = [[MakeShuViewController alloc] initWith:self.mobanNum withImageArray:self.imageArray withInfo:infoDic];
-    [kCurNavController pushViewController:vc animated:YES];
+    if (self.type == 0) {
+        MakeShuViewController *vc = [[MakeShuViewController alloc] initWith:self.mobanNum withImageArray:self.imageArray withInfo:infoDic];
+        [kCurNavController pushViewController:vc animated:YES];
+    }
+    if (self.type == 1) {
+        MakeHengViewController *vc = [[MakeHengViewController alloc] initWith:self.mobanNum withImageArray:self.imageArray withInfo:infoDic];
+        [kCurNavController pushViewController:vc animated:YES];
+    }
+    
 }
 
 - (void)requestInitData{
