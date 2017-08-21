@@ -272,6 +272,13 @@
 		AEAB38BA1F20A1F4008FC136 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEAB38B91F20A1F4008FC136 /* libc++.tbd */; };
 		AEAB38BC1F20A203008FC136 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEAB38BB1F20A203008FC136 /* libsqlite3.0.tbd */; };
 		AEAB38BE1F20A210008FC136 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEAB38BD1F20A210008FC136 /* libz.tbd */; };
+		AEABCC881F4ACFDE00C4A3D3 /* NotoSansCJK-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = AEABCC811F4ACFDE00C4A3D3 /* NotoSansCJK-Thin.otf */; };
+		AEABCC891F4ACFDE00C4A3D3 /* SourceHanSans-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AEABCC821F4ACFDE00C4A3D3 /* SourceHanSans-Medium.otf */; };
+		AEABCC8A1F4ACFDE00C4A3D3 /* SourceHanSansCN-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AEABCC831F4ACFDE00C4A3D3 /* SourceHanSansCN-Regular.otf */; };
+		AEABCC8B1F4ACFDE00C4A3D3 /* 庞门正道标题体（收费2￥会员免费）.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEABCC841F4ACFDE00C4A3D3 /* 庞门正道标题体（收费2￥会员免费）.ttf */; };
+		AEABCC8C1F4ACFDE00C4A3D3 /* 站酷快乐体2016修订版.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEABCC851F4ACFDE00C4A3D3 /* 站酷快乐体2016修订版.ttf */; };
+		AEABCC8D1F4ACFDE00C4A3D3 /* 郑庆科黄油体（收费2￥会员免费）.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEABCC861F4ACFDE00C4A3D3 /* 郑庆科黄油体（收费2￥会员免费）.ttf */; };
+		AEABCC8E1F4ACFDE00C4A3D3 /* 高端黑修订151105.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEABCC871F4ACFDE00C4A3D3 /* 高端黑修订151105.ttf */; };
 		AEB3D7221F1375A70091EE21 /* YuePaisheTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB3D7201F1375A70091EE21 /* YuePaisheTableViewCell.m */; };
 		AEB3D7231F1375A70091EE21 /* YuePaisheTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEB3D7211F1375A70091EE21 /* YuePaisheTableViewCell.xib */; };
 		AEB3D7271F1383E80091EE21 /* YiPaiCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB3D7251F1383E80091EE21 /* YiPaiCollectionViewCell.m */; };
@@ -874,6 +881,13 @@
 		AEAB38B91F20A1F4008FC136 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		AEAB38BB1F20A203008FC136 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		AEAB38BD1F20A210008FC136 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		AEABCC811F4ACFDE00C4A3D3 /* NotoSansCJK-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJK-Thin.otf"; sourceTree = "<group>"; };
+		AEABCC821F4ACFDE00C4A3D3 /* SourceHanSans-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceHanSans-Medium.otf"; sourceTree = "<group>"; };
+		AEABCC831F4ACFDE00C4A3D3 /* SourceHanSansCN-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceHanSansCN-Regular.otf"; sourceTree = "<group>"; };
+		AEABCC841F4ACFDE00C4A3D3 /* 庞门正道标题体（收费2￥会员免费）.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "庞门正道标题体（收费2￥会员免费）.ttf"; sourceTree = "<group>"; };
+		AEABCC851F4ACFDE00C4A3D3 /* 站酷快乐体2016修订版.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "站酷快乐体2016修订版.ttf"; sourceTree = "<group>"; };
+		AEABCC861F4ACFDE00C4A3D3 /* 郑庆科黄油体（收费2￥会员免费）.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "郑庆科黄油体（收费2￥会员免费）.ttf"; sourceTree = "<group>"; };
+		AEABCC871F4ACFDE00C4A3D3 /* 高端黑修订151105.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "高端黑修订151105.ttf"; sourceTree = "<group>"; };
 		AEB3D71F1F1375A70091EE21 /* YuePaisheTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuePaisheTableViewCell.h; sourceTree = "<group>"; };
 		AEB3D7201F1375A70091EE21 /* YuePaisheTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuePaisheTableViewCell.m; sourceTree = "<group>"; };
 		AEB3D7211F1375A70091EE21 /* YuePaisheTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YuePaisheTableViewCell.xib; sourceTree = "<group>"; };
@@ -1464,6 +1478,7 @@
 				AEEFD8121F331F0400E667B0 /* SingleBofangqi */,
 				AE5DC3D61F3461C9003215FB /* VideoManager */,
 				AEE4A08A1F386BDE009F396F /* SFDualWaySlider */,
+				AEABCC801F4ACFDE00C4A3D3 /* ziti */,
 				AE7FA0AE1F0DE9DD009A8F12 /* Resource */,
 				AE61B5FC1F02065400C1F930 /* Main.storyboard */,
 				AE61B5FF1F02065400C1F930 /* Assets.xcassets */,
@@ -1955,6 +1970,20 @@
 			path = weixin;
 			sourceTree = "<group>";
 		};
+		AEABCC801F4ACFDE00C4A3D3 /* ziti */ = {
+			isa = PBXGroup;
+			children = (
+				AEABCC841F4ACFDE00C4A3D3 /* 庞门正道标题体（收费2￥会员免费）.ttf */,
+				AEABCC851F4ACFDE00C4A3D3 /* 站酷快乐体2016修订版.ttf */,
+				AEABCC861F4ACFDE00C4A3D3 /* 郑庆科黄油体（收费2￥会员免费）.ttf */,
+				AEABCC871F4ACFDE00C4A3D3 /* 高端黑修订151105.ttf */,
+				AEABCC811F4ACFDE00C4A3D3 /* NotoSansCJK-Thin.otf */,
+				AEABCC831F4ACFDE00C4A3D3 /* SourceHanSansCN-Regular.otf */,
+				AEABCC821F4ACFDE00C4A3D3 /* SourceHanSans-Medium.otf */,
+			);
+			path = ziti;
+			sourceTree = "<group>";
+		};
 		AEB3D72F1F1720D00091EE21 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -2109,6 +2138,7 @@
 			files = (
 				AE7FA0C41F0E0D95009A8F12 /* MineCell.xib in Resources */,
 				AE7FA0CD1F0E207E009A8F12 /* Settings.storyboard in Resources */,
+				AEABCC881F4ACFDE00C4A3D3 /* NotoSansCJK-Thin.otf in Resources */,
 				E82FDD011F1E490400A3A9A3 /* ShangwuhezuoViewController.xib in Resources */,
 				AEDDAB771F1F5B59006BD05A /* QQ空间@3x.png in Resources */,
 				AEE4A0901F386BDE009F396F /* huakuai_icon@2x.png in Resources */,
@@ -2121,9 +2151,11 @@
 				E8E873661F2D8D6A00DB944F /* XieYiViewController.xib in Resources */,
 				AEDDAB5C1F1DB9E6006BD05A /* ModifyPasswordViewController.xib in Resources */,
 				AEDDAB471F1CB042006BD05A /* MenuCell.xib in Resources */,
+				AEABCC8A1F4ACFDE00C4A3D3 /* SourceHanSansCN-Regular.otf in Resources */,
 				AE7FA0981F0C967A009A8F12 /* HotCollectionViewCell.xib in Resources */,
 				AEDDAB781F1F5B59006BD05A /* weixin-@2x.png in Resources */,
 				AEB3D7281F1383E80091EE21 /* YiPaiCollectionViewCell.xib in Resources */,
+				AEABCC891F4ACFDE00C4A3D3 /* SourceHanSans-Medium.otf in Resources */,
 				AE7FA0D61F0F3895009A8F12 /* FontCollectionViewCell.xib in Resources */,
 				AE7FA0A91F0DE689009A8F12 /* ChoosePhoto.xib in Resources */,
 				E8E8736B1F2DA21F00DB944F /* SavePicAndVideoViewController.xib in Resources */,
@@ -2133,6 +2165,7 @@
 				AE7FA0BD1F0DEA8B009A8F12 /* photopaishe@3x.png in Resources */,
 				AEDDAB421F1CA160006BD05A /* ZuXunCell.xib in Resources */,
 				AE7FA0C71F0E11A7009A8F12 /* youjiantou@2x.png in Resources */,
+				AEABCC8E1F4ACFDE00C4A3D3 /* 高端黑修订151105.ttf in Resources */,
 				AEC988311F26EF22006D9983 /* YanyuanCardsCollectionViewCell.xib in Resources */,
 				AEDDAB571F1DB5C7006BD05A /* VieoShowCell.xib in Resources */,
 				AEDDAB761F1F5B59006BD05A /* QQ空间@2x.png in Resources */,
@@ -2150,6 +2183,7 @@
 				AEAB38B31F20A158008FC136 /* WeiboSDK.bundle in Resources */,
 				AEDDAB741F1F5B59006BD05A /* QQ@2x.png in Resources */,
 				AEB3D7231F1375A70091EE21 /* YuePaisheTableViewCell.xib in Resources */,
+				AEABCC8B1F4ACFDE00C4A3D3 /* 庞门正道标题体（收费2￥会员免费）.ttf in Resources */,
 				AE7FA0D01F0E2567009A8F12 /* black_fanhui@2x.png in Resources */,
 				AE7FA0BE1F0DEA8B009A8F12 /* xiangce@2x.png in Resources */,
 				AE5DC5BE1F347187003215FB /* selfH.MOV in Resources */,
@@ -2160,7 +2194,9 @@
 				AEB3D73D1F1898BB0091EE21 /* NewHuodongCell.xib in Resources */,
 				AEDDAB721F1F5B59006BD05A /* pengyouquan@2x.png in Resources */,
 				AEDDAB731F1F5B59006BD05A /* pengyouquan@3x.png in Resources */,
+				AEABCC8C1F4ACFDE00C4A3D3 /* 站酷快乐体2016修订版.ttf in Resources */,
 				AEDDAB631F1F3DF0006BD05A /* huodongPic@3x.png in Resources */,
+				AEABCC8D1F4ACFDE00C4A3D3 /* 郑庆科黄油体（收费2￥会员免费）.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

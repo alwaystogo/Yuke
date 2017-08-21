@@ -146,4 +146,13 @@ isKindOfClass:[UINavigationController class]] \
 
 //卡片缩放倍数
 #define SCALE 10
+
+#define FONT1 @"庞门正道标题体"
+#define FONT2 @"站酷快乐体2016修订版"
+#define FONT3 @"郑庆科黄油体Regular"
+#define FONT4 @"站酷高端黑"
+#define FONT5 @"Noto Sans CJK"
+#define FONT6 @"思源黑体 CN"
+#define FONT7 @"Source Han Sans"
+
 #endif /* Config_h */
