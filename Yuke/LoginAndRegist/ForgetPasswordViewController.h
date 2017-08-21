@@ -11,4 +11,5 @@
 
 @interface ForgetPasswordViewController : BaseViewController<CustomMessageCodeViewDelegate>
 
+@property(nonatomic,strong)NSString *yanzhengma;
 @end

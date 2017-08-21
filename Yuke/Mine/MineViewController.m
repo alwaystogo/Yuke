@@ -291,7 +291,7 @@
 //        }];
         
         //上传图片
-        image = [UIImage imageNamed:@"unloginphoto"];
+        //image = [UIImage imageNamed:@"unloginphoto"];
             NSDictionary *dic = @{@"user_id":NON(kUserMoudle.user_Id)};
             [JFTools showLoadingHUD];
             [kJFClient uploadPictureWithMethod:@"index.php/Api/User/up_headimg" param:dic picData:image paramName:@"image" success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -317,6 +317,7 @@
         NSString *strUrl = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,kUserMoudle.user_info];
         BaseWebViewViewController *webVc= [[BaseWebViewViewController alloc] initWithURL:strUrl];
         webVc.title = @"个人主页";
+        webVc.hidesBottomBarWhenPushed = YES;
         [kCurNavController pushViewController:webVc animated:YES];
     }
     

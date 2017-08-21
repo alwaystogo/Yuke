@@ -17,6 +17,7 @@
 #define kNavbarHeight 0//导航栏高度
 #define kTabBarHeight 44//dock条高度
 #define videoUrl @"http://flv3.bn.netease.com/videolib3/1707/31/NVeMJ1940/SD/NVeMJ1940-mobile.mp4"
+
 @interface VieoShowViewController ()<ViewCellDelegate,CGPlayerDelegate,UIGestureRecognizerDelegate>
 
 @property (nonatomic,strong) CGPlayer *cgPlayer;
@@ -50,21 +51,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fullScreen:) name:kNOTIFYCATIONFULLSCREEN object:nil];
     
      __weak typeof(self) weakSelf = self;
-    //异步请求
-    dispatch_async(dispatch_get_global_queue(0,0), ^{
-        for (int i = 0; i < 10; i++) {
-            
-            UIImage * image = [weakSelf getVideoPreViewImage:[NSURL URLWithString:videoUrl]];
-            if (image != nil) {
-                [weakSelf.videoPreImageViewArray addObject:image];
-                //更新UI，回到主线程
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [weakSelf.tableView reloadData];
-                });
-            }
-        }
-    });
     
+    [self requestVideoList];
 }
 
 - (void)createUI{
@@ -89,7 +77,7 @@
 //每个组中行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 10;
+    return self.videoArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -113,10 +101,6 @@
         cell.imageVedioView.image = self.videoPreImageViewArray[indexPath.row];
     }
     
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        cell.imageVedioView.image = [self getVideoPreViewImage:[NSURL URLWithString:videoUrl]];;
-//        //cell.imageVedioView.image = [self firstFrameWithVideoURL:[NSURL URLWithString:videoUrl] size:CGSizeMake(SCREEN_WIDTH, 200)];
-//    });
     
     //解决循环引用问题
     if (_cgPlayer) {
@@ -200,15 +184,15 @@
     
     _currentCell = viewCell;
     _cgPlayer.isFullscreen = NO;
-    
+    NSString *url = self.videoArray[_currentIndexPath.row][@"image"];
     if(!_cgPlayer){
-        _cgPlayer = [[CGPlayer alloc] initWithFrame:viewCell.bounds videoURL:videoUrl];
+        _cgPlayer = [[CGPlayer alloc] initWithFrame:viewCell.bounds videoURL:url];
         _cgPlayer.delegate = self;
     }else{
         //如果播放器对象已经存在则重新部署下一播放文件资源
         [_cgPlayer removeFromSuperview];
         [_cgPlayer  resetVedio];
-        [_cgPlayer  setDataSource:videoUrl];
+        [_cgPlayer  setDataSource:url];
         [_cgPlayer prepareAsyncVedio];
         [_cgPlayer startVedio];
         _cgPlayer.hidden = NO;
@@ -394,4 +378,34 @@
     [self closeCGPlayer];
 }
 
+- (void)requestVideoList{
+    
+    [JFTools showLoadingHUD];
+    WeakSelf
+    [kJFClient videoShowList:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        [JFTools HUDHide];
+        NSLog(@"---%@",responseObject);
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            weakSelf.videoArray = responseObject;
+            //异步请求
+            dispatch_async(dispatch_get_global_queue(0,0), ^{
+                for (int i = 0; i < weakSelf.videoArray.count; i++) {
+                    
+                    NSString *url = weakSelf.videoArray[i][@"image"];
+                    UIImage * image = [weakSelf getVideoPreViewImage:[NSURL URLWithString:url]];
+                    if (image != nil) {
+                        [weakSelf.videoPreImageViewArray addObject:image];
+                        //更新UI，回到主线程
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [weakSelf.tableView reloadData];
+                        });
+                    }
+                }
+            });
+
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [JFTools showFailureHUDWithTip:error.localizedDescription];
+    }];
+}
 @end

@@ -263,6 +263,11 @@
         [JFTools showTipOnHUD:@"请先获取验证码并输入"];
         return;
     }
+    if (![code isEqualToString:self.yanzhengma]) {
+        
+        [JFTools showTipOnHUD:@"验证码输入错误"];
+        return;
+    }
     
     if (![passwordString isEqualToString:confirmPwdString]) {
         [JFTools showTipOnHUD:@"两次密码不一致"];
@@ -285,7 +290,7 @@
     WeakSelf;
     [kJFClient regist:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"login:%@",responseObject);
-        
+        [JFTools showFailureHUDWithTip:@"注册成功"];
         [weakSelf.navigationController popViewControllerAnimated:YES];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [JFTools showFailureHUDWithTip:error.localizedDescription];
@@ -296,12 +301,21 @@
 #pragma mark - CustomLoginTextFieldDelegate
 - (void)customMessageCodeViewClickMessageCodeButton:(CustomMessageCodeView *) customMessageCodeView{
     
-//    NSString *phoneString = self.phoneTextField.text;
-//    if (![phoneString isMobile]) {
-//        
-//        [JFTools showTipOnHUD:@"请输入正确格式的手机号码"];
-//        return;
-//    }
+    NSString *phoneString = self.phoneTextField.text;
+    if (![phoneString isMobile]) {
+        
+        [JFTools showTipOnHUD:@"请输入正确格式的手机号码"];
+        [customMessageCodeView resetButton];
+        return;
+    }
+    
+    NSDictionary *dic = @{@"mobile":phoneString};
+    [kJFClient duanxin:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"aaa- %@",responseObject);
+        self.yanzhengma = responseObject;
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [JFTools showFailureHUDWithTip:error.localizedDescription];
+    }];
     
     [customMessageCodeView beginTimer];
     

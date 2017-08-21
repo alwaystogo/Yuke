@@ -66,4 +66,16 @@
     
     [self enqueueRequestWithMethod:@"index.php/Api/Index/get_interviewList" param:params success:success failure:failure];
 }
+- (void)videoShowList:(NSDictionary *)params
+              success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+              failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{
+    [self enqueueRequestWithMethod:@"index.php/Api/Card/video_list" param:params success:success failure:failure];
+}
+- (void)duanxin:(NSDictionary *)params
+        success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+        failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{
+    
+    [self enqueueRequestWithMethod:@"index.php/Api/Message/send_message" param:params success:success failure:failure];
+
+}
 @end

@@ -216,18 +216,76 @@
 - (void)tijiaoBtnAction{
 
     
+    NSString *phoneString = self.phoneTextField.text;
+    NSString *code = self.yanzhengmaField.text;
+    NSString *passwordString = self.passwordTextField.text;
+    NSString *confirmPwdString = self.checkPasswordTextField.text;
+
+    if (![phoneString isMobile]) {
+        
+        [JFTools showTipOnHUD:@"请输入正确格式的手机号码"];
+        return;
+    }
+    
+    if ([code isEmptyString]) {
+        
+        [JFTools showTipOnHUD:@"请先获取验证码并输入"];
+        return;
+    }
+    if (![code isEqualToString:self.yanzhengma]) {
+        
+        [JFTools showTipOnHUD:@"验证码输入错误"];
+        return;
+    }
+    
+    if (![passwordString isEqualToString:confirmPwdString]) {
+        [JFTools showTipOnHUD:@"两次密码不一致"];
+        return;
+    }
+    
+    [self.view endEditing:YES];
+    [JFTools showLoadingHUD];
+    
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    
+    [parameters safeSetObject:phoneString forKey:@"mobile"];
+    [parameters safeSetObject:passwordString forKey:@"password"];
+    [parameters safeSetObject:confirmPwdString forKey:@"new_password"];
+    
+    
+    [kJFClient modifyPassword:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        [JFTools HUDHide];
+        [JFTools showSuccessHUDWithTip:@"找回密码成功" dismissHandle:^{
+            [kCurNavController popViewControllerAnimated:YES];
+        }];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        [JFTools showFailureHUDWithTip:error.localizedDescription];
+    }];
+
+ 
 }
 
 //发送验证码
 #pragma mark - CustomLoginTextFieldDelegate
 - (void)customMessageCodeViewClickMessageCodeButton:(CustomMessageCodeView *) customMessageCodeView{
     
-    //    NSString *phoneString = self.phoneTextField.text;
-    //    if (![phoneString isMobile]) {
-    //
-    //        [JFTools showTipOnHUD:@"请输入正确格式的手机号码"];
-    //        return;
-    //    }
+    NSString *phoneString = self.phoneTextField.text;
+    if (![phoneString isMobile]) {
+        
+        [JFTools showTipOnHUD:@"请输入正确格式的手机号码"];
+        [customMessageCodeView resetButton];
+        return;
+    }
+    
+    NSDictionary *dic = @{@"mobile":phoneString};
+    [kJFClient duanxin:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"aaa- %@",responseObject);
+        self.yanzhengma = responseObject;
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [JFTools showFailureHUDWithTip:error.localizedDescription];
+    }];
     
     [customMessageCodeView beginTimer];
     

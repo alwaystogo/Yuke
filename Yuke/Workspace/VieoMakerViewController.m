@@ -171,7 +171,10 @@
                 //判断是不是微信录制的视频
                 if (![weakSelf isWeXinVideo:urlAsset]) {
                     //移除
-                    [weakSelf.selectBkView removeFromSuperview];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [weakSelf.selectBkView removeFromSuperview];
+                    });
+                    
                     weakSelf.videoBkImage = coverImage;
                     weakSelf.videoUrl = url;
                     NSLog(@"%@",url);
@@ -295,6 +298,8 @@
                         if (isSuccess) {
                             NSLog(@"视频合成成功");
                             [weakSelf writeVideoToPhotoLibrary:outputURL];
+                            //上传视频
+                            [weakSelf shangChuanVideoWith:outputURL];
                         }else{
                             dispatch_async(dispatch_get_main_queue(), ^{
                                 [JFTools showFailureHUDWithTip:@"视频合成失败"];
@@ -365,4 +370,17 @@
     return [self DataToArrayOrNSDictionary:jsonData];
 }
 
+- (void)shangChuanVideoWith:(NSURL *)url{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSDictionary *dic = @{@"user_id":NON(kUserMoudle.user_Id)};
+        [JFTools showLoadingHUD];
+        [kJFClient uploadVideoWithMethod:@"index.php/Api/Card/video_upload" param:dic videoUrl:url paramName:@"image" success:^(NSURLSessionDataTask *task, id responseObject) {
+            [JFTools showSuccessHUDWithTip:@"上传成功"];
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [JFTools showFailureHUDWithTip:error.localizedDescription];
+        }]; 
+    });
+    
+}
 @end

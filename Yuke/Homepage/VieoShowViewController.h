@@ -14,4 +14,6 @@
 @property(nonatomic,strong)UITableView *tableView;
 
 @property(nonatomic,strong)NSMutableArray *videoPreImageViewArray;
+
+@property(nonatomic,strong)NSArray *videoArray;
 @end

@@ -148,11 +148,11 @@
             return ;
         }
         NSURL *mp4 = [self convertToMp4:videoUrl];
-        NSData *data = [NSData dataWithContentsOfURL:mp4];
+        NSData *data2 = [NSData dataWithContentsOfURL:mp4];
         
         NSString *fileName = [NSString stringWithFormat:@"%@.mp4",paramName];
         
-        [formData appendPartWithFileData:data name:paramName fileName:fileName mimeType:@"video/*"];
+        [formData appendPartWithFileData:data2 name:paramName fileName:fileName mimeType:@"video/mp4/mov"];
         
     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         

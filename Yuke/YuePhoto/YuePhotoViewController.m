@@ -185,6 +185,7 @@
     NSString *strUrl = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,[self.listArray[indexPath.row] objectForKeySafe:@"info_url"]];
     BaseWebViewViewController *webVc= [[BaseWebViewViewController alloc] initWithURL:strUrl];
     webVc.title = @"约拍摄详情";
+    webVc.hidesBottomBarWhenPushed = YES;
     [kCurNavController pushViewController:webVc animated:YES];
 }
 

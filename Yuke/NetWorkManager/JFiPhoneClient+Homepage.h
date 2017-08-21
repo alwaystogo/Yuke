@@ -45,4 +45,12 @@
 - (void)zhuanfangList:(NSDictionary *)params
           success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
           failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure;
+
+- (void)videoShowList:(NSDictionary *)params
+            success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+            failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure;
+
+- (void)duanxin:(NSDictionary *)params
+              success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+              failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure;
 @end
