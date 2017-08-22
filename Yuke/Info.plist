@@ -72,6 +72,16 @@
 	<string>此 App 需要您的同意才能访问麦克风</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>此 App 需要您的同意才能读取媒体资料库</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>庞门正道标题体（收费2￥会员免费）.ttf</string>
+		<string>站酷快乐体2016修订版.ttf</string>
+		<string>郑庆科黄油体（收费2￥会员免费）.ttf</string>
+		<string>高端黑修订151105.ttf</string>
+		<string>NotoSansCJK-Thin.otf</string>
+		<string>SourceHanSansCN-Regular.otf</string>
+		<string>SourceHanSans-Medium.otf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -88,15 +98,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>UIAppFonts</key>
-	<array>
-		<string>庞门正道标题体（收费2￥会员免费）.ttf</string>
-		<string>站酷快乐体2016修订版.ttf</string>
-		<string>郑庆科黄油体（收费2￥会员免费）.ttf</string>
-		<string>高端黑修订151105.ttf</string>
-		<string>NotoSansCJK-Thin.otf</string>
-		<string>SourceHanSansCN-Regular.otf</string>
-		<string>SourceHanSans-Medium.otf</string>
-	</array>
 </dict>
 </plist>

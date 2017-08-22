@@ -152,8 +152,9 @@
         
         NSString *fileName = [NSString stringWithFormat:@"%@.mp4",paramName];
         
-        [formData appendPartWithFileData:data2 name:paramName fileName:fileName mimeType:@"video/mp4/mov"];
-        
+        //[formData appendPartWithFileData:data2 name:paramName fileName:fileName mimeType:@"video/mp4/mov"];
+        [formData appendPartWithFileURL:videoUrl name:paramName fileName:fileName mimeType:@"video/mp4/mov" error:nil];
+       
     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         id result = [self parseResponse:responseObject];

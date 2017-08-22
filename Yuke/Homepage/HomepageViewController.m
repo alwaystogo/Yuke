@@ -14,6 +14,7 @@
 #import "PicShowViewController.h"
 #import "VieoShowViewController.h"
 #import "ShangwuhezuoViewController.h"
+#import "AdvertiseViewController.h"
 
 #define fourWidth 27
 #define hotPicWidth 181
@@ -33,6 +34,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //NSLog(@"SVN修改");
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushToAd) name:@"pushtoad" object:nil];
+
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self createUI];
 
@@ -84,9 +87,15 @@
 //                              }
                           ];
     
+    WeakSelf
     _carouselSV.click = ^(NSInteger index) {
         
         NSLog(@"点击了第%ld",index);
+        NSString *strUrl = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,[weakSelf.bannerArray[index] objectForKeySafe:@"url"]];
+        BaseWebViewViewController *webVc= [[BaseWebViewViewController alloc] initWithURL:strUrl];
+        webVc.title = @"详情";
+        webVc.hidesBottomBarWhenPushed = YES;
+        [kCurNavController pushViewController:webVc animated:YES];
     };
     [_carouselSV setCarouseWithArray:self.bannerArray];
 }
@@ -375,7 +384,13 @@
     [kCurNavController pushViewController:newVC animated:YES];
 }
 
-
+//跳到广告详情页
+- (void)pushToAd {
+    
+    AdvertiseViewController *adVc = [[AdvertiseViewController alloc] init];
+    [self.navigationController pushViewController:adVc animated:YES];
+    
+}
 - (void)updatePicRequst{
 
 //    //上传图片

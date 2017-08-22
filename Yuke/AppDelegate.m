@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "GuideViewController.h"
+#import "AdvertiseView.h"
 
 @interface AppDelegate ()
 
@@ -22,7 +24,27 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     self.tabBarController = [[RootTabBarController alloc] init];
-    self.window.rootViewController = self.tabBarController;
+    
+    //第一次下载APP，需要做的操作
+    //显示引导页
+    if (![[USERDEFAULTS objectForKey:@"FirstEnter"] isEqualToString:@"1"]) {
+        
+        GuideViewController *guideVC = [[GuideViewController alloc] init];
+        self.window.rootViewController = guideVC;
+        
+        [USERDEFAULTS setObject:@"1" forKey:@"FirstEnter"];
+        [USERDEFAULTS synchronize];
+    }else{
+        
+        self.window.rootViewController = self.tabBarController;
+    }
+
+    //这里去请求接口
+    
+//    AdvertiseView *advertiseView = [[AdvertiseView alloc] initWithFrame:self.window.bounds];
+//    advertiseView.picUrl = picUrl;
+//    [advertiseView show];
+    
     return YES;
 }
 

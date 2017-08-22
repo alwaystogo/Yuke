@@ -14,7 +14,7 @@
 //测试环境
 NSString * const JFiPhoneClient_DebugBaseUrl   = @"http://116.62.194.17/yuke";
 //生产环境
-NSString * const JFiPhoneClient_PrdBaseUrl   = @"https://linkapp.9fbank.com/link-app-web";
+NSString * const JFiPhoneClient_PrdBaseUrl   = @"http://116.62.194.17/yuke";
 
 static NSString *const JFErrorDomain = @"Yuke.com";
 

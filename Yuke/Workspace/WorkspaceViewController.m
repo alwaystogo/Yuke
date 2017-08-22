@@ -29,6 +29,8 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self createUI];
+    
+    [self requestBanner];
 }
 
 - (void)createUI{
@@ -49,19 +51,18 @@
     _carouselSV = [[CarouselScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetWidth([UIScreen mainScreen].bounds) / 375 * 170)];
     _carouselSV.backgroundColor = [UIColor grayColor];
     [self.bkScrollView addSubview:_carouselSV];
-    
-    
-    NSArray *dicArray = @[
-                          //                          @{
-                          //                              @"carouseUrl" : @"http://pic.58pic.com/58pic/17/27/03/07B58PIC3zg_1024.jpg"
-                          //                              }
-                          ];
-    
+    WeakSelf
     _carouselSV.click = ^(NSInteger index) {
         
         NSLog(@"点击了第%ld",index);
+        NSString *strUrl = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,[weakSelf.bannerArray[index] objectForKeySafe:@"url"]];
+        BaseWebViewViewController *webVc= [[BaseWebViewViewController alloc] initWithURL:strUrl];
+        webVc.title = @"详情";
+        webVc.hidesBottomBarWhenPushed = YES;
+        [kCurNavController pushViewController:webVc animated:YES];
     };
-    [_carouselSV setCarouseWithArray:dicArray];
+
+    [_carouselSV setCarouseWithArray:self.bannerArray];
 }
 
 - (void)createThreeUI{
@@ -134,10 +135,23 @@
 //    [kCurNavController pushViewController:vc animated:YES];
 
 }
-//- (void)viewWillAppear:(BOOL)animated{
-//    [super viewWillAppear:animated];
-//    VieoMakerViewController *newVC = [[VieoMakerViewController alloc] init];
-//    newVC.hidesBottomBarWhenPushed = YES;
-//    [kCurNavController pushViewController:newVC animated:YES];
-//}
+
+- (void)requestBanner{
+    
+//    [JFTools showLoadingHUD];
+//    [kJFClient getWorkspaceBanner:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+//        [JFTools HUDHide];
+//        NSLog(@"--- :%@",responseObject);
+//        if ([responseObject isKindOfClass:[NSArray class]]) {
+//            
+//            self.bannerArray = responseObject;
+//            [_carouselSV setCarouseWithArray:self.bannerArray];
+//        }
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        
+//        [JFTools showTipOnHUD:error.localizedDescription];
+//    }];
+    
+}
+
 @end

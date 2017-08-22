@@ -24,11 +24,14 @@
     [self createUI];
     [self createBottomUI];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [self requestBannerData];
     [self requestListData];
     [self requestYipaiData];
 }
-
 - (void)createUI{
     
     self.topView = [[UIView alloc] initWithFrame:CGRectMake(0, NAVBAR_HEIGHT, SCREEN_WIDTH, 33)];
@@ -199,10 +202,17 @@
      _carouselSV = [[CarouselScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), LunboHeight)];
     _carouselSV.backgroundColor = [UIColor blueColor];
     
+    WeakSelf
     _carouselSV.click = ^(NSInteger index) {
         
         NSLog(@"点击了第%ld",index);
+        NSString *strUrl = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,[weakSelf.bannerArray[index] objectForKeySafe:@"url"]];
+        BaseWebViewViewController *webVc= [[BaseWebViewViewController alloc] initWithURL:strUrl];
+        webVc.title = @"详情";
+        webVc.hidesBottomBarWhenPushed = YES;
+        [kCurNavController pushViewController:webVc animated:YES];
     };
+    
     [_carouselSV setCarouseWithArray:self.bannerArray];
 
     return _carouselSV;
@@ -219,7 +229,7 @@
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
-    return 10;
+    return self.yiPaiListArray.count;
 }
 /** cell的内容*/
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -231,7 +241,7 @@
     cell.backgroundColor = [UIColor grayColor];
     cell.layer.cornerRadius = 5;
     cell.picImageView.layer.cornerRadius = 5;
-    cell.picImageView.image = [UIImage imageWithColor:[UIColor grayColor]];
+    [cell.picImageView getImageWithUrl:[self.yiPaiListArray[indexPath.row] objectForKeySafe:@"thumb"] placeholderImage:[UIImage imageNamed:PlaceHolderPic]];
     return cell;
 }
 

@@ -127,11 +127,6 @@
             if (current >= weakSelf.maxTime) {
                 [weakSelf moviePlayDidEnd:nil];
             }
-//            //秒数
-//            NSInteger proSec = (NSInteger)current%60;
-//            //分钟
-//            NSInteger proMin = (NSInteger)current/60;
-            
        
         } ];
 
@@ -249,20 +244,20 @@
     [library writeVideoAtPathToSavedPhotosAlbum:url completionBlock:^(NSURL *assetURL, NSError *error){
         if (error == nil) {
             
-            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"视频保存成功" preferredStyle:UIAlertControllerStyleAlert];
-            
-            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
-            }]];
-            [weakSelf presentViewController:alert animated:true completion:nil];
+//            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"视频保存成功" preferredStyle:UIAlertControllerStyleAlert];
+//            
+//            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//                
+//            }]];
+//            [weakSelf presentViewController:alert animated:true completion:nil];
             
         }else{
-            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"视频保存失败" preferredStyle:UIAlertControllerStyleAlert];
-            
-            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
-            }]];
-            [weakSelf presentViewController:alert animated:true completion:nil];
+//            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"视频保存失败" preferredStyle:UIAlertControllerStyleAlert];
+//            
+//            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//                
+//            }]];
+//            [weakSelf presentViewController:alert animated:true completion:nil];
         }
     }];
 }
@@ -297,7 +292,7 @@
                         
                         if (isSuccess) {
                             NSLog(@"视频合成成功");
-                            [weakSelf writeVideoToPhotoLibrary:outputURL];
+                            //[weakSelf writeVideoToPhotoLibrary:outputURL];
                             //上传视频
                             [weakSelf shangChuanVideoWith:outputURL];
                         }else{
@@ -372,9 +367,13 @@
 
 - (void)shangChuanVideoWith:(NSURL *)url{
     
+    WeakSelf
     dispatch_async(dispatch_get_main_queue(), ^{
         NSDictionary *dic = @{@"user_id":NON(kUserMoudle.user_Id)};
         [JFTools showLoadingHUD];
+        //先保存到相册
+        [weakSelf writeVideoToPhotoLibrary:url];
+        
         [kJFClient uploadVideoWithMethod:@"index.php/Api/Card/video_upload" param:dic videoUrl:url paramName:@"image" success:^(NSURLSessionDataTask *task, id responseObject) {
             [JFTools showSuccessHUDWithTip:@"上传成功"];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {

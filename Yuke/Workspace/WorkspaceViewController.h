@@ -15,4 +15,6 @@
 @property(nonatomic,strong)UIImageView *moteBkImageView;
 @property(nonatomic,strong)UIImageView *yanyuanBkImageView;
 @property(nonatomic,strong)UIImageView *shipinBkImageView;
+
+@property(nonatomic,strong)NSArray *bannerArray;
 @end

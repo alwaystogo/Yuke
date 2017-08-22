@@ -279,6 +279,9 @@
 		AEABCC8C1F4ACFDE00C4A3D3 /* 站酷快乐体2016修订版.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEABCC851F4ACFDE00C4A3D3 /* 站酷快乐体2016修订版.ttf */; };
 		AEABCC8D1F4ACFDE00C4A3D3 /* 郑庆科黄油体（收费2￥会员免费）.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEABCC861F4ACFDE00C4A3D3 /* 郑庆科黄油体（收费2￥会员免费）.ttf */; };
 		AEABCC8E1F4ACFDE00C4A3D3 /* 高端黑修订151105.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEABCC871F4ACFDE00C4A3D3 /* 高端黑修订151105.ttf */; };
+		AEABCC921F4C39AA00C4A3D3 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEABCC911F4C39AA00C4A3D3 /* GuideViewController.m */; };
+		AEABCC971F4C3B0800C4A3D3 /* AdvertiseView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEABCC941F4C3B0800C4A3D3 /* AdvertiseView.m */; };
+		AEABCC981F4C3B0800C4A3D3 /* AdvertiseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEABCC961F4C3B0800C4A3D3 /* AdvertiseViewController.m */; };
 		AEB3D7221F1375A70091EE21 /* YuePaisheTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB3D7201F1375A70091EE21 /* YuePaisheTableViewCell.m */; };
 		AEB3D7231F1375A70091EE21 /* YuePaisheTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEB3D7211F1375A70091EE21 /* YuePaisheTableViewCell.xib */; };
 		AEB3D7271F1383E80091EE21 /* YiPaiCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB3D7251F1383E80091EE21 /* YiPaiCollectionViewCell.m */; };
@@ -888,6 +891,12 @@
 		AEABCC851F4ACFDE00C4A3D3 /* 站酷快乐体2016修订版.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "站酷快乐体2016修订版.ttf"; sourceTree = "<group>"; };
 		AEABCC861F4ACFDE00C4A3D3 /* 郑庆科黄油体（收费2￥会员免费）.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "郑庆科黄油体（收费2￥会员免费）.ttf"; sourceTree = "<group>"; };
 		AEABCC871F4ACFDE00C4A3D3 /* 高端黑修订151105.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "高端黑修订151105.ttf"; sourceTree = "<group>"; };
+		AEABCC901F4C39AA00C4A3D3 /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideViewController.h; sourceTree = "<group>"; };
+		AEABCC911F4C39AA00C4A3D3 /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
+		AEABCC931F4C3B0800C4A3D3 /* AdvertiseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertiseView.h; sourceTree = "<group>"; };
+		AEABCC941F4C3B0800C4A3D3 /* AdvertiseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvertiseView.m; sourceTree = "<group>"; };
+		AEABCC951F4C3B0800C4A3D3 /* AdvertiseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertiseViewController.h; sourceTree = "<group>"; };
+		AEABCC961F4C3B0800C4A3D3 /* AdvertiseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvertiseViewController.m; sourceTree = "<group>"; };
 		AEB3D71F1F1375A70091EE21 /* YuePaisheTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuePaisheTableViewCell.h; sourceTree = "<group>"; };
 		AEB3D7201F1375A70091EE21 /* YuePaisheTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuePaisheTableViewCell.m; sourceTree = "<group>"; };
 		AEB3D7211F1375A70091EE21 /* YuePaisheTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YuePaisheTableViewCell.xib; sourceTree = "<group>"; };
@@ -1466,6 +1475,7 @@
 				AE61B66F1F02491C00C1F930 /* Config */,
 				AE61B6741F02495900C1F930 /* Tools */,
 				AEB3D72F1F1720D00091EE21 /* Model */,
+				AEABCC8F1F4C396E00C4A3D3 /* AdAndGuide */,
 				AE61B6E61F0253AB00C1F930 /* LoginAndRegist */,
 				AE61B6B01F024AEC00C1F930 /* Workspace */,
 				AE61B6AF1F024AEC00C1F930 /* Fontlibrary */,
@@ -1480,10 +1490,6 @@
 				AEE4A08A1F386BDE009F396F /* SFDualWaySlider */,
 				AEABCC801F4ACFDE00C4A3D3 /* ziti */,
 				AE7FA0AE1F0DE9DD009A8F12 /* Resource */,
-				AE61B5FC1F02065400C1F930 /* Main.storyboard */,
-				AE61B5FF1F02065400C1F930 /* Assets.xcassets */,
-				AE61B6011F02065400C1F930 /* LaunchScreen.storyboard */,
-				AE61B6041F02065400C1F930 /* Info.plist */,
 				AE61B5F31F02065400C1F930 /* Supporting Files */,
 			);
 			path = Yuke;
@@ -1492,6 +1498,10 @@
 		AE61B5F31F02065400C1F930 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AE61B5FC1F02065400C1F930 /* Main.storyboard */,
+				AE61B5FF1F02065400C1F930 /* Assets.xcassets */,
+				AE61B6011F02065400C1F930 /* LaunchScreen.storyboard */,
+				AE61B6041F02065400C1F930 /* Info.plist */,
 				AE61B6B71F024B8300C1F930 /* OnlineFinancialerPrefix.pch */,
 				AE61B5F41F02065400C1F930 /* main.m */,
 			);
@@ -1984,6 +1994,20 @@
 			path = ziti;
 			sourceTree = "<group>";
 		};
+		AEABCC8F1F4C396E00C4A3D3 /* AdAndGuide */ = {
+			isa = PBXGroup;
+			children = (
+				AEABCC901F4C39AA00C4A3D3 /* GuideViewController.h */,
+				AEABCC911F4C39AA00C4A3D3 /* GuideViewController.m */,
+				AEABCC931F4C3B0800C4A3D3 /* AdvertiseView.h */,
+				AEABCC941F4C3B0800C4A3D3 /* AdvertiseView.m */,
+				AEABCC951F4C3B0800C4A3D3 /* AdvertiseViewController.h */,
+				AEABCC961F4C3B0800C4A3D3 /* AdvertiseViewController.m */,
+			);
+			name = AdAndGuide;
+			path = Model/AdAndGuide;
+			sourceTree = "<group>";
+		};
 		AEB3D72F1F1720D00091EE21 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -2108,7 +2132,7 @@
 				TargetAttributes = {
 					AE61B5EF1F02065400C1F930 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 9SAQA8L42D;
+						DevelopmentTeam = 5YA6BFDZD9;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -2393,6 +2417,7 @@
 				AE5DC51B1F3461CA003215FB /* GPUImage3x3ConvolutionFilter.m in Sources */,
 				AE5DC5411F3461CA003215FB /* GPUImageExposureFilter.m in Sources */,
 				AE5DC59C1F3461CA003215FB /* GPUImageStretchDistortionFilter.m in Sources */,
+				AEABCC981F4C3B0800C4A3D3 /* AdvertiseViewController.m in Sources */,
 				AE5DC5AF1F3461CA003215FB /* GPUImageVideoCamera.m in Sources */,
 				AE5DC5A61F3461CA003215FB /* GPUImageToneCurveFilter.m in Sources */,
 				AE5DC5971F3461CA003215FB /* GPUImageSoftLightBlendFilter.m in Sources */,
@@ -2518,12 +2543,14 @@
 				AE61B6181F02479F00C1F930 /* BaseNavigationController.m in Sources */,
 				AE5DC52E1F3461CA003215FB /* GPUImageColorBurnBlendFilter.m in Sources */,
 				AE61B6FE1F02659900C1F930 /* PXAlertView+Customization.m in Sources */,
+				AEABCC971F4C3B0800C4A3D3 /* AdvertiseView.m in Sources */,
 				AE5DC5221F3461CA003215FB /* GPUImageAverageLuminanceThresholdFilter.m in Sources */,
 				AE5DC5391F3461CA003215FB /* GPUImageDilationFilter.m in Sources */,
 				AE5DC5601F3461CA003215FB /* GPUImageLightenBlendFilter.m in Sources */,
 				AE5DC5471F3461CA003215FB /* GPUImageFilterPipeline.m in Sources */,
 				AE5DC5A31F3461CA003215FB /* GPUImageThresholdedNonMaximumSuppressionFilter.m in Sources */,
 				AE5DC5561F3461CA003215FB /* GPUImageHoughTransformLineDetector.m in Sources */,
+				AEABCC921F4C39AA00C4A3D3 /* GuideViewController.m in Sources */,
 				AE5DC5831F3461CA003215FB /* GPUImagePrewittEdgeDetectionFilter.m in Sources */,
 				AE5DC5731F3461CA003215FB /* GPUImageNobleCornerDetectionFilter.m in Sources */,
 				AE5DC5B11F3461CA003215FB /* GPUImageVoronoiConsumerFilter.m in Sources */,
@@ -2648,7 +2675,7 @@
 			baseConfigurationReference = 0E1014C73570FA9F07201DC1 /* Pods-Yuke.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9SAQA8L42D;
+				DEVELOPMENT_TEAM = 5YA6BFDZD9;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2688,7 +2715,7 @@
 					"\"UIKit\"",
 					"-fobjc-arc",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yuke.Yuke;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yuke.YukeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -2698,7 +2725,7 @@
 			baseConfigurationReference = 6CA77A58C61E3C3AD705F958 /* Pods-Yuke.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9SAQA8L42D;
+				DEVELOPMENT_TEAM = 5YA6BFDZD9;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2738,7 +2765,7 @@
 					"\"UIKit\"",
 					"-fobjc-arc",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yuke.Yuke;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yuke.YukeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

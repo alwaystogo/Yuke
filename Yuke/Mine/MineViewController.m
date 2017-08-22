@@ -341,7 +341,16 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+    [LoginViewController checkLogin:^(BOOL result) {
+        
+        if (result) {
+            //[JFTools showTipOnHUD:@"登录成功"];
+        }else{
+            //[JFTools showTipOnHUD:@"登录失败"];
+            [kAppDelegate.tabBarController setSelectedIndex:2];
+            kAppDelegate.tabBarController.tabBar.hidden = NO;
+        }
+    }];
     self.navigationController.navigationBarHidden = YES;
     [self.tableView reloadData];
 }

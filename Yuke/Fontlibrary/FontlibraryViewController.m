@@ -75,14 +75,14 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //点击某列
 
-    [LoginViewController checkLogin:^(BOOL result) {
-        
-        if (result) {
-            [JFTools showTipOnHUD:@"登录成功"];
-        }else{
-            [JFTools showTipOnHUD:@"登录失败"];
-        }
-    }];
+//    [LoginViewController checkLogin:^(BOOL result) {
+//        
+//        if (result) {
+//            [JFTools showTipOnHUD:@"登录成功"];
+//        }else{
+//            [JFTools showTipOnHUD:@"登录失败"];
+//        }
+//    }];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

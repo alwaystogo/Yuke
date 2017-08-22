@@ -16,4 +16,11 @@
     [self enqueueRequestWithMethod:@"mb/askEvaluate/askGetPrdCat.action" param:params success:success failure:failure];
 }
 
+- (void)getWorkspaceBanner:(NSDictionary *)params
+                   success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+                   failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{
+    
+    [self enqueueRequestWithMethod:@"" param:params success:success failure:failure];
+
+}
 @end
