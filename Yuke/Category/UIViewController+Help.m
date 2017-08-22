@@ -30,7 +30,27 @@
                      action:(SEL)action{
     [self setupRightNavButton:image withOffset:isiOS7 ? -10 : 0 target:target action:action];
 }
-
+- (void)setupRightNavButton2:(UIImage*)image
+                     target:(id)target
+                     action:(SEL)action{
+    [self setupRightNavButton2:image withOffset:isiOS7 ? -10 : 0 target:target action:action];
+}
+- (void)setupRightNavButton2:(UIImage*)image
+                 withOffset:(float)offset
+                     target:(id)target
+                     action:(SEL)action {
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 23)];
+    [btn setBackgroundImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+                   forState:UIControlStateNormal];
+    [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
+                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                       target:nil action:nil];
+    negativeSpacer.width = offset;
+    
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:negativeSpacer, item, nil];
+}
 - (void)setupRightNavButton:(UIImage*)image
                  withOffset:(float)offset
                      target:(id)target

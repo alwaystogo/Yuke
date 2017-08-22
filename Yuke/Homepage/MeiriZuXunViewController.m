@@ -26,7 +26,7 @@
     self.view.backgroundColor = COLOR_RGB(236, 236, 236, 1);
     self.title = @"每日组讯";
     [self setLeftBackNavItem];
-    [self setupRightNavButton:ImageNamed(@"black_fanhui") target:self action:@selector(rightBtnAction)];
+    [self setupRightNavButton2:ImageNamed(@"bijiben") target:self action:@selector(rightBtnAction)];
     [self createUI];
 
     [self requestZuxunListWithType:self.selectType withDate:self.selectDate];
@@ -163,7 +163,6 @@
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell.picImageView getImageWithUrl:[self.listArray[indexPath.section] objectForKeySafe:@"thumb"] placeholderImage:[UIImage imageNamed:PlaceHolderPic]];
-        cell.smallImageView.image = [UIImage imageWithColor:[UIColor grayColor]];
         cell.titleLabel.text = [self.listArray[indexPath.section] objectForKeySafe:@"title"];
         NSString *dateStr = [self.listArray[indexPath.section] objectForKeySafe:@"startime"];
         dateStr = [NSString stringWithFormat:@"%@年%@月%@日",[dateStr substringWithRange:NSMakeRange(0, 4)],[dateStr substringWithRange:NSMakeRange(5, 2)],[dateStr substringWithRange:NSMakeRange(8, 2)]];

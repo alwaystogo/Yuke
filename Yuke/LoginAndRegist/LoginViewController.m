@@ -61,7 +61,7 @@
         make.top.mas_equalTo(self.view.mas_top).offset(180 * BiLi_SCREENHEIGHT_NORMAL);
         make.height.mas_equalTo(35);
     }];
-    UIImageView *phoneImageView = [[UIImageView alloc] initWithImage:[UIImage imageWithColor:[UIColor blueColor]]];
+    UIImageView *phoneImageView = [[UIImageView alloc] initWithImage:ImageNamed(@"shouji")];
     [self.phoneBkView addSubview:phoneImageView];
     [phoneImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.phoneBkView.mas_left).offset(10);
@@ -90,7 +90,7 @@
         make.top.mas_equalTo(self.phoneBkView.mas_bottom).offset(30);
         make.height.mas_equalTo(35);
     }];
-    UIImageView *passwordImageView = [[UIImageView alloc] initWithImage:[UIImage imageWithColor:[UIColor blueColor]]];
+    UIImageView *passwordImageView = [[UIImageView alloc] initWithImage:ImageNamed(@"mima")];
     [self.passwordBkView addSubview:passwordImageView];
     [passwordImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.passwordBkView.mas_left).offset(10);

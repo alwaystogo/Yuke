@@ -26,7 +26,7 @@
     // Do any additional setup after loading the view.
     
     //设置选中标题的颜色
-    self.tabBar.tintColor = COLOR_HEX(0xff83a9fd, 1);
+    self.tabBar.tintColor = COLOR_HEX(0xffa632, 1);
     
     //创建视图控制器
     [self createSubControllers];
@@ -51,14 +51,14 @@
     BaseNavigationController *questionAndAnswerNav = [[BaseNavigationController alloc] initWithRootViewController:performanceVC];
     performanceVC.navigationItem.title = @"工作区";
     questionAndAnswerNav.tabBarItem.title = @"工作区";
-    questionAndAnswerNav.tabBarItem.image = [[UIImage imageNamed:@"yeji"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    questionAndAnswerNav.tabBarItem.image = [[UIImage imageNamed:@"work"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     questionAndAnswerNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"yeji-hover"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     FontlibraryViewController *fontVC = [[FontlibraryViewController alloc]init];
     BaseNavigationController *discoverNav = [[BaseNavigationController alloc] initWithRootViewController:fontVC];
     fontVC.navigationItem.title = @"字体库";
     discoverNav.tabBarItem.title = @"字体库";
-    discoverNav.tabBarItem.image = [[UIImage imageNamed:@"new"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    discoverNav.tabBarItem.image = [[UIImage imageNamed:@"font"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     discoverNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"new-hover"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 
     HomepageViewController *homePageVC = [[HomepageViewController alloc] init];
@@ -66,13 +66,13 @@
     homePageVC.navigationItem.title = @"首页";
     homePageNav.tabBarItem.title = @"首页";
     homePageNav.tabBarItem.image = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    homePageNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"home--hover"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    homePageNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"首页"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     YuePhotoViewController *yueVC = [[YuePhotoViewController alloc]init];
     BaseNavigationController *yueNav = [[BaseNavigationController alloc] initWithRootViewController:yueVC];
     yueVC.navigationItem.title = @"约拍摄";
     yueNav.tabBarItem.title = @"约拍摄";
-    yueNav.tabBarItem.image = [[UIImage imageNamed:@"new"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    yueNav.tabBarItem.image = [[UIImage imageNamed:@"camera"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     yueNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"new-hover"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 
     
@@ -80,8 +80,8 @@
     BaseNavigationController *mineNav = [[BaseNavigationController alloc] initWithRootViewController:mineVC];
     mineVC.navigationItem.title = @"个人中心";
     mineNav.tabBarItem.title = @"个人";
-    mineNav.tabBarItem.image = [[UIImage imageNamed:@"geren"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    mineNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"geren-hover"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    mineNav.tabBarItem.image = [[UIImage imageNamed:@"wo"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    mineNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"my"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     NSArray *navArray = @[questionAndAnswerNav, discoverNav, homePageNav, yueNav,mineNav];
     

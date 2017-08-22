@@ -99,7 +99,7 @@
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, tableHeaderHeight)];
     
     UIImageView *imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 17, 17)];
-    imageView1.image = [UIImage imageWithColor:[UIColor grayColor]];
+    imageView1.image = ImageNamed(@"remen");
     [headerView addSubview:imageView1];
     
     UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView1.frame)+10, CGRectGetMaxY(imageView1.frame)- 10, 60,14)];

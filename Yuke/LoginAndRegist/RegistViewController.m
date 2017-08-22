@@ -66,7 +66,7 @@
         make.top.mas_equalTo(self.view.mas_top).offset(150 * BiLi_SCREENHEIGHT_NORMAL);
         make.height.mas_equalTo(35);
     }];
-    UIImageView *phoneImageView = [[UIImageView alloc] initWithImage:[UIImage imageWithColor:[UIColor blueColor]]];
+    UIImageView *phoneImageView = [[UIImageView alloc] initWithImage:ImageNamed(@"shouji")];
     [self.phoneBkView addSubview:phoneImageView];
     [phoneImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.phoneBkView.mas_left).offset(10);

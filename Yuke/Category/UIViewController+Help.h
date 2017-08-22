@@ -22,6 +22,9 @@
                      target:(id)target
                      action:(SEL)action;
 
+- (void)setupRightNavButton2:(UIImage*)image
+                      target:(id)target
+                      action:(SEL)action;
 - (void)setupRightNavButton:(UIImage*)image
                  withOffset:(float)offset
                      target:(id)target

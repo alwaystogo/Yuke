@@ -91,7 +91,8 @@
     _carouselSV.click = ^(NSInteger index) {
         
         NSLog(@"点击了第%ld",index);
-        NSString *strUrl = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,[weakSelf.bannerArray[index] objectForKeySafe:@"url"]];
+//        NSString *strUrl = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,[weakSelf.bannerArray[index] objectForKeySafe:@"url"]];
+        NSString *strUrl = [weakSelf.bannerArray[index] objectForKeySafe:@"url"];
         BaseWebViewViewController *webVc= [[BaseWebViewViewController alloc] initWithURL:strUrl];
         webVc.title = @"详情";
         webVc.hidesBottomBarWhenPushed = YES;
@@ -105,26 +106,26 @@
     CGFloat jianju = (SCREEN_WIDTH - 66 - fourWidth * 4) / 3;
     
     UIImageView *imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(33, CGRectGetMaxY(self.carouselSV.frame) + 15, fourWidth, fourWidth)];
-    imageView1.image = [UIImage imageWithColor:[UIColor grayColor]];
+    imageView1.image = ImageNamed(@"zuxun");
     imageView1.tag = baseTag + 1;
     imageView1.userInteractionEnabled = YES;
     [self.bkScrollView addSubview:imageView1];
     
     UIImageView *imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView1.frame) + jianju, CGRectGetMaxY(self.carouselSV.frame) + 15, fourWidth, fourWidth)];
     imageView2.userInteractionEnabled = YES;
-    imageView2.image = [UIImage imageWithColor:[UIColor grayColor]];
+    imageView2.image = ImageNamed(@"yirenzhuanfang");
     imageView2.tag = baseTag + 2;
     [self.bkScrollView addSubview:imageView2];
     
     UIImageView *imageView3 = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView2.frame) + jianju, CGRectGetMaxY(self.carouselSV.frame) + 15, fourWidth, fourWidth)];
     imageView3.userInteractionEnabled = YES;
-    imageView3.image = [UIImage imageWithColor:[UIColor grayColor]];
+    imageView3.image = ImageNamed(@"zuixinhuodong");
     imageView3.tag = baseTag + 3;
     [self.bkScrollView addSubview:imageView3];
     
     UIImageView *imageView4 = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView3.frame) + jianju, CGRectGetMaxY(self.carouselSV.frame) + 15, fourWidth, fourWidth)];
     imageView4.userInteractionEnabled = YES;
-    imageView4.image = [UIImage imageWithColor:[UIColor grayColor]];
+    imageView4.image = ImageNamed(@"shangwu");
     imageView4.tag = baseTag + 4;
     [self.bkScrollView addSubview:imageView4];
 
@@ -193,7 +194,7 @@
 - (void)createInfoShow{
     
     UIImageView *imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(10, self.label1MaxY + 15, 17, 17)];
-    imageView1.image = [UIImage imageWithColor:[UIColor grayColor]];
+    imageView1.image = ImageNamed(@"ziliaoyulan");
     [self.bkScrollView addSubview:imageView1];
     
     UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView1.frame)+10, CGRectGetMaxY(imageView1.frame)- 10, 60,14)];
@@ -207,7 +208,7 @@
     
     CGFloat imageWidth = (SCREEN_WIDTH - 30)/2;
     UIImageView *imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(imageView1.frame) + 3, imageWidth, 272/2 * (imageWidth/ (345/2)))];
-    imageView2.image = [UIImage imageWithColor:[UIColor grayColor]];
+    imageView2.image = ImageNamed(@"pic-card");
     [self.bkScrollView addSubview:imageView2];
     imageView2.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapPicShow = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapPicShowAction)];
@@ -216,7 +217,7 @@
     self.picImageViewMaxY = CGRectGetMaxY(imageView2.frame);
     
     UIImageView *imageView3 = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView2.frame) + 10, CGRectGetMaxY(imageView1.frame) + 3, imageWidth, 272/2 * (imageWidth/ (345/2)))];
-    imageView3.image = [UIImage imageWithColor:[UIColor grayColor]];
+    imageView3.image = ImageNamed(@"video-card");
     [self.bkScrollView addSubview:imageView3];
     imageView3.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapVieoShow = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapVieoShowAction)];
@@ -226,7 +227,7 @@
 - (void)createHot{
     
     UIImageView *imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(10, self.picImageViewMaxY + 11, 17, 17)];
-    imageView1.image = [UIImage imageWithColor:[UIColor grayColor]];
+    imageView1.image = ImageNamed(@"remen");
     [self.bkScrollView addSubview:imageView1];
     
     UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView1.frame)+10, CGRectGetMaxY(imageView1.frame)- 10, 60,14)];

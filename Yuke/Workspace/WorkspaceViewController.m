@@ -55,7 +55,8 @@
     _carouselSV.click = ^(NSInteger index) {
         
         NSLog(@"点击了第%ld",index);
-        NSString *strUrl = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,[weakSelf.bannerArray[index] objectForKeySafe:@"url"]];
+//        NSString *strUrl = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,[weakSelf.bannerArray[index] objectForKeySafe:@"url"]];
+        NSString *strUrl = [weakSelf.bannerArray[index] objectForKeySafe:@"url"];
         BaseWebViewViewController *webVc= [[BaseWebViewViewController alloc] initWithURL:strUrl];
         webVc.title = @"详情";
         webVc.hidesBottomBarWhenPushed = YES;
@@ -72,21 +73,21 @@
     //左上
     self.yanyuanBkImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(self.carouselSV.frame) + 10, width, height)];
     self.yanyuanBkImageView.userInteractionEnabled = YES;
-    self.yanyuanBkImageView.image = [UIImage imageWithColor:[UIColor grayColor]];
+    self.yanyuanBkImageView.image = ImageNamed(@"img1");
     [self.bkScrollView addSubview:self.yanyuanBkImageView];
     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(yanyuanTapAction)];
     [self.yanyuanBkImageView addGestureRecognizer:tap1];
     //左下
     self.shipinBkImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(self.yanyuanBkImageView.frame) + 10, width, height)];
     self.shipinBkImageView.userInteractionEnabled = YES;
-    self.shipinBkImageView.image = [UIImage imageWithColor:[UIColor grayColor]];
+    self.shipinBkImageView.image = ImageNamed(@"img2");
     [self.bkScrollView addSubview:self.shipinBkImageView];
     UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shipinTapAction)];
     [self.shipinBkImageView addGestureRecognizer:tap2];
     //右
     self.moteBkImageView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.yanyuanBkImageView.frame) + 5, CGRectGetMaxY(self.carouselSV.frame) + 10, width, height *2 + 10)];
     self.moteBkImageView.userInteractionEnabled= YES;
-    self.moteBkImageView.image = [UIImage imageWithColor:[UIColor grayColor]];
+    self.moteBkImageView.image = ImageNamed(@"img3");
     [self.bkScrollView addSubview:self.moteBkImageView];
     UITapGestureRecognizer *tap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(moteTapAction)];
     [self.moteBkImageView addGestureRecognizer:tap3];

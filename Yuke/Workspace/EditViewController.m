@@ -145,7 +145,7 @@
         [JFTools showTipOnHUD:@"三围信息不正确，请重新选择"];
         return ;
     }
-    NSArray *array = [sanwei componentsSeparatedByString:@"-"];
+    NSArray *array = [sanwei componentsSeparatedByString:@","];
     NSDictionary *infoDic = @{@"name":self.nickNameTextField.text,@"shengao":self.hangyeLabel.text
                               ,@"tizhong":self.yearsLabel.text
                               ,@"xiongwei":array[0]

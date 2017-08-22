@@ -77,17 +77,17 @@
     CGFloat jianju = (SCREEN_WIDTH - 72 - fourWidth * 3) / 2;
     
     UIImageView *imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(36, 147, fourWidth, fourWidth)];
-    imageView1.image = [UIImage imageWithColor:[UIColor grayColor]];
+    imageView1.image = ImageNamed(@"zhuye");
     imageView1.tag = baseTag + 1;
     imageView1.userInteractionEnabled = YES;
     [self.bkScrollView addSubview:imageView1];
     UIImageView *imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView1.frame) + jianju, 147, fourWidth, fourWidth)];
-    imageView2.image = [UIImage imageWithColor:[UIColor grayColor]];
+    imageView2.image = ImageNamed(@"huiyuan");
     imageView2.tag = baseTag + 2;
     imageView2.userInteractionEnabled = YES;
     [self.bkScrollView addSubview:imageView2];
     UIImageView *imageView3 = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView2.frame) + jianju, 147, fourWidth, fourWidth)];
-    imageView3.image = [UIImage imageWithColor:[UIColor grayColor]];
+    imageView3.image = ImageNamed(@"xiugai");
     imageView3.tag = baseTag + 3;
     imageView3.userInteractionEnabled = YES;
     [self.bkScrollView addSubview:imageView3];
@@ -174,7 +174,25 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.leftTextLabel.text = self.dataArray[indexPath.row];
-    cell.leftPicImageView.backgroundColor = [UIColor grayColor];
+    if (indexPath.row == 0) {
+        cell.leftPicImageView.image = ImageNamed(@"fen");
+    }
+    if (indexPath.row == 1) {
+        cell.leftPicImageView.image = ImageNamed(@"lianxi");
+    }
+    if (indexPath.row == 2) {
+        cell.leftPicImageView.image = ImageNamed(@"shiyong");
+    }
+    if (indexPath.row == 3) {
+        cell.leftPicImageView.image = ImageNamed(@"icon7");
+    }
+    if (indexPath.row == 4) {
+        cell.leftPicImageView.image = ImageNamed(@"icon8");
+    }
+    if (indexPath.row == 5) {
+        cell.leftPicImageView.image = ImageNamed(@"icon9");
+    }
+   
     if (indexPath.row == 1) {
         //电话
         cell.rightTextLabel.text = [NSString stringWithFormat:@"%@",NON(kUserMoudle.user_mobile)];

@@ -206,7 +206,8 @@
     _carouselSV.click = ^(NSInteger index) {
         
         NSLog(@"点击了第%ld",index);
-        NSString *strUrl = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,[weakSelf.bannerArray[index] objectForKeySafe:@"url"]];
+//        NSString *strUrl = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,[weakSelf.bannerArray[index] objectForKeySafe:@"url"]];
+        NSString *strUrl = [weakSelf.bannerArray[index] objectForKeySafe:@"url"];
         BaseWebViewViewController *webVc= [[BaseWebViewViewController alloc] initWithURL:strUrl];
         webVc.title = @"详情";
         webVc.hidesBottomBarWhenPushed = YES;
