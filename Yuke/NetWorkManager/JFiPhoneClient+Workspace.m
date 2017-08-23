@@ -20,7 +20,7 @@
                    success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
                    failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{
     
-    [self enqueueRequestWithMethod:@"" param:params success:success failure:failure];
+    [self enqueueRequestWithMethod:@"index.php/Api/Index/get_work_banner" param:params success:success failure:failure];
 
 }
 @end

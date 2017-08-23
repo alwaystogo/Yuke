@@ -243,7 +243,7 @@
     cell.backgroundColor = [UIColor grayColor];
     cell.layer.cornerRadius = 5;
     cell.picImageView.layer.cornerRadius = 5;
-    [cell.picImageView getImageWithUrl:[self.yiPaiListArray[indexPath.row] objectForKeySafe:@"thumb"] placeholderImage:[UIImage imageNamed:PlaceHolderPic]];
+    [cell.picImageView getImageWithUrl:[self.yiPaiListArray[indexPath.row] objectForKeySafe:@"image"] placeholderImage:[UIImage imageNamed:PlaceHolderPic]];
     return cell;
 }
 

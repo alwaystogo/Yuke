@@ -139,19 +139,19 @@
 
 - (void)requestBanner{
     
-//    [JFTools showLoadingHUD];
-//    [kJFClient getWorkspaceBanner:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-//        [JFTools HUDHide];
-//        NSLog(@"--- :%@",responseObject);
-//        if ([responseObject isKindOfClass:[NSArray class]]) {
-//            
-//            self.bannerArray = responseObject;
-//            [_carouselSV setCarouseWithArray:self.bannerArray];
-//        }
-//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//        
-//        [JFTools showTipOnHUD:error.localizedDescription];
-//    }];
+    [JFTools showLoadingHUD];
+    [kJFClient getWorkspaceBanner:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        [JFTools HUDHide];
+        NSLog(@"--- :%@",responseObject);
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            
+            self.bannerArray = responseObject;
+            [_carouselSV setCarouseWithArray:self.bannerArray];
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        [JFTools showTipOnHUD:error.localizedDescription];
+    }];
     
 }
 

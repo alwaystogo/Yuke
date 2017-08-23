@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PicShowCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *picImageView;
 
 @end

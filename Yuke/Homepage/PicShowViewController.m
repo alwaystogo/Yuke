@@ -48,7 +48,7 @@
 //每个组中行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 10;
+    return self.listArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -61,7 +61,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"PicShowCell" owner:self options:nil] lastObject];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+    [cell.picImageView getImageWithUrl:[self.listArray[indexPath.row] objectForKeySafe:@"image"] placeholderImage:[UIImage imageNamed:PlaceHolderPic]];
     return cell;
 }
 
@@ -75,6 +75,11 @@
     [JFTools showLoadingHUD];
     [kJFClient picShowList:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"piclist - %@",responseObject);
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            
+            self.listArray = responseObject;
+            [self.tableView reloadData];
+        }
         [JFTools HUDHide];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [JFTools showFailureHUDWithTip:error.localizedDescription];

@@ -147,13 +147,15 @@
             
             return ;
         }
-        NSURL *mp4 = [self convertToMp4:videoUrl];
-        NSData *data2 = [NSData dataWithContentsOfURL:mp4];
         
-        NSString *fileName = [NSString stringWithFormat:@"%@.mp4",paramName];
+        //NSURL *mp4 = [self convertToMp4:videoUrl];
+        NSData *data2 = [NSData dataWithContentsOfURL:videoUrl];
         
-        //[formData appendPartWithFileData:data2 name:paramName fileName:fileName mimeType:@"video/mp4/mov"];
-        [formData appendPartWithFileURL:videoUrl name:paramName fileName:fileName mimeType:@"video/mp4/mov" error:nil];
+        NSString *fileName = [NSString stringWithFormat:@"%@.MOV",paramName];
+        
+        [formData appendPartWithFileData:data2 name:paramName fileName:fileName mimeType:@"video/mp4/MOV"];
+        //[formData appendPartWithFileURL:mp4 name:paramName fileName:fileName mimeType:@"video/mp4/mov" error:nil];
+
        
     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         

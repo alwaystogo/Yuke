@@ -278,6 +278,8 @@
 
 - (void)wanchengBtnAction{
     
+//    [self shangChuanVideoWith:self.videoUrl];
+//    return;
     WeakSelf
     VideoManager *mangerV = [[VideoManager alloc] init];
     [mangerV cropWithVideoUrlStr:self.videoUrl start:self.minTime end:self.maxTime completion:^(NSURL *outputURL, Float64 videoDuration, BOOL isSuccess) {

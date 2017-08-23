@@ -11,5 +11,6 @@
 @interface PicShowViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong)NSArray *listArray;
 
 @end
