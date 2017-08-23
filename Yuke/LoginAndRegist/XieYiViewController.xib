@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -27,7 +27,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="374" height="667"/>
                             <subviews>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d7h-Lr-hCo">
-                                    <rect key="frame" x="10" y="70" width="354" height="661"/>
+                                    <rect key="frame" x="10" y="70" width="354" height="607"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <string key="text">娱客APP（以下简称“娱客”）在此特别提醒您（用户）在同意本协议前，请您认真阅读并充分熟悉、理解娱客平台的各项规则及要求，以及国家关于该类互联网信息服务的法律法规等。如果您对本协议的任何条款表示异议，您可以选择不使用；使用则意味着您将同意遵守本协议下全部规定，以及我们后续对使用协议随时所在的任何修改，并完全服从于我们的统一管理。本协议已对与您的权益有或可能具有重大关系条款，及对娱客平台具有或可能具有免责或限制责任的条款用粗体字予以标注，请您注意。
     一、总则
@@ -133,7 +133,7 @@
                                 <constraint firstAttribute="trailing" secondItem="d7h-Lr-hCo" secondAttribute="trailing" constant="10" id="5Y3-FW-JAN"/>
                                 <constraint firstAttribute="height" constant="667" id="X7H-zf-I9e"/>
                                 <constraint firstItem="d7h-Lr-hCo" firstAttribute="leading" secondItem="I7s-bf-BbG" secondAttribute="leading" constant="10" id="lyY-D3-3pC"/>
-                                <constraint firstAttribute="bottom" secondItem="d7h-Lr-hCo" secondAttribute="bottom" constant="-64" id="ted-st-oCC"/>
+                                <constraint firstAttribute="bottom" secondItem="d7h-Lr-hCo" secondAttribute="bottom" constant="-10" id="ted-st-oCC"/>
                                 <constraint firstItem="d7h-Lr-hCo" firstAttribute="top" secondItem="I7s-bf-BbG" secondAttribute="top" constant="70" id="vcN-PX-XRE"/>
                             </constraints>
                         </view>

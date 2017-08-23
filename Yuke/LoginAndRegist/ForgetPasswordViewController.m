@@ -37,7 +37,7 @@
     self.title = @"忘记密码";
     //设置导航栏字体
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:COLOR_HEX(0xffffff, 1),NSFontAttributeName : FONT_REGULAR(18)};
-    [self setLeftBackNavItem];
+      [self setupLeftNavButton:ImageNamed(@"dengluarrow") target:self action:@selector(goBackToPrevPage)];
     
     [self createUI];
     
@@ -49,7 +49,7 @@
 - (void)createUI{
     
     UIImageView *bkImageView = [[UIImageView alloc] initWithFrame:self.view.frame];
-    bkImageView.image = [UIImage imageWithColor:[UIColor blackColor]];
+    bkImageView.image = ImageNamed(@"bg");
     [self.view addSubview:bkImageView];
     
     self.phoneBkView = [[UIView alloc] init];
@@ -62,7 +62,7 @@
         make.top.mas_equalTo(self.view.mas_top).offset(150 * BiLi_SCREENHEIGHT_NORMAL);
         make.height.mas_equalTo(35);
     }];
-    UIImageView *phoneImageView = [[UIImageView alloc] initWithImage:[UIImage imageWithColor:[UIColor blueColor]]];
+    UIImageView *phoneImageView = [[UIImageView alloc] initWithImage:ImageNamed(@"phone")];
     [self.phoneBkView addSubview:phoneImageView];
     [phoneImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.phoneBkView.mas_left).offset(10);
@@ -121,7 +121,7 @@
         make.top.mas_equalTo(self.yanzhengmaBkView.mas_bottom).offset(30);
         make.height.mas_equalTo(35);
     }];
-    UIImageView *passwordImageView = [[UIImageView alloc] initWithImage:[UIImage imageWithColor:[UIColor blueColor]]];
+    UIImageView *passwordImageView = [[UIImageView alloc] initWithImage:ImageNamed(@"lock")];
     [self.passwordBkView addSubview:passwordImageView];
     [passwordImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.passwordBkView.mas_left).offset(10);
@@ -149,7 +149,7 @@
         make.top.mas_equalTo(self.passwordBkView.mas_bottom).offset(30);
         make.height.mas_equalTo(35);
     }];
-    UIImageView *checkPasswordImageView = [[UIImageView alloc] initWithImage:[UIImage imageWithColor:[UIColor blueColor]]];
+    UIImageView *checkPasswordImageView = [[UIImageView alloc] initWithImage:ImageNamed(@"lock")];
     [self.checkPasswordBkView addSubview:checkPasswordImageView];
     [checkPasswordImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.checkPasswordBkView.mas_left).offset(10);

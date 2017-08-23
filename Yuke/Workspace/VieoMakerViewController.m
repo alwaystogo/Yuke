@@ -41,7 +41,7 @@
         make.height.mas_equalTo(200);
     }];
     UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.image = ImageNamed(@"video_play_btn_bg");
+    imageView.image = ImageNamed(@"shipinbofang");
     imageView.userInteractionEnabled = YES;
     [self.selectBkView addSubview:imageView];
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {

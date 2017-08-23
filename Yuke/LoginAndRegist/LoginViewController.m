@@ -36,7 +36,8 @@
     self.title = @"登录";
     //设置导航栏字体
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:COLOR_HEX(0xffffff, 1),NSFontAttributeName : FONT_REGULAR(18)};
-    [self setLeftBackNavItem];
+ 
+    [self setupLeftNavButton:ImageNamed(@"dengluarrow") target:self action:@selector(goBackToPrevPage)];
     
     [self createUI];
     
@@ -48,7 +49,7 @@
 - (void)createUI{
     
     UIImageView *bkImageView = [[UIImageView alloc] initWithFrame:self.view.frame];
-    bkImageView.image = [UIImage imageWithColor:[UIColor blackColor]];
+    bkImageView.image = ImageNamed(@"bg");
     [self.view addSubview:bkImageView];
     
     self.phoneBkView = [[UIView alloc] init];
@@ -61,7 +62,7 @@
         make.top.mas_equalTo(self.view.mas_top).offset(180 * BiLi_SCREENHEIGHT_NORMAL);
         make.height.mas_equalTo(35);
     }];
-    UIImageView *phoneImageView = [[UIImageView alloc] initWithImage:ImageNamed(@"shouji")];
+    UIImageView *phoneImageView = [[UIImageView alloc] initWithImage:ImageNamed(@"phone")];
     [self.phoneBkView addSubview:phoneImageView];
     [phoneImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.phoneBkView.mas_left).offset(10);
@@ -90,7 +91,7 @@
         make.top.mas_equalTo(self.phoneBkView.mas_bottom).offset(30);
         make.height.mas_equalTo(35);
     }];
-    UIImageView *passwordImageView = [[UIImageView alloc] initWithImage:ImageNamed(@"mima")];
+    UIImageView *passwordImageView = [[UIImageView alloc] initWithImage:ImageNamed(@"lock")];
     [self.passwordBkView addSubview:passwordImageView];
     [passwordImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.passwordBkView.mas_left).offset(10);

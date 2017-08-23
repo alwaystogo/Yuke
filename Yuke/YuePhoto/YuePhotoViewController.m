@@ -198,15 +198,16 @@
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
+    UIScrollView *bkScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), LunboHeight)];
+    bkScrollView.contentSize = CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds), LunboHeight);
     //轮播控件
      _carouselSV = [[CarouselScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), LunboHeight)];
     _carouselSV.backgroundColor = [UIColor blueColor];
-    
+    [bkScrollView addSubview:_carouselSV];
     WeakSelf
     _carouselSV.click = ^(NSInteger index) {
         
         NSLog(@"点击了第%ld",index);
-//        NSString *strUrl = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,[weakSelf.bannerArray[index] objectForKeySafe:@"url"]];
         NSString *strUrl = [weakSelf.bannerArray[index] objectForKeySafe:@"url"];
         BaseWebViewViewController *webVc= [[BaseWebViewViewController alloc] initWithURL:strUrl];
         webVc.title = @"详情";
@@ -216,7 +217,7 @@
     
     [_carouselSV setCarouseWithArray:self.bannerArray];
 
-    return _carouselSV;
+    return bkScrollView;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     
