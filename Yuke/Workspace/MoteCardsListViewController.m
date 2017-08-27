@@ -23,7 +23,7 @@
     self.title = @"选择模板";
     [self setLeftBackNavItem];
     self.view.backgroundColor = COLOR_HEX(0xdddddd, 1);
-    self.mobanArray = @[@"模板一",@"模板二",@"模板三",@"模板四",@"模板五",@"模板六",@"模板七",@"模板八",@"模板九",@"模板十",@"模板十一",@"模板十二",@"模板十三",@"模板十四",@"模板十五"];
+    self.mobanArray = @[@"模板一",@"模板二",@"模板三",@"模板四",@"模板五",@"模板六",@"模板七",@"模板八",@"模板九",@"模板十",@"模板十一",@"模板十二",@"模板十三",@"模板十四",@"模板十五",@"模板十六",@"模板十七",@"模板十八",@"模板十九",@"模板二十",@"模板二十一"];
     [self createUI];
 }
 
@@ -117,18 +117,42 @@
                 max = 9;
             }
             if (self.selectedNum == 13) {
-                max = 1;
+                max = 7;
             }
             if (self.selectedNum == 14) {
-                max = 1;
+                max = 10;
             }
+            if (self.selectedNum == 15) {
+                max = 9;
+            }
+            if (self.selectedNum == 16) {
+                max = 7;
+            }
+            if (self.selectedNum == 17) {
+                max = 6;
+            }
+            if (self.selectedNum == 18) {
+                max = 9;
+            }
+            if (self.selectedNum == 19) {
+                max = 10;
+            }
+            if (self.selectedNum == 20) {
+                max = 8;
+            }
+//            if (self.selectedNum == 21) {
+//                max = 1;
+//            }
+//            if (self.selectedNum == 22) {
+//                max = 1;
+//            }
             
             WeakSelf
             TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:max columnNumber:4 delegate:nil pushPhotoPickerVc:YES];
             imagePickerVc.minImagesCount = max;
             imagePickerVc.allowPickingVideo = NO;
             imagePickerVc.allowPickingImage = YES;
-            imagePickerVc.allowPickingOriginalPhoto = YES;
+            imagePickerVc.allowPickingOriginalPhoto = NO;
             imagePickerVc.sortAscendingByModificationDate = YES;
             [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
                 

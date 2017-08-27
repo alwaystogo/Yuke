@@ -445,7 +445,7 @@
     //2.绘制图片
     [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height)];
     //添加水印
-    [logoImage drawInRect:CGRectMake(image.size.width - 30, 0, 30, 20)];
+    [logoImage drawInRect:CGRectMake(image.size.width - logoImage.size.width, 0, logoImage.size.width, logoImage.size.height)];
     //3.从上下文中获取新图片
     UIImage * newImage = UIGraphicsGetImageFromCurrentImageContext();
     //4.关闭图形上下文
@@ -532,7 +532,7 @@
         }
     }
     //添加logo水印
-    cutImage = [self addWaterTextWithImage:cutImage withLogo:ImageNamed(@"huodongPic")];
+    cutImage = [self addWaterTextWithImage:cutImage withLogo:ImageNamed(@"水印1")];
     
     UIImageWriteToSavedPhotosAlbum(cutImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }

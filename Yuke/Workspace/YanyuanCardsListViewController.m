@@ -134,7 +134,7 @@
             imagePickerVc.minImagesCount = max;
             imagePickerVc.allowPickingVideo = NO;
             imagePickerVc.allowPickingImage = YES;
-            imagePickerVc.allowPickingOriginalPhoto = YES;
+            imagePickerVc.allowPickingOriginalPhoto = NO;
             imagePickerVc.sortAscendingByModificationDate = YES;
             [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
                 

@@ -145,7 +145,7 @@ isKindOfClass:[UINavigationController class]] \
 #define PlaceHolderPic @"huodongPic"
 
 //卡片缩放倍数
-#define SCALE 10
+#define SCALE 6
 
 #define FONT1 @"庞门正道标题体"
 #define FONT2 @"站酷快乐体2016修订版"
