@@ -575,6 +575,9 @@
 }
 
 - (void)changeLabelTextColor{
+    if (self.mobanNum == 9 || self.mobanNum == 10 || self.mobanNum == 11) {
+        return;
+    }
     NSArray *viewArray = [self.picBkView subviews];
     for (int i =0; i < viewArray.count; i++) {
         if ([viewArray[i] isKindOfClass:[UILabel class]]) {
@@ -688,34 +691,364 @@
  
 }
 - (void)makeMoban2{
+    CGFloat picWidth = (self.picBkView.width)/3;
+    CGFloat picHeight = self.picBkView.height - 60;
+    CGRect rect1 = CGRectMake(40, 10, picWidth, picHeight);
+    CGRect rect2 = CGRectMake(CGRectGetMaxX(rect1)+100*BiLi_SCREENHEIGHT_NORMAL, CGRectGetMinY(rect1)+10, picWidth/2, (picHeight - 50)/2);
+    CGRect rect3 = CGRectMake(CGRectGetMaxX(rect2)+10, CGRectGetMinY(rect1)+10, picWidth/2, (picHeight - 50)/2);
+    CGRect rect4 = CGRectMake(CGRectGetMaxX(rect1)+100*BiLi_SCREENHEIGHT_NORMAL, CGRectGetMaxY(rect2)+10, picWidth/2, (picHeight - 50)/2);
+    CGRect rect5 = CGRectMake(CGRectGetMaxX(rect4)+10, CGRectGetMaxY(rect2)+10, picWidth/2, (picHeight - 50)/2);
+    [self addAllScrollViewWithRectArray:@[[NSValue valueWithCGRect:rect1],[NSValue valueWithCGRect:rect2],[NSValue valueWithCGRect:rect3],[NSValue valueWithCGRect:rect4],[NSValue valueWithCGRect:rect5]] withImageArray:self.imageArray];
+
+    UILabel *label1 = [[UILabel alloc] init];
+    label1.textAlignment = NSTextAlignmentCenter;
+    label1.text = [self.infoDic objectForKey:@"name"];
+    label1.font = [JFTools fontWithSize:17 withType:1];
+    [self.picBkView addSubview:label1];
+    [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.picBkView.mas_left).offset(CGRectGetMinX(rect1)+picWidth/2);
+        make.bottom.equalTo(self.picBkView.mas_bottom).offset(-15);
+    }];
     
+    UILabel *label2 = [[UILabel alloc] init];
+    label2.textAlignment = NSTextAlignmentCenter;
+    label2.text = [NSString stringWithFormat:@"身高/HEIGHT %@ 体重/WEIGHT %@ 胸围/BUST %@ 腰围/WAIST %@ 臀围/HIPS %@ 鞋码/SHOES %@",[self.infoDic objectForKey:@"shengao"],[self.infoDic objectForKey:@"tizhong"],[self.infoDic objectForKey:@"xiongwei"],[self.infoDic objectForKey:@"yaowei"],[self.infoDic objectForKey:@"tunwei"],[self.infoDic objectForKey:@"xiema"]];
+    label2.font = [JFTools fontWithSize:8 withType:0];
+    [self.picBkView addSubview:label2];
+    [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.picBkView.mas_bottom).offset(-55);
+        make.centerX.equalTo(self.picBkView.mas_left).offset(CGRectGetMaxX(rect2)+5);
+    }];
+
 }
 - (void)makeMoban3{
+    CGFloat picWidth = (self.picBkView.width)/8;
+    CGFloat picHeight = self.picBkView.height - 50;
+    CGFloat top = 10;
+    CGRect rect1 = CGRectMake(0, top, picWidth*2, picHeight);
+    CGRect rect2 = CGRectMake(CGRectGetMaxX(rect1), top, picWidth, picHeight);
+    CGRect rect3 = CGRectMake(CGRectGetMaxX(rect2), top, picWidth, picHeight);
+    CGRect rect4 = CGRectMake(CGRectGetMaxX(rect3), top, picWidth, picHeight);
+    CGRect rect5 = CGRectMake(CGRectGetMaxX(rect4), top, picWidth, picHeight);
+    CGRect rect6 = CGRectMake(CGRectGetMaxX(rect5), top, picWidth, picHeight);
+    CGRect rect7 = CGRectMake(CGRectGetMaxX(rect6), top, picWidth, picHeight);
+    [self addAllScrollViewWithRectArray:@[[NSValue valueWithCGRect:rect1],[NSValue valueWithCGRect:rect2],[NSValue valueWithCGRect:rect3],[NSValue valueWithCGRect:rect4],[NSValue valueWithCGRect:rect5],[NSValue valueWithCGRect:rect6],[NSValue valueWithCGRect:rect7]] withImageArray:self.imageArray];
     
+    UILabel *label2 = [[UILabel alloc] init];
+    label2.textAlignment = NSTextAlignmentCenter;
+    label2.text = [NSString stringWithFormat:@"姓名 Name：%@   身高 HEIGHT：%@   体重 WEIGHT：%@   三围 BWH %@ %@ %@",[self.infoDic objectForKey:@"name"],[self.infoDic objectForKey:@"shengao"],[self.infoDic objectForKey:@"tizhong"],[self.infoDic objectForKey:@"xiongwei"],[self.infoDic objectForKey:@"yaowei"],[self.infoDic objectForKey:@"tunwei"]];
+    label2.font = [JFTools fontWithSize:14 withType:0];
+    [self.picBkView addSubview:label2];
+    [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.picBkView.mas_bottom).offset(-12);
+        make.centerX.equalTo(self.picBkView.mas_centerX);
+    }];
+ 
 }
 - (void)makeMoban4{
+    CGFloat picWidth = (self.picBkView.width - 120)/7;
+    CGFloat picHeight = 100 *BiLi_SCREENWIDTH_NORMAL;
+    CGFloat top = 90;
+    CGRect rect1 = CGRectMake(30, top, picWidth, picHeight);
+    CGRect rect2 = CGRectMake(CGRectGetMaxX(rect1)+20, top, picWidth, picHeight);
+    CGRect rect3 = CGRectMake(CGRectGetMaxX(rect2)+20, top, picWidth, picHeight);
+    CGRect rect4 = CGRectMake(CGRectGetMaxX(rect3)+20, top, picWidth, picHeight);
+    CGRect rect5 = CGRectMake(30, CGRectGetMaxY(rect1)+20, picWidth, picHeight);
+     CGRect rect6 = CGRectMake(CGRectGetMaxX(rect5)+20, CGRectGetMaxY(rect1)+20, picWidth, picHeight);
+     CGRect rect7 = CGRectMake(CGRectGetMaxX(rect6)+20, CGRectGetMaxY(rect1)+20, picWidth, picHeight);
+     CGRect rect8 = CGRectMake(CGRectGetMaxX(rect7)+20, CGRectGetMaxY(rect1)+20, picWidth, picHeight);
+    CGRect rect9 = CGRectMake(self.picBkView.width - picWidth*3, 0, picWidth*3, self.picBkView.height);
+    [self addAllScrollViewWithRectArray:@[[NSValue valueWithCGRect:rect1],[NSValue valueWithCGRect:rect2],[NSValue valueWithCGRect:rect3],[NSValue valueWithCGRect:rect4],[NSValue valueWithCGRect:rect5],[NSValue valueWithCGRect:rect6],[NSValue valueWithCGRect:rect7],[NSValue valueWithCGRect:rect8],[NSValue valueWithCGRect:rect9]] withImageArray:self.imageArray];
     
+    UILabel *label1 = [[UILabel alloc] init];
+    label1.text = [self.infoDic objectForKey:@"name"];
+    label1.font = [JFTools fontWithSize:20 withType:1];
+    [self.picBkView addSubview:label1];
+    [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.picBkView.mas_left).offset(30);
+        make.top.equalTo(self.picBkView.mas_top).offset(10);
+    }];
+    
+    UILabel *label2 = [[UILabel alloc] init];
+    label2.text = [NSString stringWithFormat:@"HEIGHT:%@CM WEIGHT:%@KG",[self.infoDic objectForKey:@"shengao"],[self.infoDic objectForKey:@"tizhong"]];
+    label2.font = [JFTools fontWithSize:12 withType:0];
+    [self.picBkView addSubview:label2];
+    [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.picBkView.mas_left).offset(30);
+        make.top.equalTo(label1.mas_bottom).offset(10);
+    }];
+    UILabel *label3 = [[UILabel alloc] init];
+    label3.text = [NSString stringWithFormat:@"BUST:%@ WAIST:%@ HIPS:%@ SHOES:%@",[self.infoDic objectForKey:@"xiongwei"],[self.infoDic objectForKey:@"yaowei"],[self.infoDic objectForKey:@"tunwei"],[self.infoDic objectForKey:@"xiema"]];
+    label3.font = [JFTools fontWithSize:12 withType:0];
+    [self.picBkView addSubview:label3];
+    [label3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.picBkView.mas_left).offset(30);
+        make.top.equalTo(label2.mas_bottom).offset(0);
+    }];
+
+
 }
 - (void)makeMoban5{
+    CGFloat picWidth = (self.picBkView.width)/6;
+    CGFloat picHeight = (self.picBkView.height - 6)/2;
+    CGRect rect1 = CGRectMake(10, 50, picWidth*2-20, self.picBkView.height - 50 -40);
+    CGRect rect2 = CGRectMake(CGRectGetMaxX(rect1)+10, 2, picWidth, picHeight);
+    CGRect rect3 = CGRectMake(CGRectGetMaxX(rect2)+2, 2, picWidth, picHeight);
+    CGRect rect4 = CGRectMake(CGRectGetMaxX(rect1)+10, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    CGRect rect5 = CGRectMake(CGRectGetMaxX(rect4)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    CGRect rect6 = CGRectMake(CGRectGetMaxX(rect3)+2, 2, picWidth*2, self.picBkView.height - 4);
+    [self addAllScrollViewWithRectArray:@[[NSValue valueWithCGRect:rect1],[NSValue valueWithCGRect:rect2],[NSValue valueWithCGRect:rect3],[NSValue valueWithCGRect:rect4],[NSValue valueWithCGRect:rect5],[NSValue valueWithCGRect:rect6]] withImageArray:self.imageArray];
     
+    UILabel *label1 = [[UILabel alloc] init];
+    label1.textAlignment = NSTextAlignmentCenter;
+    label1.text = [self.infoDic objectForKey:@"name"];
+    label1.font = [JFTools fontWithSize:25 withType:1];
+    [self.picBkView addSubview:label1];
+    [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.picBkView.mas_left).offset(picWidth);
+        make.top.equalTo(self.picBkView.mas_top).offset(10);
+    }];
+    
+    UILabel *label2 = [[UILabel alloc] init];
+    label2.textAlignment = NSTextAlignmentCenter;
+    label2.text = [NSString stringWithFormat:@"H:%@cm W:%@kg BWH:%@-%@-%@ S:%@",[self.infoDic objectForKey:@"shengao"],[self.infoDic objectForKey:@"tizhong"],[self.infoDic objectForKey:@"xiongwei"],[self.infoDic objectForKey:@"yaowei"],[self.infoDic objectForKey:@"tunwei"],[self.infoDic objectForKey:@"xiema"]];
+    label2.font = [JFTools fontWithSize:10 withType:0];
+    [self.picBkView addSubview:label2];
+    [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.picBkView.mas_bottom).offset(-10);
+        make.centerX.equalTo(self.picBkView.mas_left).offset(picWidth);
+    }];
+ 
 }
 - (void)makeMoban6{
+    CGFloat picWidth = (self.picBkView.width-6)/5;
+    CGFloat picHeight = (self.picBkView.height - 6)/2;
+    CGRect rect1 = CGRectMake(15, 50, picWidth*2-30, self.picBkView.height - 50 -40);
+    CGRect rect2 = CGRectMake(CGRectGetMaxX(rect1)+15, 2, picWidth, picHeight);
+    CGRect rect3 = CGRectMake(CGRectGetMaxX(rect2)+2, 2, picWidth, picHeight);
+    CGRect rect4 = CGRectMake(CGRectGetMaxX(rect3)+2, 2, picWidth, picHeight);
+    CGRect rect5 = CGRectMake(CGRectGetMaxX(rect1)+15, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    CGRect rect6 = CGRectMake(CGRectGetMaxX(rect5)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    CGRect rect7 = CGRectMake(CGRectGetMaxX(rect6)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    [self addAllScrollViewWithRectArray:@[[NSValue valueWithCGRect:rect1],[NSValue valueWithCGRect:rect2],[NSValue valueWithCGRect:rect3],[NSValue valueWithCGRect:rect4],[NSValue valueWithCGRect:rect5],[NSValue valueWithCGRect:rect6],[NSValue valueWithCGRect:rect7]] withImageArray:self.imageArray];
     
+    UILabel *label1 = [[UILabel alloc] init];
+    label1.textAlignment = NSTextAlignmentCenter;
+    label1.text = [self.infoDic objectForKey:@"name"];
+    label1.font = [JFTools fontWithSize:25 withType:1];
+    [self.picBkView addSubview:label1];
+    [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.picBkView.mas_left).offset(picWidth);
+        make.top.equalTo(self.picBkView.mas_top).offset(10);
+    }];
+    
+    UILabel *label2 = [[UILabel alloc] init];
+    label2.textAlignment = NSTextAlignmentCenter;
+    label2.text = [NSString stringWithFormat:@"H:%@cm W:%@kg BWH:%@-%@-%@ S:%@",[self.infoDic objectForKey:@"shengao"],[self.infoDic objectForKey:@"tizhong"],[self.infoDic objectForKey:@"xiongwei"],[self.infoDic objectForKey:@"yaowei"],[self.infoDic objectForKey:@"tunwei"],[self.infoDic objectForKey:@"xiema"]];
+    label2.font = [JFTools fontWithSize:10 withType:0];
+    [self.picBkView addSubview:label2];
+    [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.picBkView.mas_bottom).offset(-10);
+        make.centerX.equalTo(self.picBkView.mas_left).offset(picWidth);
+    }];
+ 
 }
 - (void)makeMoban7{
+    CGFloat picWidth = (self.picBkView.width-8)/7;
+    CGFloat picHeight = (self.picBkView.height - 6)/2;
+    CGRect rect1 = CGRectMake(10, 50, picWidth*2-20, self.picBkView.height - 50 -40);
+    CGRect rect2 = CGRectMake(CGRectGetMaxX(rect1)+10, 2, picWidth, picHeight);
+    CGRect rect3 = CGRectMake(CGRectGetMaxX(rect2)+2, 2, picWidth, picHeight);
+    CGRect rect4 = CGRectMake(CGRectGetMaxX(rect3)+2, 2, picWidth, picHeight);
+    CGRect rect8 = CGRectMake(CGRectGetMaxX(rect4)+2, 2, picWidth*2, self.picBkView.height - 4);
+    CGRect rect5 = CGRectMake(CGRectGetMaxX(rect1)+10, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    CGRect rect6 = CGRectMake(CGRectGetMaxX(rect5)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    CGRect rect7 = CGRectMake(CGRectGetMaxX(rect6)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    [self addAllScrollViewWithRectArray:@[[NSValue valueWithCGRect:rect1],[NSValue valueWithCGRect:rect2],[NSValue valueWithCGRect:rect3],[NSValue valueWithCGRect:rect4],[NSValue valueWithCGRect:rect5],[NSValue valueWithCGRect:rect6],[NSValue valueWithCGRect:rect7],[NSValue valueWithCGRect:rect8]] withImageArray:self.imageArray];
     
+    UILabel *label1 = [[UILabel alloc] init];
+    label1.textAlignment = NSTextAlignmentCenter;
+    label1.text = [self.infoDic objectForKey:@"name"];
+    label1.font = [JFTools fontWithSize:25 withType:1];
+    [self.picBkView addSubview:label1];
+    [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.picBkView.mas_left).offset(picWidth);
+        make.top.equalTo(self.picBkView.mas_top).offset(10);
+    }];
+    
+    UILabel *label2 = [[UILabel alloc] init];
+    label2.textAlignment = NSTextAlignmentCenter;
+    label2.text = [NSString stringWithFormat:@"H:%@cm W:%@kg BWH:%@-%@-%@ S:%@",[self.infoDic objectForKey:@"shengao"],[self.infoDic objectForKey:@"tizhong"],[self.infoDic objectForKey:@"xiongwei"],[self.infoDic objectForKey:@"yaowei"],[self.infoDic objectForKey:@"tunwei"],[self.infoDic objectForKey:@"xiema"]];
+    label2.font = [JFTools fontWithSize:9 withType:0];
+    [self.picBkView addSubview:label2];
+    [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.picBkView.mas_bottom).offset(-10);
+        make.centerX.equalTo(self.picBkView.mas_left).offset(picWidth);
+    }];
+ 
 }
 - (void)makeMoban8{
+    CGFloat picWidth = (self.picBkView.width-10)/8;
+    CGFloat picHeight = (self.picBkView.height - 6)/2;
+    CGRect rect1 = CGRectMake(10, 50, picWidth*2-20, self.picBkView.height - 50 -40);
+    CGRect rect2 = CGRectMake(CGRectGetMaxX(rect1)+10, 2, picWidth, picHeight);
+    CGRect rect3 = CGRectMake(CGRectGetMaxX(rect2)+2, 2, picWidth, picHeight);
+    CGRect rect4 = CGRectMake(CGRectGetMaxX(rect3)+2, 2, picWidth, picHeight);
+    CGRect rect10 = CGRectMake(CGRectGetMaxX(rect4)+2, 2, picWidth, picHeight);
+    CGRect rect8 = CGRectMake(CGRectGetMaxX(rect10)+2, 2, picWidth*2, self.picBkView.height - 4);
+    CGRect rect5 = CGRectMake(CGRectGetMaxX(rect1)+10, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    CGRect rect6 = CGRectMake(CGRectGetMaxX(rect5)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    CGRect rect7 = CGRectMake(CGRectGetMaxX(rect6)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    CGRect rect9 = CGRectMake(CGRectGetMaxX(rect7)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    [self addAllScrollViewWithRectArray:@[[NSValue valueWithCGRect:rect1],[NSValue valueWithCGRect:rect2],[NSValue valueWithCGRect:rect3],[NSValue valueWithCGRect:rect4],[NSValue valueWithCGRect:rect5],[NSValue valueWithCGRect:rect6],[NSValue valueWithCGRect:rect7],[NSValue valueWithCGRect:rect8],[NSValue valueWithCGRect:rect9],[NSValue valueWithCGRect:rect10]] withImageArray:self.imageArray];
     
+    UILabel *label1 = [[UILabel alloc] init];
+    label1.textAlignment = NSTextAlignmentCenter;
+    label1.text = [self.infoDic objectForKey:@"name"];
+    label1.font = [JFTools fontWithSize:23 withType:1];
+    [self.picBkView addSubview:label1];
+    [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.picBkView.mas_left).offset(picWidth);
+        make.top.equalTo(self.picBkView.mas_top).offset(10);
+    }];
+    
+    UILabel *label2 = [[UILabel alloc] init];
+    label2.textAlignment = NSTextAlignmentCenter;
+    label2.text = [NSString stringWithFormat:@"H:%@cm W:%@kg BWH:%@-%@-%@ S:%@",[self.infoDic objectForKey:@"shengao"],[self.infoDic objectForKey:@"tizhong"],[self.infoDic objectForKey:@"xiongwei"],[self.infoDic objectForKey:@"yaowei"],[self.infoDic objectForKey:@"tunwei"],[self.infoDic objectForKey:@"xiema"]];
+    label2.font = [JFTools fontWithSize:8 withType:0];
+    [self.picBkView addSubview:label2];
+    [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.picBkView.mas_bottom).offset(-10);
+        make.centerX.equalTo(self.picBkView.mas_left).offset(picWidth);
+    }];
+    
+
 }
 - (void)makeMoban9{
+    CGFloat picWidth = (self.picBkView.width-6)/6;
+    CGFloat picHeight = (self.picBkView.height - 6)/2;
+    CGRect rect1 = CGRectMake(2, 2, picWidth*2-4, self.picBkView.height - 4);
+    CGRect rect2 = CGRectMake(CGRectGetMaxX(rect1)+2, 2, picWidth, picHeight);
+    CGRect rect3 = CGRectMake(CGRectGetMaxX(rect2)+2, 2, picWidth, picHeight);
+    CGRect rect4 = CGRectMake(CGRectGetMaxX(rect3)+2, 2, picWidth*2, self.picBkView.height - 4);
+    CGRect rect5 = CGRectMake(CGRectGetMaxX(rect1)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    CGRect rect6 = CGRectMake(CGRectGetMaxX(rect5)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
     
+    [self addAllScrollViewWithRectArray:@[[NSValue valueWithCGRect:rect1],[NSValue valueWithCGRect:rect2],[NSValue valueWithCGRect:rect3],[NSValue valueWithCGRect:rect4],[NSValue valueWithCGRect:rect5],[NSValue valueWithCGRect:rect6]] withImageArray:self.imageArray];
+    
+    UIView *labelBkView = [[UIView alloc] init];
+    labelBkView.frame = CGRectMake(2, self.picBkView.height - 80, picWidth*2-4, 60);
+    labelBkView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+    [self.picBkView addSubview:labelBkView];
+    
+    UILabel *label1 = [[UILabel alloc] init];
+    label1.textColor = WHITECOLOR;
+    label1.textAlignment = NSTextAlignmentCenter;
+    label1.text = [self.infoDic objectForKey:@"name"];
+    label1.font = [JFTools fontWithSize:25 withType:1];
+    [labelBkView addSubview:label1];
+    [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(labelBkView.mas_centerX);
+        make.top.equalTo(labelBkView.mas_top);
+    }];
+    
+    UILabel *label2 = [[UILabel alloc] init];
+    label2.textColor = WHITECOLOR;
+    label2.textAlignment = NSTextAlignmentCenter;
+    label2.text = [NSString stringWithFormat:@"H:%@cm W:%@kg BWH:%@-%@-%@ S:%@",[self.infoDic objectForKey:@"shengao"],[self.infoDic objectForKey:@"tizhong"],[self.infoDic objectForKey:@"xiongwei"],[self.infoDic objectForKey:@"yaowei"],[self.infoDic objectForKey:@"tunwei"],[self.infoDic objectForKey:@"xiema"]];
+    label2.font = [JFTools fontWithSize:9 withType:0];
+    [labelBkView addSubview:label2];
+    [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(labelBkView.mas_bottom).offset(-10);
+        make.centerX.equalTo(labelBkView.mas_centerX);
+    }];
+ 
 }
 - (void)makeMoban10{
+    CGFloat picWidth = (self.picBkView.width-8)/7;
+    CGFloat picHeight = (self.picBkView.height - 6)/2;
+    CGRect rect1 = CGRectMake(2, 2, picWidth*2-4, self.picBkView.height-4);
+    CGRect rect2 = CGRectMake(CGRectGetMaxX(rect1)+2, 2, picWidth, picHeight);
+    CGRect rect3 = CGRectMake(CGRectGetMaxX(rect2)+2, 2, picWidth, picHeight);
+    CGRect rect4 = CGRectMake(CGRectGetMaxX(rect3)+2, 2, picWidth, picHeight);
+    CGRect rect8 = CGRectMake(CGRectGetMaxX(rect4)+2, 2, picWidth*2, self.picBkView.height - 4);
+    CGRect rect5 = CGRectMake(CGRectGetMaxX(rect1)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    CGRect rect6 = CGRectMake(CGRectGetMaxX(rect5)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    CGRect rect7 = CGRectMake(CGRectGetMaxX(rect6)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
     
+    [self addAllScrollViewWithRectArray:@[[NSValue valueWithCGRect:rect1],[NSValue valueWithCGRect:rect2],[NSValue valueWithCGRect:rect3],[NSValue valueWithCGRect:rect4],[NSValue valueWithCGRect:rect8],[NSValue valueWithCGRect:rect5],[NSValue valueWithCGRect:rect6],[NSValue valueWithCGRect:rect7]] withImageArray:self.imageArray];
+    
+    UIView *labelBkView = [[UIView alloc] init];
+    labelBkView.frame = CGRectMake(2, self.picBkView.height - 80, picWidth*2-4, 60);
+    labelBkView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+    [self.picBkView addSubview:labelBkView];
+    
+    UILabel *label1 = [[UILabel alloc] init];
+    label1.textColor = WHITECOLOR;
+    label1.textAlignment = NSTextAlignmentCenter;
+    label1.text = [self.infoDic objectForKey:@"name"];
+    label1.font = [JFTools fontWithSize:25 withType:1];
+    [labelBkView addSubview:label1];
+    [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(labelBkView.mas_centerX);
+        make.top.equalTo(labelBkView.mas_top);
+    }];
+    
+    UILabel *label2 = [[UILabel alloc] init];
+    label2.textColor = WHITECOLOR;
+    label2.textAlignment = NSTextAlignmentCenter;
+    label2.text = [NSString stringWithFormat:@"H:%@cm W:%@kg BWH:%@-%@-%@ S:%@",[self.infoDic objectForKey:@"shengao"],[self.infoDic objectForKey:@"tizhong"],[self.infoDic objectForKey:@"xiongwei"],[self.infoDic objectForKey:@"yaowei"],[self.infoDic objectForKey:@"tunwei"],[self.infoDic objectForKey:@"xiema"]];
+    label2.font = [JFTools fontWithSize:8 withType:0];
+    [labelBkView addSubview:label2];
+    [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(labelBkView.mas_bottom).offset(-10);
+        make.centerX.equalTo(labelBkView.mas_centerX);
+    }];
+
 }
 - (void)makeMoban11{
+    CGFloat picWidth = (self.picBkView.width-10)/8;
+    CGFloat picHeight = (self.picBkView.height - 6)/2;
+    CGRect rect1 = CGRectMake(2, 2, picWidth*2-4, self.picBkView.height-4);
+    CGRect rect2 = CGRectMake(CGRectGetMaxX(rect1)+2, 2, picWidth, picHeight);
+    CGRect rect3 = CGRectMake(CGRectGetMaxX(rect2)+2, 2, picWidth, picHeight);
+    CGRect rect4 = CGRectMake(CGRectGetMaxX(rect3)+2, 2, picWidth, picHeight);
+    CGRect rect5 = CGRectMake(CGRectGetMaxX(rect4)+2, 2, picWidth, picHeight);
+    CGRect rect6 = CGRectMake(CGRectGetMaxX(rect5)+2, 2, picWidth*2, self.picBkView.height - 4);
+    CGRect rect7 = CGRectMake(CGRectGetMaxX(rect1)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    CGRect rect8 = CGRectMake(CGRectGetMaxX(rect7)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    CGRect rect9 = CGRectMake(CGRectGetMaxX(rect8)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    CGRect rect10 = CGRectMake(CGRectGetMaxX(rect9)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
     
+    [self addAllScrollViewWithRectArray:@[[NSValue valueWithCGRect:rect1],[NSValue valueWithCGRect:rect2],[NSValue valueWithCGRect:rect3],[NSValue valueWithCGRect:rect4],[NSValue valueWithCGRect:rect5],[NSValue valueWithCGRect:rect6],[NSValue valueWithCGRect:rect7],[NSValue valueWithCGRect:rect8],[NSValue valueWithCGRect:rect9],[NSValue valueWithCGRect:rect10]] withImageArray:self.imageArray];
+    
+    UIView *labelBkView = [[UIView alloc] init];
+    labelBkView.frame = CGRectMake(2, self.picBkView.height - 80, picWidth*2-4, 60);
+    labelBkView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+    [self.picBkView addSubview:labelBkView];
+    
+    UILabel *label1 = [[UILabel alloc] init];
+    label1.textColor = WHITECOLOR;
+    label1.textAlignment = NSTextAlignmentCenter;
+    label1.text = [self.infoDic objectForKey:@"name"];
+    label1.font = [JFTools fontWithSize:25 withType:1];
+    [labelBkView addSubview:label1];
+    [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(labelBkView.mas_centerX);
+        make.top.equalTo(labelBkView.mas_top);
+    }];
+    
+    UILabel *label2 = [[UILabel alloc] init];
+    label2.textColor = WHITECOLOR;
+    label2.textAlignment = NSTextAlignmentCenter;
+    label2.text = [NSString stringWithFormat:@"H:%@cm W:%@kg BWH:%@-%@-%@ S:%@",[self.infoDic objectForKey:@"shengao"],[self.infoDic objectForKey:@"tizhong"],[self.infoDic objectForKey:@"xiongwei"],[self.infoDic objectForKey:@"yaowei"],[self.infoDic objectForKey:@"tunwei"],[self.infoDic objectForKey:@"xiema"]];
+    label2.font = [JFTools fontWithSize:8 withType:0];
+    [labelBkView addSubview:label2];
+    [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(labelBkView.mas_bottom).offset(-10);
+        make.centerX.equalTo(labelBkView.mas_centerX);
+    }];
+  
 }
 - (void)makeMoban12{
     

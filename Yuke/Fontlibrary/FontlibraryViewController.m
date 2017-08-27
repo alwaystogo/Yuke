@@ -21,10 +21,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.listArray = @[@"高端黑",@"庞门正道标题体",@"思源",@"站酷快乐体",@"郑庆科黄油体"];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self createUI];
     
-    [self requestFontListData];
+    //[self requestFontListData];
 }
 
 - (void)createUI{
@@ -68,7 +69,8 @@
     cell.backgroundColor = [UIColor grayColor];
     cell.layer.cornerRadius = 5;
     cell.picImageView.layer.cornerRadius = 5;
-    [cell.picImageView getImageWithUrl:[self.listArray[indexPath.row] objectForKeySafe:@"thumb"] placeholderImage:[UIImage imageNamed:PlaceHolderPic]];
+    //[cell.picImageView getImageWithUrl:[self.listArray[indexPath.row] objectForKeySafe:@"thumb"] placeholderImage:[UIImage imageNamed:PlaceHolderPic]];
+    cell.picImageView.image = ImageNamed(self.listArray[indexPath.row]);
     return cell;
 }
 

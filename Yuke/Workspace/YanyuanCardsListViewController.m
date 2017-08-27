@@ -98,6 +98,7 @@
 
 - (void)tapImageViewAction{
     
+    //竖
     [LoginViewController checkLogin:^(BOOL result) {
         
         if (result) {

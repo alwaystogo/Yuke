@@ -105,6 +105,7 @@
     label2.centerX = imageView2.centerX;
     label2.text = @"开通会员";
     label2.font = FONT_REGULAR(12);
+    //label2.font = [UIFont fontWithName:@"思源黑体 CN" size:12];
     label2.textColor = COLOR_HEX(0x333333, 1);
     label2.textAlignment = NSTextAlignmentCenter;
     label2.userInteractionEnabled = YES;

@@ -71,6 +71,7 @@
     NSLog(@"点击了-%ld",indexPath.section);
     self.selectedNum = indexPath.section;
     
+    //横
     [LoginViewController checkLogin:^(BOOL result) {
         
         if (result) {
@@ -89,37 +90,37 @@
                 max = 9;
             }
             if (self.selectedNum == 4) {
-                max = 1;
+                max = 6;
             }
             if (self.selectedNum == 5) {
-                max = 1;
+                max = 7;
             }
             if (self.selectedNum == 6) {
-                max = 1;
+                max = 8;
             }
             if (self.selectedNum == 7) {
-                max = 1;
+                max = 10;
             }
             if (self.selectedNum == 8) {
-                max = 2;
+                max = 6;
             }
             if (self.selectedNum == 9) {
-                max = 3;
+                max = 8;
             }
             if (self.selectedNum == 10) {
-                max = 4;
+                max = 10;
             }
             if (self.selectedNum == 11) {
-                max = 4;
+                max = 8;
             }
             if (self.selectedNum == 12) {
                 max = 9;
             }
             if (self.selectedNum == 13) {
-                max = 9;
+                max = 1;
             }
             if (self.selectedNum == 14) {
-                max = 17;
+                max = 1;
             }
             
             WeakSelf
