@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		A1CEFF70B4B75806BE5433A3 /* libPods-Yuke.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE4BF8FEA962BF522F157E8F /* libPods-Yuke.a */; };
+		AE16BE941F54200400BD2C05 /* shangwutop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BE921F54200400BD2C05 /* shangwutop@2x.png */; };
+		AE16BE951F54200400BD2C05 /* shangwutop@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BE931F54200400BD2C05 /* shangwutop@3x.png */; };
+		AE16BE9A1F54201800BD2C05 /* sina@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BE961F54201800BD2C05 /* sina@2x.png */; };
+		AE16BE9B1F54201800BD2C05 /* sina@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BE971F54201800BD2C05 /* sina@3x.png */; };
+		AE16BE9C1F54201800BD2C05 /* tp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BE981F54201800BD2C05 /* tp@2x.png */; };
+		AE16BE9D1F54201800BD2C05 /* tp@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BE991F54201800BD2C05 /* tp@3x.png */; };
+		AE16BEA01F54201F00BD2C05 /* wechat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BE9E1F54201F00BD2C05 /* wechat@2x.png */; };
+		AE16BEA11F54201F00BD2C05 /* wechat@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BE9F1F54201F00BD2C05 /* wechat@3x.png */; };
+		AE16BEA41F54202B00BD2C05 /* email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BEA21F54202B00BD2C05 /* email@2x.png */; };
+		AE16BEA51F54202B00BD2C05 /* email@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BEA31F54202B00BD2C05 /* email@3x.png */; };
 		AE5DC51A1F3461CA003215FB /* GLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5DC3D91F3461C9003215FB /* GLProgram.m */; };
 		AE5DC51B1F3461CA003215FB /* GPUImage3x3ConvolutionFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5DC3DC1F3461C9003215FB /* GPUImage3x3ConvolutionFilter.m */; };
 		AE5DC51C1F3461CA003215FB /* GPUImage3x3TextureSamplingFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5DC3DE1F3461C9003215FB /* GPUImage3x3TextureSamplingFilter.m */; };
@@ -480,6 +490,16 @@
 /* Begin PBXFileReference section */
 		0E1014C73570FA9F07201DC1 /* Pods-Yuke.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yuke.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Yuke/Pods-Yuke.debug.xcconfig"; sourceTree = "<group>"; };
 		6CA77A58C61E3C3AD705F958 /* Pods-Yuke.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yuke.release.xcconfig"; path = "Pods/Target Support Files/Pods-Yuke/Pods-Yuke.release.xcconfig"; sourceTree = "<group>"; };
+		AE16BE921F54200400BD2C05 /* shangwutop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shangwutop@2x.png"; sourceTree = "<group>"; };
+		AE16BE931F54200400BD2C05 /* shangwutop@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shangwutop@3x.png"; sourceTree = "<group>"; };
+		AE16BE961F54201800BD2C05 /* sina@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sina@2x.png"; sourceTree = "<group>"; };
+		AE16BE971F54201800BD2C05 /* sina@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sina@3x.png"; sourceTree = "<group>"; };
+		AE16BE981F54201800BD2C05 /* tp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tp@2x.png"; sourceTree = "<group>"; };
+		AE16BE991F54201800BD2C05 /* tp@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tp@3x.png"; sourceTree = "<group>"; };
+		AE16BE9E1F54201F00BD2C05 /* wechat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechat@2x.png"; sourceTree = "<group>"; };
+		AE16BE9F1F54201F00BD2C05 /* wechat@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechat@3x.png"; sourceTree = "<group>"; };
+		AE16BEA21F54202B00BD2C05 /* email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email@2x.png"; sourceTree = "<group>"; };
+		AE16BEA31F54202B00BD2C05 /* email@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email@3x.png"; sourceTree = "<group>"; };
 		AE5DC3D81F3461C9003215FB /* GLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProgram.h; sourceTree = "<group>"; };
 		AE5DC3D91F3461C9003215FB /* GLProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLProgram.m; sourceTree = "<group>"; };
 		AE5DC3DA1F3461C9003215FB /* GPUImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImage.h; sourceTree = "<group>"; };
@@ -2124,6 +2144,16 @@
 		AE7FA0B01F0DE9DD009A8F12 /* Homepage */ = {
 			isa = PBXGroup;
 			children = (
+				AE16BEA21F54202B00BD2C05 /* email@2x.png */,
+				AE16BEA31F54202B00BD2C05 /* email@3x.png */,
+				AE16BE9E1F54201F00BD2C05 /* wechat@2x.png */,
+				AE16BE9F1F54201F00BD2C05 /* wechat@3x.png */,
+				AE16BE961F54201800BD2C05 /* sina@2x.png */,
+				AE16BE971F54201800BD2C05 /* sina@3x.png */,
+				AE16BE981F54201800BD2C05 /* tp@2x.png */,
+				AE16BE991F54201800BD2C05 /* tp@3x.png */,
+				AE16BE921F54200400BD2C05 /* shangwutop@2x.png */,
+				AE16BE931F54200400BD2C05 /* shangwutop@3x.png */,
 				E8E873A61F2F789E00DB944F /* video_play_btn_bg@2x.png */,
 				AEDDAB661F1F5B59006BD05A /* 新浪微博@2x.png */,
 				AEDDAB671F1F5B59006BD05A /* 新浪微博@3x.png */,
@@ -2490,11 +2520,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E82281311F4C7EDC00AEC2F1 /* icon8@3x.png in Resources */,
+				AE16BE941F54200400BD2C05 /* shangwutop@2x.png in Resources */,
 				E82280FD1F4C7BA900AEC2F1 /* kai1@3x.png in Resources */,
 				AE7FA0C41F0E0D95009A8F12 /* MineCell.xib in Resources */,
 				E82280DF1F4C77AE00AEC2F1 /* shangwu@3x.png in Resources */,
 				E82280F31F4C7A1600AEC2F1 /* shipinbofang@3x.png in Resources */,
 				AE7FA0CD1F0E207E009A8F12 /* Settings.storyboard in Resources */,
+				AE16BEA11F54201F00BD2C05 /* wechat@3x.png in Resources */,
 				AEABCC881F4ACFDE00C4A3D3 /* NotoSansCJK-Thin.otf in Resources */,
 				E82FDD011F1E490400A3A9A3 /* ShangwuhezuoViewController.xib in Resources */,
 				AEDDAB771F1F5B59006BD05A /* QQ空间@3x.png in Resources */,
@@ -2596,11 +2628,13 @@
 				E80D48161F531525003BA0A5 /* 水印1.png in Resources */,
 				E80D48181F531525003BA0A5 /* 水印3.png in Resources */,
 				E822812D1F4C7EDC00AEC2F1 /* fen@3x.png in Resources */,
+				AE16BE9B1F54201800BD2C05 /* sina@3x.png in Resources */,
 				E8E873701F2DAC5E00DB944F /* SavePicViewController.xib in Resources */,
 				E822813F1F4C818C00AEC2F1 /* mima@3x.png in Resources */,
 				E82280B71F4C733800AEC2F1 /* img1@3x.png in Resources */,
 				AE7FA0B71F0DE9FA009A8F12 /* unloginphoto@3x.png in Resources */,
 				AEDDAB791F1F5B59006BD05A /* weixin-@3x.png in Resources */,
+				AE16BEA01F54201F00BD2C05 /* wechat@2x.png in Resources */,
 				AEDDAB641F1F3DF0006BD05A /* lunbotu@2x.png in Resources */,
 				AE7222681F4D544100DCABCD /* phone@3x.png in Resources */,
 				E82281391F4C7EDC00AEC2F1 /* xiugai@3x.png in Resources */,
@@ -2611,6 +2645,7 @@
 				AEABCCAF1F4D4F3F00C4A3D3 /* camera1@2x.png in Resources */,
 				AEABCCBC1F4D4F3F00C4A3D3 /* my1@3x.png in Resources */,
 				AEA366061F42DC680057AB3E /* ZitiCollectionViewCell.xib in Resources */,
+				AE16BEA51F54202B00BD2C05 /* email@3x.png in Resources */,
 				AE7222601F4D544100DCABCD /* dengluarrow@3x.png in Resources */,
 				E82281551F511E3800AEC2F1 /* 庞门正道标题体@3x.png in Resources */,
 				E82280F71F4C7AFE00AEC2F1 /* yuyuepaishe@3x.png in Resources */,
@@ -2624,6 +2659,7 @@
 				E822812A1F4C7EDC00AEC2F1 /* huiyuan@2x.png in Resources */,
 				AEDDAB741F1F5B59006BD05A /* QQ@2x.png in Resources */,
 				AEB3D7231F1375A70091EE21 /* YuePaisheTableViewCell.xib in Resources */,
+				AE16BE9D1F54201800BD2C05 /* tp@3x.png in Resources */,
 				E82281361F4C7EDC00AEC2F1 /* shiyong@2x.png in Resources */,
 				AEABCC8B1F4ACFDE00C4A3D3 /* 庞门正道标题体（收费2￥会员免费）.ttf in Resources */,
 				AE7FA0D01F0E2567009A8F12 /* black_fanhui@2x.png in Resources */,
@@ -2633,10 +2669,12 @@
 				E82281581F511E3800AEC2F1 /* 站酷快乐体@2x.png in Resources */,
 				AE7FA0BE1F0DEA8B009A8F12 /* xiangce@2x.png in Resources */,
 				AE5DC5BE1F347187003215FB /* selfH.MOV in Resources */,
+				AE16BEA41F54202B00BD2C05 /* email@2x.png in Resources */,
 				E82281381F4C7EDC00AEC2F1 /* xiugai@2x.png in Resources */,
 				AEDDAB711F1F5B59006BD05A /* 新浪微博@3x.png in Resources */,
 				AEDDAB751F1F5B59006BD05A /* QQ@3x.png in Resources */,
 				AE61B5FE1F02065400C1F930 /* Main.storyboard in Resources */,
+				AE16BE9C1F54201800BD2C05 /* tp@2x.png in Resources */,
 				AEDDAB521F1DB2A3006BD05A /* PicShowCell.xib in Resources */,
 				E82281331F4C7EDC00AEC2F1 /* icon9@3x.png in Resources */,
 				AEB3D73D1F1898BB0091EE21 /* NewHuodongCell.xib in Resources */,
@@ -2651,9 +2689,11 @@
 				E82281541F511E3800AEC2F1 /* 庞门正道标题体@2x.png in Resources */,
 				AEABCCBF1F4D4F3F00C4A3D3 /* text1@2x.png in Resources */,
 				E822813A1F4C7EDC00AEC2F1 /* zhuye@2x.png in Resources */,
+				AE16BE951F54200400BD2C05 /* shangwutop@3x.png in Resources */,
 				E822813E1F4C818C00AEC2F1 /* mima@2x.png in Resources */,
 				AEABCCB91F4D4F3F00C4A3D3 /* my@2x.png in Resources */,
 				E82280DB1F4C77AE00AEC2F1 /* yirenzhuanfang@3x.png in Resources */,
+				AE16BE9A1F54201800BD2C05 /* sina@2x.png in Resources */,
 				AE7222621F4D544100DCABCD /* bg@3x.png in Resources */,
 				E822812F1F4C7EDC00AEC2F1 /* icon7@3x.png in Resources */,
 				AEABCC8D1F4ACFDE00C4A3D3 /* 郑庆科黄油体（收费2￥会员免费）.ttf in Resources */,

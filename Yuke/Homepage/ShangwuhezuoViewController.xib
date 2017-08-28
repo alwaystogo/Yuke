@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,7 +25,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JR8-HT-A87">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5hu-uc-JyP">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shangwutop.png" translatesAutoresizingMaskIntoConstraints="NO" id="5hu-uc-JyP">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                     <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
@@ -44,21 +44,21 @@
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EdB-qe-f4I">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email.png" translatesAutoresizingMaskIntoConstraints="NO" id="EdB-qe-f4I">
                                     <rect key="frame" x="166.5" y="205" width="42" height="42"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="42" id="gdW-Po-9ml"/>
                                         <constraint firstAttribute="height" constant="42" id="mIW-ZO-l16"/>
                                     </constraints>
                                 </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sul-bW-veQ">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wechat.png" translatesAutoresizingMaskIntoConstraints="NO" id="Sul-bW-veQ">
                                     <rect key="frame" x="40" y="205" width="42" height="42"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="42" id="81A-CA-bUj"/>
                                         <constraint firstAttribute="width" constant="42" id="WFl-ct-5hu"/>
                                     </constraints>
                                 </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c5k-el-O32">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sina.png" translatesAutoresizingMaskIntoConstraints="NO" id="c5k-el-O32">
                                     <rect key="frame" x="293" y="205" width="42" height="42"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="42" id="Epz-ei-xqw"/>
@@ -248,9 +248,9 @@
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FZL-jp-fZg">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tp.png" translatesAutoresizingMaskIntoConstraints="NO" id="FZL-jp-fZg">
                                     <rect key="frame" x="67" y="487" width="240" height="128"/>
-                                    <color key="backgroundColor" red="0.54457031249999999" green="0.38520099237428529" blue="0.13640145383223387" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="128" id="A7s-nl-67T"/>
                                         <constraint firstAttribute="width" constant="240" id="ZxL-nO-BjJ"/>
@@ -354,4 +354,11 @@
             <point key="canvasLocation" x="42.5" y="2378.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="email.png" width="84" height="84"/>
+        <image name="shangwutop.png" width="750" height="344"/>
+        <image name="sina.png" width="84" height="84"/>
+        <image name="tp.png" width="671" height="375"/>
+        <image name="wechat.png" width="84" height="84"/>
+    </resources>
 </document>
