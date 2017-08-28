@@ -1755,13 +1755,416 @@
 
 }
 - (void)makeMoban17{
+    CGFloat left = 60;
+    CGFloat picWidth = (self.picBkView.width-8 -left)/5;
+    CGFloat picHeight = (self.picBkView.height - 6)/2;
+    CGRect rect1 = CGRectMake(2, 2, picWidth*2, picHeight*2+2);
+    CGRect rect2 = CGRectMake(CGRectGetMaxX(rect1)+60, 2, picWidth, picHeight);
+    CGRect rect3 = CGRectMake(CGRectGetMaxX(rect2)+2, 2, picWidth, picHeight);
+    CGRect rect4 = CGRectMake(CGRectGetMaxX(rect3)+2, 2, picWidth, picHeight);
+    CGRect rect6 = CGRectMake(CGRectGetMaxX(rect1)+60, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    CGRect rect7 = CGRectMake(CGRectGetMaxX(rect6)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    CGRect rect8 = CGRectMake(CGRectGetMaxX(rect7)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
     
+    [self addAllScrollViewWithRectArray:@[[NSValue valueWithCGRect:rect1],[NSValue valueWithCGRect:rect2],[NSValue valueWithCGRect:rect3],[NSValue valueWithCGRect:rect4],[NSValue valueWithCGRect:rect6],[NSValue valueWithCGRect:rect7],[NSValue valueWithCGRect:rect8]] withImageArray:self.imageArray];
+    
+    NSInteger fontSize = 11;
+    
+    UILabel *label1 = [[UILabel alloc] init];
+    label1.textColor = COLOR_RGB(255, 0, 97, 1);
+    label1.tag = 1006;
+    label1.text = @"NAME";
+    label1.font = [JFTools fontWithSize:fontSize withType:1];
+    [self.picBkView addSubview:label1];
+    [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.picBkView.mas_left).offset(CGRectGetMaxX(rect1)+5);
+        make.top.equalTo(self.picBkView.mas_top).offset(40);
+    }];
+    UILabel *labe2 = [[UILabel alloc] init];
+    labe2.textColor = COLOR_RGB(255, 0, 97, 1);
+    labe2.tag = 1007;
+    labe2.text = [self.infoDic objectForKey:@"name"];
+    labe2.font = [JFTools fontWithSize:fontSize withType:1];
+    [self.picBkView addSubview:labe2];
+    [labe2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label1.mas_bottom);
+    }];
+    UILabel *label3 = [[UILabel alloc] init];
+    label3.text = @"HEIGHT";
+    label3.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label3];
+    [label3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(labe2.mas_bottom).offset(20);
+    }];
+    UILabel *label9 = [[UILabel alloc] init];
+    label9.text = [self.infoDic objectForKey:@"shengao"];
+    label9.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label9];
+    [label9 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label3.mas_bottom);
+    }];
+    
+    UILabel *label4 = [[UILabel alloc] init];
+    label4.text = @"WEIGHT";
+    label4.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label4];
+    [label4 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label9.mas_bottom);
+    }];
+    UILabel *label10 = [[UILabel alloc] init];
+    label10.text =[self.infoDic objectForKey:@"tizhong"];
+    label10.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label10];
+    [label10 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label4.mas_bottom);
+    }];
+    UILabel *label5 = [[UILabel alloc] init];
+    label5.text =@"BUST";
+    label5.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label5];
+    [label5 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label10.mas_bottom);
+    }];
+    UILabel *label11 = [[UILabel alloc] init];
+    label11.text = [self.infoDic objectForKey:@"xiongwei"];
+    label11.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label11];
+    [label11 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label5.mas_bottom);
+    }];
+    
+    UILabel *label6 = [[UILabel alloc] init];
+    label6.text =@"WAIST";
+    label6.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label6];
+    [label6 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label11.mas_bottom);
+    }];
+    UILabel *label12 = [[UILabel alloc] init];
+    label12.text = [self.infoDic objectForKey:@"yaowei"];
+    label12.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label12];
+    [label12 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label6.mas_bottom);
+    }];
+    UILabel *label7 = [[UILabel alloc] init];
+    label7.text =@"HIPS";
+    label7.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label7];
+    [label7 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label12.mas_bottom);
+    }];
+    UILabel *label13 = [[UILabel alloc] init];
+    label13.text = [self.infoDic objectForKey:@"tunwei"];
+    label13.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label13];
+    [label13 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label7.mas_bottom);
+    }];
+    UILabel *label8 = [[UILabel alloc] init];
+    label8.text =@"SHOES";
+    label8.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label8];
+    [label8 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label13.mas_bottom);
+    }];
+    
+    UILabel *label14 = [[UILabel alloc] init];
+    label14.text = [self.infoDic objectForKey:@"xiema"];
+    label14.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label14];
+    [label14 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label8.mas_bottom);
+    }];
+
 }
 - (void)makeMoban18{
+    CGFloat left = 60;
+    CGFloat picWidth = (self.picBkView.width-8 -left)/6;
+    CGFloat picHeight = (self.picBkView.height - 6)/2;
+    CGRect rect1 = CGRectMake(2, 2, picWidth*2, picHeight*2+2);
+    CGRect rect2 = CGRectMake(CGRectGetMaxX(rect1)+60, 2, picWidth, picHeight);
+    CGRect rect3 = CGRectMake(CGRectGetMaxX(rect2)+2, 2, picWidth, picHeight);
+    CGRect rect4 = CGRectMake(CGRectGetMaxX(rect3)+2, 2, picWidth*2, picHeight*2+2);
+    CGRect rect6 = CGRectMake(CGRectGetMaxX(rect1)+60, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    CGRect rect7 = CGRectMake(CGRectGetMaxX(rect6)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
     
+    [self addAllScrollViewWithRectArray:@[[NSValue valueWithCGRect:rect1],[NSValue valueWithCGRect:rect2],[NSValue valueWithCGRect:rect3],[NSValue valueWithCGRect:rect4],[NSValue valueWithCGRect:rect6],[NSValue valueWithCGRect:rect7]] withImageArray:self.imageArray];
+    
+    NSInteger fontSize = 11;
+    
+    UILabel *label1 = [[UILabel alloc] init];
+    label1.textColor = COLOR_RGB(255, 0, 97, 1);
+    label1.tag = 1006;
+    label1.text = @"NAME";
+    label1.font = [JFTools fontWithSize:fontSize withType:1];
+    [self.picBkView addSubview:label1];
+    [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.picBkView.mas_left).offset(CGRectGetMaxX(rect1)+5);
+        make.top.equalTo(self.picBkView.mas_top).offset(40);
+    }];
+    UILabel *labe2 = [[UILabel alloc] init];
+    labe2.textColor = COLOR_RGB(255, 0, 97, 1);
+    labe2.tag = 1007;
+    labe2.text = [self.infoDic objectForKey:@"name"];
+    labe2.font = [JFTools fontWithSize:fontSize withType:1];
+    [self.picBkView addSubview:labe2];
+    [labe2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label1.mas_bottom);
+    }];
+    UILabel *label3 = [[UILabel alloc] init];
+    label3.text = @"HEIGHT";
+    label3.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label3];
+    [label3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(labe2.mas_bottom).offset(20);
+    }];
+    UILabel *label9 = [[UILabel alloc] init];
+    label9.text = [self.infoDic objectForKey:@"shengao"];
+    label9.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label9];
+    [label9 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label3.mas_bottom);
+    }];
+    
+    UILabel *label4 = [[UILabel alloc] init];
+    label4.text = @"WEIGHT";
+    label4.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label4];
+    [label4 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label9.mas_bottom);
+    }];
+    UILabel *label10 = [[UILabel alloc] init];
+    label10.text =[self.infoDic objectForKey:@"tizhong"];
+    label10.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label10];
+    [label10 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label4.mas_bottom);
+    }];
+    UILabel *label5 = [[UILabel alloc] init];
+    label5.text =@"BUST";
+    label5.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label5];
+    [label5 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label10.mas_bottom);
+    }];
+    UILabel *label11 = [[UILabel alloc] init];
+    label11.text = [self.infoDic objectForKey:@"xiongwei"];
+    label11.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label11];
+    [label11 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label5.mas_bottom);
+    }];
+    
+    UILabel *label6 = [[UILabel alloc] init];
+    label6.text =@"WAIST";
+    label6.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label6];
+    [label6 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label11.mas_bottom);
+    }];
+    UILabel *label12 = [[UILabel alloc] init];
+    label12.text = [self.infoDic objectForKey:@"yaowei"];
+    label12.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label12];
+    [label12 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label6.mas_bottom);
+    }];
+    UILabel *label7 = [[UILabel alloc] init];
+    label7.text =@"HIPS";
+    label7.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label7];
+    [label7 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label12.mas_bottom);
+    }];
+    UILabel *label13 = [[UILabel alloc] init];
+    label13.text = [self.infoDic objectForKey:@"tunwei"];
+    label13.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label13];
+    [label13 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label7.mas_bottom);
+    }];
+    UILabel *label8 = [[UILabel alloc] init];
+    label8.text =@"SHOES";
+    label8.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label8];
+    [label8 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label13.mas_bottom);
+    }];
+    
+    UILabel *label14 = [[UILabel alloc] init];
+    label14.text = [self.infoDic objectForKey:@"xiema"];
+    label14.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label14];
+    [label14 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label8.mas_bottom);
+    }];
+ 
 }
 - (void)makeMoban19{
+    CGFloat left = 60;
+    CGFloat picWidth = (self.picBkView.width-10 -left)/6;
+    CGFloat picHeight = (self.picBkView.height - 6)/2;
+    CGRect rect1 = CGRectMake(2, 2, picWidth*2, picHeight*2+2);
+    CGRect rect2 = CGRectMake(CGRectGetMaxX(rect1)+60, 2, picWidth, picHeight);
+    CGRect rect3 = CGRectMake(CGRectGetMaxX(rect2)+2, 2, picWidth, picHeight);
+    CGRect rect4 = CGRectMake(CGRectGetMaxX(rect3)+2, 2, picWidth, picHeight);
+    CGRect rect5 = CGRectMake(CGRectGetMaxX(rect4)+2, 2, picWidth, picHeight);
+    CGRect rect6 = CGRectMake(CGRectGetMaxX(rect1)+60, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    CGRect rect7 = CGRectMake(CGRectGetMaxX(rect6)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    CGRect rect8 = CGRectMake(CGRectGetMaxX(rect7)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
+    CGRect rect9 = CGRectMake(CGRectGetMaxX(rect8)+2, CGRectGetMaxY(rect2)+2, picWidth, picHeight);
     
+    [self addAllScrollViewWithRectArray:@[[NSValue valueWithCGRect:rect1],[NSValue valueWithCGRect:rect2],[NSValue valueWithCGRect:rect3],[NSValue valueWithCGRect:rect4],[NSValue valueWithCGRect:rect5],[NSValue valueWithCGRect:rect6],[NSValue valueWithCGRect:rect7],[NSValue valueWithCGRect:rect8],[NSValue valueWithCGRect:rect9]] withImageArray:self.imageArray];
+    
+    NSInteger fontSize = 11;
+    
+    UILabel *label1 = [[UILabel alloc] init];
+    label1.textColor = COLOR_RGB(255, 0, 97, 1);
+    label1.tag = 1006;
+    label1.text = @"NAME";
+    label1.font = [JFTools fontWithSize:fontSize withType:1];
+    [self.picBkView addSubview:label1];
+    [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.picBkView.mas_left).offset(CGRectGetMaxX(rect1)+5);
+        make.top.equalTo(self.picBkView.mas_top).offset(40);
+    }];
+    UILabel *labe2 = [[UILabel alloc] init];
+    labe2.textColor = COLOR_RGB(255, 0, 97, 1);
+    labe2.tag = 1007;
+    labe2.text = [self.infoDic objectForKey:@"name"];
+    labe2.font = [JFTools fontWithSize:fontSize withType:1];
+    [self.picBkView addSubview:labe2];
+    [labe2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label1.mas_bottom);
+    }];
+    UILabel *label3 = [[UILabel alloc] init];
+    label3.text = @"HEIGHT";
+    label3.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label3];
+    [label3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(labe2.mas_bottom).offset(20);
+    }];
+    UILabel *label9 = [[UILabel alloc] init];
+    label9.text = [self.infoDic objectForKey:@"shengao"];
+    label9.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label9];
+    [label9 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label3.mas_bottom);
+    }];
+    
+    UILabel *label4 = [[UILabel alloc] init];
+    label4.text = @"WEIGHT";
+    label4.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label4];
+    [label4 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label9.mas_bottom);
+    }];
+    UILabel *label10 = [[UILabel alloc] init];
+    label10.text =[self.infoDic objectForKey:@"tizhong"];
+    label10.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label10];
+    [label10 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label4.mas_bottom);
+    }];
+    UILabel *label5 = [[UILabel alloc] init];
+    label5.text =@"BUST";
+    label5.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label5];
+    [label5 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label10.mas_bottom);
+    }];
+    UILabel *label11 = [[UILabel alloc] init];
+    label11.text = [self.infoDic objectForKey:@"xiongwei"];
+    label11.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label11];
+    [label11 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label5.mas_bottom);
+    }];
+    
+    UILabel *label6 = [[UILabel alloc] init];
+    label6.text =@"WAIST";
+    label6.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label6];
+    [label6 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label11.mas_bottom);
+    }];
+    UILabel *label12 = [[UILabel alloc] init];
+    label12.text = [self.infoDic objectForKey:@"yaowei"];
+    label12.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label12];
+    [label12 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label6.mas_bottom);
+    }];
+    UILabel *label7 = [[UILabel alloc] init];
+    label7.text =@"HIPS";
+    label7.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label7];
+    [label7 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label12.mas_bottom);
+    }];
+    UILabel *label13 = [[UILabel alloc] init];
+    label13.text = [self.infoDic objectForKey:@"tunwei"];
+    label13.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label13];
+    [label13 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label7.mas_bottom);
+    }];
+    UILabel *label8 = [[UILabel alloc] init];
+    label8.text =@"SHOES";
+    label8.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label8];
+    [label8 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label13.mas_bottom);
+    }];
+    
+    UILabel *label14 = [[UILabel alloc] init];
+    label14.text = [self.infoDic objectForKey:@"xiema"];
+    label14.font = [JFTools fontWithSize:fontSize withType:0];
+    [self.picBkView addSubview:label14];
+    [label14 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(label1.mas_left);
+        make.top.equalTo(label8.mas_bottom);
+    }];
+
 }
 - (void)makeMoban20{
     
