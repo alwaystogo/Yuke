@@ -40,6 +40,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)goBackToPrevPage{
+    [kAppDelegate.tabBarController setSelectedIndex:0];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 - (void)rightNavBtnAction{
     
     [self goBackToHomePage];

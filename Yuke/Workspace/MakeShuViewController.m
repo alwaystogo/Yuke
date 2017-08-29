@@ -9,6 +9,7 @@
 #import "MakeShuViewController.h"
 #import "ZitiCollectionViewCell.h"
 #import "CardScrollView.h"
+#import "SavePicViewController.h"
 
 #define  TopMenuHeight  35
 
@@ -456,20 +457,20 @@
 }
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
-    if (error) {
-        
-        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"标题" message:@"保存失败" preferredStyle:UIAlertControllerStyleAlert];
-        
-        [self presentViewController:alertVC animated:YES completion:nil];
-    }else
-    {
-        
-        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"标题" message:@"保存成功" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
-        [alertVC addAction:action];
-        [self presentViewController:alertVC animated:YES completion:nil];
-        
-    }
+//    if (error) {
+//        
+//        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"标题" message:@"保存失败" preferredStyle:UIAlertControllerStyleAlert];
+//        
+//        [self presentViewController:alertVC animated:YES completion:nil];
+//    }else
+//    {
+//        
+//        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"标题" message:@"保存成功" preferredStyle:UIAlertControllerStyleAlert];
+//        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+//        [alertVC addAction:action];
+//        [self presentViewController:alertVC animated:YES completion:nil];
+//        
+//    }
 }
 
 - (void)changeLabelTextColor{
@@ -535,6 +536,21 @@
     cutImage = [self addWaterTextWithImage:cutImage withLogo:ImageNamed(@"水印1")];
     
     UIImageWriteToSavedPhotosAlbum(cutImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    //上传图片
+    NSDictionary *dic = @{@"user_id":NON(kUserMoudle.user_Id)};
+    [JFTools showLoadingHUD];
+    [kJFClient uploadPictureWithMethod:@"index.php/Api/Card/update_card" param:dic picData:cutImage paramName:@"image" success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"---%@",responseObject);
+        //[JFTools showSuccessHUDWithTip:@"上传图片成功"];
+        [JFTools HUDHide];
+        
+        SavePicViewController *save = [[SavePicViewController alloc] init];
+        save.picImage = cutImage;
+        [kCurNavController pushViewController:save animated:YES];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [JFTools showFailureHUDWithTip:error.localizedDescription];
+    }];
+
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     

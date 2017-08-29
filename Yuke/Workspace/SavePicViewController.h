@@ -9,8 +9,10 @@
 #import "BaseViewController.h"
 
 @interface SavePicViewController : BaseViewController
+@property (weak, nonatomic) IBOutlet UIImageView *picImageView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *weixinImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *friendImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *weiboImageView;
+@property(nonatomic,strong)UIImage *picImage;
 @end

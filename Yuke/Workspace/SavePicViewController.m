@@ -33,6 +33,8 @@
     UITapGestureRecognizer *tap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(weiboAction)];
     [self.weiboImageView addGestureRecognizer:tap3];
 
+    self.picImageView.contentMode=UIViewContentModeScaleAspectFit;
+    self.picImageView.image = _picImage;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,6 +42,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)goBackToPrevPage{
+    [kAppDelegate.tabBarController setSelectedIndex:0];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 - (void)rightNavBtnAction{
     
     [self goBackToHomePage];
@@ -58,5 +64,8 @@
     
     NSLog(@"点击了微博");
 
+}
+- (void)setPicImage:(UIImage *)picImage{
+    _picImage = picImage;
 }
 @end
