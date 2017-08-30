@@ -21,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.listArray = @[@"高端黑",@"庞门正道标题体",@"思源",@"站酷快乐体",@"郑庆科黄油体"];
+    self.listArray = @[@"高端黑",@"庞门正道标题体",@"思源",@"站酷快乐体",@"方正兰亭黑简体",@"腾翔相思粗体",@"郑庆科黄油体",@"庞门正道标题体"];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self createUI];
     
