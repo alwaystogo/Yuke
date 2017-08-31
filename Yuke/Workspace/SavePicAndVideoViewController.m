@@ -33,6 +33,9 @@
     UITapGestureRecognizer *tap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(weiboAction)];
     [self.weiboImageView addGestureRecognizer:tap3];
 
+    _videoPlayer = [[XSMediaPlayer alloc] initWithFrame:self.bkView.frame];
+    _videoPlayer.videoURL = self.videoUrl;
+    [self.view addSubview:_videoPlayer];
 }
 
 - (void)didReceiveMemoryWarning {

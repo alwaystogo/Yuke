@@ -7,10 +7,15 @@
 //
 
 #import "BaseViewController.h"
+#import "XSMediaPlayer.h"
 
 @interface SavePicAndVideoViewController : BaseViewController
+@property (weak, nonatomic) IBOutlet UIView *bkView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *weixinImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *friendImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *weiboImageView;
+
+@property(nonatomic,strong)NSURL *videoUrl;
+@property(nonatomic,strong)XSMediaPlayer *videoPlayer;//bofangqi
 @end

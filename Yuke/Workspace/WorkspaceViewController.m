@@ -16,6 +16,7 @@
 #import "MakeHengViewController.h"
 #import "MakeShuViewController.h"
 #import "Shu1ViewController.h"
+#import "EditViewController.h"
 
 @interface WorkspaceViewController ()
 
@@ -110,16 +111,12 @@
 
 - (void)shipinTapAction{
 //    
-    VieoMakerViewController *newVC = [[VieoMakerViewController alloc] init];
-    newVC.hidesBottomBarWhenPushed = YES;
-    [kCurNavController pushViewController:newVC animated:YES];
-//    SavePicViewController *vc = [[SavePicViewController alloc] init];
-//    vc.hidesBottomBarWhenPushed = YES;
-//    [kCurNavController pushViewController:vc animated:YES];
-
-//    MakeHengViewController *vc = [[MakeHengViewController alloc] init];
-//    [self presentViewController:vc animated:YES completion:nil];
-
+//    VieoMakerViewController *newVC = [[VieoMakerViewController alloc] init];
+//    newVC.hidesBottomBarWhenPushed = YES;
+//    [kCurNavController pushViewController:newVC animated:YES];
+    EditViewController *editVC = [[EditViewController alloc] initWith:0 withImageArray:nil withType:2];
+    editVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:editVC animated:YES];
 }
 
 //横卡

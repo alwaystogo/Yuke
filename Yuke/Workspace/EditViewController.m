@@ -9,6 +9,7 @@
 #import "EditViewController.h"
 #import "MakeShuViewController.h"
 #import "MakeHengViewController.h"
+#import "VieoMakerViewController.h"
 
 @interface EditViewController ()
 
@@ -163,7 +164,14 @@
         MakeHengViewController *vc = [[MakeHengViewController alloc] initWith:self.mobanNum withImageArray:self.imageArray withInfo:infoDic];
         [kCurNavController pushViewController:vc animated:YES];
     }
-    
+    //视频
+    if (self.type == 2) {
+        
+        VieoMakerViewController *vc = [[VieoMakerViewController alloc] init];
+        vc.infoDic = infoDic;
+        [kCurNavController pushViewController:vc animated:YES];
+    }
+
 }
 
 - (void)requestInitData{

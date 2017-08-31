@@ -25,4 +25,5 @@
 @property(nonatomic,assign)CGFloat minTime;//选择的开始时间
 @property(nonatomic,assign)CGFloat maxTime;
 
+@property(nonatomic,strong)NSDictionary *infoDic;//信息
 @end

@@ -289,6 +289,7 @@
     NSString *strUrl = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,[self.hotArray[indexPath.row] objectForKeySafe:@"info_url"]];
     BaseWebViewViewController *webVc= [[BaseWebViewViewController alloc] initWithURL:strUrl];
     webVc.title = @"专访详情";
+    webVc.hidesBottomBarWhenPushed = YES;
     [kCurNavController pushViewController:webVc animated:YES];
 }
 -(void)viewWillDisappear:(BOOL)animated{

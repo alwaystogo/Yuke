@@ -362,6 +362,7 @@
     AVAssetImageGenerator *assetGen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
     
     assetGen.appliesPreferredTrackTransform = YES;
+    //assetGen.apertureMode = AVAssetImageGeneratorApertureModeEncodedPixels;
     //视图时间，想要截取对应时间的帧，可以更改这个参数
     CMTime time = CMTimeMakeWithSeconds(2.0, 600);
     NSError *error = nil;
@@ -400,6 +401,7 @@
                             [weakSelf.tableView reloadData];
                         });
                     }
+                    
                 }
             });
 
