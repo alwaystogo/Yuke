@@ -27,7 +27,7 @@
 @implementation VideoManager
 
 ///使用AVfoundation添加水印
-- (void)AVsaveVideoPath:(NSURL*)videoPath WithWaterImg:(UIImage*)img WithCoverImage:(UIImage*)coverImg WithQustion:(NSString*)question WithFileName:(NSString*)fileName completion:(void (^)(NSURL *outputURL, BOOL isSuccess))completionHandle
+- (void)AVsaveVideoPath:(NSURL*)videoPath WithWaterImg:(UIImage*)img WithInfoDic:(NSDictionary*)infoDic WithFileName:(NSString*)fileName completion:(void (^)(NSURL *outputURL, BOOL isSuccess))completionHandle
 {
     if (!videoPath) {
         return;
@@ -108,7 +108,11 @@
     mainCompositionInst.frameDuration = CMTimeMake(1, 25);
     
     //shuiyin
-    [self applyVideoEffectsToComposition:mainCompositionInst WithWaterImg:img WithCoverImage:coverImg WithQustion:question size:CGSizeMake(renderWidth, renderHeight)];
+    //[self applyVideoEffectsToComposition:mainCompositionInst WithWaterImg:img WithCoverImage:coverImg WithQustion:question size:CGSizeMake(renderWidth, renderHeight)];
+    
+    //by yangyunfei
+    [self applyVideoEffectsToComposition:mainCompositionInst WithWaterImg:img WithInfoDic:infoDic size:CGSizeMake(renderWidth, renderHeight)];
+        
 //    //UI操作放到主线程执行
 //    dispatch_async(dispatch_get_main_queue(), ^{
 //        
@@ -231,6 +235,96 @@
     [anima setFillMode:kCAFillModeForwards];
     anima.beginTime = AVCoreAnimationBeginTimeAtZero;
     [coverImgLayer addAnimation:anima forKey:@"opacityAniamtion"];
+    
+    composition.animationTool = [AVVideoCompositionCoreAnimationTool
+                                 videoCompositionCoreAnimationToolWithPostProcessingAsVideoLayer:videoLayer inLayer:parentLayer];
+    
+}
+
+//添加水印 by yangyunfei
+- (void)applyVideoEffectsToComposition:(AVMutableVideoComposition *)composition WithWaterImg:(UIImage*)img  WithInfoDic:(NSDictionary*)infoDic  size:(CGSize)size {
+    
+    CGFloat fontSize = 46.0;
+    CGFloat leftLength = 60;
+    UIFont *font = [UIFont systemFontOfSize:fontSize];
+    CATextLayer *nameText = [[CATextLayer alloc] init];
+    [nameText setFontSize:fontSize];
+    [nameText setString:[infoDic objectForKey:@"name"]];
+    [nameText setAlignmentMode:kCAAlignmentLeft];
+    [nameText setForegroundColor:[[UIColor whiteColor] CGColor]];
+    CGSize textSize = [[infoDic objectForKey:@"name"] sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName, nil]];
+    [nameText setFrame:CGRectMake(leftLength, size.height/2.0 +textSize.height/2.0 +(28+textSize.height)*2, textSize.width+10, textSize.height+10)];
+    
+    CATextLayer *shengaoText = [[CATextLayer alloc] init];
+    [shengaoText setFontSize:fontSize];
+    NSString *text3 =  [NSString stringWithFormat:@"%@cm",[infoDic objectForKey:@"shengao"]];
+    [shengaoText setString:text3];
+    [shengaoText setAlignmentMode:kCAAlignmentLeft];
+    [shengaoText setForegroundColor:[[UIColor whiteColor] CGColor]];
+    CGSize textSize3 = [text3 sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName, nil]];
+    [shengaoText setFrame:CGRectMake(leftLength, size.height/2.0 +textSize3.height/2.0 +28+textSize3.height, textSize3.width+10, textSize3.height+10)];
+
+    CATextLayer *tizhongText = [[CATextLayer alloc] init];
+    [tizhongText setFontSize:fontSize];
+    NSString *text2 =  [NSString stringWithFormat:@"%@kg",[infoDic objectForKey:@"tizhong"]];
+    [tizhongText setString:text2];
+    [tizhongText setAlignmentMode:kCAAlignmentLeft];
+    [tizhongText setForegroundColor:[[UIColor whiteColor] CGColor]];
+    CGSize textSize2 = [text2 sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName, nil]];
+    [tizhongText setFrame:CGRectMake(leftLength, size.height/2.0 +textSize2.height/2.0, textSize2.width+10, textSize2.height+10)];
+    
+    CATextLayer *sanText = [[CATextLayer alloc] init];
+    [sanText setFontSize:fontSize];
+    NSString *text4 =  [NSString stringWithFormat:@"%@-%@-%@",[infoDic objectForKey:@"xiongwei"],[infoDic objectForKey:@"yaowei"],[infoDic objectForKey:@"tunwei"]];
+    [sanText setString:text4];
+    [sanText setAlignmentMode:kCAAlignmentLeft];
+    [sanText setForegroundColor:[[UIColor whiteColor] CGColor]];
+    CGSize textSize4 = [text4 sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName, nil]];
+    [sanText setFrame:CGRectMake(leftLength, size.height/2.0 -textSize4.height/2.0 -28, textSize4.width+10, textSize4.height+10)];
+
+    CATextLayer *xiemaText = [[CATextLayer alloc] init];
+    [xiemaText setFontSize:fontSize];
+    NSString *text5 =  [NSString stringWithFormat:@"%@",[infoDic objectForKey:@"xiema"]];
+    [xiemaText setString:text5];
+    [xiemaText setAlignmentMode:kCAAlignmentLeft];
+    [xiemaText setForegroundColor:[[UIColor whiteColor] CGColor]];
+    CGSize textSize5 = [text5 sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName, nil]];
+    [xiemaText setFrame:CGRectMake(leftLength, size.height/2.0 -textSize4.height/2.0 -28 -textSize4.height-28, textSize5.width+10, textSize5.height+10)];
+
+
+    //水印
+    CALayer *imgLayer = [CALayer layer];
+    imgLayer.contents = (id)img.CGImage;
+    imgLayer.bounds = CGRectMake(0, 0, img.size.width, img.size.height);
+    imgLayer.position = CGPointMake(size.width - img.size.width, img.size.height+10);
+    
+    // 2 - The usual overlay
+    CALayer *overlayLayer = [CALayer layer];
+    [overlayLayer addSublayer:nameText];
+    [overlayLayer addSublayer:shengaoText];
+    [overlayLayer addSublayer:tizhongText];
+    [overlayLayer addSublayer:sanText];
+    [overlayLayer addSublayer:xiemaText];
+    [overlayLayer addSublayer:imgLayer];
+    overlayLayer.frame = CGRectMake(0, 0, size.width, size.height);
+    
+    CALayer *parentLayer = [CALayer layer];
+    CALayer *videoLayer = [CALayer layer];
+    parentLayer.frame = CGRectMake(0, 0, size.width, size.height);
+    videoLayer.frame = CGRectMake(0, 0, size.width, size.height);
+    [parentLayer addSublayer:videoLayer];
+    [parentLayer addSublayer:overlayLayer];
+    
+    //设置动画
+    CABasicAnimation *anima = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    anima.fromValue = [NSNumber numberWithFloat:0.0f];
+    anima.toValue = [NSNumber numberWithFloat:1.0f];
+    anima.repeatCount = 0;
+    anima.duration = 3.0f;  //5s之后消失
+    [anima setRemovedOnCompletion:NO];
+    [anima setFillMode:kCAFillModeForwards];
+    anima.beginTime = AVCoreAnimationBeginTimeAtZero;
+    [overlayLayer addAnimation:anima forKey:@"opacityAniamtion"];
     
     composition.animationTool = [AVVideoCompositionCoreAnimationTool
                                  videoCompositionCoreAnimationToolWithPostProcessingAsVideoLayer:videoLayer inLayer:parentLayer];

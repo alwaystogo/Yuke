@@ -11,7 +11,7 @@
 @interface VideoManager : NSObject
 
 ///使用AVfoundation添加水印
-- (void)AVsaveVideoPath:(NSURL*)videoPath WithWaterImg:(UIImage*)img WithCoverImage:(UIImage*)coverImg WithQustion:(NSString*)question WithFileName:(NSString*)fileName completion:(void (^)(NSURL *outputURL, BOOL isSuccess))completionHandle;
+- (void)AVsaveVideoPath:(NSURL*)videoPath WithWaterImg:(UIImage*)img WithInfoDic:(NSDictionary*)infoDic WithFileName:(NSString*)fileName completion:(void (^)(NSURL *outputURL, BOOL isSuccess))completionHandle;
 
 //视频合成，添加背景音乐
 -(void)addFirstVideo:(NSURL*)firstVideoPath andSecondVideo:(NSURL*)secondVideo withMusic:(NSURL*)musicPath completion:(void (^)(NSURL *outputURL, BOOL isSuccess))completionHandle;
