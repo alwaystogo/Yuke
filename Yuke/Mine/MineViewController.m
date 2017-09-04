@@ -12,6 +12,7 @@
 #import "AppConfig.h"
 #import "FeedBackViewController.h"
 #import "ModifyPasswordViewController.h"
+#import "VipViewController.h"
 
 #define fourWidth 22
 #define baseTag 5000
@@ -341,7 +342,11 @@
     }
     
     if (tag == 2) {
-        
+        //huiyuan
+        VipViewController *vipVC = [[VipViewController alloc] init];
+        vipVC.hidesBottomBarWhenPushed = YES;
+        [kCurNavController pushViewController:vipVC animated:YES];
+
     }
     
     if (tag == 3) {

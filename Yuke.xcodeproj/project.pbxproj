@@ -466,6 +466,10 @@
 		E82281591F511E3800AEC2F1 /* 站酷快乐体@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E822814F1F511E3800AEC2F1 /* 站酷快乐体@3x.png */; };
 		E82FDD001F1E490400A3A9A3 /* ShangwuhezuoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E82FDCFE1F1E490400A3A9A3 /* ShangwuhezuoViewController.m */; };
 		E82FDD011F1E490400A3A9A3 /* ShangwuhezuoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E82FDCFF1F1E490400A3A9A3 /* ShangwuhezuoViewController.xib */; };
+		E8C0C55A1F5D739E007ACBDE /* VipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C0C5581F5D739E007ACBDE /* VipViewController.m */; };
+		E8C0C55B1F5D739E007ACBDE /* VipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8C0C5591F5D739E007ACBDE /* VipViewController.xib */; };
+		E8C0C55E1F5D744C007ACBDE /* kaibg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8C0C55C1F5D744C007ACBDE /* kaibg@2x.png */; };
+		E8C0C55F1F5D744C007ACBDE /* kaibg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8C0C55D1F5D744C007ACBDE /* kaibg@3x.png */; };
 		E8E873651F2D8D6A00DB944F /* XieYiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E873631F2D8D6A00DB944F /* XieYiViewController.m */; };
 		E8E873661F2D8D6A00DB944F /* XieYiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8E873641F2D8D6A00DB944F /* XieYiViewController.xib */; };
 		E8E8736A1F2DA21F00DB944F /* SavePicAndVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E873681F2DA21F00DB944F /* SavePicAndVideoViewController.m */; };
@@ -1235,6 +1239,11 @@
 		E82FDCFD1F1E490400A3A9A3 /* ShangwuhezuoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangwuhezuoViewController.h; sourceTree = "<group>"; };
 		E82FDCFE1F1E490400A3A9A3 /* ShangwuhezuoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShangwuhezuoViewController.m; sourceTree = "<group>"; };
 		E82FDCFF1F1E490400A3A9A3 /* ShangwuhezuoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShangwuhezuoViewController.xib; sourceTree = "<group>"; };
+		E8C0C5571F5D739E007ACBDE /* VipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VipViewController.h; sourceTree = "<group>"; };
+		E8C0C5581F5D739E007ACBDE /* VipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VipViewController.m; sourceTree = "<group>"; };
+		E8C0C5591F5D739E007ACBDE /* VipViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VipViewController.xib; sourceTree = "<group>"; };
+		E8C0C55C1F5D744C007ACBDE /* kaibg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kaibg@2x.png"; sourceTree = "<group>"; };
+		E8C0C55D1F5D744C007ACBDE /* kaibg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kaibg@3x.png"; sourceTree = "<group>"; };
 		E8E873621F2D8D6A00DB944F /* XieYiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XieYiViewController.h; sourceTree = "<group>"; };
 		E8E873631F2D8D6A00DB944F /* XieYiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XieYiViewController.m; sourceTree = "<group>"; };
 		E8E873641F2D8D6A00DB944F /* XieYiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XieYiViewController.xib; sourceTree = "<group>"; };
@@ -1932,6 +1941,9 @@
 				AEDDAB581F1DB9E6006BD05A /* ModifyPasswordViewController.h */,
 				AEDDAB591F1DB9E6006BD05A /* ModifyPasswordViewController.m */,
 				AEDDAB5A1F1DB9E6006BD05A /* ModifyPasswordViewController.xib */,
+				E8C0C5571F5D739E007ACBDE /* VipViewController.h */,
+				E8C0C5581F5D739E007ACBDE /* VipViewController.m */,
+				E8C0C5591F5D739E007ACBDE /* VipViewController.xib */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -2212,6 +2224,8 @@
 		AE7FA0B11F0DE9DD009A8F12 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				E8C0C55C1F5D744C007ACBDE /* kaibg@2x.png */,
+				E8C0C55D1F5D744C007ACBDE /* kaibg@3x.png */,
 				E82280F81F4C7BA900AEC2F1 /* kai1@2x.png */,
 				E82280F91F4C7BA900AEC2F1 /* kai1@3x.png */,
 				E82280FA1F4C7BA900AEC2F1 /* kai2@2x.png */,
@@ -2537,6 +2551,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8C0C55F1F5D744C007ACBDE /* kaibg@3x.png in Resources */,
 				AE16BEB91F56644600BD2C05 /* 思源@3x.png in Resources */,
 				E82281311F4C7EDC00AEC2F1 /* icon8@3x.png in Resources */,
 				AE16BE941F54200400BD2C05 /* shangwutop@2x.png in Resources */,
@@ -2556,6 +2571,7 @@
 				E82280DC1F4C77AE00AEC2F1 /* zuixinhuodong@2x.png in Resources */,
 				E82280FF1F4C7BA900AEC2F1 /* kai2@3x.png in Resources */,
 				AEABCCBD1F4D4F3F00C4A3D3 /* text@2x.png in Resources */,
+				E8C0C55E1F5D744C007ACBDE /* kaibg@2x.png in Resources */,
 				AEABCCB61F4D4F3F00C4A3D3 /* home@3x.png in Resources */,
 				AEABCCBA1F4D4F3F00C4A3D3 /* my@3x.png in Resources */,
 				AEDDAB621F1F3DF0006BD05A /* huodongPic@2x.png in Resources */,
@@ -2627,6 +2643,7 @@
 				AE7FA0C71F0E11A7009A8F12 /* youjiantou@2x.png in Resources */,
 				AEABCCB51F4D4F3F00C4A3D3 /* home@2x.png in Resources */,
 				E82280C21F4C746B00AEC2F1 /* arrow@2x.png in Resources */,
+				E8C0C55B1F5D739E007ACBDE /* VipViewController.xib in Resources */,
 				E82280FC1F4C7BA900AEC2F1 /* kai1@2x.png in Resources */,
 				E822812C1F4C7EDC00AEC2F1 /* fen@2x.png in Resources */,
 				E822813B1F4C7EDC00AEC2F1 /* zhuye@3x.png in Resources */,
@@ -2967,6 +2984,7 @@
 				AEDDAB511F1DB2A3006BD05A /* PicShowCell.m in Sources */,
 				AEC988241F25D7EB006D9983 /* YanyuanCardsListViewController.m in Sources */,
 				AE5DC54D1F3461CA003215FB /* GPUImageGrayscaleFilter.m in Sources */,
+				E8C0C55A1F5D739E007ACBDE /* VipViewController.m in Sources */,
 				AE5DC57B1F3461CA003215FB /* GPUImagePerlinNoiseFilter.m in Sources */,
 				AEDDAB4A1F1DABB7006BD05A /* PicShowViewController.m in Sources */,
 				AEDDAB4D1F1DABDE006BD05A /* VieoShowViewController.m in Sources */,

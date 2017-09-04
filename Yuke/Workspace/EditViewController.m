@@ -119,7 +119,7 @@
     self.addressPickView = [[YYFPickViewThree alloc] initWithFrame:self.view.bounds withOneArray:tempArray withTwoArray:tempArray withThreeArray:tempArray];
     _addressPickView.determineBtnBlock = ^(NSInteger oneId, NSInteger twoId, NSInteger threeId, NSString *oneName, NSString *twoName, NSString *threeName) {
         
-        weakSelf.addressLabel.text = [NSString stringWithFormat:@"%@-%@-%@",oneName,twoName,threeName];
+        weakSelf.addressLabel.text = [NSString stringWithFormat:@"%@,%@,%@",oneName,twoName,threeName];
     };
     [self.view addSubview:self.addressPickView];
 }

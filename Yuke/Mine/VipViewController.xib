@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VipViewController">
+            <connections>
+                <outlet property="huiyuanBtn" destination="HH9-41-eei" id="Faq-Fe-WnZ"/>
+                <outlet property="picImageVie" destination="h0X-TV-ESd" id="Vsn-2e-Hv9"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kaibg.png" translatesAutoresizingMaskIntoConstraints="NO" id="U9C-Vi-i9U">
+                    <rect key="frame" x="0.0" y="64" width="375" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="iOg-aC-GLa"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h0X-TV-ESd">
+                    <rect key="frame" x="152" y="104" width="70" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="XAx-pC-tm0"/>
+                        <constraint firstAttribute="height" constant="70" id="yG6-Mo-Agj"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你离梦想只差一个VIP会员，开通娱客会员，尊享VIP服务" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKg-k9-qBy">
+                    <rect key="frame" x="20.5" y="206" width="334" height="16"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kai2.png" translatesAutoresizingMaskIntoConstraints="NO" id="qQ4-yX-c8H">
+                    <rect key="frame" x="20" y="274" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="fjz-Yg-qD8"/>
+                        <constraint firstAttribute="height" constant="100" id="tze-8H-80Q"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kai1.png" translatesAutoresizingMaskIntoConstraints="NO" id="qWu-Mn-ozL">
+                    <rect key="frame" x="255" y="394" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="46h-wk-AdS"/>
+                        <constraint firstAttribute="height" constant="100" id="QOe-Xu-x1b"/>
+                        <constraint firstAttribute="height" constant="100" id="nEe-vx-wFo"/>
+                        <constraint firstAttribute="width" constant="100" id="u49-bq-Rvn"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="无限量免费字体" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNn-H2-QEA">
+                    <rect key="frame" x="198" y="306" width="93" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每月持续更新，只对会员免费" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JfH-D8-tnL">
+                    <rect key="frame" x="165" y="337" width="159.5" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="无限量免费模板" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmi-RP-rpV">
+                    <rect key="frame" x="73" y="421" width="93" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="娱客会员说明" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJ8-Jk-1E6">
+                    <rect key="frame" x="144.5" y="571.5" width="86" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="年费会员可享受一套九图的coasting拍摄" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXe-Cq-AYM">
+                    <rect key="frame" x="10" y="452" width="220" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37a-rl-zOD">
+                    <rect key="frame" x="10" y="598.5" width="355" height="66"/>
+                    <string key="text">1.购买娱客会员，获得更高效的会员服务，更广阔的展示平台，仅供娱客VIP会员尊享！让您获得更多回报。2.点亮会员图标，享有尊贵身份。3.申请特权，免费字体等多种专属全权益，从而展现更多自我能力。</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HH9-41-eei">
+                    <rect key="frame" x="142.5" y="506.5" width="90" height="40"/>
+                    <color key="backgroundColor" red="1" green="0.65098039215686276" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="UCk-nE-jyZ"/>
+                        <constraint firstAttribute="width" constant="90" id="qST-Qb-hOf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="开通会员">
+                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="huiyuanBtnAction:" destination="-1" eventType="touchUpInside" id="N0f-6v-DNl"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="JfH-D8-tnL" firstAttribute="top" secondItem="bNn-H2-QEA" secondAttribute="bottom" constant="15" id="5g4-bP-tfL"/>
+                <constraint firstItem="bNn-H2-QEA" firstAttribute="top" secondItem="U9C-Vi-i9U" secondAttribute="bottom" constant="42" id="6rq-u5-735"/>
+                <constraint firstAttribute="trailing" secondItem="qWu-Mn-ozL" secondAttribute="trailing" constant="20" id="C6y-3s-Ivt"/>
+                <constraint firstItem="37a-rl-zOD" firstAttribute="top" secondItem="nJ8-Jk-1E6" secondAttribute="bottom" constant="10" id="CmB-lQ-Jcv"/>
+                <constraint firstItem="Wmi-RP-rpV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="73" id="Iba-Si-BZJ"/>
+                <constraint firstAttribute="trailing" secondItem="bNn-H2-QEA" secondAttribute="trailing" constant="84" id="NMY-4u-42c"/>
+                <constraint firstItem="Wmi-RP-rpV" firstAttribute="top" secondItem="qQ4-yX-c8H" secondAttribute="bottom" constant="47" id="QO9-XV-yci"/>
+                <constraint firstItem="qQ4-yX-c8H" firstAttribute="top" secondItem="U9C-Vi-i9U" secondAttribute="bottom" constant="10" id="Qcu-jm-LWB"/>
+                <constraint firstItem="U9C-Vi-i9U" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="R7c-zE-mxc"/>
+                <constraint firstItem="nJ8-Jk-1E6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Tur-A6-869"/>
+                <constraint firstItem="qWu-Mn-ozL" firstAttribute="top" secondItem="U9C-Vi-i9U" secondAttribute="bottom" constant="130" id="Tyh-rc-fSt"/>
+                <constraint firstItem="h0X-TV-ESd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="XOn-ff-Ls4"/>
+                <constraint firstItem="37a-rl-zOD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="YJx-6l-IVd"/>
+                <constraint firstItem="HH9-41-eei" firstAttribute="top" secondItem="bXe-Cq-AYM" secondAttribute="bottom" constant="40" id="ZA0-NV-uqg"/>
+                <constraint firstItem="bXe-Cq-AYM" firstAttribute="centerX" secondItem="Wmi-RP-rpV" secondAttribute="centerX" id="dax-wT-ZOv"/>
+                <constraint firstItem="U9C-Vi-i9U" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dhL-9h-Ge4"/>
+                <constraint firstItem="bXe-Cq-AYM" firstAttribute="top" secondItem="Wmi-RP-rpV" secondAttribute="bottom" constant="15" id="gVM-9o-O4q"/>
+                <constraint firstAttribute="trailing" secondItem="U9C-Vi-i9U" secondAttribute="trailing" id="hy0-Fy-oNl"/>
+                <constraint firstItem="QKg-k9-qBy" firstAttribute="top" secondItem="h0X-TV-ESd" secondAttribute="bottom" constant="32" id="jbm-JC-wHd"/>
+                <constraint firstItem="h0X-TV-ESd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="104" id="l6k-tZ-2cy"/>
+                <constraint firstAttribute="trailing" secondItem="37a-rl-zOD" secondAttribute="trailing" constant="10" id="lCf-2p-mlo"/>
+                <constraint firstItem="JfH-D8-tnL" firstAttribute="centerX" secondItem="bNn-H2-QEA" secondAttribute="centerX" id="nNt-i6-h3a"/>
+                <constraint firstItem="HH9-41-eei" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="tYn-JY-Bgu"/>
+                <constraint firstItem="nJ8-Jk-1E6" firstAttribute="top" secondItem="bXe-Cq-AYM" secondAttribute="bottom" constant="105" id="vNz-zL-ekW"/>
+                <constraint firstItem="qQ4-yX-c8H" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="voL-Jc-wb8"/>
+                <constraint firstItem="QKg-k9-qBy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yWk-LX-4JO"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="kai1.png" width="159" height="156"/>
+        <image name="kai2.png" width="200" height="197"/>
+        <image name="kaibg.png" width="750" height="399"/>
+    </resources>
+</document>
