@@ -77,14 +77,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //点击某列
 
-//    [LoginViewController checkLogin:^(BOOL result) {
-//        
-//        if (result) {
-//            [JFTools showTipOnHUD:@"登录成功"];
-//        }else{
-//            [JFTools showTipOnHUD:@"登录失败"];
-//        }
-//    }];
+    [[AppPayManager manager] buyProductsWithId:@"com.yuke.YukeApp1" andQuantity:1 withMyProductsNum:5];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

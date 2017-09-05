@@ -285,6 +285,7 @@
 		AE7FA0D11F0E2567009A8F12 /* black_fanhui@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0CF1F0E2566009A8F12 /* black_fanhui@3x.png */; };
 		AE7FA0D51F0F3895009A8F12 /* FontCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7FA0D31F0F3895009A8F12 /* FontCollectionViewCell.m */; };
 		AE7FA0D61F0F3895009A8F12 /* FontCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0D41F0F3895009A8F12 /* FontCollectionViewCell.xib */; };
+		AE9025EE1F5E82D100970509 /* AppPayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9025ED1F5E82D100970509 /* AppPayManager.m */; };
 		AEA365FE1F41A9AB0057AB3E /* MakeHengViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA365FD1F41A9AB0057AB3E /* MakeHengViewController.m */; };
 		AEA366051F42DC680057AB3E /* ZitiCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA366031F42DC680057AB3E /* ZitiCollectionViewCell.m */; };
 		AEA366061F42DC680057AB3E /* ZitiCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEA366041F42DC680057AB3E /* ZitiCollectionViewCell.xib */; };
@@ -1007,6 +1008,8 @@
 		AE7FA0D21F0F3895009A8F12 /* FontCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontCollectionViewCell.h; sourceTree = "<group>"; };
 		AE7FA0D31F0F3895009A8F12 /* FontCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontCollectionViewCell.m; sourceTree = "<group>"; };
 		AE7FA0D41F0F3895009A8F12 /* FontCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FontCollectionViewCell.xib; sourceTree = "<group>"; };
+		AE9025EC1F5E82D100970509 /* AppPayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppPayManager.h; sourceTree = "<group>"; };
+		AE9025ED1F5E82D100970509 /* AppPayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppPayManager.m; sourceTree = "<group>"; };
 		AEA365FC1F41A9AB0057AB3E /* MakeHengViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeHengViewController.h; sourceTree = "<group>"; };
 		AEA365FD1F41A9AB0057AB3E /* MakeHengViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeHengViewController.m; sourceTree = "<group>"; };
 		AEA366021F42DC680057AB3E /* ZitiCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZitiCollectionViewCell.h; sourceTree = "<group>"; };
@@ -1785,6 +1788,8 @@
 		AE61B61D1F02486B00C1F930 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				AE9025EC1F5E82D100970509 /* AppPayManager.h */,
+				AE9025ED1F5E82D100970509 /* AppPayManager.m */,
 				AE61B61E1F02486B00C1F930 /* JFAlertController.h */,
 				AE61B61F1F02486B00C1F930 /* JFAlertController.m */,
 				AE61B6221F02486B00C1F930 /* JFRefreshControl.h */,
@@ -2862,6 +2867,7 @@
 				AE61B6A71F0249A300C1F930 /* TZPhotoPreviewCell.m in Sources */,
 				AE5DC52C1F3461CA003215FB /* GPUImageClosingFilter.m in Sources */,
 				AEAB38B01F20A158008FC136 /* ShareViewController.m in Sources */,
+				AE9025EE1F5E82D100970509 /* AppPayManager.m in Sources */,
 				AE61B61C1F02479F00C1F930 /* RootTabBarController.m in Sources */,
 				AE5DC55A1F3461CA003215FB /* GPUImageJFAVoronoiFilter.m in Sources */,
 				AEB3D7271F1383E80091EE21 /* YiPaiCollectionViewCell.m in Sources */,

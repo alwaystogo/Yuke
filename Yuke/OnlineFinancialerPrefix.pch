@@ -58,5 +58,6 @@
 #import "LoginViewController.h"
 #import "UserMoudle.h"
 #import "ShareViewController.h"
+#import "AppPayManager.h"
 
 #endif /* OnlineFinancialerPrefix_pch */

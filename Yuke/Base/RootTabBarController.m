@@ -31,7 +31,7 @@
     //创建视图控制器
     [self createSubControllers];
     
-    self.selectedIndex = 0;
+    self.selectedIndex = 4;
     
     // 配置全局拦截器
     [self wholeInterceptor];

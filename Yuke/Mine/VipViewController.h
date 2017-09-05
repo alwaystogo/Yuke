@@ -12,4 +12,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *picImageVie;
 
 @property (weak, nonatomic) IBOutlet UIButton *huiyuanBtn;
+@property(nonatomic,strong)UIView *bkView;
+
+@property(nonatomic,strong)UIView *bkView1;
+@property(nonatomic,strong)UIView *bkView2;
+@property(nonatomic,strong)UIView *bkView3;
+@property(nonatomic,strong)UIView *bkView4;
 @end

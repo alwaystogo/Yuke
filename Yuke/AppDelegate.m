@@ -45,6 +45,9 @@
 //    advertiseView.picUrl = picUrl;
 //    [advertiseView show];
     
+    //内购时，添加订单观察者
+    [[AppPayManager manager] startObserver];
+    
     return YES;
 }
 
@@ -73,6 +76,9 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+    //内购，移除订单观察者
+    [[AppPayManager manager] stopObserver];
 }
 
 
