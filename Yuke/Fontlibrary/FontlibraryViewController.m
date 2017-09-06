@@ -77,7 +77,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //点击某列
 
-    [[AppPayManager manager] buyProductsWithId:@"com.yuke.YukeApp1" andQuantity:1 withMyProductsNum:5];
+    [[AppPayManager manager] buyProductsWithId:Product_ziti1 andQuantity:1 withMyProductsNum:1];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

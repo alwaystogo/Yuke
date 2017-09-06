@@ -18,4 +18,6 @@
 @property(nonatomic,strong)UIView *bkView2;
 @property(nonatomic,strong)UIView *bkView3;
 @property(nonatomic,strong)UIView *bkView4;
+
+@property(nonatomic,assign)NSInteger selectType;
 @end

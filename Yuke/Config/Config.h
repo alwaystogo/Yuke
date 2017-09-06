@@ -155,4 +155,12 @@ isKindOfClass:[UINavigationController class]] \
 #define FONT6 @"思源黑体 CN"
 #define FONT7 @"Source Han Sans"
 
+//内购
+#define Product_ziti1 @"com.yuke.YukeApp1" //黄油字体 1
+#define Product_ziti2 @"com.yuke.YukeApp2"//庞门正道字体 2
+#define Product_1yue @"com.yuke.YukeApp3" //3
+#define Product_3yue @"com.yuke.YukeApp4" //4
+#define Product_6yue @"com.yuke.YukeApp5" //5
+#define Product_12yue @"com.yuke.YukeApp6" //6
+
 #endif /* Config_h */
