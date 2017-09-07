@@ -17,7 +17,7 @@
 #import "AdvertiseViewController.h"
 
 #define fourWidth 27
-#define hotPicWidth 181
+#define hotPicWidth 160
 #define hotPicHeight 220
 
 #define baseTag 1000

@@ -11,7 +11,7 @@
 #import "HotCollectionViewCell.h"
 
 #define tableHeaderHeight 260
-#define hotPicWidth 181
+#define hotPicWidth 160
 #define hotPicHeight 220
 
 @interface YirenViewController ()
