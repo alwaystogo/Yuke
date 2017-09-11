@@ -981,7 +981,7 @@ static dispatch_once_t onceToken;
             return FONT_REGULAR(size);
         }
         if (SCREEN_WIDTH == 414) {
-            return FONT_REGULAR(size + 1);
+            return FONT_REGULAR(size);
         }
     }
     if (type == 1) {
@@ -992,7 +992,7 @@ static dispatch_once_t onceToken;
             return FONT_MEDIUM(size);
         }
         if (SCREEN_WIDTH == 414) {
-            return FONT_MEDIUM(size + 1);
+            return FONT_MEDIUM(size);
         }
     }
     
@@ -1004,7 +1004,7 @@ static dispatch_once_t onceToken;
             return FONT_BOLD(size);
         }
         if (SCREEN_WIDTH == 414) {
-            return FONT_BOLD(size + 1);
+            return FONT_BOLD(size);
         }
     }
     
