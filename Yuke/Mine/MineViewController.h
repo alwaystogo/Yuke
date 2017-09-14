@@ -7,8 +7,10 @@
 //
 
 #import "BaseViewController.h"
+#import "ShareView.h"
 
-@interface MineViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
+@interface MineViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource
+>
 @property(nonatomic,strong)UIScrollView *bkScrollView;
 @property(nonatomic,strong)UIImageView *photoImageView;
 @property(nonatomic,strong)UITableView *tableView;

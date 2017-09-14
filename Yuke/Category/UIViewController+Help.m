@@ -267,4 +267,13 @@
     }
 }
 
+-(CGFloat)bottomSafeMargin{
+    
+    if (SCREEN_HEIGHT == 812) {
+        return 34;
+    }else{
+        return 0;
+    }
+}
+
 @end

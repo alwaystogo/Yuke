@@ -68,5 +68,8 @@
 + (UIViewController*)currentViewController;
 - (void)customeNavTitle:(NSString*)title Font:(UIFont*)font Color:(UIColor*)color;
 
-
+/*
+ *  适配iPhone X 底部的安全区域
+ */
+- (CGFloat)bottomSafeMargin;
 @end

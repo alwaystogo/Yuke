@@ -41,6 +41,25 @@
 
 -(void)prepareWithActivityItems:(NSArray *)activityItems{
     
+    if (activityItems.count == 1) {
+        
+        UIImage *shareImage = activityItems.firstObject;
+        
+        if (![shareImage isMemberOfClass:[UIImage class]]) {
+            return;
+        }
+        
+        NSData *imageData = UIImageJPEGRepresentation(shareImage, 1.0);
+        
+        QQApiImageArrayForQZoneObject *imageZoneObject = [QQApiImageArrayForQZoneObject objectWithimageDataArray:@[imageData] title:nil extMap:nil];
+        
+        SendMessageToQQReq *req = [SendMessageToQQReq reqWithContent:imageZoneObject];
+        //将内容分享到qq
+        [QQApiInterface SendReqToQZone:req];
+        
+        return;
+    }
+    
     if (activityItems.count < 4) {
         return;
     }

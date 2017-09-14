@@ -97,4 +97,42 @@
     [WXApi sendReq:req];
 }
 
+- (void)shareImageWithImage:(UIImage *)image{
+    
+    UIImage *shareImage = image;
+    NSData *imageData = UIImageJPEGRepresentation(shareImage, 1.0);
+    NSData *thumbData = UIImageJPEGRepresentation(shareImage, 0.1);
+    
+    // 控制缩略图大小不能超过32k
+    if (thumbData.length > 32000) {
+        
+        CGSize imageSize = CGSizeMake(320, 568);
+        
+        UIGraphicsBeginImageContext(imageSize);
+        CGRect imageRect = CGRectMake(0.0, 0.0, imageSize.width, imageSize.height);
+        [shareImage drawInRect:imageRect];
+        UIImage *thumbImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        thumbData = UIImageJPEGRepresentation(thumbImage, 0.1);
+    }
+    
+    WXMediaMessage *message = [WXMediaMessage message];
+    
+    message.thumbData = thumbData;
+    
+    WXImageObject *imageObject = [WXImageObject object];
+    
+    imageObject.imageData = imageData;
+    
+    message.mediaObject = imageObject;
+    
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+    req.bText = NO;
+    req.message = message;
+    req.scene = 0;                          // 1是朋友圈 0是微信消息发送
+    [WXApi sendReq:req];
+    return;
+}
+
 @end

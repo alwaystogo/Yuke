@@ -10,6 +10,11 @@
 #import "GuideViewController.h"
 #import "AdvertiseView.h"
 
+#import "WXApi.h"
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+#import "WeiboSDK.h"
+
 @interface AppDelegate ()
 
 @end
@@ -47,6 +52,16 @@
     
     //内购时，添加订单观察者
     [[AppPayManager manager] startObserver];
+    
+    //微信
+    [WXApi registerApp:@"wxf769243933375873"];
+    
+    //新浪微博
+    //[WeiboSDK registerApp:kWeiboKey];
+    
+    //腾讯qq
+    //TencentOAuth *tencentOAuth;
+    //tencentOAuth = [[TencentOAuth alloc] initWithAppId:kTencentKey andDelegate:nil];
     
     return YES;
 }

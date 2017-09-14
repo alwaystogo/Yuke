@@ -10,4 +10,5 @@
 
 @interface WeixinActivity : UIActivity
 
+- (void)shareImageWithImage:(UIImage *)image;
 @end

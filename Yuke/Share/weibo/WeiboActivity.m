@@ -44,6 +44,33 @@
 
 -(void)prepareWithActivityItems:(NSArray *)activityItems{
     
+    if (activityItems.count == 1) {
+        
+        UIImage *shareImage = activityItems.firstObject;
+        
+        if (![shareImage isMemberOfClass:[UIImage class]]) {
+            return;
+        }
+        
+        NSData *imageData = UIImageJPEGRepresentation(shareImage, 1.0);
+        
+        WBMessageObject *message = [WBMessageObject message];
+        
+        WBImageObject *wbImage = [WBImageObject object];
+        wbImage.imageData = imageData;
+        message.imageObject = wbImage;
+        
+        WBAuthorizeRequest *authRequest = [WBAuthorizeRequest request];
+        authRequest.redirectURI = @"https://www.sina.com";
+        authRequest.scope = @"all";
+        
+        WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:message authInfo:authRequest access_token:nil];
+        [WeiboSDK sendRequest:request];
+        
+        return;
+    }
+    
+    
     if (activityItems.count < 4) {
         return;
     }
@@ -54,39 +81,17 @@
     
     UIImage *image = [activityItems lastObject];
     
-    // 分享的图片大小不能超过32k
-    CGSize imageSize = image.size;
-    
-    if (imageSize.width > 100) {
-        imageSize = CGSizeMake(100, imageSize.height);
-    }
-    
-    if (imageSize.height > 100) {
-        imageSize = CGSizeMake(imageSize.width, 100);
-    }
-    
-    UIGraphicsBeginImageContext(imageSize);
-    CGRect imageRect = CGRectMake(0.0, 0.0, imageSize.width, imageSize.height);
-    [image drawInRect:imageRect];
-    image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+    NSData *imageData = UIImagePNGRepresentation(image);
     
     WBMessageObject *message = [WBMessageObject message];
-    message.text = shareTitleString;
+    message.text = [[[shareTitleString stringByAppendingString:@"--"] stringByAppendingString:shareDescriptionString] stringByAppendingString:shareUrlString];
     
-    WBWebpageObject *webpage = [WBWebpageObject object];
-    
-    webpage.title = shareTitleString;
-    webpage.description = shareDescriptionString;
-    webpage.thumbnailData = imageData;
-    webpage.webpageUrl = shareUrlString;
-    
-    message.mediaObject = webpage;
+    WBImageObject *wbImage = [WBImageObject object];
+    wbImage.imageData = imageData;
+    message.imageObject = wbImage;
     
     WBAuthorizeRequest *authRequest = [WBAuthorizeRequest request];
-    authRequest.redirectURI = @"https://api.weibo.com/oauth2/default.html";
+    authRequest.redirectURI = @"https://www.sina.com";
     authRequest.scope = @"all";
     
     WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:message authInfo:authRequest access_token:nil];
