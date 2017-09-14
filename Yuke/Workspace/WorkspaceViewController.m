@@ -74,21 +74,21 @@
     //左上
     self.yanyuanBkImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(self.carouselSV.frame) + 10, width, height)];
     self.yanyuanBkImageView.userInteractionEnabled = YES;
-    self.yanyuanBkImageView.image = ImageNamed(@"img1");
+    self.yanyuanBkImageView.image = ImageNamed(@"组2");
     [self.bkScrollView addSubview:self.yanyuanBkImageView];
     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(yanyuanTapAction)];
     [self.yanyuanBkImageView addGestureRecognizer:tap1];
     //左下
     self.shipinBkImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(self.yanyuanBkImageView.frame) + 10, width, height)];
     self.shipinBkImageView.userInteractionEnabled = YES;
-    self.shipinBkImageView.image = ImageNamed(@"img2");
+    self.shipinBkImageView.image = ImageNamed(@"组3");
     [self.bkScrollView addSubview:self.shipinBkImageView];
     UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shipinTapAction)];
     [self.shipinBkImageView addGestureRecognizer:tap2];
     //右
     self.moteBkImageView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.yanyuanBkImageView.frame) + 5, CGRectGetMaxY(self.carouselSV.frame) + 10, width, height *2 + 10)];
     self.moteBkImageView.userInteractionEnabled= YES;
-    self.moteBkImageView.image = ImageNamed(@"img3");
+    self.moteBkImageView.image = ImageNamed(@"组1");
     [self.bkScrollView addSubview:self.moteBkImageView];
     UITapGestureRecognizer *tap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(moteTapAction)];
     [self.moteBkImageView addGestureRecognizer:tap3];

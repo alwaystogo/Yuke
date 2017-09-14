@@ -208,7 +208,7 @@
     
     CGFloat imageWidth = (SCREEN_WIDTH - 30)/2;
     UIImageView *imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(imageView1.frame) + 3, imageWidth, 272/2 * (imageWidth/ (345/2)))];
-    imageView2.image = ImageNamed(@"pic-card");
+    imageView2.image = ImageNamed(@"图片卡片");
     [self.bkScrollView addSubview:imageView2];
     imageView2.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapPicShow = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapPicShowAction)];
@@ -217,7 +217,7 @@
     self.picImageViewMaxY = CGRectGetMaxY(imageView2.frame);
     
     UIImageView *imageView3 = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView2.frame) + 10, CGRectGetMaxY(imageView1.frame) + 3, imageWidth, 272/2 * (imageWidth/ (345/2)))];
-    imageView3.image = ImageNamed(@"video-card");
+    imageView3.image = ImageNamed(@"视频卡片");
     [self.bkScrollView addSubview:imageView3];
     imageView3.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapVieoShow = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapVieoShowAction)];

@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		A1CEFF70B4B75806BE5433A3 /* libPods-Yuke.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE4BF8FEA962BF522F157E8F /* libPods-Yuke.a */; };
+		AE03931D1F6A60E20004C1D2 /* 视频卡片@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE0393131F6A60E20004C1D2 /* 视频卡片@2x.png */; };
+		AE03931E1F6A60E20004C1D2 /* 视频卡片@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE0393141F6A60E20004C1D2 /* 视频卡片@3x.png */; };
+		AE03931F1F6A60E20004C1D2 /* 图片卡片@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE0393151F6A60E20004C1D2 /* 图片卡片@2x.png */; };
+		AE0393201F6A60E20004C1D2 /* 图片卡片@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE0393161F6A60E20004C1D2 /* 图片卡片@3x.png */; };
+		AE0393211F6A60E20004C1D2 /* 组1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE0393171F6A60E20004C1D2 /* 组1@2x.png */; };
+		AE0393221F6A60E20004C1D2 /* 组1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE0393181F6A60E20004C1D2 /* 组1@3x.png */; };
+		AE0393231F6A60E20004C1D2 /* 组2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE0393191F6A60E20004C1D2 /* 组2@2x.png */; };
+		AE0393241F6A60E20004C1D2 /* 组2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE03931A1F6A60E20004C1D2 /* 组2@3x.png */; };
+		AE0393251F6A60E20004C1D2 /* 组3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE03931B1F6A60E20004C1D2 /* 组3@2x.png */; };
+		AE0393261F6A60E20004C1D2 /* 组3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE03931C1F6A60E20004C1D2 /* 组3@3x.png */; };
 		AE16BE941F54200400BD2C05 /* shangwutop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BE921F54200400BD2C05 /* shangwutop@2x.png */; };
 		AE16BE951F54200400BD2C05 /* shangwutop@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BE931F54200400BD2C05 /* shangwutop@3x.png */; };
 		AE16BE9A1F54201800BD2C05 /* sina@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BE961F54201800BD2C05 /* sina@2x.png */; };
@@ -501,6 +511,16 @@
 /* Begin PBXFileReference section */
 		0E1014C73570FA9F07201DC1 /* Pods-Yuke.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yuke.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Yuke/Pods-Yuke.debug.xcconfig"; sourceTree = "<group>"; };
 		6CA77A58C61E3C3AD705F958 /* Pods-Yuke.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yuke.release.xcconfig"; path = "Pods/Target Support Files/Pods-Yuke/Pods-Yuke.release.xcconfig"; sourceTree = "<group>"; };
+		AE0393131F6A60E20004C1D2 /* 视频卡片@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "视频卡片@2x.png"; path = "../视频卡片@2x.png"; sourceTree = "<group>"; };
+		AE0393141F6A60E20004C1D2 /* 视频卡片@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "视频卡片@3x.png"; path = "../视频卡片@3x.png"; sourceTree = "<group>"; };
+		AE0393151F6A60E20004C1D2 /* 图片卡片@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "图片卡片@2x.png"; path = "../图片卡片@2x.png"; sourceTree = "<group>"; };
+		AE0393161F6A60E20004C1D2 /* 图片卡片@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "图片卡片@3x.png"; path = "../图片卡片@3x.png"; sourceTree = "<group>"; };
+		AE0393171F6A60E20004C1D2 /* 组1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "组1@2x.png"; path = "../组1@2x.png"; sourceTree = "<group>"; };
+		AE0393181F6A60E20004C1D2 /* 组1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "组1@3x.png"; path = "../组1@3x.png"; sourceTree = "<group>"; };
+		AE0393191F6A60E20004C1D2 /* 组2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "组2@2x.png"; path = "../组2@2x.png"; sourceTree = "<group>"; };
+		AE03931A1F6A60E20004C1D2 /* 组2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "组2@3x.png"; path = "../组2@3x.png"; sourceTree = "<group>"; };
+		AE03931B1F6A60E20004C1D2 /* 组3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "组3@2x.png"; path = "../组3@2x.png"; sourceTree = "<group>"; };
+		AE03931C1F6A60E20004C1D2 /* 组3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "组3@3x.png"; path = "../组3@3x.png"; sourceTree = "<group>"; };
 		AE16BE921F54200400BD2C05 /* shangwutop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shangwutop@2x.png"; sourceTree = "<group>"; };
 		AE16BE931F54200400BD2C05 /* shangwutop@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shangwutop@3x.png"; sourceTree = "<group>"; };
 		AE16BE961F54201800BD2C05 /* sina@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sina@2x.png"; sourceTree = "<group>"; };
@@ -844,7 +864,7 @@
 		AE5DC5191F3461CA003215FB /* GPUImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageView.m; sourceTree = "<group>"; };
 		AE5DC5BA1F34622B003215FB /* VideoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoManager.h; path = GPUImage/VideoManager.h; sourceTree = "<group>"; };
 		AE5DC5BB1F34622B003215FB /* VideoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoManager.m; path = GPUImage/VideoManager.m; sourceTree = "<group>"; };
-		AE5DC5BD1F347187003215FB /* selfH.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = selfH.MOV; sourceTree = "<group>"; };
+		AE5DC5BD1F347187003215FB /* selfH.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = selfH.MOV; path = ../selfH.MOV; sourceTree = "<group>"; };
 		AE61B5F01F02065400C1F930 /* Yuke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yuke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE61B5F41F02065400C1F930 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AE61B5F61F02065400C1F930 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -2141,7 +2161,6 @@
 		AE7FA0AE1F0DE9DD009A8F12 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				AE5DC5BD1F347187003215FB /* selfH.MOV */,
 				AEDDAB5D1F1F3DF0006BD05A /* Common */,
 				AE7222521F4D543500DCABCD /* login */,
 				AE7FA0AF1F0DE9DD009A8F12 /* Fontlibrary */,
@@ -2394,6 +2413,17 @@
 		AEDDAB5D1F1F3DF0006BD05A /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				AE0393131F6A60E20004C1D2 /* 视频卡片@2x.png */,
+				AE0393141F6A60E20004C1D2 /* 视频卡片@3x.png */,
+				AE0393151F6A60E20004C1D2 /* 图片卡片@2x.png */,
+				AE0393161F6A60E20004C1D2 /* 图片卡片@3x.png */,
+				AE0393171F6A60E20004C1D2 /* 组1@2x.png */,
+				AE0393181F6A60E20004C1D2 /* 组1@3x.png */,
+				AE0393191F6A60E20004C1D2 /* 组2@2x.png */,
+				AE03931A1F6A60E20004C1D2 /* 组2@3x.png */,
+				AE03931B1F6A60E20004C1D2 /* 组3@2x.png */,
+				AE03931C1F6A60E20004C1D2 /* 组3@3x.png */,
+				AE5DC5BD1F347187003215FB /* selfH.MOV */,
 				E82280C81F4C753D00AEC2F1 /* fenxiang@2x.png */,
 				E82280C91F4C753D00AEC2F1 /* fenxiang@3x.png */,
 				AEDDAB5E1F1F3DF0006BD05A /* huodongPic@2x.png */,
@@ -2559,9 +2589,11 @@
 				E8C0C55F1F5D744C007ACBDE /* kaibg@3x.png in Resources */,
 				AE16BEB91F56644600BD2C05 /* 思源@3x.png in Resources */,
 				E82281311F4C7EDC00AEC2F1 /* icon8@3x.png in Resources */,
+				AE0393221F6A60E20004C1D2 /* 组1@3x.png in Resources */,
 				AE16BE941F54200400BD2C05 /* shangwutop@2x.png in Resources */,
 				E82280FD1F4C7BA900AEC2F1 /* kai1@3x.png in Resources */,
 				AE7FA0C41F0E0D95009A8F12 /* MineCell.xib in Resources */,
+				AE0393201F6A60E20004C1D2 /* 图片卡片@3x.png in Resources */,
 				E82280DF1F4C77AE00AEC2F1 /* shangwu@3x.png in Resources */,
 				E82280F31F4C7A1600AEC2F1 /* shipinbofang@3x.png in Resources */,
 				AE7FA0CD1F0E207E009A8F12 /* Settings.storyboard in Resources */,
@@ -2603,6 +2635,7 @@
 				AE16BEB11F56637C00BD2C05 /* 腾翔相思粗体@3x.png in Resources */,
 				E82280EE1F4C78E700AEC2F1 /* video-card@2x.png in Resources */,
 				AEABCC8A1F4ACFDE00C4A3D3 /* SourceHanSansCN-Regular.otf in Resources */,
+				AE0393251F6A60E20004C1D2 /* 组3@2x.png in Resources */,
 				AEABCCB81F4D4F3F00C4A3D3 /* home1@3x.png in Resources */,
 				AE7FA0981F0C967A009A8F12 /* HotCollectionViewCell.xib in Resources */,
 				AEABCCB41F4D4F3F00C4A3D3 /* gongzuo1@3x.png in Resources */,
@@ -2627,6 +2660,8 @@
 				E82280B91F4C733800AEC2F1 /* img2@3x.png in Resources */,
 				E82281321F4C7EDC00AEC2F1 /* icon9@2x.png in Resources */,
 				E80D48171F531525003BA0A5 /* 水印2.png in Resources */,
+				AE0393261F6A60E20004C1D2 /* 组3@3x.png in Resources */,
+				AE03931F1F6A60E20004C1D2 /* 图片卡片@2x.png in Resources */,
 				E82280F21F4C7A1600AEC2F1 /* shipinbofang@2x.png in Resources */,
 				E82281531F511E3800AEC2F1 /* 高端黑@3x.png in Resources */,
 				E8E8736B1F2DA21F00DB944F /* SavePicAndVideoViewController.xib in Resources */,
@@ -2645,6 +2680,7 @@
 				AEDDAB651F1F3DF0006BD05A /* lunbotu@3x.png in Resources */,
 				AE7FA0BD1F0DEA8B009A8F12 /* photopaishe@3x.png in Resources */,
 				AEDDAB421F1CA160006BD05A /* ZuXunCell.xib in Resources */,
+				AE0393211F6A60E20004C1D2 /* 组1@2x.png in Resources */,
 				AE7FA0C71F0E11A7009A8F12 /* youjiantou@2x.png in Resources */,
 				AEABCCB51F4D4F3F00C4A3D3 /* home@2x.png in Resources */,
 				E82280C21F4C746B00AEC2F1 /* arrow@2x.png in Resources */,
@@ -2683,6 +2719,7 @@
 				E82280C41F4C746B00AEC2F1 /* bijiben@2x.png in Resources */,
 				AE16BEB61F56644600BD2C05 /* 方正兰亭黑简体@2x.png in Resources */,
 				E82280C71F4C746B00AEC2F1 /* icon1@3x.png in Resources */,
+				AE03931E1F6A60E20004C1D2 /* 视频卡片@3x.png in Resources */,
 				E82281471F4C831100AEC2F1 /* yangzheng@3x.png in Resources */,
 				AEABCCAF1F4D4F3F00C4A3D3 /* camera1@2x.png in Resources */,
 				AEABCCBC1F4D4F3F00C4A3D3 /* my1@3x.png in Resources */,
@@ -2691,6 +2728,7 @@
 				AE7222601F4D544100DCABCD /* dengluarrow@3x.png in Resources */,
 				AE16BEB01F56637C00BD2C05 /* 腾翔相思粗体@2x.png in Resources */,
 				E82281551F511E3800AEC2F1 /* 庞门正道标题体@3x.png in Resources */,
+				AE03931D1F6A60E20004C1D2 /* 视频卡片@2x.png in Resources */,
 				E82280F71F4C7AFE00AEC2F1 /* yuyuepaishe@3x.png in Resources */,
 				AEDDAB701F1F5B59006BD05A /* 新浪微博@2x.png in Resources */,
 				E82280EC1F4C78E700AEC2F1 /* pic-card.png in Resources */,
@@ -2710,6 +2748,7 @@
 				AEABCCBB1F4D4F3F00C4A3D3 /* my1@2x.png in Resources */,
 				E82280CA1F4C753D00AEC2F1 /* fenxiang@2x.png in Resources */,
 				E82281581F511E3800AEC2F1 /* 站酷快乐体@2x.png in Resources */,
+				AE0393241F6A60E20004C1D2 /* 组2@3x.png in Resources */,
 				AE7FA0BE1F0DEA8B009A8F12 /* xiangce@2x.png in Resources */,
 				AE5DC5BE1F347187003215FB /* selfH.MOV in Resources */,
 				AE16BEA41F54202B00BD2C05 /* email@2x.png in Resources */,
@@ -2730,6 +2769,7 @@
 				E82280C61F4C746B00AEC2F1 /* icon1@2x.png in Resources */,
 				AEDDAB731F1F5B59006BD05A /* pengyouquan@3x.png in Resources */,
 				AEABCC8C1F4ACFDE00C4A3D3 /* 站酷快乐体2016修订版.ttf in Resources */,
+				AE0393231F6A60E20004C1D2 /* 组2@2x.png in Resources */,
 				AEDDAB631F1F3DF0006BD05A /* huodongPic@3x.png in Resources */,
 				E82281441F4C831100AEC2F1 /* shouji@2x.png in Resources */,
 				E82281541F511E3800AEC2F1 /* 庞门正道标题体@2x.png in Resources */,
