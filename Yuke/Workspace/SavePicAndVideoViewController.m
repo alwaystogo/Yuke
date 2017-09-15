@@ -7,6 +7,11 @@
 //
 
 #import "SavePicAndVideoViewController.h"
+#import "WeiboActivity.h"
+#import "FriendActivity.h"
+#import "WeixinActivity.h"
+
+#define videoUrlTest @"http://flv3.bn.netease.com/videolib3/1707/31/NVeMJ1940/SD/NVeMJ1940-mobile.mp4"
 
 @interface SavePicAndVideoViewController ()
 
@@ -55,15 +60,19 @@
 - (void)weixinAction{
     
     NSLog(@"点击了微信");
+    WeixinActivity *weiA = [[WeixinActivity alloc] init];
+    [weiA shareVideoWithVideoUrl:[NSURL URLWithString:videoUrlTest]];
 }
 - (void)friendAction{
     
     NSLog(@"点击了朋友圈");
-
+    FriendActivity *weiA = [[FriendActivity alloc] init];
+    [weiA shareVideoWithVideoUrl:[NSURL URLWithString:videoUrlTest]];
 }
 - (void)weiboAction{
     
     NSLog(@"点击了微博");
-
+    WeiboActivity *weiA = [[WeiboActivity alloc] init];
+    [weiA shareVideoWithVideoUrl:[NSURL URLWithString:videoUrlTest]];
 }
 @end

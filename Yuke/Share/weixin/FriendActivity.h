@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface FriendActivity : UIActivity
+- (void)shareImageWithImage:(UIImage *)image;
 
+- (void)shareVideoWithVideoUrl:(NSURL *)videoUrl;
 @end

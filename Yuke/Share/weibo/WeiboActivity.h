@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WeiboSDK.h"
 
-@interface WeiboActivity : UIActivity
+@interface WeiboActivity : UIActivity<WBMediaTransferProtocol>
+@property (nonatomic, strong) WBMessageObject *messageObject;
+- (void)shareImageWithImage:(UIImage *)image;
 
+- (void)shareVideoWithVideoUrl:(NSURL *)videoUrl;
 @end

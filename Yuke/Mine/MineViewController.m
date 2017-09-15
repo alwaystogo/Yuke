@@ -13,6 +13,7 @@
 #import "FeedBackViewController.h"
 #import "ModifyPasswordViewController.h"
 #import "VipViewController.h"
+#import "WeixinActivity.h"
 
 #define fourWidth 22
 #define baseTag 5000
@@ -217,7 +218,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 //分享
                 ShareViewController *shareViewController = [[ShareViewController alloc] init];
-                shareViewController.shareUrlString = @"www.baidu.com";
+                shareViewController.shareUrlString = @"http://www.baidu.com";
                 shareViewController.shareTitleString = @"ceshi";
                 shareViewController.shareDescriptionString = @"ceyixia";
                 UIImageView *imageView = [[UIImageView alloc] init];

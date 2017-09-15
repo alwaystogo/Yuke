@@ -11,4 +11,7 @@
 @interface WeixinActivity : UIActivity
 
 - (void)shareImageWithImage:(UIImage *)image;
+
+- (void)shareVideoWithVideoUrl:(NSURL *)videoUrl;
+
 @end

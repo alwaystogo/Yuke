@@ -365,6 +365,14 @@
         //先保存到相册
         [weakSelf writeVideoToPhotoLibrary:url];
         
+        ////暂时不上传
+        [weakSelf.videoPlayer removeFromSuperview];
+        SavePicAndVideoViewController *vc = [[SavePicAndVideoViewController alloc] init];
+        vc.videoUrl = url;
+        [kCurNavController pushViewController:vc animated:YES];
+        return ;
+        ////
+        
         [kJFClient uploadVideoWithMethod:@"index.php/Api/Card/video_upload" param:dic videoUrl:url paramName:@"image" success:^(NSURLSessionDataTask *task, id responseObject) {
             [JFTools showSuccessHUDWithTip:@"上传成功"];
             

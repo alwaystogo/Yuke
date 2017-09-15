@@ -140,4 +140,61 @@
     [WXApi sendReq:req];
 }
 
+- (void)shareImageWithImage:(UIImage *)image{
+    
+    UIImage *shareImage = image;
+    NSData *imageData = UIImageJPEGRepresentation(shareImage, 1.0);
+    NSData *thumbData = UIImageJPEGRepresentation(shareImage, 0.5);
+    
+    // 控制缩略图大小不能超过32k
+    if (thumbData.length > 32000) {
+        
+        CGSize imageSize = CGSizeMake(320, 568);
+        
+        UIGraphicsBeginImageContext(imageSize);
+        CGRect imageRect = CGRectMake(0.0, 0.0, imageSize.width, imageSize.height);
+        [shareImage drawInRect:imageRect];
+        UIImage *thumbImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        thumbData = UIImageJPEGRepresentation(thumbImage, 0.5);
+    }
+    
+    WXMediaMessage *message = [WXMediaMessage message];
+    
+    message.thumbData = thumbData;
+    
+    WXImageObject *imageObject = [WXImageObject object];
+    
+    imageObject.imageData = imageData;
+    
+    message.mediaObject = imageObject;
+    
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+    req.bText = NO;
+    req.message = message;
+    req.scene = 1;                          // 1是朋友圈 0是微信消息发送
+    [WXApi sendReq:req];
+    return;
+}
+
+- (void)shareVideoWithVideoUrl:(NSURL *)videoUrl{
+    
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = @"我在娱客制作了一个新的视频资料，快来看！";
+    message.description = @"";
+    //[message setThumbImage:nil];
+    
+    WXVideoObject *videoObj = [WXVideoObject object];
+    videoObj.videoUrl = [videoUrl absoluteString];
+    message.mediaObject = videoObj;
+    
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+    req.bText = NO;
+    req.message = message;
+    req.scene = 1;//朋友圈
+    
+    [WXApi sendReq:req];
+    
+}
 @end

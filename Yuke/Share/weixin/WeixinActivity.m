@@ -101,7 +101,7 @@
     
     UIImage *shareImage = image;
     NSData *imageData = UIImageJPEGRepresentation(shareImage, 1.0);
-    NSData *thumbData = UIImageJPEGRepresentation(shareImage, 0.1);
+    NSData *thumbData = UIImageJPEGRepresentation(shareImage, 0.5);
     
     // 控制缩略图大小不能超过32k
     if (thumbData.length > 32000) {
@@ -114,7 +114,7 @@
         UIImage *thumbImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         
-        thumbData = UIImageJPEGRepresentation(thumbImage, 0.1);
+        thumbData = UIImageJPEGRepresentation(thumbImage, 0.5);
     }
     
     WXMediaMessage *message = [WXMediaMessage message];
@@ -135,4 +135,23 @@
     return;
 }
 
+- (void)shareVideoWithVideoUrl:(NSURL *)videoUrl{
+    
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = @"我在娱客制作了一个新的视频资料，快来看！";
+    message.description = @"";
+    //[message setThumbImage:nil];
+    
+    WXVideoObject *videoObj = [WXVideoObject object];
+    videoObj.videoUrl = [videoUrl absoluteString];
+    message.mediaObject = videoObj;
+    
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+    req.bText = NO;
+    req.message = message;
+    req.scene = 0;//微信好友
+    
+    [WXApi sendReq:req];
+
+}
 @end

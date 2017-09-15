@@ -7,6 +7,9 @@
 //
 
 #import "SavePicViewController.h"
+#import "WeiboActivity.h"
+#import "FriendActivity.h"
+#import "WeixinActivity.h"
 
 @interface SavePicViewController ()
 
@@ -53,17 +56,21 @@
 
 - (void)weixinAction{
     
-    NSLog(@"点击了微信");
+    NSLog(@"点击了weixin");
+    WeixinActivity *weiA = [[WeixinActivity alloc] init];
+    [weiA shareImageWithImage:self.picImage];
 }
 - (void)friendAction{
     
-    NSLog(@"点击了朋友圈");
-
+    NSLog(@"点击了pengyouquan");
+    FriendActivity *friendA = [[FriendActivity alloc] init];
+    [friendA shareImageWithImage:self.picImage];
 }
 - (void)weiboAction{
     
-    NSLog(@"点击了微博");
-
+    NSLog(@"点击了weibo");
+    WeiboActivity *weiboA = [[WeiboActivity alloc] init];
+    [weiboA shareImageWithImage:self.picImage];
 }
 - (void)setPicImage:(UIImage *)picImage{
     _picImage = picImage;
