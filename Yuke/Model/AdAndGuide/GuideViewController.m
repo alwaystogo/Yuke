@@ -31,7 +31,7 @@
     for (int i = 0; i < 3; i++) {
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"sp%d",(i + 1)]];
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%d",(i + 1)]];
         imageView.image = image;
         
         if (i == 2) {
@@ -41,8 +41,12 @@
             
             //第三个页面 立即开启 按钮
             UIButton *openBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-            openBtn.frame = CGRectMake(0, 0, 150, 40);
-            [openBtn setImage:[UIImage imageNamed:@"open_butten"] forState:UIControlStateNormal];
+            //openBtn.frame = CGRectMake(0, 0, 100, 35);
+            //[openBtn setImage:[UIImage imageNamed:@"button"] forState:UIControlStateNormal];
+            [openBtn setTitle:@"点击开启" forState:UIControlStateNormal];
+            openBtn.backgroundColor = COLOR_HEX(0xffa632, 1);
+            [openBtn setTitleColor:COLOR_HEX(0xffffff, 1) forState:0];
+            openBtn.layer.cornerRadius = 10;
             [openBtn addTarget:self action:@selector(openBtnAction:) forControlEvents:UIControlEventTouchUpInside];
             
             [imageView addSubview:openBtn];
@@ -51,7 +55,8 @@
             [openBtn mas_makeConstraints:^(MASConstraintMaker *make) {
                 
                 make.centerX.equalTo(imageView.mas_centerX);
-                make.bottom.equalTo(imageView.mas_bottom).offset(-(160 * BiLi_SCREENWIDTH));
+                make.bottom.equalTo(imageView.mas_bottom).offset(-(120 * BiLi_SCREENWIDTH));
+                make.size.mas_equalTo(CGSizeMake(100, 35));
             }];
         }
         [_scrollView addSubview:imageView];
