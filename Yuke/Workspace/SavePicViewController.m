@@ -10,6 +10,7 @@
 #import "WeiboActivity.h"
 #import "FriendActivity.h"
 #import "WeixinActivity.h"
+#import "WSLPhotoZoom.h"
 
 @interface SavePicViewController ()
 
@@ -38,6 +39,11 @@
 
     self.picImageView.contentMode=UIViewContentModeScaleAspectFit;
     self.picImageView.image = _picImage;
+    
+    UITapGestureRecognizer *tap4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImageView)];
+    self.picImageView.userInteractionEnabled = YES;
+    [self.picImageView addGestureRecognizer:tap4];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,5 +80,12 @@
 }
 - (void)setPicImage:(UIImage *)picImage{
     _picImage = picImage;
+}
+- (void)tapImageView{
+    WSLPhotoZoom *zm = [[WSLPhotoZoom alloc] initWithFrame:self.view.bounds];
+    zm.imageNormalWidth = self.view.bounds.size.width;
+    zm.imageNormalHeight = self.view.bounds.size.height;
+    zm.imageView.image = self.picImage;
+    [[UIApplication sharedApplication].delegate.window addSubview:zm];
 }
 @end

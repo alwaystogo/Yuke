@@ -58,6 +58,7 @@
 		AE16BEB91F56644600BD2C05 /* 思源@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BEB51F56644600BD2C05 /* 思源@3x.png */; };
 		AE16BEBC1F56648400BD2C05 /* 郑庆科黄油体@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BEBA1F56648400BD2C05 /* 郑庆科黄油体@2x.png */; };
 		AE16BEBD1F56648400BD2C05 /* 郑庆科黄油体@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BEBB1F56648400BD2C05 /* 郑庆科黄油体@3x.png */; };
+		AE5CE8271F73C63F0057721E /* WSLPhotoZoom.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5CE8261F73C63F0057721E /* WSLPhotoZoom.m */; };
 		AE5DC51A1F3461CA003215FB /* GLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5DC3D91F3461C9003215FB /* GLProgram.m */; };
 		AE5DC51B1F3461CA003215FB /* GPUImage3x3ConvolutionFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5DC3DC1F3461C9003215FB /* GPUImage3x3ConvolutionFilter.m */; };
 		AE5DC51C1F3461CA003215FB /* GPUImage3x3TextureSamplingFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5DC3DE1F3461C9003215FB /* GPUImage3x3TextureSamplingFilter.m */; };
@@ -586,6 +587,8 @@
 		AE16BEB51F56644600BD2C05 /* 思源@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "思源@3x.png"; sourceTree = "<group>"; };
 		AE16BEBA1F56648400BD2C05 /* 郑庆科黄油体@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "郑庆科黄油体@2x.png"; sourceTree = "<group>"; };
 		AE16BEBB1F56648400BD2C05 /* 郑庆科黄油体@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "郑庆科黄油体@3x.png"; sourceTree = "<group>"; };
+		AE5CE8251F73C63F0057721E /* WSLPhotoZoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSLPhotoZoom.h; sourceTree = "<group>"; };
+		AE5CE8261F73C63F0057721E /* WSLPhotoZoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSLPhotoZoom.m; sourceTree = "<group>"; };
 		AE5DC3D81F3461C9003215FB /* GLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProgram.h; sourceTree = "<group>"; };
 		AE5DC3D91F3461C9003215FB /* GLProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLProgram.m; sourceTree = "<group>"; };
 		AE5DC3DA1F3461C9003215FB /* GPUImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImage.h; sourceTree = "<group>"; };
@@ -1904,6 +1907,8 @@
 		AE61B61D1F02486B00C1F930 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				AE5CE8251F73C63F0057721E /* WSLPhotoZoom.h */,
+				AE5CE8261F73C63F0057721E /* WSLPhotoZoom.m */,
 				AE9025EC1F5E82D100970509 /* AppPayManager.h */,
 				AE9025ED1F5E82D100970509 /* AppPayManager.m */,
 				AE61B61E1F02486B00C1F930 /* JFAlertController.h */,
@@ -3080,6 +3085,7 @@
 				AE5DC5841F3461CA003215FB /* GPUImageRawDataInput.m in Sources */,
 				AE5DC5501F3461CA003215FB /* GPUImageHarrisCornerDetectionFilter.m in Sources */,
 				AEEFD8171F331F0400E667B0 /* XSMediaPlayer.m in Sources */,
+				AE5CE8271F73C63F0057721E /* WSLPhotoZoom.m in Sources */,
 				AE61B6A01F0249A300C1F930 /* NSBundle+TZImagePicker.m in Sources */,
 				AE5DC56A1F3461CA003215FB /* GPUImageMedianFilter.m in Sources */,
 				AE5DC5261F3461CA003215FB /* GPUImageBuffer.m in Sources */,

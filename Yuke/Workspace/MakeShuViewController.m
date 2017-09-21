@@ -406,7 +406,7 @@
 
 -(void)requestZitiInfo{
     
-    self.zitiArray = @[@"1",@"2",@"3",@"4",@"5",@"6"];
+    //self.zitiArray = @[@"1",@"2",@"3",@"4",@"5",@"6"];
     [self.collectionView reloadData];
 }
 
