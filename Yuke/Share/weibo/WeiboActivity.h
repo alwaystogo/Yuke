@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "WeiboSDK.h"
 
-@interface WeiboActivity : UIActivity<WBMediaTransferProtocol>
+@interface WeiboActivity : UIActivity<WBMediaTransferProtocol,WBHttpRequestDelegate>
 @property (nonatomic, strong) WBMessageObject *messageObject;
+@property (nonatomic, strong) UIActivityIndicatorView *indicatorView;
+
 - (void)shareImageWithImage:(UIImage *)image;
 
 - (void)shareVideoWithVideoUrl:(NSURL *)videoUrl;

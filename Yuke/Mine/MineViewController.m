@@ -31,6 +31,7 @@
     self.dataArray = @[@"分享娱客",@"联系电话",@"使用秘籍",@"意见反馈",@"清空缓存",@"退出登录"];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self createUI];
+
 }
 
 - (void)createUI{
@@ -218,11 +219,11 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 //分享
                 ShareViewController *shareViewController = [[ShareViewController alloc] init];
-                shareViewController.shareUrlString = @"http://www.baidu.com";
+                shareViewController.shareUrlString = @"https://www.baidu.com";
                 shareViewController.shareTitleString = @"ceshi";
                 shareViewController.shareDescriptionString = @"ceyixia";
                 UIImageView *imageView = [[UIImageView alloc] init];
-                [imageView getImageWithUrl:@"aaa" placeholderImage:[UIImage imageNamed:@"pengyouquan"]];
+                [imageView getImageWithUrl:@"aaa" placeholderImage:[UIImage imageNamed:SharePic]];
                 shareViewController.shareImage = imageView.image;
                 
                 [self presentViewController:shareViewController animated:YES completion:nil];

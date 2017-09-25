@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "RootTabBarController.h"
+#import "WeiboSDK.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,WeiboSDKDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) RootTabBarController *tabBarController;

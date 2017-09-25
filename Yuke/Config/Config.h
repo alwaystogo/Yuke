@@ -141,6 +141,8 @@ isKindOfClass:[UINavigationController class]] \
 #define testUserId @"527C895A393F4C2DBA7B58139E9268FE"
 #define testToken @"1461DBDD782C482F9DFD62C5917F40D5"
 
+//分享出去的默认图片
+#define SharePic @"huodongPic"
 //请求不到图片时的占位图
 #define PlaceHolderPic @"huodongPic"
 

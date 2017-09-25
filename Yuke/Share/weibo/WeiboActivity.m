@@ -126,74 +126,62 @@
 
 }
 
-//- (void)shareVideoWithVideoUrl:(NSURL *)videoUrl{
-//    WBMessageObject *message = [WBMessageObject message];
-//    
-//    WBVideoObject *videoObject = [WBVideoObject object];
-//    videoObject.objectID = @"33333";
-//    videoObject.title = @"1";
-//    videoObject.description = @"";
-//    //videoObject.thumbnailData = paramObj.param5;
-//    videoObject.videoUrl = [videoUrl absoluteString];
-//    videoObject.videoStreamUrl = [videoUrl absoluteString];
-//    
-//    message.mediaObject = videoObject;
-//    
-//    WBAuthorizeRequest *authRequest = [WBAuthorizeRequest request];
-//    authRequest.redirectURI = @"https://www.sina.com";
-//    authRequest.scope = @"all";
-//    
-//    
-//    WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:message authInfo:authRequest access_token:nil];
-//    [WeiboSDK sendRequest:request];
-//
-//    //[WeiboSDK sendRequest:[WBSendMessageToWeiboRequest requestWithMessage:message]];
-//}
-
 - (void)shareVideoWithVideoUrl:(NSURL *)videoUrl{
     
-    WBMessageObject *message = [WBMessageObject message];
+//    WBMessageObject *message = [WBMessageObject message];
+//
+//    WBNewVideoObject *videoObject = [WBNewVideoObject object];
+//    videoObject.isShareToStory = YES;
+//    videoObject.delegate = self;
+////     NSURL *url = [NSURL URLWithString:[[NSBundle mainBundle] pathForResource:@"selfH" ofType:@"mov"]];
+//    [videoObject addVideo:videoUrl];
+//
+//    message.videoObject = videoObject;
+//
+//    self.messageObject = message;
+//
+//    if (!_indicatorView) {
+//        _indicatorView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+//
+//        _indicatorView.center = kAppDelegate.window.center;
+//        [kAppDelegate.window addSubview:_indicatorView];
+//        _indicatorView.color = [UIColor blueColor];
+//    }
+//
+//    [_indicatorView startAnimating];
+//    [_indicatorView setHidesWhenStopped:YES];
     
-    WBNewVideoObject *videoObject = [WBNewVideoObject object];
-    //videoObject.isShareToStory = YES;
-    videoObject.delegate = self;
-    [videoObject addVideo:videoUrl];
-    
-    message.videoObject = videoObject;
-    
-    self.messageObject = message;
-    
-//    WBAuthorizeRequest *authRequest = [WBAuthorizeRequest request];
-//    authRequest.redirectURI = @"https://www.sina.com";
-//    authRequest.scope = @"all";
-//    
-//    
-//    WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:message authInfo:authRequest access_token:nil];
-//    [WeiboSDK sendRequest:request];
-    
-    //[WeiboSDK sendRequest:[WBSendMessageToWeiboRequest requestWithMessage:message]];
+    UIImage *image = [UIImage imageNamed:SharePic];
+    NSArray *array = @[@"我在娱客制作了一个新的视频资料",@"快来看！",[videoUrl absoluteString],image];
+    [self prepareWithActivityItems:array];
 }
 
 #pragma delegate
 -(void)wbsdk_TransferDidReceiveObject:(id)object
 {
+    [_indicatorView stopAnimating];
+    
+    AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
+
+    
     WBAuthorizeRequest *authRequest = [WBAuthorizeRequest request];
     authRequest.redirectURI = @"https://www.sina.com";
     authRequest.scope = @"all";
     
-    AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
-
     WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:self.messageObject authInfo:authRequest access_token:myDelegate.wbtoken];
-//    request.userInfo = @{@"ShareMessageFrom": @"SendMessageToWeiboViewController",
-//                         @"Other_Info_1": [NSNumber numberWithInt:123],
-//                         @"Other_Info_2": @[@"obj1", @"obj2"],
-//                         @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};
-    [WeiboSDK sendRequest:request];
+    request.userInfo = @{@"ShareMessageFrom": @"SendMessageToWeiboViewController",
+                         @"Other_Info_1": [NSNumber numberWithInt:123],
+                         @"Other_Info_2": @[@"obj1", @"obj2"],
+                         @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};
 
+    if (![WeiboSDK sendRequest:request]) {
+        [_indicatorView stopAnimating];
+    }
+    
 }
 
 -(void)wbsdk_TransferDidFailWithErrorCode:(WBSDKMediaTransferErrorCode)errorCode andError:(NSError*)error{
-    
+    NSLog(@"调用微博出错");
 }
 
 //- (void)shareVideoWithVideoUrl:(NSURL *)videoUrl{
@@ -221,5 +209,33 @@
 //    [WeiboSDK sendRequest:request];
 //
 //}
+
+- (void)request:(WBHttpRequest *)request didFinishLoadingWithResult:(NSString *)result
+{
+    NSString *title = nil;
+    UIAlertView *alert = nil;
+    
+    title = NSLocalizedString(@"收到网络回调", nil);
+    alert = [[UIAlertView alloc] initWithTitle:title
+                                       message:[NSString stringWithFormat:@"%@",result]
+                                      delegate:nil
+                             cancelButtonTitle:NSLocalizedString(@"确定", nil)
+                             otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void)request:(WBHttpRequest *)request didFailWithError:(NSError *)error;
+{
+    NSString *title = nil;
+    UIAlertView *alert = nil;
+    
+    title = NSLocalizedString(@"请求异常", nil);
+    alert = [[UIAlertView alloc] initWithTitle:title
+                                       message:[NSString stringWithFormat:@"%@",error]
+                                      delegate:nil
+                             cancelButtonTitle:NSLocalizedString(@"确定", nil)
+                             otherButtonTitles:nil];
+    [alert show];
+}
 
 @end
