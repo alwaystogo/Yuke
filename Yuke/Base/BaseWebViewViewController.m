@@ -210,14 +210,15 @@
 
 - (void)fenxiangAction{
     //这里加到异步线程，否则ShareViewController的viewWillAppear会延迟调用
+    WeakSelf
     dispatch_async(dispatch_get_main_queue(), ^{
         //分享
         ShareViewController *shareViewController = [[ShareViewController alloc] init];
-        shareViewController.shareUrlString = @"www.baidu.com";
-        shareViewController.shareTitleString = @"ceshi";
-        shareViewController.shareDescriptionString = @"ceyixia";
+        shareViewController.shareUrlString = weakSelf.str_URL;
+        shareViewController.shareTitleString = @"娱客";
+        shareViewController.shareDescriptionString = @"点击查看内容";
         UIImageView *imageView = [[UIImageView alloc] init];
-        [imageView getImageWithUrl:@"aaa" placeholderImage:[UIImage imageNamed:@"pengyouquan"]];
+        [imageView getImageWithUrl:@"aaa" placeholderImage:[UIImage imageNamed:SharePic]];
         shareViewController.shareImage = imageView.image;
         
         [self presentViewController:shareViewController animated:YES completion:nil];

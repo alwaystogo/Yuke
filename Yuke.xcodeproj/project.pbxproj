@@ -587,6 +587,7 @@
 		AE16BEB51F56644600BD2C05 /* 思源@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "思源@3x.png"; sourceTree = "<group>"; };
 		AE16BEBA1F56648400BD2C05 /* 郑庆科黄油体@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "郑庆科黄油体@2x.png"; sourceTree = "<group>"; };
 		AE16BEBB1F56648400BD2C05 /* 郑庆科黄油体@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "郑庆科黄油体@3x.png"; sourceTree = "<group>"; };
+		AE35F9541F7A620E00F2E9BA /* share111.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share111.png; sourceTree = "<group>"; };
 		AE5CE8251F73C63F0057721E /* WSLPhotoZoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSLPhotoZoom.h; sourceTree = "<group>"; };
 		AE5CE8261F73C63F0057721E /* WSLPhotoZoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSLPhotoZoom.m; sourceTree = "<group>"; };
 		AE5DC3D81F3461C9003215FB /* GLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProgram.h; sourceTree = "<group>"; };
@@ -1049,7 +1050,6 @@
 		AE72225C1F4D544100DCABCD /* phone@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone@3x.png"; sourceTree = "<group>"; };
 		AE72225D1F4D544100DCABCD /* Selection@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Selection@2x.png"; sourceTree = "<group>"; };
 		AE72225E1F4D544100DCABCD /* Selection@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Selection@3x.png"; sourceTree = "<group>"; };
-		AE7D018A1F7909CD00923D71 /* share111@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share111@2x.png"; sourceTree = "<group>"; };
 		AE7FA0911F0BA47C009A8F12 /* CarouselScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselScrollView.h; sourceTree = "<group>"; };
 		AE7FA0921F0BA47C009A8F12 /* CarouselScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselScrollView.m; sourceTree = "<group>"; };
 		AE7FA0941F0C967A009A8F12 /* HotCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCollectionViewCell.h; sourceTree = "<group>"; };
@@ -2469,7 +2469,7 @@
 		AEDDAB5D1F1F3DF0006BD05A /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				AE7D018A1F7909CD00923D71 /* share111@2x.png */,
+				AE35F9541F7A620E00F2E9BA /* share111.png */,
 				AE0393131F6A60E20004C1D2 /* 视频卡片@2x.png */,
 				AE0393141F6A60E20004C1D2 /* 视频卡片@3x.png */,
 				AE0393151F6A60E20004C1D2 /* 图片卡片@2x.png */,
