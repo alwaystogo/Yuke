@@ -47,6 +47,8 @@
     //self.tableView.mj_header = [MJRefreshHeader refreshControlWithTarget:self action:@selector(refreshAction)];
     self.tableView.mj_header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshAction)];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreAction)];
+    [self.tableView closeEstimatedHeight];
+    [self.tableView closeContentInsetAdjustAutomaicCalculate];
     [self.view addSubview:self.tableView];
 
 }

@@ -60,4 +60,6 @@
 #import "ShareViewController.h"
 #import "AppPayManager.h"
 
+#import "UITableView+AdapteiOS11.h"
+
 #endif /* OnlineFinancialerPrefix_pch */

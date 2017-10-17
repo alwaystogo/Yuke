@@ -53,16 +53,16 @@
     //内购时，添加订单观察者
     [[AppPayManager manager] startObserver];
     
-    //微信
-    [WXApi registerApp:@"wxf769243933375873"];
-    
-    //新浪微博
-    [WeiboSDK registerApp:@"847160383"];
-    [WeiboSDK enableDebugMode:YES];
-    
-    //腾讯qq
-    TencentOAuth *tencentOAuth;
-    tencentOAuth = [[TencentOAuth alloc] initWithAppId:@"1106246940" andDelegate:nil];
+//    //微信
+//    [WXApi registerApp:@"wxf769243933375873"];
+//
+//    //新浪微博
+//    [WeiboSDK registerApp:@"847160383"];
+//    [WeiboSDK enableDebugMode:YES];
+//
+//    //腾讯qq
+//    TencentOAuth *tencentOAuth;
+//    tencentOAuth = [[TencentOAuth alloc] initWithAppId:@"1106246940" andDelegate:nil];
     
     return YES;
 }

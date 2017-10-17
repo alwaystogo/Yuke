@@ -58,6 +58,7 @@
 		AE16BEB91F56644600BD2C05 /* 思源@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BEB51F56644600BD2C05 /* 思源@3x.png */; };
 		AE16BEBC1F56648400BD2C05 /* 郑庆科黄油体@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BEBA1F56648400BD2C05 /* 郑庆科黄油体@2x.png */; };
 		AE16BEBD1F56648400BD2C05 /* 郑庆科黄油体@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BEBB1F56648400BD2C05 /* 郑庆科黄油体@3x.png */; };
+		AE4F35981F95F8FE0097A10C /* UITableView+AdapteiOS11.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4F35961F95F8FD0097A10C /* UITableView+AdapteiOS11.m */; };
 		AE5CE8271F73C63F0057721E /* WSLPhotoZoom.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5CE8261F73C63F0057721E /* WSLPhotoZoom.m */; };
 		AE5DC51A1F3461CA003215FB /* GLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5DC3D91F3461C9003215FB /* GLProgram.m */; };
 		AE5DC51B1F3461CA003215FB /* GPUImage3x3ConvolutionFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5DC3DC1F3461C9003215FB /* GPUImage3x3ConvolutionFilter.m */; };
@@ -588,6 +589,8 @@
 		AE16BEBA1F56648400BD2C05 /* 郑庆科黄油体@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "郑庆科黄油体@2x.png"; sourceTree = "<group>"; };
 		AE16BEBB1F56648400BD2C05 /* 郑庆科黄油体@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "郑庆科黄油体@3x.png"; sourceTree = "<group>"; };
 		AE35F9541F7A620E00F2E9BA /* share111.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share111.png; sourceTree = "<group>"; };
+		AE4F35961F95F8FD0097A10C /* UITableView+AdapteiOS11.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+AdapteiOS11.m"; sourceTree = "<group>"; };
+		AE4F35971F95F8FE0097A10C /* UITableView+AdapteiOS11.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+AdapteiOS11.h"; sourceTree = "<group>"; };
 		AE5CE8251F73C63F0057721E /* WSLPhotoZoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSLPhotoZoom.h; sourceTree = "<group>"; };
 		AE5CE8261F73C63F0057721E /* WSLPhotoZoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSLPhotoZoom.m; sourceTree = "<group>"; };
 		AE5DC3D81F3461C9003215FB /* GLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProgram.h; sourceTree = "<group>"; };
@@ -1961,6 +1964,8 @@
 				AE61B65E1F0248CF00C1F930 /* UIViewController+Help.m */,
 				AE61B65F1F0248CF00C1F930 /* UIViewController+NavigationAction.h */,
 				AE61B6601F0248CF00C1F930 /* UIViewController+NavigationAction.m */,
+				AE4F35971F95F8FE0097A10C /* UITableView+AdapteiOS11.h */,
+				AE4F35961F95F8FD0097A10C /* UITableView+AdapteiOS11.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2996,6 +3001,7 @@
 				AE5DC5AB1F3461CA003215FB /* GPUImageTwoPassFilter.m in Sources */,
 				AE5DC5631F3461CA003215FB /* GPUImageLocalBinaryPatternFilter.m in Sources */,
 				AE5DC51F1F3461CA003215FB /* GPUImageAlphaBlendFilter.m in Sources */,
+				AE4F35981F95F8FE0097A10C /* UITableView+AdapteiOS11.m in Sources */,
 				AE03934C1F6A86BD0004C1D2 /* ShareViewController.m in Sources */,
 				E8E873651F2D8D6A00DB944F /* XieYiViewController.m in Sources */,
 				AE61B6171F02479F00C1F930 /* BaseAlertViewController.m in Sources */,

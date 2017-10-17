@@ -37,6 +37,7 @@
     self.tableView.separatorStyle = NO;//去除分割线
     self.tableView.showsHorizontalScrollIndicator = NO;
     self.tableView.showsVerticalScrollIndicator = NO;
+    [self.tableView closeEstimatedHeight];
     [self.view addSubview:self.tableView];
 
 }

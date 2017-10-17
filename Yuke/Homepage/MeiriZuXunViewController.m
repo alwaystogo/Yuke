@@ -26,7 +26,7 @@
     self.view.backgroundColor = COLOR_RGB(236, 236, 236, 1);
     self.title = @"每日组讯";
     [self setLeftBackNavItem];
-    [self setupRightNavButton2:ImageNamed(@"bijiben") target:self action:@selector(rightBtnAction)];
+    //[self setupRightNavButton2:ImageNamed(@"bijiben") target:self action:@selector(rightBtnAction)];
     [self createUI];
 
     [self requestZuxunListWithType:self.selectType withDate:self.selectDate];
@@ -81,6 +81,8 @@
     self.tableView.showsHorizontalScrollIndicator = NO;
     self.tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.tableView];
+    [self.tableView closeContentInsetAdjustAutomaicCalculate];
+    [self.tableView closeEstimatedHeight];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.topView.mas_bottom);
         make.left.mas_equalTo(self.view.mas_left).offset(0);
@@ -88,7 +90,8 @@
         make.bottom.mas_equalTo(self.view.mas_bottom);
     }];
 
-    self.typeTableView = [[UITableView alloc] initWithFrame:CGRectMake(self.typeBtn.centerX - 55, CGRectGetMaxY(self.topView.frame), 110, self.typeArray.count *30) style:UITableViewStyleGrouped];
+    //self.typeTableView = [[UITableView alloc] initWithFrame:CGRectMake(self.typeBtn.centerX - 55, CGRectGetMaxY(self.topView.frame), 110, self.typeArray.count *30) style:UITableViewStyleGrouped];
+    self.typeTableView = [[UITableView alloc] init];
     self.typeTableView.tag = 3001;
     self.typeTableView.backgroundColor = COLOR_HEX(0xf5f5f5, 1);
     self.typeTableView.delegate = self;
