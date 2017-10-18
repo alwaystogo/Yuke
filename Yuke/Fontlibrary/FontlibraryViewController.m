@@ -77,7 +77,18 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //点击某列
 
-    [[AppPayManager manager] buyProductsWithId:Product_ziti1 andQuantity:1 withMyProductsNum:1];
+//    [kJFClient isHaveFontAndVIP:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+//        NSLog(@"%@",responseObject);
+//
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        ;
+//    }];
+    if (indexPath.row == 5) {
+         [[AppPayManager manager] buyProductsWithId:Product_ziti1 andQuantity:1 withMyProductsNum:1];
+    }
+    if (indexPath.row == 6) {
+         [[AppPayManager manager] buyProductsWithId:Product_ziti2 andQuantity:1 withMyProductsNum:2];
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

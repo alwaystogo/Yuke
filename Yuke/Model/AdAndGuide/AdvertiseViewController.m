@@ -18,22 +18,38 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"点击进入广告链接";
+    self.title = @"详情";
+    [self setLeftBackNavItem];
     _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     _webView.backgroundColor = [UIColor whiteColor];
     if (!self.adUrl) {
-        self.adUrl = @"http://www.jianshu.com";
+        self.adUrl = @"";
     }
-    NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.adUrl]];
-    [_webView loadRequest:request];
+    
+    [self request];
+    
     [self.view addSubview:_webView];
 }
 
 - (void)setAdUrl:(NSString *)adUrl
 {
     _adUrl = adUrl;
+    NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.adUrl]];
+    [_webView loadRequest:request];
 }
 
-
+- (void)request{
+    
+    [kJFClient haibao:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@",responseObject);
+        
+        NSDictionary *dic = responseObject[0];
+        NSString *url = [dic objectForKey:@"url"];
+        self.adUrl = url;
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+}
 
 @end

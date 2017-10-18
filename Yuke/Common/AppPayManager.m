@@ -163,7 +163,12 @@
 - (void)recordTransaction:(NSString *)product{
     NSLog(@"记录交易--product == %@",product);
     //上传到服务器
-    
+    NSDictionary *dic = @{@"user_id":NON(kUserMoudle.user_Id),@"type":[NSString stringWithFormat:@"%ld",self.myProductsNum]};
+    [kJFClient getFontAndVIP:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@",responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [JFTools showFailureHUDWithTip:error.localizedDescription];
+    }];
 }
 
 @end

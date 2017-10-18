@@ -12,9 +12,11 @@
 #define PARAM_SALT @"iamlink"
 
 //测试环境
-NSString * const JFiPhoneClient_DebugBaseUrl   = @"http://116.62.194.17/yuke";
+//NSString * const JFiPhoneClient_DebugBaseUrl   = @"http://116.62.194.17/yuke";
+NSString * const JFiPhoneClient_DebugBaseUrl   = @"http://47.95.210.218/yuke";
 //生产环境
-NSString * const JFiPhoneClient_PrdBaseUrl   = @"http://116.62.194.17/yuke";
+//NSString * const JFiPhoneClient_PrdBaseUrl   = @"http://116.62.194.17/yuke";
+NSString * const JFiPhoneClient_PrdBaseUrl   = @"http://47.95.210.218/yuke";
 
 static NSString *const JFErrorDomain = @"Yuke.com";
 

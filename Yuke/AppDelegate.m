@@ -44,11 +44,36 @@
         self.window.rootViewController = self.tabBarController;
     }
 
-    //这里去请求接口
-    
-//    AdvertiseView *advertiseView = [[AdvertiseView alloc] initWithFrame:self.window.bounds];
-//    advertiseView.picUrl = picUrl;
-//    [advertiseView show];
+    //Document目录
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [paths objectAtIndex:0];
+    NSString *haibaoPath = [path stringByAppendingPathComponent:@"haibao.png"];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:haibaoPath]) {
+        AdvertiseView *advertiseView = [[AdvertiseView alloc] initWithFrame:self.window.bounds];
+        advertiseView.filePath = haibaoPath;
+        [advertiseView show];
+    }
+    //这里去请求海报接口
+    [kJFClient haibao:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@",responseObject);
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *path = [paths objectAtIndex:0];
+        NSString *haibaoPath = [path stringByAppendingPathComponent:@"haibao.png"];
+        [[NSFileManager defaultManager] removeItemAtPath:haibaoPath error:nil];//先删除
+        
+        NSDictionary *dic = responseObject[0];
+        NSString *url = [dic objectForKey:@"image"];
+        UIImageView *imageView = [[UIImageView alloc] init];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:url] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            if (image != nil) {
+                //异步将图片保存到沙盒中，供下次启动的时候使用
+                [UIImagePNGRepresentation(imageView.image) writeToFile:haibaoPath atomically:YES];
+            }
+        }];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
     
     //内购时，添加订单观察者
     [[AppPayManager manager] startObserver];

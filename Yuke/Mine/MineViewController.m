@@ -31,7 +31,7 @@
     self.dataArray = @[@"分享娱客",@"联系电话",@"使用秘籍",@"意见反馈",@"清空缓存",@"退出登录"];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self createUI];
-
+    [self requestGetHeader];
 }
 
 - (void)createUI{
@@ -381,4 +381,16 @@
     [self.tableView reloadData];
 }
 
+- (void)requestGetHeader{
+    
+    NSDictionary *dic = @{@"user_id":NON(kUserMoudle.user_Id)};
+    [kJFClient getHeaderPhoto:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@",responseObject);
+        NSString *headerUrl = [responseObject objectForKey:@"headimg"];
+        [self.photoImageView getImageWithUrl:headerUrl placeholderImage:ImageNamed(@"unloginphoto")];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [JFTools showFailureHUDWithTip:error.localizedDescription];
+    }];
+}
 @end

@@ -390,6 +390,7 @@
 - (void)pushToAd {
     
     AdvertiseViewController *adVc = [[AdvertiseViewController alloc] init];
+    adVc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:adVc animated:YES];
     
 }

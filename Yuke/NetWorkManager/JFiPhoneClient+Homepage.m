@@ -78,4 +78,10 @@
     [self enqueueRequestWithMethod:@"index.php/Api/Message/send_message" param:params success:success failure:failure];
 
 }
+- (void)haibao:(NSDictionary *)params
+       success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+       failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{
+    
+    [self enqueueRequestWithMethod:@"index.php/Api/Index/get_action_banner" param:params success:success failure:failure];
+}
 @end
