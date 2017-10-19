@@ -77,18 +77,36 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //点击某列
 
-//    [kJFClient isHaveFontAndVIP:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-//        NSLog(@"%@",responseObject);
-//
-//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//        ;
-//    }];
-    if (indexPath.row == 5) {
-         [[AppPayManager manager] buyProductsWithId:Product_ziti1 andQuantity:1 withMyProductsNum:1];
-    }
-    if (indexPath.row == 6) {
-         [[AppPayManager manager] buyProductsWithId:Product_ziti2 andQuantity:1 withMyProductsNum:2];
-    }
+    NSDictionary *dic = @{@"user_id": NON(kUserMoudle.user_Id)};
+    [kJFClient isHaveFontAndVIP:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@",responseObject);
+        NSString *isVip = [NSString stringWithFormat:@"%@",[responseObject objectForKey:@"status"]];
+        NSString *haveFont = [responseObject objectForKey:@"font"];
+        if ([isVip isEqualToString:@"1"]) {
+            [JFTools showTipOnHUD:@"您已开通会员，所有字体可免费使用"];
+        }else{
+            NSArray *fontArray = [haveFont componentsSeparatedByString:@","];
+            if (indexPath.row == 5) {
+                if (![fontArray containsObject:@"1"]) {
+                    [[AppPayManager manager] buyProductsWithId:Product_ziti1 andQuantity:1 withMyProductsNum:1];
+                }else{
+                    [JFTools showTipOnHUD:@"您已购买了该字体"];
+                }
+            }else if (indexPath.row == 6) {
+                if (![fontArray containsObject:@"2"]) {
+                    [[AppPayManager manager] buyProductsWithId:Product_ziti2 andQuantity:1 withMyProductsNum:2];
+                }else{
+                    [JFTools showTipOnHUD:@"您已购买了该字体"];
+                }
+            }else{
+                [JFTools showTipOnHUD:@"开通会员后，可免费使用"];
+            }
+           
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        ;
+    }];
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

@@ -46,6 +46,6 @@
                  success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
                  failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{
     
-     [self enqueueRequestWithMethod:@"" param:params success:success failure:failure];
+     [self enqueueRequestWithMethod:@"index.php/Api/User/validate_vip" param:params success:success failure:failure];
 }
 @end

@@ -28,7 +28,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.dataArray = @[@"分享娱客",@"联系电话",@"使用秘籍",@"意见反馈",@"清空缓存",@"退出登录"];
+    //self.dataArray = @[@"分享娱客",@"联系电话",@"使用秘籍",@"意见反馈",@"清空缓存",@"退出登录"];
+    self.dataArray = @[@"分享娱客",@"联系电话",@"意见反馈",@"清空缓存",@"退出登录"];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self createUI];
     [self requestGetHeader];
@@ -184,16 +185,16 @@
     if (indexPath.row == 1) {
         cell.leftPicImageView.image = ImageNamed(@"lianxi");
     }
+//    if (indexPath.row == 2) {
+//        cell.leftPicImageView.image = ImageNamed(@"shiyong");
+//    }
     if (indexPath.row == 2) {
-        cell.leftPicImageView.image = ImageNamed(@"shiyong");
-    }
-    if (indexPath.row == 3) {
         cell.leftPicImageView.image = ImageNamed(@"icon7");
     }
-    if (indexPath.row == 4) {
+    if (indexPath.row == 3) {
         cell.leftPicImageView.image = ImageNamed(@"icon8");
     }
-    if (indexPath.row == 5) {
+    if (indexPath.row == 4) {
         cell.leftPicImageView.image = ImageNamed(@"icon9");
     }
    
@@ -219,12 +220,11 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 //分享
                 ShareViewController *shareViewController = [[ShareViewController alloc] init];
-                shareViewController.shareUrlString = @"https://www.baidu.com";
-                shareViewController.shareTitleString = @"ceshi";
-                shareViewController.shareDescriptionString = @"ceyixia";
-                UIImageView *imageView = [[UIImageView alloc] init];
-                [imageView getImageWithUrl:@"aaa" placeholderImage:[UIImage imageNamed:SharePic]];
-                shareViewController.shareImage = imageView.image;
+                //http://47.95.210.218/yuke/Home/Share/index
+                shareViewController.shareUrlString = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,@"/Home/Share/index"];
+                shareViewController.shareTitleString = @"娱客";
+                shareViewController.shareDescriptionString = @"娱客主页";
+                shareViewController.shareImage = ImageNamed(@"share111");
                 
                 [self presentViewController:shareViewController animated:YES completion:nil];
             });
@@ -238,18 +238,13 @@
             break;
         case 2:
         {
-            //秘籍
-        }
-            break;
-        case 3:
-        {
             //反馈
             FeedBackViewController *fViewController = [[UIStoryboard storyboardWithName:@"Settings" bundle:nil] instantiateViewControllerWithIdentifier:@"FeedBackViewController"];
             fViewController.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:fViewController animated:YES];
         }
             break;
-        case 4:
+        case 3:
         {
             //缓存
             [JFTools showAlertWithTitle:nil
@@ -266,7 +261,7 @@
 
         }
             break;
-        case 5:
+        case 4:
         {
             //退出
             [JFTools showAlertWithTitle:@"提示"

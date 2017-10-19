@@ -29,11 +29,12 @@
 @property(nonatomic,strong)UIImageView *shuiyinImageView1;
 @property(nonatomic,strong)UIImageView *shuiyinImageView2;
 @property(nonatomic,strong)UICollectionView *collectionView;
-@property(nonatomic,strong)NSArray *zitiArray;
+@property(nonatomic,strong)NSMutableArray *zitiArray;
 
 @property(nonatomic,assign)NSInteger selectBeijing;
 @property(nonatomic,assign)NSInteger selectShuiyin;
 @property(nonatomic,assign)NSInteger selectZiti;
+@property(nonatomic,copy)NSString *isVIP;
 
 @property(nonatomic,strong)UIView *picBkView;
 @property(nonatomic,strong)UIColor *picBkViewColor;
@@ -57,6 +58,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.zitiArray = [NSMutableArray array];
     self.fd_interactivePopDisabled = YES;
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = COLOR_HEX(0xdddddd, 1);
@@ -311,8 +313,38 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ZitiCollectionViewCell" owner:self options:nil] lastObject];
     }
     
-    cell.zitiLabel.text = self.zitiArray[indexPath.row];
-    if (indexPath.row == self.selectZiti) {
+    NSString *str = self.zitiArray[indexPath.row];
+    NSInteger fontNum = [str integerValue];
+    NSInteger fontSize = 22;
+    switch (fontNum) {
+        case 1:
+            cell.zitiLabel.font = FONT1(fontSize);
+            break;
+        case 2:
+            cell.zitiLabel.font = FONT2(fontSize);
+            break;
+        case 3:
+            cell.zitiLabel.font = FONT3(fontSize);
+            break;
+        case 4:
+            cell.zitiLabel.font = FONT4(fontSize);
+            break;
+        case 5:
+            cell.zitiLabel.font = FONT5(fontSize);
+            break;
+        case 6:
+            cell.zitiLabel.font = FONT6(fontSize);
+            break;
+        case 7:
+            cell.zitiLabel.font = FONT7(fontSize);
+            break;
+        default:
+            break;
+    }
+    cell.zitiLabel.text = @"个性字体";
+    NSString * zitiStr = [NSString stringWithFormat:@"%ld",self.selectZiti];
+   NSInteger index = [self.zitiArray indexOfObject:zitiStr];
+    if (indexPath.row == index) {
         
         cell.contentView.layer.borderWidth = 2;
         cell.contentView.layer.borderColor = COLOR_HEX(0xffa632,1).CGColor;
@@ -325,7 +357,8 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //点击某列
-    self.selectZiti = indexPath.row;
+    NSString *str = self.zitiArray[indexPath.row];
+    self.selectZiti = [str integerValue];
     [self.collectionView reloadData];
     //更改字体
     [self changeLabelFont];
@@ -400,14 +433,32 @@
 }
 //wushuiyin
 - (void)shuiyinImageView2Action{
-    self.selectShuiyin = 2;
-    [self shuiyinBtnAction];
+    if ([self.isVIP isEqualToString:@"1"]) {
+        self.selectShuiyin = 2;
+        [self shuiyinBtnAction];
+    }else{
+        [JFTools showTipOnHUD:@"请先开通会员"];
+    }
+    
 }
 
 -(void)requestZitiInfo{
-    
-    //self.zitiArray = @[@"1",@"2",@"3",@"4",@"5",@"6"];
-    [self.collectionView reloadData];
+   
+    NSDictionary *dic = @{@"user_id": NON(kUserMoudle.user_Id)};
+    [kJFClient isHaveFontAndVIP:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@",responseObject);
+        self.isVIP = [NSString stringWithFormat:@"%@",[responseObject objectForKey:@"status"]];
+        if ([self.isVIP isEqualToString:@"1"]) {
+            self.zitiArray = (NSMutableArray *)@[@"1",@"2",@"3",@"4",@"5",@"6",@"7"];
+        }else{
+            NSString *haveFont = [responseObject objectForKey:@"font"];
+            self.zitiArray = [NSMutableArray arrayWithArray:[haveFont componentsSeparatedByString:@","]];
+            [self.zitiArray removeObject:@"0"];
+        }
+       [self.collectionView reloadData];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [JFTools showFailureHUDWithTip:error.localizedDescription];
+    }];
 }
 
 //添加放置图片的scrollview
@@ -500,8 +551,30 @@
             //获取label字体大小
             NSString *size = [label.font.fontDescriptor objectForKey:@"NSFontSizeAttribute"];
             NSInteger fontSize = [size integerValue];
-            if (self.selectZiti == 1) {
-                label.font = FONT_BOLD(fontSize);
+            switch (self.selectZiti) {
+                case 1:
+                    label.font = FONT1(fontSize);
+                    break;
+                case 2:
+                    label.font = FONT2(fontSize);
+                    break;
+                case 3:
+                    label.font = FONT3(fontSize);
+                    break;
+                case 4:
+                    label.font = FONT4(fontSize);
+                    break;
+                case 5:
+                    label.font = FONT5(fontSize);
+                    break;
+                case 6:
+                    label.font = FONT6(fontSize);
+                    break;
+                case 7:
+                    label.font = FONT7(fontSize);
+                    break;
+                default:
+                    break;
             }
 
         }
@@ -533,7 +606,9 @@
         }
     }
     //添加logo水印
-    cutImage = [self addWaterTextWithImage:cutImage withLogo:ImageNamed(@"水印1")];
+    if (self.selectShuiyin != 2) {
+        cutImage = [self addWaterTextWithImage:cutImage withLogo:ImageNamed(@"水印1")];
+    }
     
     UIImageWriteToSavedPhotosAlbum(cutImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
     //上传图片
