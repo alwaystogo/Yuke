@@ -217,9 +217,10 @@
         shareViewController.shareUrlString = weakSelf.str_URL;
         shareViewController.shareTitleString = @"娱客";
         shareViewController.shareDescriptionString = @"点击查看内容";
-        UIImageView *imageView = [[UIImageView alloc] init];
-        [imageView getImageWithUrl:@"aaa" placeholderImage:[UIImage imageNamed:SharePic]];
-        shareViewController.shareImage = imageView.image;
+//        UIImageView *imageView = [[UIImageView alloc] init];
+//        [imageView getImageWithUrl:@"aaa" placeholderImage:[UIImage imageNamed:SharePic]];
+//        shareViewController.shareImage = imageView.image;
+        shareViewController.shareImage = ImageNamed(@"share111");
         
         [self presentViewController:shareViewController animated:YES completion:nil];
     });

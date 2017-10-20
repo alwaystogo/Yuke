@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>zh_CN</string>
 	<key>CFBundleDisplayName</key>
-	<string>Test</string>
+	<string>娱客</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -37,7 +37,7 @@
 			<string>com.yuke.YukeApp</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wxf769243933375873</string>
+				<string>wxa8774f1e758f7875</string>
 			</array>
 		</dict>
 		<dict>
@@ -57,7 +57,7 @@
 			<string>com.yuke.YukeApp</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wb847160383</string>
+				<string>wb1329544217</string>
 			</array>
 		</dict>
 	</array>

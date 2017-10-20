@@ -79,15 +79,15 @@
     [[AppPayManager manager] startObserver];
     
     //微信
-    [WXApi registerApp:@"wxf769243933375873"];
+    [WXApi registerApp:@"wxa8774f1e758f7875"];
 
     //新浪微博
-    [WeiboSDK registerApp:@"847160383"];
-    [WeiboSDK enableDebugMode:YES];
+    [WeiboSDK registerApp:@"1329544217"];
+    //[WeiboSDK enableDebugMode:YES];
 
     //腾讯qq
-    TencentOAuth *tencentOAuth;
-    tencentOAuth = [[TencentOAuth alloc] initWithAppId:@"1106246940" andDelegate:nil];
+//    TencentOAuth *tencentOAuth;
+//    tencentOAuth = [[TencentOAuth alloc] initWithAppId:@"1106246940" andDelegate:nil];
     
     return YES;
 }
@@ -122,50 +122,51 @@
     [[AppPayManager manager] stopObserver];
 }
 
-- (void)didReceiveWeiboRequest:(WBBaseRequest *)request
-{
-    NSLog(@"hui调");
-}
-
-- (void)didReceiveWeiboResponse:(WBBaseResponse *)response
-{
-    if ([response isKindOfClass:WBSendMessageToWeiboResponse.class])
-    {
-        NSString *title = NSLocalizedString(@"发送结果", nil);
-        NSString *message = [NSString stringWithFormat:@"%@: %d\n%@: %@\n%@: %@", NSLocalizedString(@"响应状态", nil), (int)response.statusCode, NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo, NSLocalizedString(@"原请求UserInfo数据", nil),response.requestUserInfo];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-                                                        message:message
-                                                       delegate:nil
-                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
-                                              otherButtonTitles:nil];
-        WBSendMessageToWeiboResponse* sendMessageToWeiboResponse = (WBSendMessageToWeiboResponse*)response;
-        NSString* accessToken = [sendMessageToWeiboResponse.authResponse accessToken];
-        if (accessToken)
-        {
-            self.wbtoken = accessToken;
-        }
-        NSString* userID = [sendMessageToWeiboResponse.authResponse userID];
-        if (userID) {
-            self.wbCurrentUserID = userID;
-        }
-        [alert show];
-    }
-    else if ([response isKindOfClass:WBAuthorizeResponse.class])
-    {
-        NSString *title = NSLocalizedString(@"认证结果", nil);
-        NSString *message = [NSString stringWithFormat:@"%@: %d\nresponse.userId: %@\nresponse.accessToken: %@\n%@: %@\n%@: %@", NSLocalizedString(@"响应状态", nil), (int)response.statusCode,[(WBAuthorizeResponse *)response userID], [(WBAuthorizeResponse *)response accessToken],  NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo, NSLocalizedString(@"原请求UserInfo数据", nil), response.requestUserInfo];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-                                                        message:message
-                                                       delegate:nil
-                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
-                                              otherButtonTitles:nil];
-        
-        self.wbtoken = [(WBAuthorizeResponse *)response accessToken];
-        self.wbCurrentUserID = [(WBAuthorizeResponse *)response userID];
-        self.wbRefreshToken = [(WBAuthorizeResponse *)response refreshToken];
-        [alert show];
-    }
-}
+//新浪微博回调
+//- (void)didReceiveWeiboRequest:(WBBaseRequest *)request
+//{
+//    NSLog(@"hui调");
+//}
+//
+//- (void)didReceiveWeiboResponse:(WBBaseResponse *)response
+//{
+//    if ([response isKindOfClass:WBSendMessageToWeiboResponse.class])
+//    {
+//        NSString *title = NSLocalizedString(@"发送结果", nil);
+//        NSString *message = [NSString stringWithFormat:@"%@: %d\n%@: %@\n%@: %@", NSLocalizedString(@"响应状态", nil), (int)response.statusCode, NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo, NSLocalizedString(@"原请求UserInfo数据", nil),response.requestUserInfo];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+//                                                        message:message
+//                                                       delegate:nil
+//                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
+//                                              otherButtonTitles:nil];
+//        WBSendMessageToWeiboResponse* sendMessageToWeiboResponse = (WBSendMessageToWeiboResponse*)response;
+//        NSString* accessToken = [sendMessageToWeiboResponse.authResponse accessToken];
+//        if (accessToken)
+//        {
+//            self.wbtoken = accessToken;
+//        }
+//        NSString* userID = [sendMessageToWeiboResponse.authResponse userID];
+//        if (userID) {
+//            self.wbCurrentUserID = userID;
+//        }
+//        [alert show];
+//    }
+//    else if ([response isKindOfClass:WBAuthorizeResponse.class])
+//    {
+//        NSString *title = NSLocalizedString(@"认证结果", nil);
+//        NSString *message = [NSString stringWithFormat:@"%@: %d\nresponse.userId: %@\nresponse.accessToken: %@\n%@: %@\n%@: %@", NSLocalizedString(@"响应状态", nil), (int)response.statusCode,[(WBAuthorizeResponse *)response userID], [(WBAuthorizeResponse *)response accessToken],  NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo, NSLocalizedString(@"原请求UserInfo数据", nil), response.requestUserInfo];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+//                                                        message:message
+//                                                       delegate:nil
+//                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
+//                                              otherButtonTitles:nil];
+//
+//        self.wbtoken = [(WBAuthorizeResponse *)response accessToken];
+//        self.wbCurrentUserID = [(WBAuthorizeResponse *)response userID];
+//        self.wbRefreshToken = [(WBAuthorizeResponse *)response refreshToken];
+//        [alert show];
+//    }
+//}
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
