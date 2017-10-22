@@ -86,8 +86,8 @@
     //[WeiboSDK enableDebugMode:YES];
 
     //腾讯qq
-//    TencentOAuth *tencentOAuth;
-//    tencentOAuth = [[TencentOAuth alloc] initWithAppId:@"1106246940" andDelegate:nil];
+    TencentOAuth *tencentOAuth;
+    tencentOAuth = [[TencentOAuth alloc] initWithAppId:@"1106328995" andDelegate:nil];
     
     return YES;
 }
