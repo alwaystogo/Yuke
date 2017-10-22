@@ -104,7 +104,7 @@
            
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        ;
+        [JFTools showFailureHUDWithTip:error.localizedDescription];
     }];
     
 }
