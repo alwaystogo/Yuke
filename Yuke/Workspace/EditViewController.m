@@ -56,15 +56,15 @@
     [self requestInitData];
     
     self.shengaoArray = [NSMutableArray array];
-    for (NSInteger i = 20; i < 213; i++) {
+    for (NSInteger i = 20; i < 251; i++) {
         [self.shengaoArray addObject:[NSString stringWithFormat:@"%ld",i]];
     }
     self.tizhongArray = [NSMutableArray array];
-    for (NSInteger i = 10; i < 100; i++) {
+    for (NSInteger i = 10; i < 181; i++) {
         [self.tizhongArray addObject:[NSString stringWithFormat:@"%ld",i]];
     }
     self.xieMaArray = [NSMutableArray array];
-    for (NSInteger i = 30; i < 46; i++) {
+    for (NSInteger i = 18; i < 51; i++) {
         [self.xieMaArray addObject:[NSString stringWithFormat:@"%ld",i]];
     }
 
@@ -112,7 +112,7 @@
     
     [self addressPickView];
     NSMutableArray *tempArray = [NSMutableArray array];
-    for (NSInteger i = 40; i < 120; i++) {
+    for (NSInteger i = 20; i < 201; i++) {
         [tempArray addObject:[NSString stringWithFormat:@"%ld",i]];
     }
     __weak typeof(self) weakSelf = self;
@@ -188,6 +188,9 @@
             self.hangyeLabel.text = [responseObject objectForKeySafe:@"stature"];
             self.yearsLabel.text = [responseObject objectForKeySafe:@"weight"];
             self.addressLabel.text = [responseObject objectForKeySafe:@"bwh"];
+            if (self.addressLabel.text.length <= 0) {
+                self.addressLabel.text = @"请选择三围";
+            }
             self.xieMaLabel.text = [responseObject objectForKeySafe:@"shoe_size"];
             self.jigouTextField.text = [responseObject objectForKeySafe:@"address"];
             
