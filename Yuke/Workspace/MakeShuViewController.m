@@ -199,7 +199,7 @@
     }];
     
     self.beijingImageView1 = [[UIImageView alloc] init];
-    self.beijingImageView1.image = [UIImage imageWithColor:[UIColor grayColor]];
+    self.beijingImageView1.image = ImageNamed(@"bbg-shu");
     [self.beijingBkView addSubview:self.beijingImageView1];
     [self.beijingImageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.beijingBkView.mas_centerX).offset(-50);
@@ -211,7 +211,7 @@
     [self.beijingImageView1 addGestureRecognizer:tap1];
     
     self.beijingImageView2 = [[UIImageView alloc] init];
-    self.beijingImageView2.image = [UIImage imageWithColor:[UIColor grayColor]];
+    self.beijingImageView2.image = ImageNamed(@"hbg-shu");
     [self.beijingBkView addSubview:self.beijingImageView2];
     [self.beijingImageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.beijingBkView.mas_centerX).offset(50);
@@ -235,7 +235,7 @@
     }];
     
     self.shuiyinImageView1 = [[UIImageView alloc] init];
-    self.shuiyinImageView1.image = [UIImage imageWithColor:[UIColor grayColor]];
+    self.shuiyinImageView1.image = ImageNamed(@"shuiyin-heng");
     [self.shuiyinBkView addSubview:self.shuiyinImageView1];
     [self.shuiyinImageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.shuiyinBkView.mas_centerX).offset(-50);
@@ -247,7 +247,7 @@
     [self.shuiyinImageView1 addGestureRecognizer:tap1];
     
     self.shuiyinImageView2 = [[UIImageView alloc] init];
-    self.shuiyinImageView2.image = [UIImage imageWithColor:[UIColor grayColor]];
+    self.shuiyinImageView2.image = ImageNamed(@"shuiyin-heng");
     [self.shuiyinBkView addSubview:self.shuiyinImageView2];
     [self.shuiyinImageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.shuiyinBkView.mas_centerX).offset(50);
