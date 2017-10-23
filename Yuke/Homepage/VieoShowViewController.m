@@ -184,7 +184,8 @@
     
     _currentCell = viewCell;
     _cgPlayer.isFullscreen = NO;
-    NSString *url = self.videoArray[_currentIndexPath.row][@"image"];
+    //NSString *url = self.videoArray[_currentIndexPath.row][@"image"];
+    NSString *url = videoUrl;
     if(!_cgPlayer){
         _cgPlayer = [[CGPlayer alloc] initWithFrame:viewCell.bounds videoURL:url];
         _cgPlayer.delegate = self;

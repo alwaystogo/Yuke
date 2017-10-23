@@ -315,7 +315,7 @@
     }];
     
     self.shuiyinImageView1 = [[UIImageView alloc] init];
-    self.shuiyinImageView1.image = ImageNamed(@"shuiyin-heng");
+    self.shuiyinImageView1.image = ImageNamed(@"shuiyin-heng-1");
     [self.shuiyinBkView addSubview:self.shuiyinImageView1];
     [self.shuiyinImageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.shuiyinBkView.mas_centerX).offset(-50);
@@ -327,7 +327,7 @@
     [self.shuiyinImageView1 addGestureRecognizer:tap1];
     
     self.shuiyinImageView2 = [[UIImageView alloc] init];
-    self.shuiyinImageView2.image = ImageNamed(@"shuiyin-heng");
+    self.shuiyinImageView2.image = ImageNamed(@"wushuiyin-heng");
     [self.shuiyinBkView addSubview:self.shuiyinImageView2];
     [self.shuiyinImageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.shuiyinBkView.mas_centerX).offset(50);
