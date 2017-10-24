@@ -32,8 +32,8 @@
     self.dataArray = @[@"分享娱客",@"联系电话",@"意见反馈",@"清空缓存",@"退出登录"];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self createUI];
-    [self requestGetHeader];
 }
+
 
 - (void)createUI{
     
@@ -366,12 +366,16 @@
         
         if (result) {
             //[JFTools showTipOnHUD:@"登录成功"];
+            [self requestGetHeader];
         }else{
             //[JFTools showTipOnHUD:@"登录失败"];
             [kAppDelegate.tabBarController setSelectedIndex:2];
             kAppDelegate.tabBarController.tabBar.hidden = NO;
         }
     }];
+    if ([LoginViewController isLogin]) {
+         [self requestGetHeader];
+    }
     self.navigationController.navigationBarHidden = YES;
     [self.tableView reloadData];
 }

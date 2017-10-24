@@ -475,11 +475,13 @@
     if (self.selectBeijing == 1) {
         self.beijingImageView1.layer.borderColor = COLOR_HEX(0xffa632,1).CGColor;
         self.beijingImageView1.layer.borderWidth = 2;
-        self.beijingImageView2.layer.borderWidth = 0;
+        self.beijingImageView2.layer.borderColor = COLOR_HEX(0xffa632,1).CGColor;
+        self.beijingImageView2.layer.borderWidth = 2;
     }else{
         self.beijingImageView2.layer.borderColor = COLOR_HEX(0xffa632,1).CGColor;
         self.beijingImageView2.layer.borderWidth = 2;
-        self.beijingImageView1.layer.borderWidth = 0;
+        self.beijingImageView1.layer.borderColor = COLOR_HEX(0xffa632,1).CGColor;
+        self.beijingImageView1.layer.borderWidth = 2;
     }
 
 }
@@ -554,6 +556,7 @@
             NSString *haveFont = [responseObject objectForKey:@"font"];
             self.zitiArray = [NSMutableArray arrayWithArray:[haveFont componentsSeparatedByString:@","]];
             [self.zitiArray removeObject:@"0"];
+            [self.zitiArray removeObject:@""];
         }
         [self.collectionView reloadData];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
