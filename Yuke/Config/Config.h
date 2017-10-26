@@ -165,4 +165,7 @@ isKindOfClass:[UINavigationController class]] \
 #define Product_6yue @"com.yuke.YukeApp5" //5
 #define Product_12yue @"com.yuke.YukeApp6" //6
 
+//判断是iPhoneX 的宏
+#define is_iPhoneX [UIScreen mainScreen].bounds.size.width == 375.0f && [UIScreen mainScreen].bounds.size.height == 812.0f
+
 #endif /* Config_h */

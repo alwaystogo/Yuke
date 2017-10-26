@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-#import "CGPlayer.h"
+#import "CellMediaPlayer.h"
 
 @interface VieoShowViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 
@@ -16,4 +16,7 @@
 @property(nonatomic,strong)NSMutableArray *videoPreImageViewArray;
 
 @property(nonatomic,strong)NSArray *videoArray;
+
+@property (nonatomic,strong) CellMediaPlayer *cgPlayer;
+
 @end

@@ -317,6 +317,8 @@
 		AE7FA0D11F0E2567009A8F12 /* black_fanhui@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0CF1F0E2566009A8F12 /* black_fanhui@3x.png */; };
 		AE7FA0D51F0F3895009A8F12 /* FontCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7FA0D31F0F3895009A8F12 /* FontCollectionViewCell.m */; };
 		AE7FA0D61F0F3895009A8F12 /* FontCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE7FA0D41F0F3895009A8F12 /* FontCollectionViewCell.xib */; };
+		AE84435A1FA1934700EFAD55 /* CellMediaPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8443261FA09C9C00EFAD55 /* CellMediaPlayer.m */; };
+		AE84435B1FA1935500EFAD55 /* CellMediaPlayerMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8443281FA09C9C00EFAD55 /* CellMediaPlayerMaskView.m */; };
 		AE9025EE1F5E82D100970509 /* AppPayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9025ED1F5E82D100970509 /* AppPayManager.m */; };
 		AEA365FE1F41A9AB0057AB3E /* MakeHengViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA365FD1F41A9AB0057AB3E /* MakeHengViewController.m */; };
 		AEA366051F42DC680057AB3E /* ZitiCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA366031F42DC680057AB3E /* ZitiCollectionViewCell.m */; };
@@ -1080,6 +1082,10 @@
 		AE7FA0D21F0F3895009A8F12 /* FontCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontCollectionViewCell.h; sourceTree = "<group>"; };
 		AE7FA0D31F0F3895009A8F12 /* FontCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontCollectionViewCell.m; sourceTree = "<group>"; };
 		AE7FA0D41F0F3895009A8F12 /* FontCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FontCollectionViewCell.xib; sourceTree = "<group>"; };
+		AE8443251FA09C9C00EFAD55 /* CellMediaPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CellMediaPlayer.h; sourceTree = "<group>"; };
+		AE8443261FA09C9C00EFAD55 /* CellMediaPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CellMediaPlayer.m; sourceTree = "<group>"; };
+		AE8443271FA09C9C00EFAD55 /* CellMediaPlayerMaskView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CellMediaPlayerMaskView.h; sourceTree = "<group>"; };
+		AE8443281FA09C9C00EFAD55 /* CellMediaPlayerMaskView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CellMediaPlayerMaskView.m; sourceTree = "<group>"; };
 		AE9025EC1F5E82D100970509 /* AppPayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppPayManager.h; sourceTree = "<group>"; };
 		AE9025ED1F5E82D100970509 /* AppPayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppPayManager.m; sourceTree = "<group>"; };
 		AEA365FC1F41A9AB0057AB3E /* MakeHengViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeHengViewController.h; sourceTree = "<group>"; };
@@ -1867,6 +1873,7 @@
 				AE61B67E1F0249A300C1F930 /* ThirdPart */,
 				E8E8738B1F2F76D000DB944F /* CGPlayer */,
 				AEEFD8121F331F0400E667B0 /* SingleBofangqi */,
+				AE8443241FA09C9C00EFAD55 /* CellBofangqi */,
 				AE5DC3D61F3461C9003215FB /* VideoManager */,
 				AEE4A08A1F386BDE009F396F /* SFDualWaySlider */,
 				AEABCC801F4ACFDE00C4A3D3 /* ziti */,
@@ -2434,6 +2441,17 @@
 			path = YuePhoto;
 			sourceTree = "<group>";
 		};
+		AE8443241FA09C9C00EFAD55 /* CellBofangqi */ = {
+			isa = PBXGroup;
+			children = (
+				AE8443251FA09C9C00EFAD55 /* CellMediaPlayer.h */,
+				AE8443261FA09C9C00EFAD55 /* CellMediaPlayer.m */,
+				AE8443271FA09C9C00EFAD55 /* CellMediaPlayerMaskView.h */,
+				AE8443281FA09C9C00EFAD55 /* CellMediaPlayerMaskView.m */,
+			);
+			path = CellBofangqi;
+			sourceTree = "<group>";
+		};
 		AEABCC801F4ACFDE00C4A3D3 /* ziti */ = {
 			isa = PBXGroup;
 			children = (
@@ -2911,6 +2929,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE84435B1FA1935500EFAD55 /* CellMediaPlayerMaskView.m in Sources */,
+				AE84435A1FA1934700EFAD55 /* CellMediaPlayer.m in Sources */,
 				AE61B66A1F0248CF00C1F930 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				AE5DC5231F3461CA003215FB /* GPUImageBilateralFilter.m in Sources */,
 				AE5DC5421F3461CA003215FB /* GPUImageFalseColorFilter.m in Sources */,

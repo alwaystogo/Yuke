@@ -75,7 +75,9 @@
     if (self) {
         self.backgroundColor = [UIColor blackColor];
         
-        [self initUI:videoURL];
+        
+       [self initUI:videoURL];
+        
         
         [self addRecognizer];
     }

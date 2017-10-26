@@ -79,7 +79,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"点击了-%ld",indexPath.row);
-    NSString *strUrl = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,[self.listArray[indexPath.row] objectForKeySafe:@"info_url"]];
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,[self.listArray[indexPath.section] objectForKeySafe:@"info_url"]];
     BaseWebViewViewController *webVc= [[BaseWebViewViewController alloc] initWithURL:strUrl];
     webVc.title = @"专访详情";
     [kCurNavController pushViewController:webVc animated:YES];
