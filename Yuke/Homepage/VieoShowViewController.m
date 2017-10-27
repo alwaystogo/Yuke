@@ -179,6 +179,13 @@
 
     _currentCell.imageVedioView.hidden = YES;
     [_currentCell.contentView addSubview:_cgPlayer];
+    
+    [_cgPlayer mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_currentCell.mas_left);
+        make.right.equalTo(_currentCell.mas_right);
+        make.top.equalTo(_currentCell.mas_top);
+        make.bottom.equalTo(_currentCell.mas_bottom);
+    }];
 }
 
 #pragma -mark 释放播放器资源

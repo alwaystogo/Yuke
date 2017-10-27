@@ -215,42 +215,42 @@
     
     [self.startBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.bottomImageView.mas_centerY);
-        make.left.equalTo(self.bottomImageView.mas_left).offset(40);
+        make.left.equalTo(self.bottomImageView.mas_left).offset(15);
         make.size.mas_equalTo(CGSizeMake(30, 30));
     }];
     self.fullScreenBtn.frame = CGRectMake(width-bottomWidth,0,bottomWidth,bottomWidth);
     [self.fullScreenBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.bottomImageView.mas_centerY);
-        make.right.equalTo(self.bottomImageView.mas_right).offset(-40);
+        make.right.equalTo(self.bottomImageView.mas_right).offset(-15);
         make.size.mas_equalTo(CGSizeMake(30, 30));
     }];
     self.totalTimeLabel.frame = CGRectMake(width-110,10,60,30);
     [self.totalTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.bottomImageView.mas_centerY);
-        make.right.equalTo(self.fullScreenBtn.mas_left).offset(-60);
-        make.size.mas_equalTo(CGSizeMake(30, 30));
+        make.right.equalTo(self.fullScreenBtn.mas_left).offset(-30);
+        make.size.mas_equalTo(CGSizeMake(50, 30));
     }];
     [self.currentTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.bottomImageView.mas_centerY);
         make.left.equalTo(self.startBtn.mas_right).offset(10);
-        make.size.mas_equalTo(CGSizeMake(30, 30));
+        make.size.mas_equalTo(CGSizeMake(50, 30));
     }];
     CGFloat progressWidth = width-2*(self.startBtn.frame.size.width+self.currentTimeLabel.frame.size.width);
     
     self.progressView.frame = CGRectMake(0,0,progressWidth,20);
     [self.progressView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.bottomImageView.mas_centerY);
-        make.right.equalTo(self.totalTimeLabel.mas_left).offset(10);
+        make.right.equalTo(self.totalTimeLabel.mas_left).offset(-10);
         make.left.equalTo(self.currentTimeLabel.mas_right).offset(10);
-        make.height.mas_equalTo(20);
+        make.height.mas_equalTo(2);
     }];
    
     self.videoSlider.frame = self.progressView.frame;
     [self.videoSlider mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.bottomImageView.mas_centerY);
-        make.right.equalTo(self.totalTimeLabel.mas_left).offset(10);
+        make.right.equalTo(self.totalTimeLabel.mas_left).offset(-10);
         make.left.equalTo(self.currentTimeLabel.mas_right).offset(10);
-        make.height.mas_equalTo(20);
+        make.height.mas_equalTo(2);
     }];
 //    self.activity.center = CGPointMake(width/2, height/2);
     self.activity.center = CGPointMake(self.superview.frame.size.width/2, self.superview.frame.size.height/2);

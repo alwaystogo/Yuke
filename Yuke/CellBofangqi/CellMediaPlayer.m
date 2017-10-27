@@ -233,35 +233,6 @@
     } ];
 }
 
-//全屏按钮事件
--(void)fullScreenBtnClick:(UIButton *)sender
-{
-    sender.selected = !sender.selected;
-//    [self interfaceOrientation:(sender.selected==YES)?UIInterfaceOrientationLandscapeRight:UIInterfaceOrientationPortrait];
-    if (sender.selected) {
-        [UIView animateWithDuration:0.3f animations:^{
-            self.frame =  self.bigFrame;
-            [kAppDelegate.window addSubview:self];
-//            self.transform = CGAffineTransformIdentity;
-//            self.transform = CGAffineTransformMakeRotation(M_PI_2);
-        } completion:^(BOOL finished) {
-            //隐藏bar
-            [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-        }];
-        kCurNavController.navigationBar.hidden = YES;
-    }else{
-        [UIView animateWithDuration:0.3f animations:^{
-            self.frame =  self.smallFrame;
-            [kAppDelegate.window willRemoveSubview:self];
-//            self.transform = CGAffineTransformIdentity;
-//            self.transform = CGAffineTransformMakeRotation(-M_PI_2);
-        } completion:^(BOOL finished) {
-            //隐藏bar
-            [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-        }];
-        kCurNavController.navigationBar.hidden = NO;
-    }
-}
 
 //强行让屏幕旋转
 - (void)interfaceOrientation:(UIInterfaceOrientation)orientation
@@ -491,7 +462,7 @@
     [super layoutSubviews];
     [UIApplication sharedApplication].statusBarHidden = NO;
     self.playerLayer.frame = self.bounds;
-    self.maskView.frame = self.bounds;
+    //self.maskView.frame = self.bounds;
     
 }
 
@@ -597,6 +568,43 @@
         [self.maskView.activity stopAnimating];
     }
     _playState = playState;
+}
+
+
+//全屏按钮事件
+-(void)fullScreenBtnClick:(UIButton *)sender
+{
+    sender.selected = !sender.selected;
+    //    [self interfaceOrientation:(sender.selected==YES)?UIInterfaceOrientationLandscapeRight:UIInterfaceOrientationPortrait];
+    if (sender.selected) {
+        [UIView animateWithDuration:0.3f animations:^{
+            [self removeFromSuperview];
+            self.frame =  self.bigFrame;
+            [kAppDelegate.window addSubview:self];
+            //            self.transform = CGAffineTransformIdentity;
+            //            self.transform = CGAffineTransformMakeRotation(M_PI_2);
+            [self mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(kAppDelegate.window.mas_left);
+                make.top.equalTo(kAppDelegate.window.mas_top);
+                make.right.equalTo(kAppDelegate.window.mas_right);
+                make.bottom.equalTo(kAppDelegate.window.mas_bottom);
+            }];
+        } completion:^(BOOL finished) {
+            //隐藏bar
+            [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+        }];
+        kCurNavController.navigationBar.hidden = YES;
+    }else{
+        [UIView animateWithDuration:0.3f animations:^{
+            self.frame =  self.smallFrame;
+            //[kAppDelegate.window willRemoveSubview:self];
+            [self removeFromSuperview];
+        } completion:^(BOOL finished) {
+            //隐藏bar
+            [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+        }];
+        kCurNavController.navigationBar.hidden = NO;
+    }
 }
 
 - (void)setFrame:(CGRect)frame{

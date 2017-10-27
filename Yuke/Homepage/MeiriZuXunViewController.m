@@ -229,7 +229,8 @@
         newCell.backgroundColor = COLOR_HEX(0xffa632, 1);
         self.selectType = indexPath.row;
         
-        [self requestZuxunListWithType:self.selectType + 2 withDate:self.selectDate];
+        // 之前是+ 2，现在+0
+        [self requestZuxunListWithType:self.selectType + 0 withDate:self.selectDate];
     }else if (tableView.tag == 3002){
         self.dateTableView.hidden = !self.dateTableView.hidden;
         MenuCell *oldCell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.selectDate inSection:0]];

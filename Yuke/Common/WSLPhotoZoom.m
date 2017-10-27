@@ -26,7 +26,7 @@
         [self addSubview:self.imageView];
         
         self.bounces = NO;//禁止边缘滚动
-        self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
+        self.backgroundColor = [UIColor blackColor];
         self.showsVerticalScrollIndicator = NO;
         self.showsHorizontalScrollIndicator = NO;
         [self resetUI];
