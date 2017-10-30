@@ -592,12 +592,13 @@
         } completion:^(BOOL finished) {
             //隐藏bar
             [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+            //发送通知
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"fullBtnNotification" object:nil];
         }];
         kCurNavController.navigationBar.hidden = YES;
     }else{
         [UIView animateWithDuration:0.3f animations:^{
             self.frame =  self.smallFrame;
-            //[kAppDelegate.window willRemoveSubview:self];
             [self removeFromSuperview];
         } completion:^(BOOL finished) {
             //隐藏bar

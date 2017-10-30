@@ -8,10 +8,6 @@
 
 #import "VieoShowViewController.h"
 #import "VieoShowCell.h"
-//#import <AVFoundation/AVAsset.h>
-//#import <AVFoundation/AVAssetImageGenerator.h>
-//#import <AVFoundation/AVTime.h>
-
 
 #define kScreenW ([UIScreen mainScreen].bounds.size.width)
 #define kScreenH ([UIScreen mainScreen].bounds.size.height)
@@ -45,6 +41,8 @@
     [self createUI];
     
     [self requestVideoList];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fulllBtnNotificationAction) name:@"fullBtnNotification" object:nil];
 }
 
 - (void)createUI{
@@ -93,29 +91,6 @@
         cell.imageVedioView.image = self.videoPreImageViewArray[indexPath.row];
     }
     
-    
-//    //解决循环引用问题
-//    if (_cgPlayer) {
-//        //获取当前屏幕中所有可见的cell的indexPath
-//        NSArray *indexpaths = [tableView indexPathsForVisibleRows];
-//        if (![indexpaths containsObject:_currentIndexPath]) {
-//
-//            //判断是否正在小窗口播放
-//            if ([[UIApplication sharedApplication].keyWindow.subviews containsObject:_cgPlayer]) {
-//                _cgPlayer.hidden = NO;
-//
-//            }else{
-//                _cgPlayer.hidden = YES;
-//            }
-//        }else{//如果当前可见区域中包括复用的cell，则判断当前显示的cell中是否有之前存在的控件
-//            if ([cell.contentView.subviews containsObject:_cgPlayer]) {
-//                [cell.contentView addSubview:_cgPlayer];
-//                _cgPlayer.hidden = NO;
-//            }
-//
-//        }
-//    }
-    
     cell.imageVedioView.hidden = NO;
     return cell;
 }
@@ -138,7 +113,7 @@
         if (rectInSuperview.origin.y<-self.currentCell.contentView.frame.size.height || rectInSuperview.origin.y>self.view.frame.size.height-kNavbarHeight-kTabBarHeight){
             
             [_cgPlayer removeFromSuperview];
-            //[_cgPlayer  resetVedio];
+            _currentCell.imageVedioView.hidden = NO;
         }else{
 
         }
@@ -169,12 +144,6 @@
         //如果播放器对象已经存在则重新部署下一播放文件资源
         [_cgPlayer removeFromSuperview];
         _cgPlayer.videoURL = [NSURL URLWithString:url];
-//        [_cgPlayer  resetVedio];
-//        [_cgPlayer  setDataSource:url];
-//        [_cgPlayer prepareAsyncVedio];
-//        [_cgPlayer startVedio];
-//        _cgPlayer.hidden = NO;
-        
     }
 
     _currentCell.imageVedioView.hidden = YES;
@@ -190,9 +159,7 @@
 
 #pragma -mark 释放播放器资源
 - (void) freeCGPlayer{
-//    [_cgPlayer pauseVedio];
-//    [_cgPlayer resetVedio];
-//    [_cgPlayer unSetupPlayer];
+
     [_cgPlayer removeFromSuperview];
     _cgPlayer=nil;
 }
@@ -267,28 +234,11 @@
 
 -(void)dealloc{
     [self freeCGPlayer];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-//- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-//{
-//    if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
-//        self.view.backgroundColor = [UIColor whiteColor];
-//    }else if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-//        self.view.backgroundColor = [UIColor blackColor];
-//    }
-//}
-//// 哪些页面支持自动转屏
-//- (BOOL)shouldAutorotate{
-//    
-//    return YES;
-//}
-//
-//// viewcontroller支持哪些转屏方向
-//- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
-//    
-//    // MoviePlayerViewController这个页面支持转屏方向
-//    return UIInterfaceOrientationMaskAllButUpsideDown;
-//    
-//}
-
+//通知处理事件
+- (void)fulllBtnNotificationAction{
+    self.currentCell.imageVedioView.hidden = NO;
+}
 @end
