@@ -168,14 +168,14 @@
 //    }
 //}
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-    return [WeiboSDK handleOpenURL:url delegate:self];
-}
-
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
-{
-    return [WeiboSDK handleOpenURL:url delegate:self ];
-}
+//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+//{
+//    return [WeiboSDK handleOpenURL:url delegate:self];
+//}
+//
+//- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+//{
+//    return [WeiboSDK handleOpenURL:url delegate:self ];
+//}
 
 @end
