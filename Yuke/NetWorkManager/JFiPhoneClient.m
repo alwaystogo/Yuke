@@ -13,10 +13,12 @@
 
 //测试环境
 //NSString * const JFiPhoneClient_DebugBaseUrl   = @"http://116.62.194.17/yuke";
-NSString * const JFiPhoneClient_DebugBaseUrl   = @"http://47.95.210.218/yuke";
+//NSString * const JFiPhoneClient_DebugBaseUrl   = @"http://47.95.210.218/yuke";//刘
+NSString * const JFiPhoneClient_DebugBaseUrl   = @"http://47.92.92.140/yuke";
 //生产环境
 //NSString * const JFiPhoneClient_PrdBaseUrl   = @"http://116.62.194.17/yuke";
-NSString * const JFiPhoneClient_PrdBaseUrl   = @"http://47.95.210.218/yuke";
+//NSString * const JFiPhoneClient_PrdBaseUrl   = @"http://47.95.210.218/yuke";//刘
+NSString * const JFiPhoneClient_PrdBaseUrl   = @"http://47.92.92.140/yuke";
 
 static NSString *const JFErrorDomain = @"Yuke.com";
 
@@ -66,6 +68,14 @@ static NSString *const JFErrorDomain = @"Yuke.com";
     
     //为支持https请求，添加SSL认证
     //self.manager.securityPolicy = [self customSecurityPolicy];
+    
+    //...
+//    AFSecurityPolicy *policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+//    //是否允许CA不信任的证书通过
+//    policy.allowInvalidCertificates = YES;
+//    //是否验证主机名
+//    policy.validatesDomainName = NO;
+//    self.manager.securityPolicy = policy;
 }
 
 - (NSURLSessionDataTask *)enqueueRequestWithMethod:(NSString *)method

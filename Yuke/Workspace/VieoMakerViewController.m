@@ -139,6 +139,8 @@
     
     TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:1 columnNumber:4 delegate:nil pushPhotoPickerVc:YES];
     
+     __weak TZImagePickerController *weakImagePickerVc = imagePickerVc;
+    
     //展示相册中的视频
     imagePickerVc.allowPickingVideo = YES;
     //不展示图片
@@ -164,6 +166,14 @@
                 
                 AVURLAsset *urlAsset = (AVURLAsset *)asset;
                 NSURL *url = urlAsset.URL;
+               float second = urlAsset.duration.value / urlAsset.duration.timescale;
+                if (second > 20.0) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [JFTools showTipOnHUD:@"请选择小于20秒的视频"];
+                        
+                    });
+                    return ;
+                }
                 //判断是不是微信录制的视频
                 if (![weakSelf isWeXinVideo:urlAsset]) {
                     //移除
@@ -358,22 +368,17 @@
 
 - (void)shangChuanVideoWith:(NSURL *)url{
     
+    
     WeakSelf
+     [weakSelf writeVideoToPhotoLibrary:url];
     dispatch_async(dispatch_get_main_queue(), ^{
         NSDictionary *dic = @{@"user_id":NON(kUserMoudle.user_Id)};
-        [JFTools showLoadingHUD];
+        //[JFTools showLoadingHUD];
         //先保存到相册
-        [weakSelf writeVideoToPhotoLibrary:url];
-        
-        ////暂时不上传
-//        [weakSelf.videoPlayer removeFromSuperview];
-//        SavePicAndVideoViewController *vc = [[SavePicAndVideoViewController alloc] init];
-//        vc.videoUrl = url;
-//        [kCurNavController pushViewController:vc animated:YES];
-//        return ;
-        ////
-        
-        [kJFClient uploadVideoWithMethod:@"index.php/Api/Card/video_upload" param:dic videoUrl:url paramName:@"image" success:^(NSURLSessionDataTask *task, id responseObject) {
+       
+        NSString *beginUrl = @"index.php/Api/Card/video_upload";
+      NSString *urlString = [beginUrl  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [kJFClient uploadVideoWithMethod:urlString param:dic videoUrl:url paramName:@"image" success:^(NSURLSessionDataTask *task, id responseObject) {
             [JFTools showSuccessHUDWithTip:@"上传成功"];
             [weakSelf.videoPlayer removeFromSuperview];
             SavePicAndVideoViewController *vc = [[SavePicAndVideoViewController alloc] init];
@@ -381,11 +386,6 @@
             [kCurNavController pushViewController:vc animated:YES];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             [JFTools showFailureHUDWithTip:error.localizedDescription];
-            
-//            [weakSelf.videoPlayer removeFromSuperview];
-//            SavePicAndVideoViewController *vc = [[SavePicAndVideoViewController alloc] init];
-//            vc.videoUrl = url;
-//            [kCurNavController pushViewController:vc animated:YES];
         }];
     });
     
