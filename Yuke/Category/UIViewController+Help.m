@@ -88,9 +88,12 @@
                     target:(id)target
                     action:(SEL)action {
     
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
-    [btn setBackgroundImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
-                   forState:UIControlStateNormal];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
+    btn.contentEdgeInsets =UIEdgeInsetsMake(0, -15,0, 0);
+    btn.imageEdgeInsets =UIEdgeInsetsMake(0, -10,0, 0);
+    //[btn setBackgroundImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+    //               forState:UIControlStateNormal];
+    [btn setImage:image forState:UIControlStateNormal];
     [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithCustomView:btn];

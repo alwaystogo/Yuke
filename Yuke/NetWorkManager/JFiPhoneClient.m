@@ -14,11 +14,11 @@
 //测试环境
 //NSString * const JFiPhoneClient_DebugBaseUrl   = @"http://116.62.194.17/yuke";
 //NSString * const JFiPhoneClient_DebugBaseUrl   = @"http://47.95.210.218/yuke";//刘
-NSString * const JFiPhoneClient_DebugBaseUrl   = @"http://47.92.92.140/yuke";
+NSString * const JFiPhoneClient_DebugBaseUrl   = @"http://47.92.92.140/yuke";//gu
 //生产环境
 //NSString * const JFiPhoneClient_PrdBaseUrl   = @"http://116.62.194.17/yuke";
 //NSString * const JFiPhoneClient_PrdBaseUrl   = @"http://47.95.210.218/yuke";//刘
-NSString * const JFiPhoneClient_PrdBaseUrl   = @"http://47.92.92.140/yuke";
+NSString * const JFiPhoneClient_PrdBaseUrl   = @"http://47.92.92.140/yuke";//gu
 
 static NSString *const JFErrorDomain = @"Yuke.com";
 
@@ -60,7 +60,7 @@ static NSString *const JFErrorDomain = @"Yuke.com";
     self.manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:self.baseUrl]];
     
     //设置超时时间
-    [self.manager.requestSerializer setTimeoutInterval:30];
+    [self.manager.requestSerializer setTimeoutInterval:300];
     
     //设置相应数据可以接收的类型
     self.manager.responseSerializer.acceptableContentTypes =
