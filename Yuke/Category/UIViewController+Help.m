@@ -89,7 +89,7 @@
                     action:(SEL)action {
     
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
-    btn.contentEdgeInsets =UIEdgeInsetsMake(0, -15,0, 0);
+    btn.contentEdgeInsets =UIEdgeInsetsMake(0, -30,0, 0);
     btn.imageEdgeInsets =UIEdgeInsetsMake(0, -10,0, 0);
     //[btn setBackgroundImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
     //               forState:UIControlStateNormal];

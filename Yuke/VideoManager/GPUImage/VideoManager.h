@@ -18,4 +18,17 @@
 
 //视频裁剪
 - (void)cropWithVideoUrlStr:(NSURL *)videoUrl start:(CGFloat)startTime end:(CGFloat)endTime completion:(void (^)(NSURL *outputURL, Float64 videoDuration, BOOL isSuccess))completionHandle;
+
+
+//新加的
+/// 压缩视频
+///视频名字
+@property (nonatomic,strong) NSString *videoName;
+
+-(void)compressVideo:(NSURL *)path andVideoName:(NSString *)name andSave:(BOOL)saveState
+     successCompress:(void(^)(NSURL *))newUrl;
+
+/// 获取视频的首帧缩略图
+- (UIImage *)imageWithVideoURL:(NSURL *)url;
+
 @end

@@ -210,6 +210,12 @@
     [library writeVideoAtPathToSavedPhotosAlbum:url completionBlock:^(NSURL *assetURL, NSError *error){
         if (error == nil) {
             
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf.videoPlayer removeFromSuperview];
+                SavePicAndVideoViewController *vc = [[SavePicAndVideoViewController alloc] init];
+                vc.videoUrl = url;
+                [kCurNavController pushViewController:vc animated:YES];
+            });
 //            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"视频保存成功" preferredStyle:UIAlertControllerStyleAlert];
 //            
 //            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -366,28 +372,53 @@
     return [self DataToArrayOrNSDictionary:jsonData];
 }
 
+//- (void)shangChuanVideoWith:(NSURL *)url{
+//
+//
+//    WeakSelf
+//     [weakSelf writeVideoToPhotoLibrary:url];
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        NSDictionary *dic = @{@"user_id":NON(kUserMoudle.user_Id)};
+//        //[JFTools showLoadingHUD];
+//        //先保存到相册
+//
+//        NSString *beginUrl = @"index.php/Api/Card/video_upload";
+//      NSString *urlString = [beginUrl  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//        [kJFClient uploadVideoWithMethod:urlString param:dic videoUrl:url paramName:@"image" success:^(NSURLSessionDataTask *task, id responseObject) {
+//            [JFTools showSuccessHUDWithTip:@"上传成功"];
+//            [weakSelf.videoPlayer removeFromSuperview];
+//            SavePicAndVideoViewController *vc = [[SavePicAndVideoViewController alloc] init];
+//            vc.videoUrl = url;
+//            [kCurNavController pushViewController:vc animated:YES];
+//        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//            [JFTools showFailureHUDWithTip:error.localizedDescription];
+//        }];
+//    });
+//
+//}
 - (void)shangChuanVideoWith:(NSURL *)url{
     
     
     WeakSelf
-     [weakSelf writeVideoToPhotoLibrary:url];
-    dispatch_async(dispatch_get_main_queue(), ^{
+    [weakSelf writeVideoToPhotoLibrary:url];
+   
         NSDictionary *dic = @{@"user_id":NON(kUserMoudle.user_Id)};
-        //[JFTools showLoadingHUD];
-        //先保存到相册
-       
-        NSString *beginUrl = @"index.php/Api/Card/video_upload";
-      NSString *urlString = [beginUrl  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        [kJFClient uploadVideoWithMethod:urlString param:dic videoUrl:url paramName:@"image" success:^(NSURLSessionDataTask *task, id responseObject) {
-            [JFTools showSuccessHUDWithTip:@"上传成功"];
-            [weakSelf.videoPlayer removeFromSuperview];
-            SavePicAndVideoViewController *vc = [[SavePicAndVideoViewController alloc] init];
-            vc.videoUrl = url;
-            [kCurNavController pushViewController:vc animated:YES];
-        } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            [JFTools showFailureHUDWithTip:error.localizedDescription];
+        
+        VideoManager *videoServer = [[VideoManager alloc] init];
+        [videoServer compressVideo:url andVideoName:@"23384" andSave:NO successCompress:^(NSURL *newUrl) {
+           
+            if (newUrl == nil) {
+                NSLog(@"压缩未成功");
+            }else{
+                NSString *beginUrl = @"index.php/Api/Card/video_upload";
+                NSString *urlString = [beginUrl  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                [kJFClient uploadVideoWithMethod:urlString param:dic videoUrl:newUrl paramName:@"image" success:^(NSURLSessionDataTask *task, id responseObject) {
+                    //[JFTools showSuccessHUDWithTip:@"上传成功"];
+                    
+                } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                    //[JFTools showFailureHUDWithTip:error.localizedDescription];
+                }];
+            }
         }];
-    });
-    
 }
 @end
