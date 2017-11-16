@@ -43,12 +43,12 @@
 //组的个数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
-    return 1;
+    return self.listArray.count;
 }
 //每个组中行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return self.listArray.count;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -66,9 +66,15 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 0.1f;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 10.0f;
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"点击了-%ld",indexPath.row);
-    NSString *strUrl = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,[self.listArray[indexPath.row] objectForKeySafe:@"info_url"]];
+    NSLog(@"点击了-%ld",indexPath.section);
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,[self.listArray[indexPath.section] objectForKeySafe:@"info_url"]];
     BaseWebViewViewController *webVc= [[BaseWebViewViewController alloc] initWithURL:strUrl];
     webVc.title = @"活动详情";
     [kCurNavController pushViewController:webVc animated:YES];
