@@ -32,7 +32,9 @@
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.rowHeight = 220;
+    //self.tableView.rowHeight = 220;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 100;
     //self.tableView.separatorStyle = NO;//去除分割线
     self.tableView.showsHorizontalScrollIndicator = NO;
     self.tableView.showsVerticalScrollIndicator = NO;
@@ -62,9 +64,25 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell.picImageView getImageWithUrl:[self.listArray[indexPath.row] objectForKeySafe:@"image"] placeholderImage:[UIImage imageNamed:PlaceHolderPic]];
+    
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    // 先从缓存中查找图片
+    UIImage *image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey: [self.listArray[indexPath.row] objectForKeySafe:@"image"]];
+    
+    // 没有找到已下载的图片就使用默认的占位图，当然高度也是默认的高度了。
+    if (!image) {
+        image = [UIImage imageNamed:PlaceHolderPic];
+    }
+    
+    //手动计算cell的高度
+    CGFloat imgHeight = image.size.height * [UIScreen mainScreen].bounds.size.width / image.size.width;
+    return imgHeight;
+    
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"点击了-%ld",indexPath.row);
     

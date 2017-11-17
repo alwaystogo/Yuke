@@ -98,6 +98,7 @@
     //self.tableView.separatorStyle = NO;//去除分割线
     self.tableView.showsHorizontalScrollIndicator = NO;
     self.tableView.showsVerticalScrollIndicator = NO;
+    [self.tableView closeEstimatedHeight];
     [self.bkScrollView addSubview:self.tableView];
 
     //创建collectionView 362
@@ -105,7 +106,7 @@
     _layout.minimumLineSpacing = 10;
     _layout.minimumInteritemSpacing = 10;
     _layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    CGFloat bili = 300 / 172.0;
+    CGFloat bili = 3 / 2.0;
     _layout.itemSize = CGSizeMake((SCREEN_WIDTH - 30)/2.0, (SCREEN_WIDTH - 30)/2.0 *bili);
     
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(self.bkScrollView.width + 10, 0, SCREEN_WIDTH - 20, SCREEN_HEIGHT - CGRectGetMaxY(self.topView.frame) - TABBAR_HEIGHT) collectionViewLayout:_layout];
@@ -160,12 +161,12 @@
 //组的个数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
-    return 1;
+    return self.listArray.count;
 }
 //每个组中行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return self.listArray.count;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -178,14 +179,14 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"YuePaisheTableViewCell" owner:self options:nil] lastObject];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell.picImageView getImageWithUrl:[self.listArray[indexPath.row] objectForKeySafe:@"sm_thumb"] placeholderImage:[UIImage imageNamed:PlaceHolderPic]];
-    
+    [cell.picImageView getImageWithUrl:[self.listArray[indexPath.section] objectForKeySafe:@"sm_thumb"] placeholderImage:[UIImage imageNamed:PlaceHolderPic]];
+    //cell.picImageView.image = [UIImage imageWithColor:[UIColor grayColor]];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"点击了-%ld",indexPath.row);
-    NSString *strUrl = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,[self.listArray[indexPath.row] objectForKeySafe:@"info_url"]];
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@",kJFClient.baseUrl,[self.listArray[indexPath.section] objectForKeySafe:@"info_url"]];
     BaseWebViewViewController *webVc= [[BaseWebViewViewController alloc] initWithURL:strUrl];
     webVc.title = @"约拍摄详情";
     webVc.hidesBottomBarWhenPushed = YES;
@@ -194,10 +195,16 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
-    return LunboHeight;
+    if (section == 0) {
+        return LunboHeight+10;
+    }else{
+        return 0.1f;
+    }
+    
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, LunboHeight + 10)];
     UIScrollView *bkScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), LunboHeight)];
     bkScrollView.contentSize = CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds), LunboHeight);
     //轮播控件
@@ -216,12 +223,18 @@
     };
     
     [_carouselSV setCarouseWithArray:self.bannerArray];
-
-    return bkScrollView;
+    [headerView addSubview:bkScrollView];
+    if (section == 0) {
+        
+        return headerView;
+    }else{
+        
+        return nil;
+    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     
-    return 0.1f;
+    return 10.0f;
 }
 
 #pragma UIcollectionView

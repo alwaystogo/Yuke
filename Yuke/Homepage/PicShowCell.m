@@ -14,7 +14,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.picImageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.picImageView.contentMode = UIViewContentModeScaleToFill;
     UITapGestureRecognizer *tap4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImageView)];
     self.picImageView.userInteractionEnabled = YES;
     [self.picImageView addGestureRecognizer:tap4];

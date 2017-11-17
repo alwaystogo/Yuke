@@ -28,7 +28,7 @@
 
 - (void)createUI{
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) style:UITableViewStyleGrouped];
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -36,6 +36,8 @@
     //self.tableView.separatorStyle = NO;//去除分割线
     self.tableView.showsHorizontalScrollIndicator = NO;
     self.tableView.showsVerticalScrollIndicator = NO;
+    [self.tableView closeEstimatedHeight];
+    //[self.tableView closeContentInsetAdjustAutomaicCalculate];
     [self.view addSubview:self.tableView];
 
 }
@@ -61,8 +63,8 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"NewHuodongCell" owner:self options:nil] lastObject];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell.picImageView getImageWithUrl:[self.listArray[indexPath.row] objectForKeySafe:@"thumb"] placeholderImage:[UIImage imageNamed:PlaceHolderPic]];
-
+    [cell.picImageView getImageWithUrl:[self.listArray[indexPath.section] objectForKeySafe:@"thumb"] placeholderImage:[UIImage imageNamed:PlaceHolderPic]];
+    //cell.picImageView.image = [UIImage imageWithColor:[UIColor grayColor]];
     return cell;
 }
 

@@ -74,6 +74,7 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell.picImageView getImageWithUrl:[self.listArray[indexPath.section] objectForKeySafe:@"thumb"] placeholderImage:[UIImage imageNamed:PlaceHolderPic]];
+    //cell.picImageView.image = [UIImage imageWithColor:[UIColor grayColor]];
     return cell;
 }
 
