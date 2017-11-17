@@ -43,8 +43,8 @@
             UIButton *openBtn = [UIButton buttonWithType:UIButtonTypeCustom];
             //openBtn.frame = CGRectMake(0, 0, 100, 35);
             //[openBtn setImage:[UIImage imageNamed:@"button"] forState:UIControlStateNormal];
-            [openBtn setTitle:@"点击开启" forState:UIControlStateNormal];
-            openBtn.backgroundColor = COLOR_HEX(0xffa632, 1);
+            [openBtn setTitle:@"点击体验" forState:UIControlStateNormal];
+            openBtn.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.2];
             [openBtn setTitleColor:COLOR_HEX(0xffffff, 1) forState:0];
             openBtn.layer.cornerRadius = 10;
             [openBtn addTarget:self action:@selector(openBtnAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -55,8 +55,8 @@
             [openBtn mas_makeConstraints:^(MASConstraintMaker *make) {
                 
                 make.centerX.equalTo(imageView.mas_centerX);
-                make.bottom.equalTo(imageView.mas_bottom).offset(-(120 * BiLi_SCREENWIDTH));
-                make.size.mas_equalTo(CGSizeMake(100, 35));
+                make.bottom.equalTo(imageView.mas_bottom).offset(-(230 * BiLi_SCREENWIDTH));
+                make.size.mas_equalTo(CGSizeMake(200, 50));
             }];
         }
         [_scrollView addSubview:imageView];
