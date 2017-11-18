@@ -619,7 +619,8 @@
     //2.绘制图片
     [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height)];
     //添加水印
-    [logoImage drawInRect:CGRectMake(image.size.width - logoImage.size.width *1.2, 10, logoImage.size.width, logoImage.size.height)];
+//    [logoImage drawInRect:CGRectMake(image.size.width - logoImage.size.width *1.2, 10, logoImage.size.width, logoImage.size.height)];
+    [logoImage drawInRect:CGRectMake(image.size.width - 60, 10, 50, 20)];
     //3.从上下文中获取新图片
     UIImage * newImage = UIGraphicsGetImageFromCurrentImageContext();
     //4.关闭图形上下文

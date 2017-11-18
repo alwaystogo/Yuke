@@ -204,7 +204,8 @@
     
     [JFTools showLoadingHUD];
     WeakSelf
-    [kJFClient videoShowList:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSDictionary * dic = @{@"type":@"1"};
+    [kJFClient videoShowList:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         [JFTools HUDHide];
         NSLog(@"---%@",responseObject);
         if ([responseObject isKindOfClass:[NSArray class]]) {

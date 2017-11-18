@@ -35,6 +35,7 @@
 
 - (void)createUI{
     
+    CGFloat topHeight = 40;
     self.topView = [[UIView alloc] init];
     self.topView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.topView];
@@ -43,7 +44,7 @@
         make.top.mas_equalTo(self.view.mas_top).offset(NAVBAR_HEIGHT);
         make.left.mas_equalTo(self.view.mas_left).offset(0);
         make.right.mas_equalTo(self.view.mas_right).offset(0);
-        make.height.mas_equalTo(30);
+        make.height.mas_equalTo(topHeight);
     }];
 
     self.typeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -55,8 +56,8 @@
     [self.typeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.left.mas_equalTo(self.topView.mas_left).offset(70 * BiLi_SCREENWIDTH_NORMAL);
-        make.top.mas_equalTo(self.topView.mas_top).offset(4);
-        make.size.mas_equalTo(CGSizeMake(50, 30));
+        make.top.mas_equalTo(self.topView.mas_top).offset(0);
+        make.size.mas_equalTo(CGSizeMake(50, topHeight));
     }];
     self.dateBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.dateBtn setTitle:@"时间" forState:UIControlStateNormal];
@@ -67,10 +68,20 @@
     [self.dateBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.right.mas_equalTo(self.topView.mas_right).offset(-70 * BiLi_SCREENWIDTH_NORMAL);
-        make.top.mas_equalTo(self.topView.mas_top).offset(4);
-        make.size.mas_equalTo(CGSizeMake(50, 30));
+        make.top.mas_equalTo(self.topView.mas_top).offset(0);
+        make.size.mas_equalTo(CGSizeMake(50, topHeight));
     }];
 
+    UIView *lineView = [[UIView alloc] init];
+    lineView.backgroundColor = [UIColor grayColor];
+    lineView.alpha = 0.5;
+    [self.topView addSubview:lineView];
+    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.topView.mas_left);
+        make.right.equalTo(self.topView.mas_right);
+        make.bottom.equalTo(self.topView.mas_bottom);
+        make.height.equalTo(@1);
+    }];
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.topView.frame), self.view.width, SCREEN_HEIGHT - CGRectGetMaxY(self.topView.frame)) style:UITableViewStyleGrouped];
     self.tableView.tag = 3000;
     self.tableView.backgroundColor = COLOR_RGB(236, 236, 236, 1);

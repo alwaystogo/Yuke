@@ -90,7 +90,7 @@
     
     if (section == 0) {
         
-        return tableHeaderHeight;
+        return tableHeaderHeight+5;
     }else{
         
         return 0.1f;
@@ -99,7 +99,7 @@
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, tableHeaderHeight)];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, tableHeaderHeight + 5)];
     
     UIImageView *imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 17, 17)];
     imageView1.image = ImageNamed(@"remen");
@@ -121,7 +121,7 @@
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     layout.itemSize = CGSizeMake(hotPicWidth, hotPicHeight);
     
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(imageView1.frame)+3, SCREEN_WIDTH, hotPicHeight) collectionViewLayout:layout];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(imageView1.frame)+3+5, SCREEN_WIDTH, hotPicHeight) collectionViewLayout:layout];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.collectionView.backgroundColor = [UIColor whiteColor];

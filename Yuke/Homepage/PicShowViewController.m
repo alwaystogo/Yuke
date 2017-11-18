@@ -91,7 +91,10 @@
 - (void)requestListData{
     
     [JFTools showLoadingHUD];
-    [kJFClient picShowList:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    //isTop  =  1  获取置顶的卡片
+    //isTop = 0 获取全部的卡片
+    NSDictionary * dic = @{@"type":@"1"};
+    [kJFClient picShowList:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"piclist - %@",responseObject);
         if ([responseObject isKindOfClass:[NSArray class]]) {
             

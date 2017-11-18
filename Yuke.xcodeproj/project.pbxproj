@@ -418,7 +418,6 @@
 		AEEFD8111F30508B00E667B0 /* libVitamio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEFD80E1F30508B00E667B0 /* libVitamio.a */; };
 		AEEFD8171F331F0400E667B0 /* XSMediaPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEFD8141F331F0400E667B0 /* XSMediaPlayer.m */; };
 		AEEFD8181F331F0400E667B0 /* XSMediaPlayerMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEFD8161F331F0400E667B0 /* XSMediaPlayerMaskView.m */; };
-		E80D48161F531525003BA0A5 /* 水印1.png in Resources */ = {isa = PBXBuildFile; fileRef = E80D48131F531525003BA0A5 /* 水印1.png */; };
 		E80D48171F531525003BA0A5 /* 水印2.png in Resources */ = {isa = PBXBuildFile; fileRef = E80D48141F531525003BA0A5 /* 水印2.png */; };
 		E80D48181F531525003BA0A5 /* 水印3.png in Resources */ = {isa = PBXBuildFile; fileRef = E80D48151F531525003BA0A5 /* 水印3.png */; };
 		E82280B61F4C733800AEC2F1 /* img1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E82280B01F4C733800AEC2F1 /* img1@2x.png */; };
@@ -1223,7 +1222,6 @@
 		AEEFD8141F331F0400E667B0 /* XSMediaPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMediaPlayer.m; sourceTree = "<group>"; };
 		AEEFD8151F331F0400E667B0 /* XSMediaPlayerMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMediaPlayerMaskView.h; sourceTree = "<group>"; };
 		AEEFD8161F331F0400E667B0 /* XSMediaPlayerMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMediaPlayerMaskView.m; sourceTree = "<group>"; };
-		E80D48131F531525003BA0A5 /* 水印1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "水印1.png"; sourceTree = "<group>"; };
 		E80D48141F531525003BA0A5 /* 水印2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "水印2.png"; sourceTree = "<group>"; };
 		E80D48151F531525003BA0A5 /* 水印3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "水印3.png"; sourceTree = "<group>"; };
 		E82280B01F4C733800AEC2F1 /* img1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img1@2x.png"; sourceTree = "<group>"; };
@@ -2425,7 +2423,6 @@
 				E82280B31F4C733800AEC2F1 /* img2@3x.png */,
 				E82280B41F4C733800AEC2F1 /* img3@2x.png */,
 				E82280B51F4C733800AEC2F1 /* img3@3x.png */,
-				E80D48131F531525003BA0A5 /* 水印1.png */,
 				E80D48141F531525003BA0A5 /* 水印2.png */,
 				E80D48151F531525003BA0A5 /* 水印3.png */,
 			);
@@ -2789,7 +2786,6 @@
 				E822812B1F4C7EDC00AEC2F1 /* huiyuan@3x.png in Resources */,
 				AEB3D7421F18B37D0091EE21 /* YirenTableViewCell.xib in Resources */,
 				E8E873A71F2F789E00DB944F /* video_play_btn_bg@2x.png in Resources */,
-				E80D48161F531525003BA0A5 /* 水印1.png in Resources */,
 				E80D48181F531525003BA0A5 /* 水印3.png in Resources */,
 				E822812D1F4C7EDC00AEC2F1 /* fen@3x.png in Resources */,
 				AE16BE9B1F54201800BD2C05 /* sina@3x.png in Resources */,

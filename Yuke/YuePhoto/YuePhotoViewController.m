@@ -33,8 +33,8 @@
     [self requestYipaiData];
 }
 - (void)createUI{
-    
-    self.topView = [[UIView alloc] initWithFrame:CGRectMake(0, NAVBAR_HEIGHT, SCREEN_WIDTH, 33)];
+    CGFloat topHeight = 40;
+    self.topView = [[UIView alloc] initWithFrame:CGRectMake(0, NAVBAR_HEIGHT, SCREEN_WIDTH, topHeight)];
     self.topView.userInteractionEnabled = YES;
     //self.topView.backgroundColor = [UIColor grayColor];
     [self.view addSubview:self.topView];
@@ -78,6 +78,17 @@
         make.centerX.mas_equalTo(self.yueBtn.mas_centerX);
         make.top.mas_equalTo(self.yueBtn.mas_bottom).offset(3);
         make.size.mas_equalTo(CGSizeMake(60, 2));
+    }];
+    
+    UIView *lineView = [[UIView alloc] init];
+    lineView.backgroundColor = [UIColor grayColor];
+    lineView.alpha = 0.5;
+    [self.topView addSubview:lineView];
+    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.topView.mas_left);
+        make.right.equalTo(self.topView.mas_right);
+        make.bottom.equalTo(self.topView.mas_bottom);
+        make.height.equalTo(@1);
     }];
 }
 

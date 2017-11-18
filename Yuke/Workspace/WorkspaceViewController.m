@@ -110,13 +110,11 @@
 }
 
 - (void)shipinTapAction{
-//    
-//    VieoMakerViewController *newVC = [[VieoMakerViewController alloc] init];
-//    newVC.hidesBottomBarWhenPushed = YES;
-//    [kCurNavController pushViewController:newVC animated:YES];
-    EditViewController *editVC = [[EditViewController alloc] initWith:0 withImageArray:nil withType:2];
-    editVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:editVC animated:YES];
+
+//    EditViewController *editVC = [[EditViewController alloc] initWith:0 withImageArray:nil withType:2];
+//    editVC.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:editVC animated:YES];
+    [JFTools showTipOnHUD:@"功能开发中，敬请期待"];
 }
 
 //横卡
