@@ -55,7 +55,7 @@
     [_collectionView registerNib:nib forCellWithReuseIdentifier:@"YanyuanCell"];
     
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, NAVBAR_HEIGHT + 10, SCREEN_WIDTH - 20, CGRectGetMinY(self.collectionView.frame) - 10 - NAVBAR_HEIGHT - 10)];
-    self.imageView.image = [UIImage imageWithColor:[UIColor grayColor]];
+    self.imageView.image = [UIImage imageNamed:@"1119_1"];
     self.imageView.userInteractionEnabled = YES;
     [self.view addSubview:self.imageView];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImageViewAction)];
@@ -77,7 +77,8 @@
         
         cell = [[[NSBundle mainBundle] loadNibNamed:@"YanyuanCardsCollectionViewCell" owner:self options:nil] lastObject];
     }
-    cell.picImageView.image = [UIImage imageWithColor:[UIColor greenColor]];
+    NSString *imageStr = [NSString stringWithFormat:@"1119_%ld",indexPath.row+1];
+    cell.picImageView.image = [UIImage imageNamed:imageStr];
     cell.typeLabel.text = self.mobanArray[indexPath.row];
     if (indexPath.row == self.selectedNum) {
         
@@ -93,6 +94,8 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //点击某列
     self.selectedNum = indexPath.row;
+    NSString *imageStr = [NSString stringWithFormat:@"1119_%ld",indexPath.row+1];
+    self.imageView.image = [UIImage imageNamed:imageStr];
     [self.collectionView reloadData];
 }
 

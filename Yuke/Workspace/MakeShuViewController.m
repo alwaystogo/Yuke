@@ -1235,7 +1235,7 @@
     CGRect rect11 = CGRectMake(CGRectGetMaxX(rect10)+2, CGRectGetMaxY(rect4)+2,bottomWidth,bottomHeight);
     CGRect rect12 = CGRectMake(CGRectGetMaxX(rect11)+2, CGRectGetMaxY(rect4)+2,bottomWidth,bottomHeight);
     
-    CGRect rect13 = CGRectMake(0, CGRectGetMaxY(rect9)+2,bottomWidth*2+2,bottomHeight);
+    CGRect rect13 = CGRectMake(5, CGRectGetMaxY(rect9)+2,bottomWidth*2+2,bottomHeight);
     CGRect rect14 = CGRectMake(CGRectGetMaxX(rect13)+2, CGRectGetMaxY(rect9)+2,bottomWidth,bottomHeight);
     CGRect rect15 = CGRectMake(CGRectGetMaxX(rect14)+2, CGRectGetMaxY(rect9)+2,bottomWidth,bottomHeight);
     CGRect rect16 = CGRectMake(CGRectGetMaxX(rect15)+2, CGRectGetMaxY(rect9)+2,bottomWidth,bottomHeight);
