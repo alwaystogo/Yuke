@@ -16,7 +16,7 @@
 @property(nonatomic,strong)UIButton *dateBtn;
 @property(nonatomic,strong)UITableView *typeTableView;
 @property(nonatomic,strong)UITableView *dateTableView;
-
+@property(nonatomic,strong)UIView *bkView;
 @property(nonatomic,strong)NSArray *listArray;
 
 @property(nonatomic,strong)NSArray *typeArray;

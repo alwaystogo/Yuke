@@ -26,7 +26,7 @@
     self.view.backgroundColor = COLOR_RGB(236, 236, 236, 1);
     self.title = @"每日组讯";
     [self setLeftBackNavItem];
-    //[self setupRightNavButton2:ImageNamed(@"bijiben") target:self action:@selector(rightBtnAction)];
+    [self setupRightNavButton2:ImageNamed(@"bijiben") target:self action:@selector(rightBtnAction)];
     [self createUI];
 
     [self requestZuxunListWithType:self.selectType withDate:self.selectDate];
@@ -281,7 +281,33 @@
 
 
 - (void)rightBtnAction{
+    self.bkView = [[UIView alloc] initWithFrame:kAppDelegate.window.frame];
+    _bkView.backgroundColor = COLOR_HEX(0x000000, 0.6);
+    [kAppDelegate.window addSubview:_bkView];
     
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:ImageNamed(@"tougao")];
+    [_bkView addSubview:imageView];
+    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(_bkView.mas_centerX);
+        make.centerY.equalTo(_bkView.mas_centerY);
+        make.size.mas_equalTo(CGSizeMake(608/1.5, 492/1.5));
+    }];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setTitle:@"戳我关闭" forState:0];
+    btn.layer.cornerRadius = 5;
+    btn.titleLabel.font = FONT_REGULAR(15);
+    btn.titleLabel.textColor = WHITECOLOR;
+    btn.backgroundColor = COLOR_RGB(0, 163, 223, 1);
+    [btn addTarget:self action:@selector(shouqiBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    [_bkView addSubview:btn];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(_bkView.mas_centerX);
+        make.bottom.equalTo(imageView.mas_bottom).offset(-50);
+        make.size.mas_equalTo(CGSizeMake(90, 30));
+    }];
+}
+- (void)shouqiBtnAction{
+    [self.bkView removeFromSuperview];
 }
 - (void)typeBtnAction{
     
