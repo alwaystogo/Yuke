@@ -150,11 +150,11 @@ isKindOfClass:[UINavigationController class]] \
 #define SCALE 6
 
 #define FONT1(a) [UIFont fontWithName:@"郑庆科黄油体Regular" size:(a)]//@"郑庆科黄油体Regular"
-#define FONT2(a) [UIFont fontWithName:@"庞门正道标题体" size:(a)]//@"庞门正道标题体"
-#define FONT3(a) [UIFont fontWithName:@"站酷快乐体2016修订版" size:(a)]//@"站酷快乐体2016修订版"
-#define FONT4(a) [UIFont fontWithName:@"站酷高端黑" size:(a)]//@"站酷高端黑"
+#define FONT2(a) [UIFont fontWithName:@"PangMenZhengDao" size:(a)]//@"庞门正道标题体"
+#define FONT3(a) [UIFont fontWithName:@"HappyZcool-2016" size:(a)]//@"站酷快乐体2016修订版"
+#define FONT4(a) [UIFont fontWithName:@"zcool-gdh" size:(a)]//@"站酷高端黑"
 #define FONT5(a) [UIFont fontWithName:@"Noto Sans CJK" size:(a)]//@"Noto Sans CJK"
-#define FONT6(a) [UIFont fontWithName:@"思源黑体 CN" size:(a)]//@"思源黑体 CN"
+#define FONT6(a) [UIFont fontWithName:@"Source Han Sans CN" size:(a)]//@"思源黑体 CN"
 #define FONT7(a) [UIFont fontWithName:@"Source Han Sans" size:(a)]//@"Source Han Sans"
 
 //内购

@@ -62,7 +62,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.zitiArray = [NSMutableArray array];
+    self.zitiArray = [NSMutableArray arrayWithObjects:@"3", @"4", @"5", @"6", @"7", nil];
     self.fd_interactivePopDisabled = YES;
     self.view.backgroundColor = COLOR_HEX(0x999999, 1);
     
@@ -551,10 +551,13 @@
         NSLog(@"%@",responseObject);
         self.isVIP = [NSString stringWithFormat:@"%@",[responseObject objectForKey:@"status"]];
         if ([self.isVIP isEqualToString:@"1"]) {
+            [self.zitiArray removeAllObjects];
             self.zitiArray = (NSMutableArray *)@[@"1",@"2",@"3",@"4",@"5",@"6",@"7"];
         }else{
             NSString *haveFont = [responseObject objectForKey:@"font"];
             self.zitiArray = [NSMutableArray arrayWithArray:[haveFont componentsSeparatedByString:@","]];
+            NSArray * allArray = @[@"3",@"4",@"5",@"6",@"7"];
+            [self.zitiArray addObjectsFromArray:allArray];
             [self.zitiArray removeObject:@"0"];
             [self.zitiArray removeObject:@""];
         }

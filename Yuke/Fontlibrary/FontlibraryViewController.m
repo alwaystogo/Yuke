@@ -74,9 +74,18 @@
     return cell;
 }
 
+- (void)yanchiAction{
+    [JFTools showTipOnHUD:@"下载成功"];
+}
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //点击某列
 
+    if (indexPath.row < 5) {
+        [JFTools showLoadingHUD];
+        [self performSelector:@selector(yanchiAction) withObject:nil afterDelay:2];
+        
+        return;
+    }
     NSDictionary *dic = @{@"user_id": NON(kUserMoudle.user_Id)};
     [kJFClient isHaveFontAndVIP:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@",responseObject);
