@@ -61,16 +61,16 @@
     }];
 
     //会员
-    UIButton *editBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    editBtn.frame = CGRectMake(0, 0, 58, 20);
-    editBtn.layer.cornerRadius = 10;
-    editBtn.backgroundColor = COLOR_HEX(0xcccccc, 1);
-    [editBtn setTitle:@"娱客会员" forState:UIControlStateNormal];
-    [editBtn setTitleColor:WHITECOLOR forState:UIControlStateNormal];
-    editBtn.titleLabel.font = FONT_REGULAR(10);
+    _editBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _editBtn.frame = CGRectMake(0, 0, 58, 20);
+    _editBtn.layer.cornerRadius = 10;
+    _editBtn.backgroundColor = COLOR_HEX(0xcccccc, 1);
+    [_editBtn setTitle:@"娱客会员" forState:UIControlStateNormal];
+    [_editBtn setTitleColor:WHITECOLOR forState:UIControlStateNormal];
+    _editBtn.titleLabel.font = FONT_REGULAR(10);
     //[editBtn addTarget:self action:@selector(editBtnAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.bkScrollView addSubview:editBtn];
-    [editBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.bkScrollView addSubview:_editBtn];
+    [_editBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.mas_equalTo(self.photoImageView.mas_bottom).offset(10);
         make.centerX.mas_equalTo(self.photoImageView.centerX).offset(0);
@@ -375,9 +375,11 @@
     }];
     if ([LoginViewController isLogin]) {
          [self requestGetHeader];
+         [self requestHuiyuan];
     }
     self.navigationController.navigationBarHidden = YES;
     [self.tableView reloadData];
+
 }
 
 - (void)requestGetHeader{
@@ -388,6 +390,22 @@
         NSString *headerUrl = [responseObject objectForKey:@"headimg"];
         [self.photoImageView getImageWithUrl:headerUrl placeholderImage:ImageNamed(@"unloginphoto")];
         
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [JFTools showFailureHUDWithTip:error.localizedDescription];
+    }];
+}
+
+- (void)requestHuiyuan{
+    
+    NSDictionary *dic = @{@"user_id": NON(kUserMoudle.user_Id)};
+    [kJFClient isHaveFontAndVIP:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@",responseObject);
+        NSString *isVip = [NSString stringWithFormat:@"%@",[responseObject objectForKey:@"status"]];
+        if ([isVip isEqualToString:@"1"]) {
+            _editBtn.backgroundColor = COLOR_HEX(0xffa632, 1);
+        }else{
+            _editBtn.backgroundColor = COLOR_HEX(0xcccccc, 1);
+        }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [JFTools showFailureHUDWithTip:error.localizedDescription];
     }];

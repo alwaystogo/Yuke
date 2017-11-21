@@ -34,7 +34,7 @@
      self.layout = [[UICollectionViewFlowLayout alloc] init];
     _layout.minimumLineSpacing = 10;
     _layout.minimumInteritemSpacing = 0;
-    _layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    _layout.scrollDirection = UICollectionViewScrollDirectionVertical;//竖
     CGFloat bili = 200 / 355.0;
     _layout.itemSize = CGSizeMake(SCREEN_WIDTH - 20, (SCREEN_WIDTH - 20)*bili);
     
@@ -71,19 +71,36 @@
     cell.picImageView.layer.cornerRadius = 5;
     //[cell.picImageView getImageWithUrl:[self.listArray[indexPath.row] objectForKeySafe:@"thumb"] placeholderImage:[UIImage imageNamed:PlaceHolderPic]];
     cell.picImageView.image = ImageNamed(self.listArray[indexPath.row]);
+    
+    NSString *str = [NSString stringWithFormat:@"font%ld",indexPath.row];
+    NSString *isHave = [[NSUserDefaults standardUserDefaults] objectForKey:str];
+    if ([isHave isEqualToString:@"1"]) {
+        cell.yixiazaiLabel.hidden = NO;
+    }else{
+        cell.yixiazaiLabel.hidden = YES;
+    }
+    
     return cell;
 }
 
 - (void)yanchiAction{
     [JFTools showTipOnHUD:@"下载成功"];
+    [self.collectionView reloadData];
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //点击某列
 
     if (indexPath.row < 5) {
-        [JFTools showLoadingHUD];
-        [self performSelector:@selector(yanchiAction) withObject:nil afterDelay:2];
-        
+        NSString *str = [NSString stringWithFormat:@"font%ld",indexPath.row];
+        NSString *isHave = [[NSUserDefaults standardUserDefaults] objectForKey:str];
+        if ([isHave isEqualToString:@"1"]) {
+            [JFTools showTipOnHUD:@"已下载"];
+        }else{
+            [JFTools showLoadingHUD];
+            [self performSelector:@selector(yanchiAction) withObject:nil afterDelay:2];
+            [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:str];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
         return;
     }
     NSDictionary *dic = @{@"user_id": NON(kUserMoudle.user_Id)};
@@ -93,6 +110,9 @@
         NSString *haveFont = [responseObject objectForKey:@"font"];
         if ([isVip isEqualToString:@"1"]) {
             [JFTools showTipOnHUD:@"您已开通会员，所有字体可免费使用"];
+            NSString *str = [NSString stringWithFormat:@"font%ld",indexPath.row];
+            [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:str];
+            [[NSUserDefaults standardUserDefaults] synchronize];
         }else{
             NSArray *fontArray = [haveFont componentsSeparatedByString:@","];
             if (indexPath.row == 5) {
@@ -100,12 +120,18 @@
                     [[AppPayManager manager] buyProductsWithId:Product_ziti1 andQuantity:1 withMyProductsNum:1];
                 }else{
                     [JFTools showTipOnHUD:@"您已购买了该字体"];
+                    NSString *str = [NSString stringWithFormat:@"font%ld",indexPath.row];
+                    [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:str];
+                    [[NSUserDefaults standardUserDefaults] synchronize];
                 }
             }else if (indexPath.row == 6) {
                 if (![fontArray containsObject:@"2"]) {
                     [[AppPayManager manager] buyProductsWithId:Product_ziti2 andQuantity:1 withMyProductsNum:2];
                 }else{
                     [JFTools showTipOnHUD:@"您已购买了该字体"];
+                    NSString *str = [NSString stringWithFormat:@"font%ld",indexPath.row];
+                    [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:str];
+                    [[NSUserDefaults standardUserDefaults] synchronize];
                 }
             }else{
                 [JFTools showTipOnHUD:@"开通会员后，可免费使用"];

@@ -14,14 +14,14 @@
 //测试环境
 //NSString * const JFiPhoneClient_DebugBaseUrl   = @"http://116.62.194.17/yuke";
 //NSString * const JFiPhoneClient_DebugBaseUrl   = @"http://47.95.210.218/yuke";//刘
-NSString * const JFiPhoneClient_DebugBaseUrl   = @"http://47.92.92.140/yuke";//gu
-//NSString * const JFiPhoneClient_DebugBaseUrl   = @"http://yukein.com/yuke";//yuming
+//NSString * const JFiPhoneClient_DebugBaseUrl   = @"http://47.92.92.140/yuke";//gu
+NSString * const JFiPhoneClient_DebugBaseUrl   = @"http://yukein.com/yuke";//yuming
 
 //生产环境
 //NSString * const JFiPhoneClient_PrdBaseUrl   = @"http://116.62.194.17/yuke";
 //NSString * const JFiPhoneClient_PrdBaseUrl   = @"http://47.95.210.218/yuke";//刘
-NSString * const JFiPhoneClient_PrdBaseUrl   = @"http://47.92.92.140/yuke";//gu
-//NSString * const JFiPhoneClient_PrdBaseUrl   =  @"http://yukein.com/yuke";//gu
+//NSString * const JFiPhoneClient_PrdBaseUrl   = @"http://47.92.92.140/yuke";//gu
+NSString * const JFiPhoneClient_PrdBaseUrl   =  @"http://yukein.com/yuke";//gu
 
 static NSString *const JFErrorDomain = @"Yuke.com";
 

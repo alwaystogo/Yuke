@@ -56,8 +56,6 @@
 		AE16BEB71F56644600BD2C05 /* 方正兰亭黑简体@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BEB31F56644600BD2C05 /* 方正兰亭黑简体@3x.png */; };
 		AE16BEB81F56644600BD2C05 /* 思源@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BEB41F56644600BD2C05 /* 思源@2x.png */; };
 		AE16BEB91F56644600BD2C05 /* 思源@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BEB51F56644600BD2C05 /* 思源@3x.png */; };
-		AE16BEBC1F56648400BD2C05 /* 郑庆科黄油体@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BEBA1F56648400BD2C05 /* 郑庆科黄油体@2x.png */; };
-		AE16BEBD1F56648400BD2C05 /* 郑庆科黄油体@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE16BEBB1F56648400BD2C05 /* 郑庆科黄油体@3x.png */; };
 		AE4F35981F95F8FE0097A10C /* UITableView+AdapteiOS11.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4F35961F95F8FD0097A10C /* UITableView+AdapteiOS11.m */; };
 		AE5CE8271F73C63F0057721E /* WSLPhotoZoom.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5CE8261F73C63F0057721E /* WSLPhotoZoom.m */; };
 		AE5DC51A1F3461CA003215FB /* GLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5DC3D91F3461C9003215FB /* GLProgram.m */; };
@@ -474,8 +472,6 @@
 		E82281471F4C831100AEC2F1 /* yangzheng@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E82281431F4C831100AEC2F1 /* yangzheng@3x.png */; };
 		E82281521F511E3800AEC2F1 /* 高端黑@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E82281481F511E3800AEC2F1 /* 高端黑@2x.png */; };
 		E82281531F511E3800AEC2F1 /* 高端黑@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E82281491F511E3800AEC2F1 /* 高端黑@3x.png */; };
-		E82281541F511E3800AEC2F1 /* 庞门正道标题体@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E822814A1F511E3800AEC2F1 /* 庞门正道标题体@2x.png */; };
-		E82281551F511E3800AEC2F1 /* 庞门正道标题体@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E822814B1F511E3800AEC2F1 /* 庞门正道标题体@3x.png */; };
 		E82281581F511E3800AEC2F1 /* 站酷快乐体@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E822814E1F511E3800AEC2F1 /* 站酷快乐体@2x.png */; };
 		E82281591F511E3800AEC2F1 /* 站酷快乐体@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E822814F1F511E3800AEC2F1 /* 站酷快乐体@3x.png */; };
 		E82FDD001F1E490400A3A9A3 /* ShangwuhezuoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E82FDCFE1F1E490400A3A9A3 /* ShangwuhezuoViewController.m */; };
@@ -579,8 +575,6 @@
 		AE16BEB31F56644600BD2C05 /* 方正兰亭黑简体@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "方正兰亭黑简体@3x.png"; sourceTree = "<group>"; };
 		AE16BEB41F56644600BD2C05 /* 思源@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "思源@2x.png"; sourceTree = "<group>"; };
 		AE16BEB51F56644600BD2C05 /* 思源@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "思源@3x.png"; sourceTree = "<group>"; };
-		AE16BEBA1F56648400BD2C05 /* 郑庆科黄油体@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "郑庆科黄油体@2x.png"; sourceTree = "<group>"; };
-		AE16BEBB1F56648400BD2C05 /* 郑庆科黄油体@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "郑庆科黄油体@3x.png"; sourceTree = "<group>"; };
 		AE35F9541F7A620E00F2E9BA /* share111.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share111.png; sourceTree = "<group>"; };
 		AE4F35961F95F8FD0097A10C /* UITableView+AdapteiOS11.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+AdapteiOS11.m"; sourceTree = "<group>"; };
 		AE4F35971F95F8FE0097A10C /* UITableView+AdapteiOS11.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+AdapteiOS11.h"; sourceTree = "<group>"; };
@@ -1268,8 +1262,6 @@
 		E82281431F4C831100AEC2F1 /* yangzheng@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yangzheng@3x.png"; sourceTree = "<group>"; };
 		E82281481F511E3800AEC2F1 /* 高端黑@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "高端黑@2x.png"; sourceTree = "<group>"; };
 		E82281491F511E3800AEC2F1 /* 高端黑@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "高端黑@3x.png"; sourceTree = "<group>"; };
-		E822814A1F511E3800AEC2F1 /* 庞门正道标题体@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "庞门正道标题体@2x.png"; sourceTree = "<group>"; };
-		E822814B1F511E3800AEC2F1 /* 庞门正道标题体@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "庞门正道标题体@3x.png"; sourceTree = "<group>"; };
 		E822814E1F511E3800AEC2F1 /* 站酷快乐体@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "站酷快乐体@2x.png"; sourceTree = "<group>"; };
 		E822814F1F511E3800AEC2F1 /* 站酷快乐体@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "站酷快乐体@3x.png"; sourceTree = "<group>"; };
 		E82FDCFD1F1E490400A3A9A3 /* ShangwuhezuoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangwuhezuoViewController.h; sourceTree = "<group>"; };
@@ -2280,8 +2272,6 @@
 		AE7FA0AF1F0DE9DD009A8F12 /* Fontlibrary */ = {
 			isa = PBXGroup;
 			children = (
-				AE16BEBA1F56648400BD2C05 /* 郑庆科黄油体@2x.png */,
-				AE16BEBB1F56648400BD2C05 /* 郑庆科黄油体@3x.png */,
 				AE16BEB21F56644600BD2C05 /* 方正兰亭黑简体@2x.png */,
 				AE16BEB31F56644600BD2C05 /* 方正兰亭黑简体@3x.png */,
 				AE16BEB41F56644600BD2C05 /* 思源@2x.png */,
@@ -2290,8 +2280,6 @@
 				AE16BEAD1F56637C00BD2C05 /* 腾翔相思粗体@3x.png */,
 				E82281481F511E3800AEC2F1 /* 高端黑@2x.png */,
 				E82281491F511E3800AEC2F1 /* 高端黑@3x.png */,
-				E822814A1F511E3800AEC2F1 /* 庞门正道标题体@2x.png */,
-				E822814B1F511E3800AEC2F1 /* 庞门正道标题体@3x.png */,
 				E822814E1F511E3800AEC2F1 /* 站酷快乐体@2x.png */,
 				E822814F1F511E3800AEC2F1 /* 站酷快乐体@3x.png */,
 			);
@@ -2782,7 +2770,6 @@
 				AE7222601F4D544100DCABCD /* dengluarrow@3x.png in Resources */,
 				AE16BEB01F56637C00BD2C05 /* 腾翔相思粗体@2x.png in Resources */,
 				AE0366321F711A7E00B011B1 /* button@3x.png in Resources */,
-				E82281551F511E3800AEC2F1 /* 庞门正道标题体@3x.png in Resources */,
 				AE03931D1F6A60E20004C1D2 /* 视频卡片@2x.png in Resources */,
 				E82280F71F4C7AFE00AEC2F1 /* yuyuepaishe@3x.png in Resources */,
 				AEDDAB701F1F5B59006BD05A /* 新浪微博@2x.png in Resources */,
@@ -2791,7 +2778,6 @@
 				E82281461F4C831100AEC2F1 /* yanzheng@2x.png in Resources */,
 				E82280DD1F4C77AE00AEC2F1 /* zuixinhuodong@3x.png in Resources */,
 				E822812A1F4C7EDC00AEC2F1 /* huiyuan@2x.png in Resources */,
-				AE16BEBC1F56648400BD2C05 /* 郑庆科黄油体@2x.png in Resources */,
 				AEDDAB741F1F5B59006BD05A /* QQ@2x.png in Resources */,
 				AEB3D7231F1375A70091EE21 /* YuePaisheTableViewCell.xib in Resources */,
 				AE16BE9D1F54201800BD2C05 /* tp@3x.png in Resources */,
@@ -2806,7 +2792,6 @@
 				AE03662D1F711A7E00B011B1 /* 2@2x.png in Resources */,
 				AE16BEA41F54202B00BD2C05 /* email@2x.png in Resources */,
 				AE16BEA91F56626400BD2C05 /* 111@3x.png in Resources */,
-				AE16BEBD1F56648400BD2C05 /* 郑庆科黄油体@3x.png in Resources */,
 				AE03662E1F711A7E00B011B1 /* 2@3x.png in Resources */,
 				E82281381F4C7EDC00AEC2F1 /* xiugai@2x.png in Resources */,
 				AEDDAB711F1F5B59006BD05A /* 新浪微博@3x.png in Resources */,
@@ -2826,7 +2811,6 @@
 				AE0393231F6A60E20004C1D2 /* 组2@2x.png in Resources */,
 				AEDDAB631F1F3DF0006BD05A /* huodongPic@3x.png in Resources */,
 				E82281441F4C831100AEC2F1 /* shouji@2x.png in Resources */,
-				E82281541F511E3800AEC2F1 /* 庞门正道标题体@2x.png in Resources */,
 				AEABCCBF1F4D4F3F00C4A3D3 /* text1@2x.png in Resources */,
 				E822813A1F4C7EDC00AEC2F1 /* zhuye@2x.png in Resources */,
 				AE16BE951F54200400BD2C05 /* shangwutop@3x.png in Resources */,

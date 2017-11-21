@@ -11,4 +11,5 @@
 @interface FontCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *picImageView;
+@property (weak, nonatomic) IBOutlet UILabel *yixiazaiLabel;
 @end

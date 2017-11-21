@@ -15,4 +15,5 @@
 @property(nonatomic,strong)UIImageView *photoImageView;
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSArray *dataArray;
+@property(nonatomic,strong)UIButton *editBtn;
 @end
