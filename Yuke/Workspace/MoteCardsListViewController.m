@@ -33,7 +33,7 @@
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.rowHeight = 210;
+    self.tableView.rowHeight = SCREEN_WIDTH * 2220/4416;
     self.tableView.separatorStyle = NO;//去除分割线
     self.tableView.showsHorizontalScrollIndicator = NO;
     self.tableView.showsVerticalScrollIndicator = NO;
@@ -63,7 +63,9 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"YuePaisheTableViewCell" owner:self options:nil] lastObject];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.picImageView.image = [UIImage imageWithColor:[UIColor grayColor]];
+    NSString *imageStr = [NSString stringWithFormat:@"1122_%ld",indexPath.section+1];
+    cell.picImageView.image = [UIImage imageNamed:imageStr];
+    //cell.picImageView.image = [UIImage imageWithColor:[UIColor grayColor]];
     
     return cell;
 }
