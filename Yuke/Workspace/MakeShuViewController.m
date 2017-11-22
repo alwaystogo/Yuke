@@ -358,6 +358,9 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //点击某列
     NSString *str = self.zitiArray[indexPath.row];
+    if (self.selectZiti == [str integerValue]) {
+        return;
+    }
     self.selectZiti = [str integerValue];
     [self.collectionView reloadData];
     //更改字体
@@ -550,7 +553,20 @@
 }
 
 - (void)changeLabelFont{
-    
+    static NSInteger suoxiao = 0;
+    if (self.selectZiti == 4 || self.selectZiti == 3 || self.selectZiti == 2) {
+        if (suoxiao == 2) {
+            suoxiao = 0;
+        }
+        suoxiao = suoxiao-2;
+    }else{
+        if (suoxiao <= -2) {
+            suoxiao = 2;
+        }else{
+            suoxiao = 0;
+        }
+    }
+  
     NSArray *viewArray = [self.picBkView subviews];
     for (int i =0; i < viewArray.count; i++) {
         if ([viewArray[i] isKindOfClass:[UILabel class]]) {
@@ -558,6 +574,11 @@
             //获取label字体大小
             NSString *size = [label.font.fontDescriptor objectForKey:@"NSFontSizeAttribute"];
             NSInteger fontSize = [size integerValue];
+            if (suoxiao < -2) {
+                
+            }else{
+                 fontSize = fontSize + suoxiao;//注意这里
+            }
             switch (self.selectZiti) {
                 case 1:
                     label.font = FONT1(fontSize);

@@ -89,7 +89,18 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //点击某列
-
+    if (![LoginViewController isLogin]) {
+        [LoginViewController checkLogin:^(BOOL result) {
+            
+            if (result) {
+                //[JFTools showTipOnHUD:@"登录成功"];
+            }else{
+                //[JFTools showTipOnHUD:@"登录失败"];
+            }
+        }];
+        return;
+    }
+    
     if (indexPath.row < 5) {
         NSString *str = [NSString stringWithFormat:@"font%ld",indexPath.row];
         NSString *isHave = [[NSUserDefaults standardUserDefaults] objectForKey:str];
