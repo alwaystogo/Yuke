@@ -20,4 +20,7 @@
 @property(nonatomic,strong)UIView *bkView4;
 
 @property(nonatomic,assign)NSInteger selectType;
+
+@property(nonatomic,strong)UIScrollView *bkScrollView;
+
 @end

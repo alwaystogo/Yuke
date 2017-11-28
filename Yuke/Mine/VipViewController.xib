@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -34,8 +34,8 @@
                         <constraint firstAttribute="height" constant="70" id="yG6-Mo-Agj"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你离梦想只差一个VIP会员，开通娱客会员，尊享VIP服务" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKg-k9-qBy">
-                    <rect key="frame" x="20.5" y="206" width="334" height="16"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你离梦想只差一个VIP会员，开通娱客会员，尊享VIP服务" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKg-k9-qBy">
+                    <rect key="frame" x="10" y="206" width="355" height="16"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -69,7 +69,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="无限量免费模板" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmi-RP-rpV">
-                    <rect key="frame" x="73" y="421" width="93" height="16"/>
+                    <rect key="frame" x="73" y="421" width="108" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -80,15 +80,18 @@
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="年费会员可享受一套九图的coasting拍摄" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXe-Cq-AYM">
-                    <rect key="frame" x="10" y="452" width="220" height="14.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="年费会员可享受一套九图的coasting拍摄" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXe-Cq-AYM">
+                    <rect key="frame" x="5" y="452" width="245" height="42"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37a-rl-zOD">
                     <rect key="frame" x="10" y="598.5" width="355" height="66"/>
-                    <string key="text">1.购买娱客会员，获得更高效的会员服务，更广阔的展示平台，仅供娱客VIP会员尊享！让您获得更多回报。2.点亮会员图标，享有尊贵身份。3.申请特权，免费字体等多种专属全权益，从而展现更多自我能力。</string>
+                    <string key="text">1.购买娱客会员，获得更高效的会员服务，更广阔的展示平台，仅供娱客VIP会员尊享！让您获得更多回报。
+2.点亮会员图标，享有尊贵身份。
+3.申请特权，免费字体等多种专属全权益，从而展现更多自我能力。
+</string>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -122,9 +125,11 @@
                 <constraint firstItem="U9C-Vi-i9U" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="R7c-zE-mxc"/>
                 <constraint firstItem="nJ8-Jk-1E6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Tur-A6-869"/>
                 <constraint firstItem="qWu-Mn-ozL" firstAttribute="top" secondItem="U9C-Vi-i9U" secondAttribute="bottom" constant="130" id="Tyh-rc-fSt"/>
+                <constraint firstItem="qWu-Mn-ozL" firstAttribute="leading" secondItem="bXe-Cq-AYM" secondAttribute="trailing" constant="5" id="WMp-4k-eSb"/>
                 <constraint firstItem="h0X-TV-ESd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="XOn-ff-Ls4"/>
                 <constraint firstItem="37a-rl-zOD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="YJx-6l-IVd"/>
                 <constraint firstItem="HH9-41-eei" firstAttribute="top" secondItem="bXe-Cq-AYM" secondAttribute="bottom" constant="40" id="ZA0-NV-uqg"/>
+                <constraint firstItem="bXe-Cq-AYM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="5" id="cvY-mn-Jde"/>
                 <constraint firstItem="bXe-Cq-AYM" firstAttribute="centerX" secondItem="Wmi-RP-rpV" secondAttribute="centerX" id="dax-wT-ZOv"/>
                 <constraint firstItem="U9C-Vi-i9U" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dhL-9h-Ge4"/>
                 <constraint firstItem="bXe-Cq-AYM" firstAttribute="top" secondItem="Wmi-RP-rpV" secondAttribute="bottom" constant="15" id="gVM-9o-O4q"/>
@@ -133,10 +138,12 @@
                 <constraint firstItem="h0X-TV-ESd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="104" id="l6k-tZ-2cy"/>
                 <constraint firstAttribute="trailing" secondItem="37a-rl-zOD" secondAttribute="trailing" constant="10" id="lCf-2p-mlo"/>
                 <constraint firstItem="JfH-D8-tnL" firstAttribute="centerX" secondItem="bNn-H2-QEA" secondAttribute="centerX" id="nNt-i6-h3a"/>
+                <constraint firstItem="QKg-k9-qBy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="rkP-cC-Laz"/>
                 <constraint firstItem="HH9-41-eei" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="tYn-JY-Bgu"/>
                 <constraint firstItem="nJ8-Jk-1E6" firstAttribute="top" secondItem="bXe-Cq-AYM" secondAttribute="bottom" constant="105" id="vNz-zL-ekW"/>
                 <constraint firstItem="qQ4-yX-c8H" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="voL-Jc-wb8"/>
                 <constraint firstItem="QKg-k9-qBy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yWk-LX-4JO"/>
+                <constraint firstAttribute="trailing" secondItem="QKg-k9-qBy" secondAttribute="trailing" constant="10" id="yj4-1k-hwG"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>

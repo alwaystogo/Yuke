@@ -22,6 +22,17 @@
     self.title = @"开通会员";
     self.picImageVie.layer.cornerRadius = 70;
     self.huiyuanBtn.layer.cornerRadius = 10;
+    
+    self.bkScrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
+//    if (@available(iOS 11.0, *)) {
+//        self.bkScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//    }else{
+//
+//    }
+    self.bkScrollView.contentInset = UIEdgeInsetsMake( -NAVBAR_HEIGHT, 0, 0, 0);
+    self.bkScrollView.contentSize = CGSizeMake(SCREEN_WIDTH, 700);
+    [self.bkScrollView addSubview:self.view];
+    self.view = self.bkScrollView;
 }
 - (IBAction)huiyuanBtnAction:(id)sender {
     
