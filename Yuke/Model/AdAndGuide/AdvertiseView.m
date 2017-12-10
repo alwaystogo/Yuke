@@ -48,7 +48,12 @@ static int const showtime = 5;
         // 2.跳过按钮
         CGFloat btnW = 80;
         CGFloat btnH = 30;
-        _countBtn = [[UIButton alloc] initWithFrame:CGRectMake(kscreenWidth - btnW - 24, btnH, btnW, btnH)];
+        if (is_iPhoneX) {
+          _countBtn = [[UIButton alloc] initWithFrame:CGRectMake(kscreenWidth - btnW - 24, btnH + 20, btnW, btnH)];
+        }else{
+           _countBtn = [[UIButton alloc] initWithFrame:CGRectMake(kscreenWidth - btnW - 24, btnH, btnW, btnH)];
+        }
+        
         [_countBtn addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
         [_countBtn setTitle:[NSString stringWithFormat:@"跳过   %d", showtime] forState:UIControlStateNormal];
         _countBtn.titleLabel.font = [UIFont systemFontOfSize:15];

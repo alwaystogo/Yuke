@@ -29,7 +29,13 @@
 //    }else{
 //
 //    }
-    self.bkScrollView.contentInset = UIEdgeInsetsMake( -NAVBAR_HEIGHT, 0, 0, 0);
+    
+//    if (is_iPhoneX) {
+//        self.bkScrollView.contentInset = UIEdgeInsetsMake(- 2 *NAVBAR_HEIGHT -20, 0, 0, 0);
+//    }else{
+//      //self.bkScrollView.contentInset = UIEdgeInsetsMake(NAVBAR_HEIGHT, 0, 0, 0);
+//    }
+//
     self.bkScrollView.contentSize = CGSizeMake(SCREEN_WIDTH, 700);
     [self.bkScrollView addSubview:self.view];
     self.view = self.bkScrollView;

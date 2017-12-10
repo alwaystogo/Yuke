@@ -37,7 +37,7 @@
 
 - (void)createUI{
     
-    self.bkScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, SCREEN_HEIGHT - TABBAR_HEIGHT - 20)];
+    self.bkScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, STATEBAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - TABBAR_HEIGHT - STATEBAR_HEIGHT)];
     self.bkScrollView.backgroundColor = [UIColor whiteColor];
     self.bkScrollView.contentSize =CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT - TABBAR_HEIGHT - 20);
     self.bkScrollView.showsVerticalScrollIndicator = NO;

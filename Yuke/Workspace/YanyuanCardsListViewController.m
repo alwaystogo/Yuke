@@ -32,37 +32,72 @@
 
 - (void)createUI{
     
-    CGFloat hotPicWidth = 80 * BiLi_SCREENWIDTH_NORMAL;
-    CGFloat hotPicHeight = hotPicWidth *3582/2364+10;
-    //创建collectionView 362
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.minimumLineSpacing = 10;
-    layout.minimumInteritemSpacing = 0;
-    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    layout.itemSize = CGSizeMake(hotPicWidth, hotPicHeight);
+    if (is_iPhoneX) {
+        CGFloat hotPicWidth = 80 * BiLi_SCREENWIDTH_NORMAL;
+        CGFloat hotPicHeight = hotPicWidth *3582/2364+10;
+        //创建collectionView 362
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        layout.minimumLineSpacing = 10;
+        layout.minimumInteritemSpacing = 0;
+        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        layout.itemSize = CGSizeMake(hotPicWidth, hotPicHeight);
+        
+        self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, self.view.bottom - hotPicHeight-34, SCREEN_WIDTH, hotPicHeight) collectionViewLayout:layout];
+        //self.collectionView.backgroundColor = [UIColor blueColor];
+        self.collectionView.delegate = self;
+        self.collectionView.dataSource = self;
+        self.collectionView.backgroundColor = [UIColor whiteColor];
+        self.collectionView.showsVerticalScrollIndicator = NO;
+        self.collectionView.showsHorizontalScrollIndicator = NO;
+        [self.view addSubview:self.collectionView];
+        
+        //注册单元格,相当于设置了闲置池
+        UINib *nib = [UINib nibWithNibName:@"YanyuanCardsCollectionViewCell" bundle: [NSBundle mainBundle]];
+        [_collectionView registerNib:nib forCellWithReuseIdentifier:@"YanyuanCell"];
+        
+        
+        CGFloat imageHeight = CGRectGetMinY(self.collectionView.frame) - 10 - NAVBAR_HEIGHT - 10 - 83;
+        CGFloat imageWidth = imageHeight*2364/3582.0;
+        self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - imageWidth)/2.0, NAVBAR_HEIGHT + 10,imageWidth, imageHeight)];
+        self.imageView.image = [UIImage imageNamed:@"1121_1"];
+        self.imageView.userInteractionEnabled = YES;
+        [self.view addSubview:self.imageView];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImageViewAction)];
+        [self.imageView addGestureRecognizer:tap];
+    }else{
+        CGFloat hotPicWidth = 80 * BiLi_SCREENWIDTH_NORMAL;
+        CGFloat hotPicHeight = hotPicWidth *3582/2364+10;
+        //创建collectionView 362
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        layout.minimumLineSpacing = 10;
+        layout.minimumInteritemSpacing = 0;
+        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        layout.itemSize = CGSizeMake(hotPicWidth, hotPicHeight);
+        
+        self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, self.view.bottom - hotPicHeight, SCREEN_WIDTH, hotPicHeight) collectionViewLayout:layout];
+        //self.collectionView.backgroundColor = [UIColor blueColor];
+        self.collectionView.delegate = self;
+        self.collectionView.dataSource = self;
+        self.collectionView.backgroundColor = [UIColor whiteColor];
+        self.collectionView.showsVerticalScrollIndicator = NO;
+        self.collectionView.showsHorizontalScrollIndicator = NO;
+        [self.view addSubview:self.collectionView];
+        
+        //注册单元格,相当于设置了闲置池
+        UINib *nib = [UINib nibWithNibName:@"YanyuanCardsCollectionViewCell" bundle: [NSBundle mainBundle]];
+        [_collectionView registerNib:nib forCellWithReuseIdentifier:@"YanyuanCell"];
+        
+        
+        CGFloat imageHeight = CGRectGetMinY(self.collectionView.frame) - 10 - 64 - 10;
+        CGFloat imageWidth = imageHeight*2364/3582.0;
+        self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - imageWidth)/2.0, 64 + 10,imageWidth, imageHeight)];
+        self.imageView.image = [UIImage imageNamed:@"1121_1"];
+        self.imageView.userInteractionEnabled = YES;
+        [self.view addSubview:self.imageView];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImageViewAction)];
+        [self.imageView addGestureRecognizer:tap];
+    }
     
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, self.view.bottom - hotPicHeight, SCREEN_WIDTH, hotPicHeight) collectionViewLayout:layout];
-    //self.collectionView.backgroundColor = [UIColor blueColor];
-    self.collectionView.delegate = self;
-    self.collectionView.dataSource = self;
-    self.collectionView.backgroundColor = [UIColor whiteColor];
-    self.collectionView.showsVerticalScrollIndicator = NO;
-    self.collectionView.showsHorizontalScrollIndicator = NO;
-    [self.view addSubview:self.collectionView];
-    
-    //注册单元格,相当于设置了闲置池
-    UINib *nib = [UINib nibWithNibName:@"YanyuanCardsCollectionViewCell" bundle: [NSBundle mainBundle]];
-    [_collectionView registerNib:nib forCellWithReuseIdentifier:@"YanyuanCell"];
-    
-    
-    CGFloat imageHeight = CGRectGetMinY(self.collectionView.frame) - 10 - NAVBAR_HEIGHT - 10;
-    CGFloat imageWidth = imageHeight*2364/3582.0;
-    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - imageWidth)/2.0, NAVBAR_HEIGHT + 10,imageWidth, imageHeight)];
-    self.imageView.image = [UIImage imageNamed:@"1121_1"];
-    self.imageView.userInteractionEnabled = YES;
-    [self.view addSubview:self.imageView];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImageViewAction)];
-    [self.imageView addGestureRecognizer:tap];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{

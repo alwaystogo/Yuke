@@ -32,6 +32,7 @@
     [self createUI];
     
     [self requestBanner];
+    
 }
 
 - (void)createUI{

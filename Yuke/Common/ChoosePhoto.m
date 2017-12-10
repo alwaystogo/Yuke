@@ -25,7 +25,12 @@
       
         view.backgroundColor = WHITECOLOR;
 //      view.frame = CGRectMake(0, SCREEN_HEIGHT - 125 *BiLi_SCREENHEIGHT_NORMAL, SCREEN_WIDTH, 125*BiLi_SCREENHEIGHT_NORMAL);
-        view.frame = CGRectMake(0, SCREEN_HEIGHT - 125, SCREEN_WIDTH, 125);
+        if (is_iPhoneX) {
+            view.frame = CGRectMake(0, SCREEN_HEIGHT - 165, SCREEN_WIDTH, 165);
+        }else{
+          view.frame = CGRectMake(0, SCREEN_HEIGHT - 125, SCREEN_WIDTH, 125);
+        }
+        
 
         UITapGestureRecognizer *tapPhoto = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(takePhotoAction)];
         UITapGestureRecognizer *tapAlbum = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(chooseFromAlbumAction)];

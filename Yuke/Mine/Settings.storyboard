@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MSp-VX-t2v">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MSp-VX-t2v">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="61V-S8-fRY" customClass="LimitTextView">
-                                <rect key="frame" x="0.0" y="74" width="375" height="140"/>
+                                <rect key="frame" x="0.0" y="30" width="375" height="140"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="xG6-BA-4EZ"/>
@@ -31,13 +32,13 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/200" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWk-Hn-aCN">
-                                <rect key="frame" x="313" y="178" width="47" height="21"/>
+                                <rect key="frame" x="313" y="134" width="47" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f4u-5o-a4L">
-                                <rect key="frame" x="0.0" y="226" width="375" height="45"/>
+                                <rect key="frame" x="0.0" y="182" width="375" height="45"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号/微信号(选填)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uzh-wi-BOo">
                                         <rect key="frame" x="10" y="14" width="133" height="17"/>
@@ -61,7 +62,7 @@
                             <constraint firstItem="f4u-5o-a4L" firstAttribute="leading" secondItem="bbU-X0-qtf" secondAttribute="leading" id="Zrk-75-M1h"/>
                             <constraint firstItem="f4u-5o-a4L" firstAttribute="top" secondItem="61V-S8-fRY" secondAttribute="bottom" constant="12" id="gYE-CL-FdU"/>
                             <constraint firstAttribute="trailing" secondItem="QWk-Hn-aCN" secondAttribute="trailing" constant="15" id="kxR-ug-b6g"/>
-                            <constraint firstItem="61V-S8-fRY" firstAttribute="top" secondItem="bbU-X0-qtf" secondAttribute="top" constant="74" id="ohF-dh-geL"/>
+                            <constraint firstItem="61V-S8-fRY" firstAttribute="top" secondItem="bbU-X0-qtf" secondAttribute="topMargin" constant="10" id="ohF-dh-geL"/>
                             <constraint firstAttribute="trailing" secondItem="f4u-5o-a4L" secondAttribute="trailing" id="xRy-9s-w9l"/>
                             <constraint firstItem="QWk-Hn-aCN" firstAttribute="bottom" secondItem="61V-S8-fRY" secondAttribute="bottom" constant="-15" id="xd9-aQ-cAa"/>
                         </constraints>

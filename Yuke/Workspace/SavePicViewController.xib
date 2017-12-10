@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -119,7 +120,7 @@
                 <constraint firstItem="iqt-HQ-CEP" firstAttribute="top" secondItem="YTz-Go-J2i" secondAttribute="bottom" constant="5" id="Dve-Ke-pG8"/>
                 <constraint firstItem="vRh-6X-Y6G" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="GGa-fQ-QOr"/>
                 <constraint firstItem="vRh-6X-Y6G" firstAttribute="top" secondItem="2LY-PV-NYk" secondAttribute="bottom" constant="25" id="JEv-6y-b4k"/>
-                <constraint firstItem="YuV-fe-RXp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="83" id="LKg-4l-M09"/>
+                <constraint firstItem="YuV-fe-RXp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="63" id="LKg-4l-M09"/>
                 <constraint firstItem="fAi-oR-MDt" firstAttribute="leading" secondItem="vRh-6X-Y6G" secondAttribute="trailing" constant="65" id="Ly5-rh-FLP"/>
                 <constraint firstItem="Ewr-aF-Meh" firstAttribute="centerX" secondItem="fAi-oR-MDt" secondAttribute="centerX" id="Q8K-4d-olG"/>
                 <constraint firstItem="YTz-Go-J2i" firstAttribute="top" secondItem="vRh-6X-Y6G" secondAttribute="top" id="S13-n0-A2x"/>
@@ -131,7 +132,7 @@
                 <constraint firstItem="6DZ-qE-gSq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-80" id="ljJ-A3-EhE"/>
                 <constraint firstItem="nnu-3l-vBu" firstAttribute="leading" secondItem="YuV-fe-RXp" secondAttribute="leading" id="mM7-0H-jVr"/>
                 <constraint firstItem="vRh-6X-Y6G" firstAttribute="leading" secondItem="YTz-Go-J2i" secondAttribute="trailing" constant="65" id="pM7-pF-uZn"/>
-                <constraint firstItem="6DZ-qE-gSq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="82" id="tJn-an-UTy"/>
+                <constraint firstItem="6DZ-qE-gSq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="62" id="tJn-an-UTy"/>
                 <constraint firstAttribute="trailing" secondItem="tLj-FI-nbn" secondAttribute="trailing" constant="39" id="wlx-O6-Phz"/>
             </constraints>
             <point key="canvasLocation" x="21" y="-2"/>

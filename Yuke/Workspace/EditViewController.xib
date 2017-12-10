@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -181,7 +182,7 @@
                 <constraint firstItem="fE4-eZ-4un" firstAttribute="leading" secondItem="qIn-Ji-PEc" secondAttribute="leading" id="Ngd-nf-drh"/>
                 <constraint firstItem="LWD-d1-W1y" firstAttribute="top" secondItem="vJG-hf-h8u" secondAttribute="bottom" constant="16" id="OCy-B0-O6w"/>
                 <constraint firstItem="vJG-hf-h8u" firstAttribute="leading" secondItem="qIn-Ji-PEc" secondAttribute="leading" id="OPh-pS-fkO"/>
-                <constraint firstItem="qIn-Ji-PEc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="Ok3-cu-zuX"/>
+                <constraint firstItem="qIn-Ji-PEc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="16" id="Ok3-cu-zuX"/>
                 <constraint firstItem="Nl2-db-UHA" firstAttribute="top" secondItem="30l-Pv-h64" secondAttribute="bottom" constant="16" id="PCA-tO-aCW"/>
                 <constraint firstItem="tM1-b8-9bG" firstAttribute="trailing" secondItem="ERC-RX-64M" secondAttribute="trailing" id="Pkq-O4-dHB"/>
                 <constraint firstItem="yK1-6U-qAs" firstAttribute="centerX" secondItem="7T4-Jm-Qm9" secondAttribute="centerX" id="PwT-jf-mq6"/>

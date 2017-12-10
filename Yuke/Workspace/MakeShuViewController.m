@@ -131,7 +131,12 @@
 
 - (void)createBottomUI{
     
-    self.picBkView = [[UIView alloc] initWithFrame:CGRectMake(10, NAVBAR_HEIGHT + TopMenuHeight + 20, SCREEN_WIDTH - 20, SCREEN_HEIGHT - NAVBAR_HEIGHT - TopMenuHeight - 20 - 20)];
+    if (is_iPhoneX) {
+       self.picBkView = [[UIView alloc] initWithFrame:CGRectMake(10, NAVBAR_HEIGHT + TopMenuHeight + 20, SCREEN_WIDTH - 20, SCREEN_HEIGHT - NAVBAR_HEIGHT - TopMenuHeight - 20 - 20 -TABBAR_HEIGHT-20)];
+    }else{
+      self.picBkView = [[UIView alloc] initWithFrame:CGRectMake(10, 64 + TopMenuHeight + 20, SCREEN_WIDTH - 20, SCREEN_HEIGHT - 64 - TopMenuHeight - 20 - 20)];
+    }
+    
     self.picBkView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.picBkView];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapPickBkViewAction)];

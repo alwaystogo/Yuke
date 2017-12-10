@@ -45,12 +45,12 @@
 
 #define SCREEN_BOUNDS [UIScreen mainScreen].bounds
 
-//tabBar高度
-#define TABBAR_HEIGHT 49
+//tabBar高度 49
+#define TABBAR_HEIGHT kAppDelegate.tabBarController.tabBar.frame.size.height
 //导航栏高度
-#define NAVBAR_HEIGHT 64
-//状态栏高度
-#define STATEBAR_HEIGHT 20
+#define NAVBAR_HEIGHT STATEBAR_HEIGHT+44
+//状态栏高度20
+#define STATEBAR_HEIGHT [UIApplication sharedApplication].statusBarFrame.size.height
 
 //当前屏幕宽与iPhone6s屏幕宽的比例，并且除以2。这样就可以直接根据标注图标注的尺寸计算控件的宽
 #define BiLi_SCREENWIDTH  ([UIScreen mainScreen].bounds.size.width/375/2)

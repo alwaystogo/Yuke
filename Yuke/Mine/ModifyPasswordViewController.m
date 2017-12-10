@@ -20,6 +20,10 @@
     
     self.title = @"修改密码";
     [self setLeftBackNavItem];
+//    if (is_iPhoneX) {
+//        self.view.insetsLayoutMarginsFromSafeArea = NO;
+//    }
+    
 }
 
 - (IBAction)okBtnAction:(id)sender {
